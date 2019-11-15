@@ -129,10 +129,10 @@ argument_list|(
 literal|"hystrix-route"
 argument_list|)
 operator|.
-name|hystrix
+name|circuitBreaker
 argument_list|()
 operator|.
-name|hystrixConfiguration
+name|configuration
 argument_list|(
 literal|"ref-hystrix"
 argument_list|)

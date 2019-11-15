@@ -127,7 +127,7 @@ argument_list|)
 decl_stmt|;
 comment|// extended
 comment|// --------------------------------------------------------------
-comment|/**      * To configure Hystrix EIP      */
+comment|/**      * To configure Circuit Breaker EIP with Hystrix      */
 DECL|method|hystrix ()
 specifier|public
 name|HystrixConfigurationProperties

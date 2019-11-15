@@ -124,10 +124,10 @@ argument_list|(
 literal|"hystrix-route-1"
 argument_list|)
 operator|.
-name|hystrix
+name|circuitBreaker
 argument_list|()
 operator|.
-name|hystrixConfiguration
+name|configuration
 argument_list|(
 literal|"conf-1"
 argument_list|)
@@ -161,10 +161,10 @@ argument_list|(
 literal|"hystrix-route-2"
 argument_list|)
 operator|.
-name|hystrix
+name|circuitBreaker
 argument_list|()
 operator|.
-name|hystrixConfiguration
+name|configuration
 argument_list|(
 literal|"conf-2"
 argument_list|)

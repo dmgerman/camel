@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -158,10 +158,6 @@ name|Metadata
 import|;
 end_import
 
-begin_comment
-comment|/**  * Hystrix Circuit Breaker EIP  */
-end_comment
-
 begin_class
 annotation|@
 name|Metadata
@@ -175,7 +171,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"hystrix"
+literal|"circuitBreaker"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -184,14 +180,14 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|HystrixDefinition
+DECL|class|CircuitBreakerDefinition
 specifier|public
 class|class
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 extends|extends
 name|ProcessorDefinition
 argument_list|<
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 argument_list|>
 implements|implements
 name|OutputNode
@@ -202,6 +198,13 @@ DECL|field|hystrixConfiguration
 specifier|private
 name|HystrixConfigurationDefinition
 name|hystrixConfiguration
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|configurationRef
+specifier|private
+name|String
+name|configurationRef
 decl_stmt|;
 annotation|@
 name|XmlElementRef
@@ -228,16 +231,9 @@ specifier|private
 name|OnFallbackDefinition
 name|onFallback
 decl_stmt|;
-annotation|@
-name|XmlAttribute
-DECL|field|hystrixConfigurationRef
-specifier|private
-name|String
-name|hystrixConfigurationRef
-decl_stmt|;
-DECL|method|HystrixDefinition ()
+DECL|method|CircuitBreakerDefinition ()
 specifier|public
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 parameter_list|()
 block|{     }
 annotation|@
@@ -249,7 +245,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Hystrix["
+literal|"CircuitBreaker["
 operator|+
 name|getOutputs
 argument_list|()
@@ -266,7 +262,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"hystrix"
+literal|"circuitBreaker"
 return|;
 block|}
 annotation|@
@@ -278,7 +274,7 @@ name|getLabel
 parameter_list|()
 block|{
 return|return
-literal|"hystrix"
+literal|"circuitBreaker"
 return|;
 block|}
 annotation|@
@@ -529,31 +525,31 @@ operator|=
 name|hystrixConfiguration
 expr_stmt|;
 block|}
-DECL|method|getHystrixConfigurationRef ()
+DECL|method|getConfigurationRef ()
 specifier|public
 name|String
-name|getHystrixConfigurationRef
+name|getConfigurationRef
 parameter_list|()
 block|{
 return|return
-name|hystrixConfigurationRef
+name|configurationRef
 return|;
 block|}
-comment|/**      * Refers to a Hystrix configuration to use for configuring the Hystrix EIP.      */
-DECL|method|setHystrixConfigurationRef (String hystrixConfigurationRef)
+comment|/**      * Refers to a circuit breaker configuration (such as hystrix, resillient4j, or microprofile-fault-tolerance)      * to use for configuring the circuit breaker EIP.      */
+DECL|method|setConfigurationRef (String configurationRef)
 specifier|public
 name|void
-name|setHystrixConfigurationRef
+name|setConfigurationRef
 parameter_list|(
 name|String
-name|hystrixConfigurationRef
+name|configurationRef
 parameter_list|)
 block|{
 name|this
 operator|.
-name|hystrixConfigurationRef
+name|configurationRef
 operator|=
-name|hystrixConfigurationRef
+name|configurationRef
 expr_stmt|;
 block|}
 DECL|method|getOnFallback ()
@@ -584,51 +580,7 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the group key to use. The default value is CamelHystrix.      */
-DECL|method|groupKey (String groupKey)
-specifier|public
-name|HystrixDefinition
-name|groupKey
-parameter_list|(
-name|String
-name|groupKey
-parameter_list|)
-block|{
-name|hystrixConfiguration
-argument_list|()
-operator|.
-name|groupKey
-argument_list|(
-name|groupKey
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets the thread pool key to use. The default value is CamelHystrix.      */
-DECL|method|threadPoolKey (String threadPoolKey)
-specifier|public
-name|HystrixDefinition
-name|threadPoolKey
-parameter_list|(
-name|String
-name|threadPoolKey
-parameter_list|)
-block|{
-name|hystrixConfiguration
-argument_list|()
-operator|.
-name|threadPoolKey
-argument_list|(
-name|threadPoolKey
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Configures the Hystrix EIP      *<p/>      * Use<tt>end</tt> when configuration is complete, to return back to the      * Hystrix EIP.      */
+comment|/**      * Configures the circuit breaker to use Hystrix.      *<p/>      * Use<tt>end</tt> when configuration is complete, to return back to the      * Circuit Breaker EIP.      */
 DECL|method|hystrixConfiguration ()
 specifier|public
 name|HystrixConfigurationDefinition
@@ -653,10 +605,10 @@ return|return
 name|hystrixConfiguration
 return|;
 block|}
-comment|/**      * Configures the Hystrix EIP using the given configuration      */
+comment|/**      * Configures the circuit breaker to use Hystrix with the given configuration.      */
 DECL|method|hystrixConfiguration (HystrixConfigurationDefinition configuration)
 specifier|public
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 name|hystrixConfiguration
 parameter_list|(
 name|HystrixConfigurationDefinition
@@ -671,17 +623,17 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Refers to a Hystrix configuration to use for configuring the Hystrix EIP.      */
-DECL|method|hystrixConfiguration (String ref)
+comment|/**      * Refers to a configuration to use for configuring the circuit breaker.      */
+DECL|method|configuration (String ref)
 specifier|public
-name|HystrixDefinition
-name|hystrixConfiguration
+name|CircuitBreakerDefinition
+name|configuration
 parameter_list|(
 name|String
 name|ref
 parameter_list|)
 block|{
-name|hystrixConfigurationRef
+name|configurationRef
 operator|=
 name|ref
 expr_stmt|;
@@ -689,10 +641,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The Hystrix fallback route path to execute that does<b>not</b> go over      * the network.      *<p>      * This should be a static or cached result that can immediately be returned      * upon failure. If the fallback requires network connection then use      * {@link #onFallbackViaNetwork()}.      */
+comment|/**      * The fallback route path to execute that does<b>not</b> go over      * the network.      *<p>      * This should be a static or cached result that can immediately be returned      * upon failure. If the fallback requires network connection then use      * {@link #onFallbackViaNetwork()}.      */
 DECL|method|onFallback ()
 specifier|public
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 name|onFallback
 parameter_list|()
 block|{
@@ -713,10 +665,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The Hystrix fallback route path to execute that will go over the network.      *<p/>      * If the fallback will go over the network it is another possible point of      * failure and so it also needs to be wrapped by a HystrixCommand. It is      * important to execute the fallback command on a separate thread-pool,      * otherwise if the main command were to become latent and fill the      * thread-pool this would prevent the fallback from running if the two      * commands share the same pool.      */
+comment|/**      * The fallback route path to execute that will go over the network.      *<p/>      * If the fallback will go over the network it is another possible point of failure.      */
 DECL|method|onFallbackViaNetwork ()
 specifier|public
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 name|onFallbackViaNetwork
 parameter_list|()
 block|{

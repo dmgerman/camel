@@ -192,6 +192,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|CircuitBreakerDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|ClaimCheckDefinition
 import|;
 end_import
@@ -291,20 +305,6 @@ operator|.
 name|model
 operator|.
 name|FinallyDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|HystrixDefinition
 import|;
 end_import
 
@@ -1400,6 +1400,19 @@ name|map
 operator|.
 name|put
 argument_list|(
+name|CircuitBreakerDefinition
+operator|.
+name|class
+argument_list|,
+name|CircuitBreakerReifier
+operator|::
+operator|new
+argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
 name|ClaimCheckDefinition
 operator|.
 name|class
@@ -1483,19 +1496,6 @@ operator|.
 name|class
 argument_list|,
 name|FinallyReifier
-operator|::
-operator|new
-argument_list|)
-expr_stmt|;
-name|map
-operator|.
-name|put
-argument_list|(
-name|HystrixDefinition
-operator|.
-name|class
-argument_list|,
-name|HystrixReifier
 operator|::
 operator|new
 argument_list|)
@@ -3050,13 +3050,13 @@ if|if
 condition|(
 name|definition
 operator|instanceof
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 operator|||
 name|ProcessorDefinitionHelper
 operator|.
 name|isParentOfType
 argument_list|(
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 operator|.
 name|class
 argument_list|,
@@ -3066,10 +3066,8 @@ literal|true
 argument_list|)
 condition|)
 block|{
-comment|// do not use error handler for hystrix as it offers circuit
-comment|// breaking with fallback for its outputs
-comment|// however if inherit error handler is enabled, we need to wrap an
-comment|// error handler on the hystrix parent
+comment|// do not use error handler for circuit breaker
+comment|// however if inherit error handler is enabled, we need to wrap an error handler on the parent
 if|if
 condition|(
 name|inheritErrorHandler
@@ -3083,7 +3081,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// only wrap the parent (not the children of the hystrix)
+comment|// only wrap the parent (not the children of the circuit breaker)
 name|wrap
 operator|=
 literal|true
@@ -3095,7 +3093,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"{} is part of HystrixCircuitBreaker so no error handler is applied"
+literal|"{} is part of CircuitBreaker so no error handler is applied"
 argument_list|,
 name|definition
 argument_list|)

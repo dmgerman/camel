@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default {@link ProcessorFactory} that supports using 3rd party Camel components to implement the EIP {@link Processor}.  *<p/>  * The component should use the {@link FactoryFinder} SPI to specify a file with the name of the EIP model in the  * directory of {@link #RESOURCE_PATH}. The file should contain a property with key<tt>class</tt> that refers  * to the name of the {@link ProcessorFactory} the Camel component implement, which gets called for creating  * the {@link Processor}s for the EIP.  *<p/>  * The Hystrix EIP is such an example where {@link org.apache.camel.model.HystrixDefinition} is implemented  * in the<tt>camel-hystrix</tt> component.  */
+comment|/**  * Default {@link ProcessorFactory} that supports using 3rd party Camel components to implement the EIP {@link Processor}.  *<p/>  * The component should use the {@link FactoryFinder} SPI to specify a file with the name of the EIP model in the  * directory of {@link #RESOURCE_PATH}. The file should contain a property with key<tt>class</tt> that refers  * to the name of the {@link ProcessorFactory} the Camel component implement, which gets called for creating  * the {@link Processor}s for the EIP.  *<p/>  * The Hystrix EIP is such an example where the circuit breaker EIP (CircuitBreakerDefinition) is implemented  * in the<tt>camel-hystrix</tt> component.  */
 end_comment
 
 begin_class
@@ -446,12 +446,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// currently only SendDynamicProcessor is supported
-name|SendDynamicProcessor
-name|answer
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 literal|"SendDynamicProcessor"
@@ -501,8 +495,9 @@ argument_list|(
 literal|"exchangePattern"
 argument_list|)
 decl_stmt|;
-name|answer
-operator|=
+name|SendDynamicProcessor
+name|processor
+init|=
 operator|new
 name|SendDynamicProcessor
 argument_list|(
@@ -510,8 +505,8 @@ name|uri
 argument_list|,
 name|expression
 argument_list|)
-expr_stmt|;
-name|answer
+decl_stmt|;
+name|processor
 operator|.
 name|setCamelContext
 argument_list|(
@@ -525,7 +520,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|answer
+name|processor
 operator|.
 name|setPattern
 argument_list|(
@@ -533,6 +528,9 @@ name|exchangePattern
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|processor
+return|;
 block|}
 elseif|else
 if|if
@@ -567,7 +565,7 @@ argument_list|)
 return|;
 block|}
 return|return
-name|answer
+literal|null
 return|;
 block|}
 block|}

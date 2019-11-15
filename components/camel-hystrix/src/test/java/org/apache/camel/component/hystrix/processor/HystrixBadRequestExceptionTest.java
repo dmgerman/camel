@@ -234,7 +234,7 @@ argument_list|(
 literal|"log:start"
 argument_list|)
 operator|.
-name|hystrix
+name|circuitBreaker
 argument_list|()
 operator|.
 name|throwException

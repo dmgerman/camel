@@ -168,7 +168,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|HystrixConfigurationDefinition
+name|CircuitBreakerDefinition
 import|;
 end_import
 
@@ -182,7 +182,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|HystrixDefinition
+name|HystrixConfigurationDefinition
 import|;
 end_import
 
@@ -312,14 +312,14 @@ name|HystrixReifier
 extends|extends
 name|ProcessorReifier
 argument_list|<
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 argument_list|>
 block|{
-DECL|method|HystrixReifier (HystrixDefinition definition)
+DECL|method|HystrixReifier (CircuitBreakerDefinition definition)
 specifier|public
 name|HystrixReifier
 parameter_list|(
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 name|definition
 parameter_list|)
 block|{
@@ -1421,7 +1421,7 @@ if|if
 condition|(
 name|definition
 operator|.
-name|getHystrixConfigurationRef
+name|getConfigurationRef
 argument_list|()
 operator|!=
 literal|null
@@ -1433,7 +1433,7 @@ name|ref
 init|=
 name|definition
 operator|.
-name|getHystrixConfigurationRef
+name|getConfigurationRef
 argument_list|()
 decl_stmt|;
 name|loadProperties

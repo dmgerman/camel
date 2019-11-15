@@ -3319,11 +3319,11 @@ operator|)
 name|def
 return|;
 block|}
-comment|/**      * Ends the current block and returns back to the {@link HystrixDefinition      * hystrix()} DSL.      *      * @return the builder      */
-DECL|method|endHystrix ()
+comment|/**      * Ends the current block and returns back to the {@link CircuitBreakerDefinition      * circuitBreaker()} DSL.      *      * @return the builder      */
+DECL|method|endCircuitBreaker ()
 specifier|public
-name|HystrixDefinition
-name|endHystrix
+name|CircuitBreakerDefinition
+name|endCircuitBreaker
 parameter_list|()
 block|{
 name|ProcessorDefinition
@@ -3339,12 +3339,12 @@ if|if
 condition|(
 name|def
 operator|instanceof
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 condition|)
 block|{
 return|return
 operator|(
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 operator|)
 name|def
 return|;
@@ -3357,7 +3357,7 @@ argument_list|()
 expr_stmt|;
 return|return
 operator|(
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 operator|)
 name|def
 return|;
@@ -3674,18 +3674,18 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Hystrix Circuit Breaker EIP.      *<p/>      * This requires having camel-hystrix on the classpath.      *      * @return the builder      */
-DECL|method|hystrix ()
+comment|/**      * Creates a Circuit Breaker EIP.      *<p/>      * This requires having an implementation on the classpath such as camel-hystrix, or camel-microprofile-fault-tolerance.      *      * @return the builder      */
+DECL|method|circuitBreaker ()
 specifier|public
-name|HystrixDefinition
-name|hystrix
+name|CircuitBreakerDefinition
+name|circuitBreaker
 parameter_list|()
 block|{
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 name|answer
 init|=
 operator|new
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 argument_list|()
 decl_stmt|;
 name|addOutput

@@ -176,7 +176,7 @@ literal|"log:start"
 argument_list|)
 comment|// turn on Camel's error handler on hystrix so it can do redeliveries
 operator|.
-name|hystrix
+name|circuitBreaker
 argument_list|()
 operator|.
 name|inheritErrorHandler

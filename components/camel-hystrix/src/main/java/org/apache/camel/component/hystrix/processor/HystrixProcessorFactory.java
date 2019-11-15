@@ -58,7 +58,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|HystrixProcessorFactory
 extends|extends
 name|TypedProcessorFactory
 argument_list|<
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 argument_list|>
 block|{
 DECL|method|HystrixProcessorFactory ()
@@ -98,7 +98,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 operator|.
 name|class
 argument_list|)
@@ -106,7 +106,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doCreateProcessor (RouteContext routeContext, HystrixDefinition definition)
+DECL|method|doCreateProcessor (RouteContext routeContext, CircuitBreakerDefinition definition)
 specifier|public
 name|Processor
 name|doCreateProcessor
@@ -114,7 +114,7 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|,
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 name|definition
 parameter_list|)
 throws|throws

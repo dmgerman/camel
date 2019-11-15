@@ -485,7 +485,7 @@ argument_list|(
 literal|"start"
 argument_list|)
 operator|.
-name|hystrix
+name|circuitBreaker
 argument_list|()
 operator|.
 name|id

@@ -144,7 +144,7 @@ annotation|@
 name|XmlTransient
 DECL|field|parent
 specifier|private
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 name|parent
 decl_stmt|;
 DECL|method|HystrixConfigurationDefinition ()
@@ -152,11 +152,11 @@ specifier|public
 name|HystrixConfigurationDefinition
 parameter_list|()
 block|{     }
-DECL|method|HystrixConfigurationDefinition (HystrixDefinition parent)
+DECL|method|HystrixConfigurationDefinition (CircuitBreakerDefinition parent)
 specifier|public
 name|HystrixConfigurationDefinition
 parameter_list|(
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 name|parent
 parameter_list|)
 block|{
@@ -761,7 +761,7 @@ block|}
 comment|/**      * End of configuration.      */
 DECL|method|end ()
 specifier|public
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 name|end
 parameter_list|()
 block|{

@@ -287,7 +287,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|hystrix
+name|circuitBreaker
 argument_list|()
 comment|// use 2 second timeout
 operator|.

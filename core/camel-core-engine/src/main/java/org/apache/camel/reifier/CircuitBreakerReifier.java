@@ -38,7 +38,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 import|;
 end_import
 
@@ -71,19 +71,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|HystrixReifier
+DECL|class|CircuitBreakerReifier
 specifier|public
 class|class
-name|HystrixReifier
+name|CircuitBreakerReifier
 extends|extends
 name|ProcessorReifier
 argument_list|<
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 argument_list|>
 block|{
-DECL|method|HystrixReifier (ProcessorDefinition<?> definition)
+DECL|method|CircuitBreakerReifier (ProcessorDefinition<?> definition)
 specifier|public
-name|HystrixReifier
+name|CircuitBreakerReifier
 parameter_list|(
 name|ProcessorDefinition
 argument_list|<
@@ -94,7 +94,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 operator|.
 name|class
 operator|.
@@ -122,7 +122,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Cannot find camel-hystrix on the classpath."
+literal|"Cannot find camel-hystrix or camel-microprofile-fault-tolerance on the classpath."
 argument_list|)
 throw|;
 block|}

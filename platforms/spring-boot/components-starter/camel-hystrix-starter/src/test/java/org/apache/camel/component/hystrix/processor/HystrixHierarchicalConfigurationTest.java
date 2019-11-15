@@ -42,7 +42,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|HystrixConfigurationDefinition
+name|CircuitBreakerDefinition
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|HystrixDefinition
+name|HystrixConfigurationDefinition
 import|;
 end_import
 
@@ -290,10 +290,10 @@ argument_list|(
 literal|"hystrix-route"
 argument_list|)
 decl_stmt|;
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 name|hystrixDefinition
 init|=
-name|findHystrixDefinition
+name|findCircuitBreaker
 argument_list|(
 name|routeDefinition
 argument_list|)
@@ -368,10 +368,10 @@ block|}
 comment|// **********************************************
 comment|// Helper
 comment|// **********************************************
-DECL|method|findHystrixDefinition (RouteDefinition routeDefinition)
+DECL|method|findCircuitBreaker (RouteDefinition routeDefinition)
 specifier|private
-name|HystrixDefinition
-name|findHystrixDefinition
+name|CircuitBreakerDefinition
+name|findCircuitBreaker
 parameter_list|(
 name|RouteDefinition
 name|routeDefinition
@@ -390,7 +390,7 @@ argument_list|()
 operator|.
 name|filter
 argument_list|(
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 operator|.
 name|class
 operator|::
@@ -399,7 +399,7 @@ argument_list|)
 operator|.
 name|map
 argument_list|(
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 operator|.
 name|class
 operator|::
@@ -416,7 +416,7 @@ lambda|->
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Unable to find a HystrixDefinition"
+literal|"Unable to find a CircuitBreakerDefinition"
 argument_list|)
 argument_list|)
 return|;

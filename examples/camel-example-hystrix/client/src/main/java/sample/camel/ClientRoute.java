@@ -75,7 +75,7 @@ argument_list|(
 literal|" Client request: ${body}"
 argument_list|)
 operator|.
-name|hystrix
+name|circuitBreaker
 argument_list|()
 comment|// see application.properties how hystrix is configured
 operator|.

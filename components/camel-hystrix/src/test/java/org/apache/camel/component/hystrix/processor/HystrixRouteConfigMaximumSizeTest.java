@@ -44,7 +44,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|HystrixConfigurationDefinition
+name|CircuitBreakerDefinition
 import|;
 end_import
 
@@ -58,7 +58,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|HystrixDefinition
+name|HystrixConfigurationDefinition
 import|;
 end_import
 
@@ -177,7 +177,7 @@ argument_list|(
 literal|"direct:foo"
 argument_list|)
 operator|.
-name|hystrix
+name|circuitBreaker
 argument_list|()
 operator|.
 name|hystrixConfiguration
@@ -185,7 +185,7 @@ argument_list|()
 operator|.
 name|groupKey
 argument_list|(
-literal|"test1"
+literal|"test2"
 argument_list|)
 operator|.
 name|metricsHealthSnapshotIntervalInMilliseconds
@@ -195,13 +195,6 @@ argument_list|)
 operator|.
 name|end
 argument_list|()
-operator|.
-name|groupKey
-argument_list|(
-literal|"test2"
-argument_list|)
-comment|// ^^^ should only override the groupKey from the HystrixConfigurationDefinition;
-comment|// it should not discard the full HystrixConfigurationDefinition.
 operator|.
 name|to
 argument_list|(
@@ -237,7 +230,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 operator|.
 name|class
 argument_list|,
@@ -260,7 +253,7 @@ name|config
 init|=
 operator|(
 operator|(
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 operator|)
 name|route
 operator|.
@@ -329,7 +322,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|hystrix
+name|circuitBreaker
 argument_list|()
 operator|.
 name|hystrixConfiguration

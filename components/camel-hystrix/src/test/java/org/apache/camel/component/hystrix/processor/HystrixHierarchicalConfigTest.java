@@ -56,7 +56,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|HystrixConfigurationDefinition
+name|CircuitBreakerDefinition
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|HystrixDefinition
+name|HystrixConfigurationDefinition
 import|;
 end_import
 
@@ -233,10 +233,10 @@ operator|new
 name|HystrixReifier
 argument_list|(
 operator|new
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 argument_list|()
 operator|.
-name|hystrixConfiguration
+name|configuration
 argument_list|(
 literal|"ref-hystrix"
 argument_list|)
@@ -297,8 +297,9 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|5
 argument_list|)
@@ -415,10 +416,10 @@ operator|new
 name|HystrixReifier
 argument_list|(
 operator|new
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 argument_list|()
 operator|.
-name|hystrixConfiguration
+name|configuration
 argument_list|(
 literal|"ref-hystrix"
 argument_list|)
@@ -479,8 +480,9 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|5
 argument_list|)
@@ -640,10 +642,10 @@ operator|new
 name|HystrixReifier
 argument_list|(
 operator|new
-name|HystrixDefinition
+name|CircuitBreakerDefinition
 argument_list|()
 operator|.
-name|hystrixConfiguration
+name|configuration
 argument_list|(
 literal|"ref-hystrix"
 argument_list|)
@@ -704,8 +706,9 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|5
 argument_list|)

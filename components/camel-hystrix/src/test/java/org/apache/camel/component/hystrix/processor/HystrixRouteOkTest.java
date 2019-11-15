@@ -158,7 +158,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|hystrix
+name|circuitBreaker
 argument_list|()
 operator|.
 name|to
