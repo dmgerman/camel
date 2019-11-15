@@ -272,20 +272,6 @@ end_import
 
 begin_import
 import|import
-name|net
-operator|.
-name|sf
-operator|.
-name|saxon
-operator|.
-name|om
-operator|.
-name|TreeInfo
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|w3c
@@ -403,6 +389,20 @@ operator|.
 name|om
 operator|.
 name|StructuredQName
+import|;
+end_import
+
+begin_import
+import|import
+name|net
+operator|.
+name|sf
+operator|.
+name|saxon
+operator|.
+name|om
+operator|.
+name|TreeInfo
 import|;
 end_import
 
