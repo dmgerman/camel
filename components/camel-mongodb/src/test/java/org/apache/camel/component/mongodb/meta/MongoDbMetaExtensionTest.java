@@ -160,7 +160,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -170,27 +174,59 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|slf4j
+name|junit
 operator|.
-name|Logger
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|slf4j
+name|junit
 operator|.
-name|LoggerFactory
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertThrows
 import|;
 end_import
 
@@ -202,25 +238,9 @@ name|MongoDbMetaExtensionTest
 extends|extends
 name|AbstractMongoDbTest
 block|{
-DECL|field|LOGGER
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOGGER
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|MongoDbMetaExtensionTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// We simulate the presence of an authenticated user
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|createAuthorizationUser ()
 specifier|public
 name|void
@@ -618,13 +638,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testMissingCollection ()
 specifier|public
 name|void
@@ -714,11 +727,15 @@ name|PASSWORD
 argument_list|)
 expr_stmt|;
 comment|// Then
-name|MetaDataExtension
+name|assertThrows
+argument_list|(
+name|IllegalArgumentException
 operator|.
-name|MetaData
-name|result
-init|=
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
 name|component
 operator|.
 name|getExtension
@@ -742,17 +759,13 @@ name|IllegalArgumentException
 operator|::
 operator|new
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testMissingParameters ()
 specifier|public
 name|void
@@ -785,11 +798,15 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Then
-name|MetaDataExtension
+name|assertThrows
+argument_list|(
+name|IllegalArgumentException
 operator|.
-name|MetaData
-name|result
-init|=
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
 name|component
 operator|.
 name|getExtension
@@ -813,17 +830,13 @@ name|IllegalArgumentException
 operator|::
 operator|new
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|UnsupportedOperationException
-operator|.
-name|class
-argument_list|)
 DECL|method|testNotValidatedCollection ()
 specifier|public
 name|void
@@ -927,11 +940,15 @@ name|PASSWORD
 argument_list|)
 expr_stmt|;
 comment|// Then
-name|MetaDataExtension
+name|assertThrows
+argument_list|(
+name|UnsupportedOperationException
 operator|.
-name|MetaData
-name|result
-init|=
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
 name|component
 operator|.
 name|getExtension
@@ -955,7 +972,10 @@ name|UnsupportedOperationException
 operator|::
 operator|new
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

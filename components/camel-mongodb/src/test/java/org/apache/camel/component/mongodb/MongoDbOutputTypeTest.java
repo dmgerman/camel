@@ -116,6 +116,10 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
 import|;
 end_import
@@ -135,6 +139,88 @@ operator|.
 name|MongoDbConstants
 operator|.
 name|MONGO_ID
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit5
+operator|.
+name|TestSupport
+operator|.
+name|assertListSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|fail
 import|;
 end_import
 
@@ -161,7 +247,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -248,11 +334,11 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type MongoIterable"
-argument_list|,
 name|result
 operator|instanceof
 name|MongoIterable
+argument_list|,
+literal|"Result is not of type MongoIterable"
 argument_list|)
 expr_stmt|;
 annotation|@
@@ -285,38 +371,38 @@ control|)
 block|{
 name|assertNotNull
 argument_list|(
-literal|"Document in returned list should contain all fields"
-argument_list|,
 name|document
 operator|.
 name|get
 argument_list|(
 name|MONGO_ID
 argument_list|)
+argument_list|,
+literal|"Document in returned list should contain all fields"
 argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Document in returned list should contain all fields"
-argument_list|,
 name|document
 operator|.
 name|get
 argument_list|(
 literal|"scientist"
 argument_list|)
+argument_list|,
+literal|"Document in returned list should contain all fields"
 argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Document in returned list should contain all fields"
-argument_list|,
 name|document
 operator|.
 name|get
 argument_list|(
 literal|"fixedField"
 argument_list|)
+argument_list|,
+literal|"Document in returned list should contain all fields"
 argument_list|)
 expr_stmt|;
 block|}
@@ -343,7 +429,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -366,11 +452,11 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type List"
-argument_list|,
 name|result
 operator|instanceof
 name|List
+argument_list|,
+literal|"Result is not of type List"
 argument_list|)
 expr_stmt|;
 annotation|@
@@ -412,38 +498,38 @@ control|)
 block|{
 name|assertNotNull
 argument_list|(
-literal|"Document in returned list should contain all fields"
-argument_list|,
 name|document
 operator|.
 name|get
 argument_list|(
 name|MONGO_ID
 argument_list|)
+argument_list|,
+literal|"Document in returned list should contain all fields"
 argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Document in returned list should contain all fields"
-argument_list|,
 name|document
 operator|.
 name|get
 argument_list|(
 literal|"scientist"
 argument_list|)
+argument_list|,
+literal|"Document in returned list should contain all fields"
 argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Document in returned list should contain all fields"
-argument_list|,
 name|document
 operator|.
 name|get
 argument_list|(
 literal|"fixedField"
 argument_list|)
+argument_list|,
+literal|"Document in returned list should contain all fields"
 argument_list|)
 expr_stmt|;
 block|}
@@ -463,8 +549,6 @@ control|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Result total size header should equal 1000"
-argument_list|,
 literal|1000
 argument_list|,
 name|resultExchange
@@ -478,6 +562,8 @@ name|MongoDbConstants
 operator|.
 name|RESULT_TOTAL_SIZE
 argument_list|)
+argument_list|,
+literal|"Result total size header should equal 1000"
 argument_list|)
 expr_stmt|;
 block|}
@@ -545,14 +631,14 @@ parameter_list|)
 block|{
 name|assertTrue
 argument_list|(
-literal|"Exception is not of type IllegalArgumentException"
-argument_list|,
 name|exception
 operator|.
 name|getCause
 argument_list|()
 operator|instanceof
 name|IllegalArgumentException
+argument_list|,
+literal|"Exception is not of type IllegalArgumentException"
 argument_list|)
 expr_stmt|;
 block|}
@@ -630,14 +716,14 @@ parameter_list|)
 block|{
 name|assertTrue
 argument_list|(
-literal|"Exception is not of type IllegalArgumentException"
-argument_list|,
 name|exception
 operator|.
 name|getCause
 argument_list|()
 operator|instanceof
 name|IllegalArgumentException
+argument_list|,
+literal|"Exception is not of type IllegalArgumentException"
 argument_list|)
 expr_stmt|;
 block|}

@@ -1796,7 +1796,7 @@ argument_list|()
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 argument_list|,
 literal|false
@@ -1830,7 +1830,7 @@ condition|)
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
@@ -1878,7 +1878,7 @@ condition|)
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -1893,7 +1893,7 @@ else|else
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
@@ -2088,7 +2088,7 @@ argument_list|()
 decl_stmt|;
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -2376,7 +2376,7 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -2789,7 +2789,7 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -3350,7 +3350,7 @@ condition|)
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -3366,7 +3366,7 @@ expr_stmt|;
 block|}
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -3465,7 +3465,7 @@ condition|)
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -3761,7 +3761,7 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -4025,7 +4025,7 @@ argument_list|()
 expr_stmt|;
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader

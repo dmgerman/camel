@@ -190,7 +190,59 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|fail
 import|;
 end_import
 
@@ -219,7 +271,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -378,52 +430,52 @@ expr_stmt|;
 comment|// 1 insert
 name|assertEquals
 argument_list|(
-literal|"Records inserted should be 2 : "
-argument_list|,
 literal|1
 argument_list|,
 name|result
 operator|.
 name|getInsertedCount
 argument_list|()
+argument_list|,
+literal|"Records inserted should be 2 : "
 argument_list|)
 expr_stmt|;
 comment|// 1 updateOne + 100 updateMany + 1 replaceOne
 name|assertEquals
 argument_list|(
-literal|"Records matched should be 102 : "
-argument_list|,
 literal|102
 argument_list|,
 name|result
 operator|.
 name|getMatchedCount
 argument_list|()
+argument_list|,
+literal|"Records matched should be 102 : "
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Records modified should be 102 : "
-argument_list|,
 literal|102
 argument_list|,
 name|result
 operator|.
 name|getModifiedCount
 argument_list|()
+argument_list|,
+literal|"Records modified should be 102 : "
 argument_list|)
 expr_stmt|;
 comment|// 1 deleteOne + 100 deleteMany
 name|assertEquals
 argument_list|(
-literal|"Records deleted should be 101 : "
-argument_list|,
 literal|101
 argument_list|,
 name|result
 operator|.
 name|getDeletedCount
 argument_list|()
+argument_list|,
+literal|"Records deleted should be 101 : "
 argument_list|)
 expr_stmt|;
 block|}
@@ -444,7 +496,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -586,7 +638,7 @@ literal|1001
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -609,7 +661,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -751,7 +803,7 @@ literal|1001
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;

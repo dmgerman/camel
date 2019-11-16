@@ -92,6 +92,10 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
 import|;
 end_import
@@ -130,6 +134,86 @@ name|MONGO_ID
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
+import|;
+end_import
+
 begin_class
 DECL|class|MongoDbDynamicityTest
 specifier|public
@@ -152,7 +236,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -178,8 +262,6 @@ argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The otherDB database should not exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -201,6 +283,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
 name|String
@@ -275,9 +359,9 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"No record with 'testInsertDynamicityDisabled' _id"
-argument_list|,
 name|b
+argument_list|,
+literal|"No record with 'testInsertDynamicityDisabled' _id"
 argument_list|)
 expr_stmt|;
 name|body
@@ -315,15 +399,13 @@ argument_list|()
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"No record with 'testInsertDynamicityDisabledExplicitly' _id"
-argument_list|,
 name|b
+argument_list|,
+literal|"No record with 'testInsertDynamicityDisabledExplicitly' _id"
 argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The otherDB database should not exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -345,6 +427,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
 block|}
@@ -362,7 +446,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -388,8 +472,6 @@ argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The otherDB database should not exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -411,6 +493,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
 name|String
@@ -502,9 +586,9 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"No record with 'testInsertDynamicityEnabledDBOnly' _id"
-argument_list|,
 name|b
+argument_list|,
+literal|"No record with 'testInsertDynamicityEnabledDBOnly' _id"
 argument_list|)
 expr_stmt|;
 name|b
@@ -526,15 +610,13 @@ argument_list|()
 expr_stmt|;
 name|assertNull
 argument_list|(
-literal|"There is a record with 'testInsertDynamicityEnabledDBOnly' _id in the test collection"
-argument_list|,
 name|b
+argument_list|,
+literal|"There is a record with 'testInsertDynamicityEnabledDBOnly' _id in the test collection"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The otherDB database should exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -556,6 +638,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should exist"
 argument_list|)
 expr_stmt|;
 block|}
@@ -573,7 +657,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -599,8 +683,6 @@ argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The otherDB database should not exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -622,6 +704,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
 name|String
@@ -702,9 +786,9 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"No record with 'testInsertDynamicityEnabledCollectionOnly' _id"
-argument_list|,
 name|b
+argument_list|,
+literal|"No record with 'testInsertDynamicityEnabledCollectionOnly' _id"
 argument_list|)
 expr_stmt|;
 name|b
@@ -726,15 +810,13 @@ argument_list|()
 expr_stmt|;
 name|assertNull
 argument_list|(
-literal|"There is a record with 'testInsertDynamicityEnabledCollectionOnly' _id in the test collection"
-argument_list|,
 name|b
+argument_list|,
+literal|"There is a record with 'testInsertDynamicityEnabledCollectionOnly' _id in the test collection"
 argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The otherDB database should not exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -756,6 +838,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
 block|}
@@ -773,7 +857,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -799,8 +883,6 @@ argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The otherDB database should not exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -822,6 +904,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
 name|String
@@ -918,9 +1002,9 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"No record with 'testInsertDynamicityEnabledDBAndCollection' _id"
-argument_list|,
 name|b
+argument_list|,
+literal|"No record with 'testInsertDynamicityEnabledDBAndCollection' _id"
 argument_list|)
 expr_stmt|;
 name|b
@@ -942,15 +1026,13 @@ argument_list|()
 expr_stmt|;
 name|assertNull
 argument_list|(
-literal|"There is a record with 'testInsertDynamicityEnabledDBAndCollection' _id in the test collection"
-argument_list|,
 name|b
+argument_list|,
+literal|"There is a record with 'testInsertDynamicityEnabledDBAndCollection' _id in the test collection"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The otherDB database should exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -972,6 +1054,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should exist"
 argument_list|)
 expr_stmt|;
 block|}

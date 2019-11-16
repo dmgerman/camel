@@ -86,6 +86,10 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
 import|;
 end_import
@@ -124,6 +128,70 @@ name|MONGO_ID
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
+import|;
+end_import
+
 begin_class
 DECL|class|MongoDbHeaderHandlingTest
 specifier|public
@@ -147,7 +215,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -204,49 +272,49 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type Long"
-argument_list|,
 name|result
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
 argument_list|()
 operator|instanceof
 name|Long
+argument_list|,
+literal|"Result is not of type Long"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Test collection should not contain any records"
-argument_list|,
 literal|0L
 argument_list|,
 name|result
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
 argument_list|()
+argument_list|,
+literal|"Test collection should not contain any records"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"An input header was not returned"
-argument_list|,
 literal|"def"
 argument_list|,
 name|result
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
 argument_list|(
 literal|"abc"
 argument_list|)
+argument_list|,
+literal|"An input header was not returned"
 argument_list|)
 expr_stmt|;
 block|}
@@ -313,19 +381,19 @@ comment|// TODO: WriteResult isn't return when inserting
 comment|// assertTrue(result.getOut().getBody() instanceof WriteResult);
 name|assertEquals
 argument_list|(
-literal|"An input header was not returned"
-argument_list|,
 literal|"def"
 argument_list|,
 name|result
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
 argument_list|(
 literal|"abc"
 argument_list|)
+argument_list|,
+literal|"An input header was not returned"
 argument_list|)
 expr_stmt|;
 name|Document
@@ -348,9 +416,9 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"No record with 'testInsertString' _id"
-argument_list|,
 name|b
+argument_list|,
+literal|"No record with 'testInsertString' _id"
 argument_list|)
 expr_stmt|;
 block|}
@@ -369,7 +437,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -431,14 +499,14 @@ expr_stmt|;
 comment|// assertTrue(result instanceof WriteResult);
 name|assertEquals
 argument_list|(
-literal|"Number of records persisted must be 2"
-argument_list|,
 literal|2
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
+argument_list|,
+literal|"Number of records persisted must be 2"
 argument_list|)
 expr_stmt|;
 comment|// Testing the save logic
@@ -463,8 +531,6 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Scientist field of 'testSave1' must equal 'Einstein'"
-argument_list|,
 literal|"Einstein"
 argument_list|,
 name|record1
@@ -473,6 +539,8 @@ name|get
 argument_list|(
 literal|"scientist"
 argument_list|)
+argument_list|,
+literal|"Scientist field of 'testSave1' must equal 'Einstein'"
 argument_list|)
 expr_stmt|;
 name|record1
@@ -529,7 +597,7 @@ name|assertTrue
 argument_list|(
 name|resultExch
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -542,7 +610,7 @@ name|assertTrue
 argument_list|(
 name|resultExch
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -558,7 +626,7 @@ name|assertTrue
 argument_list|(
 name|resultExch
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -591,8 +659,6 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Scientist field of 'testSave1' must equal 'Darwin' after save operation"
-argument_list|,
 literal|"Darwin"
 argument_list|,
 name|record2
@@ -601,6 +667,8 @@ name|get
 argument_list|(
 literal|"scientist"
 argument_list|)
+argument_list|,
+literal|"Scientist field of 'testSave1' must equal 'Darwin' after save operation"
 argument_list|)
 expr_stmt|;
 block|}
@@ -667,7 +735,7 @@ name|assertTrue
 argument_list|(
 name|resultExch
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -680,7 +748,7 @@ name|assertNull
 argument_list|(
 name|resultExch
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -697,7 +765,7 @@ literal|"def"
 argument_list|,
 name|resultExch
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader

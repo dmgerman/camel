@@ -64,7 +64,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|After
+name|jupiter
+operator|.
+name|api
+operator|.
+name|AfterEach
 import|;
 end_import
 
@@ -74,7 +78,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -83,8 +91,44 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -101,9 +145,9 @@ name|MongoDbIdempotentRepository
 name|repo
 decl_stmt|;
 annotation|@
-name|Before
+name|BeforeEach
 annotation|@
-name|After
+name|AfterEach
 DECL|method|clearDB ()
 specifier|public
 name|void
@@ -179,21 +223,21 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Driver inserted document"
-argument_list|,
 literal|1
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
+argument_list|,
+literal|"Driver inserted document"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Add ui returned true"
-argument_list|,
 name|added
+argument_list|,
+literal|"Add ui returned true"
 argument_list|)
 expr_stmt|;
 block|}
@@ -231,7 +275,7 @@ literal|1
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -247,9 +291,9 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Added uid was found"
-argument_list|,
 name|found
+argument_list|,
+literal|"Added uid was found"
 argument_list|)
 expr_stmt|;
 block|}
@@ -287,7 +331,7 @@ literal|1
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -303,9 +347,9 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Added uid was removed correctly"
-argument_list|,
 name|removed
+argument_list|,
+literal|"Added uid was removed correctly"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -314,7 +358,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -353,7 +397,7 @@ literal|1
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -369,10 +413,10 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Duplicated entry was not added"
-argument_list|,
 operator|!
 name|added
+argument_list|,
+literal|"Duplicated entry was not added"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -381,7 +425,7 @@ literal|1
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -413,7 +457,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -429,10 +473,10 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Non exisint uid returns false"
-argument_list|,
 operator|!
 name|removed
+argument_list|,
+literal|"Non exisint uid returns false"
 argument_list|)
 expr_stmt|;
 block|}
@@ -469,10 +513,10 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Non existing item is not found"
-argument_list|,
 operator|!
 name|found
+argument_list|,
+literal|"Non existing item is not found"
 argument_list|)
 expr_stmt|;
 block|}
@@ -509,9 +553,9 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Confirm always returns true"
-argument_list|,
 name|found
+argument_list|,
+literal|"Confirm always returns true"
 argument_list|)
 expr_stmt|;
 name|found
@@ -525,9 +569,9 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Confirm always returns true, even with null"
-argument_list|,
 name|found
+argument_list|,
+literal|"Confirm always returns true, even with null"
 argument_list|)
 expr_stmt|;
 block|}

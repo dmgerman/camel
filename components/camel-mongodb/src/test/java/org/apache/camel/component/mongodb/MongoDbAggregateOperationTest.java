@@ -90,7 +90,77 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit5
+operator|.
+name|TestSupport
+operator|.
+name|assertListSize
 import|;
 end_import
 
@@ -119,7 +189,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -143,11 +213,11 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type List"
-argument_list|,
 name|result
 operator|instanceof
 name|List
+argument_list|,
+literal|"Result is not of type List"
 argument_list|)
 expr_stmt|;
 annotation|@
@@ -180,8 +250,6 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"First result Document._id should be Darwin"
-argument_list|,
 literal|"Darwin"
 argument_list|,
 name|resultList
@@ -195,12 +263,12 @@ name|get
 argument_list|(
 literal|"_id"
 argument_list|)
+argument_list|,
+literal|"First result Document._id should be Darwin"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"First result Document.count should be 100"
-argument_list|,
 literal|100
 argument_list|,
 name|resultList
@@ -214,12 +282,12 @@ name|get
 argument_list|(
 literal|"count"
 argument_list|)
+argument_list|,
+literal|"First result Document.count should be 100"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Second result Document._id should be Einstein"
-argument_list|,
 literal|"Einstein"
 argument_list|,
 name|resultList
@@ -233,12 +301,12 @@ name|get
 argument_list|(
 literal|"_id"
 argument_list|)
+argument_list|,
+literal|"Second result Document._id should be Einstein"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Second result Document.count should be 100"
-argument_list|,
 literal|100
 argument_list|,
 name|resultList
@@ -252,6 +320,8 @@ name|get
 argument_list|(
 literal|"count"
 argument_list|)
+argument_list|,
+literal|"Second result Document.count should be 100"
 argument_list|)
 expr_stmt|;
 block|}
@@ -270,7 +340,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -291,11 +361,11 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type DBCursor"
-argument_list|,
 name|result
 operator|instanceof
 name|MongoIterable
+argument_list|,
+literal|"Result is not of type DBCursor"
 argument_list|)
 expr_stmt|;
 name|MongoIterable
@@ -328,38 +398,38 @@ control|)
 block|{
 name|assertNotNull
 argument_list|(
-literal|"Document in returned list should contain all fields"
-argument_list|,
 name|document
 operator|.
 name|get
 argument_list|(
 literal|"_id"
 argument_list|)
+argument_list|,
+literal|"Document in returned list should contain all fields"
 argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Document in returned list should contain all fields"
-argument_list|,
 name|document
 operator|.
 name|get
 argument_list|(
 literal|"scientist"
 argument_list|)
+argument_list|,
+literal|"Document in returned list should contain all fields"
 argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Document in returned list should contain all fields"
-argument_list|,
 name|document
 operator|.
 name|get
 argument_list|(
 literal|"fixedField"
 argument_list|)
+argument_list|,
+literal|"Document in returned list should contain all fields"
 argument_list|)
 expr_stmt|;
 name|count
@@ -368,11 +438,11 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-literal|"Result does not contain 200 elements"
-argument_list|,
 literal|200
 argument_list|,
 name|count
+argument_list|,
+literal|"Result does not contain 200 elements"
 argument_list|)
 expr_stmt|;
 block|}
@@ -391,7 +461,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -449,11 +519,11 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type DBCursor"
-argument_list|,
 name|result
 operator|instanceof
 name|MongoIterable
+argument_list|,
+literal|"Result is not of type DBCursor"
 argument_list|)
 expr_stmt|;
 name|MongoIterable
@@ -486,38 +556,38 @@ control|)
 block|{
 name|assertNotNull
 argument_list|(
-literal|"Document in returned list should contain all fields"
-argument_list|,
 name|document
 operator|.
 name|get
 argument_list|(
 literal|"_id"
 argument_list|)
+argument_list|,
+literal|"Document in returned list should contain all fields"
 argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Document in returned list should contain all fields"
-argument_list|,
 name|document
 operator|.
 name|get
 argument_list|(
 literal|"scientist"
 argument_list|)
+argument_list|,
+literal|"Document in returned list should contain all fields"
 argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Document in returned list should contain all fields"
-argument_list|,
 name|document
 operator|.
 name|get
 argument_list|(
 literal|"fixedField"
 argument_list|)
+argument_list|,
+literal|"Document in returned list should contain all fields"
 argument_list|)
 expr_stmt|;
 name|count
@@ -526,11 +596,11 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-literal|"Result does not contain 200 elements"
-argument_list|,
 literal|200
 argument_list|,
 name|count
+argument_list|,
+literal|"Result does not contain 200 elements"
 argument_list|)
 expr_stmt|;
 block|}

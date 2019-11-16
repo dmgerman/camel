@@ -168,7 +168,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Disabled
 import|;
 end_import
 
@@ -177,6 +181,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;
@@ -248,6 +256,86 @@ name|MONGO_ID
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
+import|;
+end_import
+
 begin_class
 DECL|class|MongoDbIndexTest
 specifier|public
@@ -270,7 +358,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -296,8 +384,6 @@ argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The otherDB database should not exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -319,6 +405,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
 name|String
@@ -446,8 +534,6 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Response isn't of type WriteResult"
-argument_list|,
 name|Document
 operator|.
 name|class
@@ -456,6 +542,8 @@ name|result
 operator|.
 name|getClass
 argument_list|()
+argument_list|,
+literal|"Response isn't of type WriteResult"
 argument_list|)
 expr_stmt|;
 name|MongoCollection
@@ -547,8 +635,6 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"No index on the field a"
-argument_list|,
 name|key1
 operator|.
 name|containsKey
@@ -564,12 +650,12 @@ name|getInteger
 argument_list|(
 literal|"a"
 argument_list|)
+argument_list|,
+literal|"No index on the field a"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"No index on the field b"
-argument_list|,
 name|key2
 operator|.
 name|containsKey
@@ -586,6 +672,8 @@ name|getInteger
 argument_list|(
 literal|"b"
 argument_list|)
+argument_list|,
+literal|"No index on the field b"
 argument_list|)
 expr_stmt|;
 name|Document
@@ -609,9 +697,9 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"No record with 'testInsertDynamicityEnabledDBAndCollection' _id"
-argument_list|,
 name|b
+argument_list|,
+literal|"No record with 'testInsertDynamicityEnabledDBAndCollection' _id"
 argument_list|)
 expr_stmt|;
 name|b
@@ -634,15 +722,13 @@ argument_list|()
 expr_stmt|;
 name|assertNull
 argument_list|(
-literal|"There is a record with 'testInsertDynamicityEnabledDBAndCollection' _id in the test collection"
-argument_list|,
 name|b
+argument_list|,
+literal|"There is a record with 'testInsertDynamicityEnabledDBAndCollection' _id in the test collection"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The otherDB database should exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -664,6 +750,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should exist"
 argument_list|)
 expr_stmt|;
 block|}
@@ -681,7 +769,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -707,8 +795,6 @@ argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The otherDB database should not exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -730,6 +816,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
 name|String
@@ -809,8 +897,6 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Response isn't of type WriteResult"
-argument_list|,
 name|Document
 operator|.
 name|class
@@ -819,6 +905,8 @@ name|result
 operator|.
 name|getClass
 argument_list|()
+argument_list|,
+literal|"Response isn't of type WriteResult"
 argument_list|)
 expr_stmt|;
 name|MongoCollection
@@ -897,8 +985,6 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"No index on the field a"
-argument_list|,
 name|key1
 operator|.
 name|containsKey
@@ -914,12 +1000,12 @@ name|getInteger
 argument_list|(
 literal|"a"
 argument_list|)
+argument_list|,
+literal|"No index on the field a"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"No index on the field b"
-argument_list|,
 name|key2
 operator|.
 name|containsKey
@@ -936,6 +1022,8 @@ name|getInteger
 argument_list|(
 literal|"b"
 argument_list|)
+argument_list|,
+literal|"No index on the field b"
 argument_list|)
 expr_stmt|;
 name|Document
@@ -958,9 +1046,9 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"No record with 'testInsertDynamicityEnabledCollectionAndIndex' _id"
-argument_list|,
 name|b
+argument_list|,
+literal|"No record with 'testInsertDynamicityEnabledCollectionAndIndex' _id"
 argument_list|)
 expr_stmt|;
 name|b
@@ -982,15 +1070,13 @@ argument_list|()
 expr_stmt|;
 name|assertNull
 argument_list|(
-literal|"There is a record with 'testInsertDynamicityEnabledDBAndCollection' _id in the test collection"
-argument_list|,
 name|b
+argument_list|,
+literal|"There is a record with 'testInsertDynamicityEnabledDBAndCollection' _id in the test collection"
 argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The otherDB database should not exist"
-argument_list|,
 name|mongo
 operator|.
 name|getUsedDatabases
@@ -1000,6 +1086,8 @@ name|contains
 argument_list|(
 literal|"otherDB"
 argument_list|)
+argument_list|,
+literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1017,7 +1105,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1043,8 +1131,6 @@ argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The otherDB database should not exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -1066,6 +1152,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
 name|String
@@ -1113,8 +1201,6 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Response isn't of type WriteResult"
-argument_list|,
 name|Document
 operator|.
 name|class
@@ -1123,6 +1209,8 @@ name|result
 operator|.
 name|getClass
 argument_list|()
+argument_list|,
+literal|"Response isn't of type WriteResult"
 argument_list|)
 expr_stmt|;
 name|MongoCollection
@@ -1175,8 +1263,6 @@ argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(
-literal|"No index on the field a"
-argument_list|,
 name|key1
 operator|.
 name|containsKey
@@ -1195,6 +1281,8 @@ argument_list|(
 literal|"a"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|"No index on the field a"
 argument_list|)
 expr_stmt|;
 name|Document
@@ -1217,9 +1305,9 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"No record with 'testInsertDynamicityEnabledCollectionOnlyAndURIIndex' _id"
-argument_list|,
 name|b
+argument_list|,
+literal|"No record with 'testInsertDynamicityEnabledCollectionOnlyAndURIIndex' _id"
 argument_list|)
 expr_stmt|;
 name|b
@@ -1241,15 +1329,13 @@ argument_list|()
 expr_stmt|;
 name|assertNull
 argument_list|(
-literal|"There is a record with 'testInsertDynamicityEnabledCollectionOnlyAndURIIndex' _id in the test collection"
-argument_list|,
 name|b
+argument_list|,
+literal|"There is a record with 'testInsertDynamicityEnabledCollectionOnlyAndURIIndex' _id in the test collection"
 argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The otherDB database should not exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -1271,11 +1357,13 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
+name|Disabled
 annotation|@
 name|Test
 DECL|method|testInsertAutoCreateCollectionAndURIIndex ()
@@ -1290,7 +1378,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1342,8 +1430,6 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Response isn't of type WriteResult"
-argument_list|,
 name|WriteResult
 operator|.
 name|class
@@ -1352,6 +1438,8 @@ name|result
 operator|.
 name|getClass
 argument_list|()
+argument_list|,
+literal|"Response isn't of type WriteResult"
 argument_list|)
 expr_stmt|;
 name|MongoCollection
@@ -1421,8 +1509,6 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"No index on the field b"
-argument_list|,
 name|key1
 operator|.
 name|containsKey
@@ -1441,12 +1527,12 @@ argument_list|(
 literal|"b"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|"No index on the field b"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"No index on the field a"
-argument_list|,
 name|key2
 operator|.
 name|containsKey
@@ -1465,6 +1551,8 @@ argument_list|(
 literal|"a"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|"No index on the field a"
 argument_list|)
 expr_stmt|;
 name|Document
@@ -1487,9 +1575,9 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"No record with 'testInsertAutoCreateCollectionAndURIIndex' _id"
-argument_list|,
 name|b
+argument_list|,
+literal|"No record with 'testInsertAutoCreateCollectionAndURIIndex' _id"
 argument_list|)
 expr_stmt|;
 name|b
@@ -1511,15 +1599,13 @@ argument_list|()
 expr_stmt|;
 name|assertNull
 argument_list|(
-literal|"There is a record with 'testInsertAutoCreateCollectionAndURIIndex' _id in the test collection"
-argument_list|,
 name|b
+argument_list|,
+literal|"There is a record with 'testInsertAutoCreateCollectionAndURIIndex' _id in the test collection"
 argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The otherDB database should not exist"
-argument_list|,
 name|StreamSupport
 operator|.
 name|stream
@@ -1541,6 +1627,8 @@ literal|"otherDB"
 operator|::
 name|equals
 argument_list|)
+argument_list|,
+literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
 block|}

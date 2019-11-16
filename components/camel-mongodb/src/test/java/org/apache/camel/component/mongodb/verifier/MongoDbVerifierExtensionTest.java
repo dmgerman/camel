@@ -106,7 +106,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -116,27 +120,43 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|slf4j
+name|junit
 operator|.
-name|Logger
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|slf4j
+name|junit
 operator|.
-name|LoggerFactory
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -148,25 +168,9 @@ name|MongoDbVerifierExtensionTest
 extends|extends
 name|AbstractMongoDbTest
 block|{
-DECL|field|LOGGER
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOGGER
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|MongoDbVerifierExtensionTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// We simulate the presence of an authenticated user
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|createAuthorizationUser ()
 specifier|public
 name|void

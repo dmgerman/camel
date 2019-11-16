@@ -188,6 +188,10 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
 import|;
 end_import
@@ -350,6 +354,88 @@ name|MONGO_ID
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit5
+operator|.
+name|TestSupport
+operator|.
+name|assertListSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
+import|;
+end_import
+
 begin_class
 DECL|class|MongoDbOperationsTest
 specifier|public
@@ -375,7 +461,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -393,20 +479,20 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type Long"
-argument_list|,
 name|result
 operator|instanceof
 name|Long
+argument_list|,
+literal|"Result is not of type Long"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Test collection should not contain any records"
-argument_list|,
 literal|0L
 argument_list|,
 name|result
+argument_list|,
+literal|"Test collection should not contain any records"
 argument_list|)
 expr_stmt|;
 comment|// Insert a record and test that the endpoint now returns 1
@@ -435,20 +521,20 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type Long"
-argument_list|,
 name|result
 operator|instanceof
 name|Long
+argument_list|,
+literal|"Result is not of type Long"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Test collection should contain 1 record"
-argument_list|,
 literal|1L
 argument_list|,
 name|result
+argument_list|,
+literal|"Test collection should contain 1 record"
 argument_list|)
 expr_stmt|;
 name|testCollection
@@ -492,20 +578,20 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type Long"
-argument_list|,
 name|result
 operator|instanceof
 name|Long
+argument_list|,
+literal|"Result is not of type Long"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Dynamic collection should contain 1 record"
-argument_list|,
 literal|1L
 argument_list|,
 name|result
+argument_list|,
+literal|"Dynamic collection should contain 1 record"
 argument_list|)
 expr_stmt|;
 block|}
@@ -525,7 +611,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -584,9 +670,9 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"No record with 'testInsertString' _id"
-argument_list|,
 name|b
+argument_list|,
+literal|"No record with 'testInsertString' _id"
 argument_list|)
 expr_stmt|;
 block|}
@@ -732,7 +818,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -802,14 +888,14 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records persisted must be 2"
-argument_list|,
 literal|2
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
+argument_list|,
+literal|"Number of records persisted must be 2"
 argument_list|)
 expr_stmt|;
 comment|// Testing the save logic
@@ -833,8 +919,6 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Scientist field of 'testSave1' must equal 'Einstein'"
-argument_list|,
 literal|"Einstein"
 argument_list|,
 name|record1
@@ -843,6 +927,8 @@ name|get
 argument_list|(
 literal|"scientist"
 argument_list|)
+argument_list|,
+literal|"Scientist field of 'testSave1' must equal 'Einstein'"
 argument_list|)
 expr_stmt|;
 name|record1
@@ -891,8 +977,6 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Scientist field of 'testSave1' must equal 'Darwin' after save operation"
-argument_list|,
 literal|"Darwin"
 argument_list|,
 name|record1
@@ -901,6 +985,8 @@ name|get
 argument_list|(
 literal|"scientist"
 argument_list|)
+argument_list|,
+literal|"Scientist field of 'testSave1' must equal 'Darwin' after save operation"
 argument_list|)
 expr_stmt|;
 block|}
@@ -919,7 +1005,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1024,15 +1110,6 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Scientist field of '"
-operator|+
-name|result
-operator|.
-name|getUpsertedId
-argument_list|()
-operator|+
-literal|"' must equal 'Einstein'"
-argument_list|,
 literal|"Einstein"
 argument_list|,
 name|record1
@@ -1041,6 +1118,15 @@ name|get
 argument_list|(
 literal|"scientist"
 argument_list|)
+argument_list|,
+literal|"Scientist field of '"
+operator|+
+name|result
+operator|.
+name|getUpsertedId
+argument_list|()
+operator|+
+literal|"' must equal 'Einstein'"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1154,7 +1240,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1252,7 +1338,7 @@ literal|100L
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1269,27 +1355,25 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records with 'extraField' flag on must equal 50"
-argument_list|,
 literal|50L
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|(
 name|extraField
 argument_list|)
+argument_list|,
+literal|"Number of records with 'extraField' flag on must equal 50"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records with 'scientist' field = Darwin on must equal 0"
-argument_list|,
 literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|(
 operator|new
 name|Document
@@ -1299,6 +1383,8 @@ argument_list|,
 literal|"Darwin"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|"Number of records with 'scientist' field = Darwin on must equal 0"
 argument_list|)
 expr_stmt|;
 name|Bson
@@ -1384,7 +1470,7 @@ name|result
 init|=
 name|resultExchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -1399,13 +1485,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records updated header should equal 50"
-argument_list|,
 literal|50L
 argument_list|,
 name|resultExchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -1414,17 +1498,17 @@ name|MongoDbConstants
 operator|.
 name|RECORDS_AFFECTED
 argument_list|)
+argument_list|,
+literal|"Number of records updated header should equal 50"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records with 'scientist' field = Darwin on must equal 50 after update"
-argument_list|,
 literal|50
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|(
 operator|new
 name|Document
@@ -1434,6 +1518,8 @@ argument_list|,
 literal|"Darwin"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|"Number of records with 'scientist' field = Darwin on must equal 50 after update"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1454,7 +1540,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1552,7 +1638,7 @@ literal|100L
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1569,27 +1655,25 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records with 'extraField' flag on must equal 50"
-argument_list|,
 literal|50L
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|(
 name|extraField
 argument_list|)
+argument_list|,
+literal|"Number of records with 'extraField' flag on must equal 50"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records with 'scientist' field = Darwin on must equal 0"
-argument_list|,
 literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|(
 operator|new
 name|Document
@@ -1599,6 +1683,8 @@ argument_list|,
 literal|"Darwin"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|"Number of records with 'scientist' field = Darwin on must equal 0"
 argument_list|)
 expr_stmt|;
 name|Bson
@@ -1720,7 +1806,7 @@ name|result
 init|=
 name|resultExchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -1735,13 +1821,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records updated header should equal 50"
-argument_list|,
 literal|50L
 argument_list|,
 name|resultExchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -1750,17 +1834,17 @@ name|MongoDbConstants
 operator|.
 name|RECORDS_AFFECTED
 argument_list|)
+argument_list|,
+literal|"Number of records updated header should equal 50"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records with 'scientist' field = Darwin on must equal 50 after update"
-argument_list|,
 literal|50
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|(
 operator|new
 name|Document
@@ -1770,6 +1854,8 @@ argument_list|,
 literal|"Darwin"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|"Number of records with 'scientist' field = Darwin on must equal 50 after update"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1790,7 +1876,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1888,7 +1974,7 @@ literal|100L
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1905,27 +1991,25 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records with 'extraField' flag on must equal 50"
-argument_list|,
 literal|50L
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|(
 name|extraField
 argument_list|)
+argument_list|,
+literal|"Number of records with 'extraField' flag on must equal 50"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records with 'scientist' field = Darwin on must equal 0"
-argument_list|,
 literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|(
 operator|new
 name|Document
@@ -1935,6 +2019,8 @@ argument_list|,
 literal|"Darwin"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|"Number of records with 'scientist' field = Darwin on must equal 0"
 argument_list|)
 expr_stmt|;
 name|Bson
@@ -2013,8 +2099,6 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records updated header should equal 50"
-argument_list|,
 literal|50L
 argument_list|,
 name|UpdateResult
@@ -2028,17 +2112,17 @@ argument_list|)
 operator|.
 name|getModifiedCount
 argument_list|()
+argument_list|,
+literal|"Number of records updated header should equal 50"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records with 'scientist' field = Darwin on must equal 50 after update"
-argument_list|,
 literal|50
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|(
 operator|new
 name|Document
@@ -2048,6 +2132,8 @@ argument_list|,
 literal|"Darwin"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|"Number of records with 'scientist' field = Darwin on must equal 50 after update"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2068,7 +2154,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2165,7 +2251,7 @@ literal|100L
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2184,16 +2270,16 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records with 'extraField' flag on must equal 50"
-argument_list|,
 literal|50L
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|(
 name|extraField
 argument_list|)
+argument_list|,
+literal|"Number of records with 'extraField' flag on must equal 50"
 argument_list|)
 expr_stmt|;
 name|Exchange
@@ -2240,7 +2326,7 @@ name|result
 init|=
 name|resultExchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -2255,13 +2341,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records deleted header should equal 50"
-argument_list|,
 literal|50L
 argument_list|,
 name|resultExchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -2270,20 +2354,22 @@ name|MongoDbConstants
 operator|.
 name|RECORDS_AFFECTED
 argument_list|)
+argument_list|,
+literal|"Number of records deleted header should equal 50"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number of records with 'extraField' flag on must be 0 after remove"
-argument_list|,
 literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|(
 name|extraField
 argument_list|)
+argument_list|,
+literal|"Number of records with 'extraField' flag on must be 0 after remove"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2304,7 +2390,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2369,11 +2455,11 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type List"
-argument_list|,
 name|result
 operator|instanceof
 name|List
+argument_list|,
+literal|"Result is not of type List"
 argument_list|)
 expr_stmt|;
 annotation|@
@@ -2422,7 +2508,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2440,17 +2526,15 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type Document"
-argument_list|,
 name|result
 operator|instanceof
 name|Document
+argument_list|,
+literal|"Result is not of type Document"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The result should contain keys"
-argument_list|,
 name|Document
 operator|.
 name|class
@@ -2467,6 +2551,8 @@ name|size
 argument_list|()
 operator|>
 literal|0
+argument_list|,
+literal|"The result should contain keys"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2486,7 +2572,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2566,17 +2652,15 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type Document"
-argument_list|,
 name|result
 operator|instanceof
 name|Document
+argument_list|,
+literal|"Result is not of type Document"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The result should contain keys"
-argument_list|,
 name|Document
 operator|.
 name|class
@@ -2593,6 +2677,8 @@ name|size
 argument_list|()
 operator|>
 literal|0
+argument_list|,
+literal|"The result should contain keys"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2621,17 +2707,15 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type Document"
-argument_list|,
 name|result
 operator|instanceof
 name|Document
+argument_list|,
+literal|"Result is not of type Document"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The result should contain keys"
-argument_list|,
 name|Document
 operator|.
 name|class
@@ -2648,6 +2732,8 @@ name|size
 argument_list|()
 operator|>
 literal|0
+argument_list|,
+literal|"The result should contain keys"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2668,7 +2754,7 @@ literal|0
 argument_list|,
 name|testCollection
 operator|.
-name|count
+name|countDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2694,20 +2780,20 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type Long"
-argument_list|,
 name|result
 operator|instanceof
 name|Long
+argument_list|,
+literal|"Result is not of type Long"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Test collection should not contain any records"
-argument_list|,
 literal|0L
 argument_list|,
 name|result
+argument_list|,
+literal|"Test collection should not contain any records"
 argument_list|)
 expr_stmt|;
 comment|// check that the count operation was invoked instead of the insert
@@ -2733,20 +2819,20 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Result is not of type Long"
-argument_list|,
 name|result
 operator|instanceof
 name|Long
+argument_list|,
+literal|"Result is not of type Long"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Test collection should not contain any records"
-argument_list|,
 literal|0L
 argument_list|,
 name|result
+argument_list|,
+literal|"Test collection should not contain any records"
 argument_list|)
 expr_stmt|;
 block|}
