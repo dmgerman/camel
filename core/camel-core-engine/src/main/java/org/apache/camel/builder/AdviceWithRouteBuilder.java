@@ -454,6 +454,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|builder
+operator|instanceof
+name|AdviceWithRouteBuilder
+condition|)
+block|{
+name|setLogRouteAsXml
+argument_list|(
+operator|(
+operator|(
+name|AdviceWithRouteBuilder
+operator|)
+name|builder
+operator|)
+operator|.
+name|isLogRouteAsXml
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|builder
 operator|.
 name|accept
@@ -465,6 +486,25 @@ block|}
 block|}
 argument_list|)
 return|;
+block|}
+DECL|method|AdviceWithRouteBuilder ()
+specifier|public
+name|AdviceWithRouteBuilder
+parameter_list|()
+block|{     }
+DECL|method|AdviceWithRouteBuilder (CamelContext context)
+specifier|public
+name|AdviceWithRouteBuilder
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Sets the original route to be adviced.      *      * @param originalRoute the original route.      */
 DECL|method|setOriginalRoute (RouteDefinition originalRoute)

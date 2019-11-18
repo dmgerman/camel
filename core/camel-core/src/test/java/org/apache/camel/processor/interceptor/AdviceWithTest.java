@@ -52,6 +52,20 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|AdviceWithRouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|RouteBuilder
 import|;
 end_import
@@ -174,7 +188,7 @@ argument_list|,
 name|context
 argument_list|,
 operator|new
-name|RouteBuilder
+name|AdviceWithRouteBuilder
 argument_list|()
 block|{
 annotation|@
@@ -282,7 +296,7 @@ argument_list|,
 name|context
 argument_list|,
 operator|new
-name|RouteBuilder
+name|AdviceWithRouteBuilder
 argument_list|()
 block|{
 annotation|@
@@ -368,7 +382,7 @@ argument_list|,
 name|context
 argument_list|,
 operator|new
-name|RouteBuilder
+name|AdviceWithRouteBuilder
 argument_list|()
 block|{
 annotation|@
@@ -509,7 +523,7 @@ argument_list|,
 name|context
 argument_list|,
 operator|new
-name|RouteBuilder
+name|AdviceWithRouteBuilder
 argument_list|()
 block|{
 annotation|@

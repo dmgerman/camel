@@ -696,8 +696,7 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-comment|// inject this route into the advice route builder so it can access this
-comment|// route
+comment|// inject this route into the advice route builder so it can access this route
 comment|// and offer features to manipulate the route directly
 name|boolean
 name|logRoutesAsXml
@@ -842,6 +841,8 @@ name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
+try|try
+block|{
 name|beforeAsXml
 operator|=
 name|ModelHelper
@@ -853,6 +854,15 @@ argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore, it may be due jaxb is not on classpath etc
+block|}
 block|}
 comment|// stop and remove this existing route
 name|camelContext
@@ -962,6 +972,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|beforeAsXml
+operator|!=
+literal|null
+operator|&&
 name|logRoutesAsXml
 operator|&&
 name|log
@@ -969,6 +983,8 @@ operator|.
 name|isInfoEnabled
 argument_list|()
 condition|)
+block|{
+try|try
 block|{
 name|String
 name|afterAsXml
@@ -993,6 +1009,15 @@ argument_list|,
 name|afterAsXml
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore, it may be due jaxb is not on classpath etc
+block|}
 block|}
 comment|// If the camel context is started then we start the route
 if|if
