@@ -3561,7 +3561,7 @@ argument_list|()
 expr_stmt|;
 name|desc
 operator|+=
-literal|"\nAvailable as of version: "
+literal|"\nSince: "
 operator|+
 name|model
 operator|.
@@ -3865,7 +3865,7 @@ argument_list|()
 expr_stmt|;
 name|desc
 operator|+=
-literal|"\nAvailable as of version: "
+literal|"\nSince: "
 operator|+
 name|model
 operator|.
