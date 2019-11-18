@@ -1099,7 +1099,7 @@ block|,
 DECL|enumConstant|capacity
 name|capacity
 block|;     }
-comment|/**      * Hazelcast Set (camel-hazelcast)      * The camel Endpoint to access Hazelcast distributed set.      *       * Category: cache,datagrid      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-set:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
+comment|/**      * Hazelcast Set (camel-hazelcast)      * The camel Endpoint to access Hazelcast distributed set.      *       * Category: cache,datagrid      * Since: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-set:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
 DECL|method|hazelcastSet (String path)
 specifier|default
 name|HazelcastSetEndpointBuilder

@@ -470,7 +470,7 @@ block|,
 DECL|enumConstant|account
 name|account
 block|;     }
-comment|/**      * XChange (camel-xchange)      * The camel-xchange component provide access to many bitcoin and altcoin      * exchanges for trading and accessing market data.      *       * Category: bitcoin,blockchain      * Available as of version: 2.21      * Maven coordinates: org.apache.camel:camel-xchange      *       * Syntax:<code>xchange:name</code>      *       * Path parameter: name (required)      * The exchange to connect to      */
+comment|/**      * XChange (camel-xchange)      * The camel-xchange component provide access to many bitcoin and altcoin      * exchanges for trading and accessing market data.      *       * Category: bitcoin,blockchain      * Since: 2.21      * Maven coordinates: org.apache.camel:camel-xchange      *       * Syntax:<code>xchange:name</code>      *       * Path parameter: name (required)      * The exchange to connect to      */
 DECL|method|xchange (String path)
 specifier|default
 name|XChangeEndpointBuilder

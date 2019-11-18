@@ -721,7 +721,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Kubernetes ConfigMap (camel-kubernetes)      * The Kubernetes Configmaps component provides a producer to execute      * kubernetes configmap operations.      *       * Category: container,cloud,paas      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-kubernetes      *       * Syntax:<code>kubernetes-config-maps:masterUrl</code>      *       * Path parameter: masterUrl (required)      * Kubernetes Master url      */
+comment|/**      * Kubernetes ConfigMap (camel-kubernetes)      * The Kubernetes Configmaps component provides a producer to execute      * kubernetes configmap operations.      *       * Category: container,cloud,paas      * Since: 2.17      * Maven coordinates: org.apache.camel:camel-kubernetes      *       * Syntax:<code>kubernetes-config-maps:masterUrl</code>      *       * Path parameter: masterUrl (required)      * Kubernetes Master url      */
 DECL|method|kubernetesConfigMaps (String path)
 specifier|default
 name|KubernetesConfigMapsEndpointBuilder

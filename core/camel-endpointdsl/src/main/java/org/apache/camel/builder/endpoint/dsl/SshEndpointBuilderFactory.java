@@ -2416,7 +2416,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * SSH (camel-ssh)      * The ssh component enables access to SSH servers such that you can send an      * SSH command, and process the response.      *       * Category: file      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-ssh      *       * Syntax:<code>ssh:host:port</code>      *       * Path parameter: host (required)      * Sets the hostname of the remote SSH server.      *       * Path parameter: port      * Sets the port number for the remote SSH server.      * Default value: 22      */
+comment|/**      * SSH (camel-ssh)      * The ssh component enables access to SSH servers such that you can send an      * SSH command, and process the response.      *       * Category: file      * Since: 2.10      * Maven coordinates: org.apache.camel:camel-ssh      *       * Syntax:<code>ssh:host:port</code>      *       * Path parameter: host (required)      * Sets the hostname of the remote SSH server.      *       * Path parameter: port      * Sets the port number for the remote SSH server.      * Default value: 22      */
 DECL|method|ssh (String path)
 specifier|default
 name|SshEndpointBuilder

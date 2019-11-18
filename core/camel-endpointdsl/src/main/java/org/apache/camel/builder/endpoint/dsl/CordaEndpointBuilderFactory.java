@@ -671,7 +671,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Corda (camel-corda)      * The corda component uses the corda-rpc to interact with corda nodes.      *       * Category: corda,blockchain      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-corda      *       * Syntax:<code>corda:configuration</code>      *       * Path parameter: configuration (required)      * URL to the corda node      */
+comment|/**      * Corda (camel-corda)      * The corda component uses the corda-rpc to interact with corda nodes.      *       * Category: corda,blockchain      * Since: 2.23      * Maven coordinates: org.apache.camel:camel-corda      *       * Syntax:<code>corda:configuration</code>      *       * Path parameter: configuration (required)      * URL to the corda node      */
 DECL|method|corda (String path)
 specifier|default
 name|CordaEndpointBuilder

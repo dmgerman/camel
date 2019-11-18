@@ -322,7 +322,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Google BigQuery (camel-google-bigquery)      * Google BigQuery data warehouse for analytics.      *       * Category: cloud,messaging      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-google-bigquery      *       * Syntax:<code>google-bigquery:projectId:datasetId:tableId</code>      *       * Path parameter: projectId (required)      * Google Cloud Project Id      *       * Path parameter: datasetId (required)      * BigQuery Dataset Id      *       * Path parameter: tableId      * BigQuery table id      */
+comment|/**      * Google BigQuery (camel-google-bigquery)      * Google BigQuery data warehouse for analytics.      *       * Category: cloud,messaging      * Since: 2.20      * Maven coordinates: org.apache.camel:camel-google-bigquery      *       * Syntax:<code>google-bigquery:projectId:datasetId:tableId</code>      *       * Path parameter: projectId (required)      * Google Cloud Project Id      *       * Path parameter: datasetId (required)      * BigQuery Dataset Id      *       * Path parameter: tableId      * BigQuery table id      */
 DECL|method|googleBigquery (String path)
 specifier|default
 name|GoogleBigQueryEndpointBuilder

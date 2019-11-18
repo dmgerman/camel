@@ -1759,7 +1759,7 @@ block|,
 DECL|enumConstant|UPDATED
 name|UPDATED
 block|;     }
-comment|/**      * Ehcache (camel-ehcache)      * The ehcache component enables you to perform caching operations using      * Ehcache as cache implementation.      *       * Category: cache,datagrid,clustering      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-ehcache      *       * Syntax:<code>ehcache:cacheName</code>      *       * Path parameter: cacheName (required)      * the cache name      */
+comment|/**      * Ehcache (camel-ehcache)      * The ehcache component enables you to perform caching operations using      * Ehcache as cache implementation.      *       * Category: cache,datagrid,clustering      * Since: 2.18      * Maven coordinates: org.apache.camel:camel-ehcache      *       * Syntax:<code>ehcache:cacheName</code>      *       * Path parameter: cacheName (required)      * the cache name      */
 DECL|method|ehcache (String path)
 specifier|default
 name|EhcacheEndpointBuilder

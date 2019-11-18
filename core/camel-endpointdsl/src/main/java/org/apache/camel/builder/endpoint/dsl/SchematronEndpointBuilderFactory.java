@@ -385,7 +385,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Schematron (camel-schematron)      * Validates the payload of a message using the Schematron Library.      *       * Category: validation      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-schematron      *       * Syntax:<code>schematron:path</code>      *       * Path parameter: path (required)      * The path to the schematron rules file. Can either be in class path or      * location in the file system.      */
+comment|/**      * Schematron (camel-schematron)      * Validates the payload of a message using the Schematron Library.      *       * Category: validation      * Since: 2.15      * Maven coordinates: org.apache.camel:camel-schematron      *       * Syntax:<code>schematron:path</code>      *       * Path parameter: path (required)      * The path to the schematron rules file. Can either be in class path or      * location in the file system.      */
 DECL|method|schematron (String path)
 specifier|default
 name|SchematronEndpointBuilder

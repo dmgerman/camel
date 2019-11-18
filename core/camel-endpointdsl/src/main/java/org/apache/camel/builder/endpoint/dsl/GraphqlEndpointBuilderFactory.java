@@ -448,7 +448,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * GraphQL (camel-graphql)      * A Camel GraphQL Component      *       * Category: api      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-graphql      *       * Syntax:<code>graphql:httpUri</code>      *       * Path parameter: httpUri (required)      * The GraphQL server URI.      */
+comment|/**      * GraphQL (camel-graphql)      * A Camel GraphQL Component      *       * Category: api      * Since: 3.0      * Maven coordinates: org.apache.camel:camel-graphql      *       * Syntax:<code>graphql:httpUri</code>      *       * Path parameter: httpUri (required)      * The GraphQL server URI.      */
 DECL|method|graphql (String path)
 specifier|default
 name|GraphqlEndpointBuilder

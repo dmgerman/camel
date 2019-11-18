@@ -1729,7 +1729,7 @@ block|,
 DECL|enumConstant|capacity
 name|capacity
 block|;     }
-comment|/**      * Hazelcast SEDA (camel-hazelcast)      * The hazelcast-seda component is used to access Hazelcast BlockingQueue.      *       * Category: cache,datagrid      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-seda:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
+comment|/**      * Hazelcast SEDA (camel-hazelcast)      * The hazelcast-seda component is used to access Hazelcast BlockingQueue.      *       * Category: cache,datagrid      * Since: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-seda:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
 DECL|method|hazelcastSeda (String path)
 specifier|default
 name|HazelcastSedaEndpointBuilder

@@ -1225,7 +1225,7 @@ block|,
 DECL|enumConstant|capacity
 name|capacity
 block|;     }
-comment|/**      * Hazelcast Topic (camel-hazelcast)      * The hazelcast-topic component is used to access Hazelcast distributed      * topic.      *       * Category: cache,datagrid      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-topic:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
+comment|/**      * Hazelcast Topic (camel-hazelcast)      * The hazelcast-topic component is used to access Hazelcast distributed      * topic.      *       * Category: cache,datagrid      * Since: 2.15      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-topic:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
 DECL|method|hazelcastTopic (String path)
 specifier|default
 name|HazelcastTopicEndpointBuilder

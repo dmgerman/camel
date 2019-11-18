@@ -965,7 +965,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * SCP (camel-jsch)      * To copy files using the secure copy protocol (SCP).      *       * Category: file      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-jsch      *       * Syntax:<code>scp:host:port/directoryName</code>      *       * Path parameter: host (required)      * Hostname of the FTP server      *       * Path parameter: port      * Port of the FTP server      *       * Path parameter: directoryName      * The starting directory      */
+comment|/**      * SCP (camel-jsch)      * To copy files using the secure copy protocol (SCP).      *       * Category: file      * Since: 2.10      * Maven coordinates: org.apache.camel:camel-jsch      *       * Syntax:<code>scp:host:port/directoryName</code>      *       * Path parameter: host (required)      * Hostname of the FTP server      *       * Path parameter: port      * Port of the FTP server      *       * Path parameter: directoryName      * The starting directory      */
 DECL|method|scp (String path)
 specifier|default
 name|ScpEndpointBuilder

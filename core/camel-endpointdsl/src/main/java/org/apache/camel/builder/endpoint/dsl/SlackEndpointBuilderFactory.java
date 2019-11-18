@@ -1534,7 +1534,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Slack (camel-slack)      * The slack component allows you to send messages to Slack.      *       * Category: social      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-slack      *       * Syntax:<code>slack:channel</code>      *       * Path parameter: channel (required)      * The channel name (syntax #name) or slackuser (syntax userName) to send a      * message directly to an user.      */
+comment|/**      * Slack (camel-slack)      * The slack component allows you to send messages to Slack.      *       * Category: social      * Since: 2.16      * Maven coordinates: org.apache.camel:camel-slack      *       * Syntax:<code>slack:channel</code>      *       * Path parameter: channel (required)      * The channel name (syntax #name) or slackuser (syntax userName) to send a      * message directly to an user.      */
 DECL|method|slack (String path)
 specifier|default
 name|SlackEndpointBuilder

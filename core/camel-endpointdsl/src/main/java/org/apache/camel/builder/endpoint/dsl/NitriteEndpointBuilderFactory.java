@@ -1058,7 +1058,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Nitrite (camel-nitrite)      * Used for integrating Camel with Nitrite databases.      *       * Category: database,nosql      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-nitrite      *       * Syntax:<code>nitrite:database</code>      *       * Path parameter: database (required)      * Path to database file. Will be created if not exists.      */
+comment|/**      * Nitrite (camel-nitrite)      * Used for integrating Camel with Nitrite databases.      *       * Category: database,nosql      * Since: 3.0      * Maven coordinates: org.apache.camel:camel-nitrite      *       * Syntax:<code>nitrite:database</code>      *       * Path parameter: database (required)      * Path to database file. Will be created if not exists.      */
 DECL|method|nitrite (String path)
 specifier|default
 name|NitriteEndpointBuilder

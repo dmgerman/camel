@@ -753,7 +753,7 @@ block|,
 DECL|enumConstant|MODIFY
 name|MODIFY
 block|;     }
-comment|/**      * file-watch (camel-file-watch)      * The file-watch is used to monitor file events in directory using      * java.nio.file.WatchService      *       * Category: file      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-file-watch      *       * Syntax:<code>file-watch:path</code>      *       * Path parameter: path (required)      * Path of directory to consume events from.      */
+comment|/**      * file-watch (camel-file-watch)      * The file-watch is used to monitor file events in directory using      * java.nio.file.WatchService      *       * Category: file      * Since: 3.0      * Maven coordinates: org.apache.camel:camel-file-watch      *       * Syntax:<code>file-watch:path</code>      *       * Path parameter: path (required)      * Path of directory to consume events from.      */
 DECL|method|fileWatch (String path)
 specifier|default
 name|FileWatchEndpointBuilder

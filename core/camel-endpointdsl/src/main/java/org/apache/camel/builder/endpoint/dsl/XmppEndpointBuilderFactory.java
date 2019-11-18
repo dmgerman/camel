@@ -1966,7 +1966,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * XMPP (camel-xmpp)      * To send and receive messages from a XMPP (chat) server.      *       * Category: chat,messaging      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-xmpp      *       * Syntax:<code>xmpp:host:port/participant</code>      *       * Path parameter: host (required)      * Hostname for the chat server      *       * Path parameter: port (required)      * Port number for the chat server      *       * Path parameter: participant      * JID (Jabber ID) of person to receive messages. room parameter has      * precedence over participant.      */
+comment|/**      * XMPP (camel-xmpp)      * To send and receive messages from a XMPP (chat) server.      *       * Category: chat,messaging      * Since: 1.0      * Maven coordinates: org.apache.camel:camel-xmpp      *       * Syntax:<code>xmpp:host:port/participant</code>      *       * Path parameter: host (required)      * Hostname for the chat server      *       * Path parameter: port (required)      * Port number for the chat server      *       * Path parameter: participant      * JID (Jabber ID) of person to receive messages. room parameter has      * precedence over participant.      */
 DECL|method|xmpp (String path)
 specifier|default
 name|XmppEndpointBuilder

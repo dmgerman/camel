@@ -797,7 +797,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * AHC (camel-ahc)      * To call external HTTP services using Async Http Client.      *       * Category: http      * Available as of version: 2.8      * Maven coordinates: org.apache.camel:camel-ahc      *       * Syntax:<code>ahc:httpUri</code>      *       * Path parameter: httpUri (required)      * The URI to use such as http://hostname:port/path      */
+comment|/**      * AHC (camel-ahc)      * To call external HTTP services using Async Http Client.      *       * Category: http      * Since: 2.8      * Maven coordinates: org.apache.camel:camel-ahc      *       * Syntax:<code>ahc:httpUri</code>      *       * Path parameter: httpUri (required)      * The URI to use such as http://hostname:port/path      */
 DECL|method|ahc (String path)
 specifier|default
 name|AhcEndpointBuilder

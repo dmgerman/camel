@@ -797,7 +797,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Javax Websocket (camel-websocket-jsr356)      * Camel WebSocket using JSR356 (javax)      *       * Category: jsr356      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-websocket-jsr356      *       * Syntax:<code>websocket-jsr356:websocketPathOrUri</code>      *       * Path parameter: websocketPathOrUri      * If a path (/foo) it will deploy locally the endpoint, if an uri it will      * connect to the corresponding server      */
+comment|/**      * Javax Websocket (camel-websocket-jsr356)      * Camel WebSocket using JSR356 (javax)      *       * Category: jsr356      * Since: 2.23      * Maven coordinates: org.apache.camel:camel-websocket-jsr356      *       * Syntax:<code>websocket-jsr356:websocketPathOrUri</code>      *       * Path parameter: websocketPathOrUri      * If a path (/foo) it will deploy locally the endpoint, if an uri it will      * connect to the corresponding server      */
 DECL|method|websocketJsr356 (String path)
 specifier|default
 name|JSR356WebSocketEndpointBuilder

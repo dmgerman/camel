@@ -3641,7 +3641,7 @@ block|,
 DECL|enumConstant|BLOCK
 name|BLOCK
 block|;     }
-comment|/**      * HDFS (camel-hdfs)      * For reading/writing from/to an HDFS filesystem using Hadoop 2.x.      *       * Category: hadoop,file      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-hdfs      *       * Syntax:<code>hdfs:hostName:port/path</code>      *       * Path parameter: hostName (required)      * HDFS host to use      *       * Path parameter: port      * HDFS port to use      * Default value: 8020      *       * Path parameter: path (required)      * The directory path to use      */
+comment|/**      * HDFS (camel-hdfs)      * For reading/writing from/to an HDFS filesystem using Hadoop 2.x.      *       * Category: hadoop,file      * Since: 2.14      * Maven coordinates: org.apache.camel:camel-hdfs      *       * Syntax:<code>hdfs:hostName:port/path</code>      *       * Path parameter: hostName (required)      * HDFS host to use      *       * Path parameter: port      * HDFS port to use      * Default value: 8020      *       * Path parameter: path (required)      * The directory path to use      */
 DECL|method|hdfs (String path)
 specifier|default
 name|HdfsEndpointBuilder

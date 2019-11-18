@@ -713,7 +713,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * JGroups raft (camel-jgroups-raft)      * The jgroups component provides exchange of messages between Camel and      * JGroups clusters.      *       * Category: clustering,messaging      * Available as of version: 2.24      * Maven coordinates: org.apache.camel:camel-jgroups-raft      *       * Syntax:<code>jgroups-raft:clusterName</code>      *       * Path parameter: clusterName (required)      * The name of the JGroupsraft cluster the component should connect to.      */
+comment|/**      * JGroups raft (camel-jgroups-raft)      * The jgroups component provides exchange of messages between Camel and      * JGroups clusters.      *       * Category: clustering,messaging      * Since: 2.24      * Maven coordinates: org.apache.camel:camel-jgroups-raft      *       * Syntax:<code>jgroups-raft:clusterName</code>      *       * Path parameter: clusterName (required)      * The name of the JGroupsraft cluster the component should connect to.      */
 DECL|method|jgroupsRaft (String path)
 specifier|default
 name|JGroupsRaftEndpointBuilder

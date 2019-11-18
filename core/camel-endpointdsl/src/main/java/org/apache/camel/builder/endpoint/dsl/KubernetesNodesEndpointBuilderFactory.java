@@ -2141,7 +2141,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Kubernetes Nodes (camel-kubernetes)      * The Kubernetes Nodes component provides a producer to execute kubernetes      * node operations and a consumer to consume node events.      *       * Category: container,cloud,paas      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-kubernetes      *       * Syntax:<code>kubernetes-nodes:masterUrl</code>      *       * Path parameter: masterUrl (required)      * Kubernetes Master url      */
+comment|/**      * Kubernetes Nodes (camel-kubernetes)      * The Kubernetes Nodes component provides a producer to execute kubernetes      * node operations and a consumer to consume node events.      *       * Category: container,cloud,paas      * Since: 2.17      * Maven coordinates: org.apache.camel:camel-kubernetes      *       * Syntax:<code>kubernetes-nodes:masterUrl</code>      *       * Path parameter: masterUrl (required)      * Kubernetes Master url      */
 DECL|method|kubernetesNodes (String path)
 specifier|default
 name|KubernetesNodesEndpointBuilder

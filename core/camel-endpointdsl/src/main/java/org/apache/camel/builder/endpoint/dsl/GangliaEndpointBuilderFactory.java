@@ -718,7 +718,7 @@ block|,
 DECL|enumConstant|DOUBLE
 name|DOUBLE
 block|;     }
-comment|/**      * Ganglia (camel-ganglia)      * The ganglia component is used for sending metrics to the Ganglia      * monitoring system.      *       * Category: monitoring      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-ganglia      *       * Syntax:<code>ganglia:host:port</code>      *       * Path parameter: host      * Host name for Ganglia server      * Default value: 239.2.11.71      *       * Path parameter: port      * Port for Ganglia server      * Default value: 8649      */
+comment|/**      * Ganglia (camel-ganglia)      * The ganglia component is used for sending metrics to the Ganglia      * monitoring system.      *       * Category: monitoring      * Since: 2.15      * Maven coordinates: org.apache.camel:camel-ganglia      *       * Syntax:<code>ganglia:host:port</code>      *       * Path parameter: host      * Host name for Ganglia server      * Default value: 239.2.11.71      *       * Path parameter: port      * Port for Ganglia server      * Default value: 8649      */
 DECL|method|ganglia (String path)
 specifier|default
 name|GangliaEndpointBuilder

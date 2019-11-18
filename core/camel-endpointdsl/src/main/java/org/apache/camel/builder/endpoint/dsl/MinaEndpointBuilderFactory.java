@@ -3137,7 +3137,7 @@ block|,
 DECL|enumConstant|MAC
 name|MAC
 block|;     }
-comment|/**      * Mina (camel-mina)      * Socket level networking using TCP or UDP with the Apache Mina 2.x      * library.      *       * Category: networking,tcp,udp      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-mina      *       * Syntax:<code>mina:protocol:host:port</code>      *       * Path parameter: protocol (required)      * Protocol to use      *       * Path parameter: host (required)      * Hostname to use. Use localhost or 0.0.0.0 for local server as consumer.      * For producer use the hostname or ip address of the remote server.      *       * Path parameter: port (required)      * Port number      */
+comment|/**      * Mina (camel-mina)      * Socket level networking using TCP or UDP with the Apache Mina 2.x      * library.      *       * Category: networking,tcp,udp      * Since: 2.10      * Maven coordinates: org.apache.camel:camel-mina      *       * Syntax:<code>mina:protocol:host:port</code>      *       * Path parameter: protocol (required)      * Protocol to use      *       * Path parameter: host (required)      * Hostname to use. Use localhost or 0.0.0.0 for local server as consumer.      * For producer use the hostname or ip address of the remote server.      *       * Path parameter: port (required)      * Port number      */
 DECL|method|mina (String path)
 specifier|default
 name|MinaEndpointBuilder

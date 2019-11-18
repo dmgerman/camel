@@ -587,7 +587,7 @@ block|,
 DECL|enumConstant|capacity
 name|capacity
 block|;     }
-comment|/**      * Hazelcast Instance (camel-hazelcast)      * The hazelcast-instance component is used to consume join/leave events of      * the cache instance in the cluster.      *       * Category: cache,datagrid      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-instance:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
+comment|/**      * Hazelcast Instance (camel-hazelcast)      * The hazelcast-instance component is used to consume join/leave events of      * the cache instance in the cluster.      *       * Category: cache,datagrid      * Since: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-instance:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
 DECL|method|hazelcastInstance (String path)
 specifier|default
 name|HazelcastInstanceEndpointBuilder

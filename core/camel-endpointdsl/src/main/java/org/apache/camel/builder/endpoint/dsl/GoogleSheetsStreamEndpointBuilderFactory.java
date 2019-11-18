@@ -1455,7 +1455,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Google Sheets Stream (camel-google-sheets)      * The google-sheets component provides access to Google Sheets.      *       * Category: api,cloud,sheets      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-google-sheets      *       * Syntax:<code>google-sheets-stream:apiName</code>      *       * Path parameter: apiName      * Sets the apiName.      */
+comment|/**      * Google Sheets Stream (camel-google-sheets)      * The google-sheets component provides access to Google Sheets.      *       * Category: api,cloud,sheets      * Since: 2.23      * Maven coordinates: org.apache.camel:camel-google-sheets      *       * Syntax:<code>google-sheets-stream:apiName</code>      *       * Path parameter: apiName      * Sets the apiName.      */
 DECL|method|googleSheetsStream (String path)
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder

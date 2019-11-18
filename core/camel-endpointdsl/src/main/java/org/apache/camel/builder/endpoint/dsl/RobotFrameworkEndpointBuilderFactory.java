@@ -5303,7 +5303,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Robot Framework (camel-robotframework)      * Represents a RobotFramework endpoint.      *       * Category: testing      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-robotframework      *       * Syntax:<code>robotframework:resourceUri</code>      *       * Path parameter: resourceUri (required)      * Path to the resource. You can prefix with: classpath, file, http, ref, or      * bean. classpath, file and http loads the resource using these protocols      * (classpath is default). ref will lookup the resource in the registry.      * bean will call a method on a bean to be used as the resource. For bean      * you can specify the method name after dot, eg bean:myBean.myMethod.      */
+comment|/**      * Robot Framework (camel-robotframework)      * Represents a RobotFramework endpoint.      *       * Category: testing      * Since: 3.0      * Maven coordinates: org.apache.camel:camel-robotframework      *       * Syntax:<code>robotframework:resourceUri</code>      *       * Path parameter: resourceUri (required)      * Path to the resource. You can prefix with: classpath, file, http, ref, or      * bean. classpath, file and http loads the resource using these protocols      * (classpath is default). ref will lookup the resource in the registry.      * bean will call a method on a bean to be used as the resource. For bean      * you can specify the method name after dot, eg bean:myBean.myMethod.      */
 DECL|method|robotframework (String path)
 specifier|default
 name|RobotFrameworkEndpointBuilder

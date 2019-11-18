@@ -742,7 +742,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Solr (camel-solr)      * The solr component allows you to interface with an Apache Lucene Solr      * server.      *       * Category: monitoring,search      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-solr      *       * Syntax:<code>solr:url</code>      *       * Path parameter: url (required)      * Hostname and port for the solr server      */
+comment|/**      * Solr (camel-solr)      * The solr component allows you to interface with an Apache Lucene Solr      * server.      *       * Category: monitoring,search      * Since: 2.9      * Maven coordinates: org.apache.camel:camel-solr      *       * Syntax:<code>solr:url</code>      *       * Path parameter: url (required)      * Hostname and port for the solr server      */
 DECL|method|solr (String path)
 specifier|default
 name|SolrEndpointBuilder
@@ -761,7 +761,7 @@ name|path
 argument_list|)
 return|;
 block|}
-comment|/**      * Solr (camel-solr)      * The solr component allows you to interface with an Apache Lucene Solr      * server.      *       * Category: monitoring,search      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-solr      *       * Syntax:<code>solrCloud:url</code>      *       * Path parameter: url (required)      * Hostname and port for the solr server      */
+comment|/**      * Solr (camel-solr)      * The solr component allows you to interface with an Apache Lucene Solr      * server.      *       * Category: monitoring,search      * Since: 2.9      * Maven coordinates: org.apache.camel:camel-solr      *       * Syntax:<code>solrCloud:url</code>      *       * Path parameter: url (required)      * Hostname and port for the solr server      */
 DECL|method|solrCloud (String path)
 specifier|default
 name|SolrEndpointBuilder
@@ -780,7 +780,7 @@ name|path
 argument_list|)
 return|;
 block|}
-comment|/**      * Solr (Secure) (camel-solr)      * The solr component allows you to interface with an Apache Lucene Solr      * server.      *       * Category: monitoring,search      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-solr      *       * Syntax:<code>solrs:url</code>      *       * Path parameter: url (required)      * Hostname and port for the solr server      */
+comment|/**      * Solr (Secure) (camel-solr)      * The solr component allows you to interface with an Apache Lucene Solr      * server.      *       * Category: monitoring,search      * Since: 2.9      * Maven coordinates: org.apache.camel:camel-solr      *       * Syntax:<code>solrs:url</code>      *       * Path parameter: url (required)      * Hostname and port for the solr server      */
 DECL|method|solrs (String path)
 specifier|default
 name|SolrEndpointBuilder
@@ -799,7 +799,7 @@ name|path
 argument_list|)
 return|;
 block|}
-comment|/**      * Solr (camel-solr)      * The solr component allows you to interface with an Apache Lucene Solr      * server.      *       * Category: monitoring,search      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-solr      */
+comment|/**      * Solr (camel-solr)      * The solr component allows you to interface with an Apache Lucene Solr      * server.      *       * Category: monitoring,search      * Since: 2.9      * Maven coordinates: org.apache.camel:camel-solr      */
 DECL|method|solr (String scheme, String path)
 specifier|default
 name|SolrEndpointBuilder

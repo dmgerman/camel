@@ -1099,7 +1099,7 @@ block|,
 DECL|enumConstant|capacity
 name|capacity
 block|;     }
-comment|/**      * Hazelcast Replicated Map (camel-hazelcast)      * The hazelcast-replicatedmap component is used to access Hazelcast      * replicated map.      *       * Category: cache,datagrid      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-replicatedmap:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
+comment|/**      * Hazelcast Replicated Map (camel-hazelcast)      * The hazelcast-replicatedmap component is used to access Hazelcast      * replicated map.      *       * Category: cache,datagrid      * Since: 2.16      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-replicatedmap:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
 DECL|method|hazelcastReplicatedmap ( String path)
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder

@@ -909,7 +909,7 @@ block|,
 DECL|enumConstant|file
 name|file
 block|;     }
-comment|/**      * XJ (camel-xj)      * Transforms json/xml message back and forth using a XSLT.      *       * Category: transformation      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-xj      *       * Syntax:<code>xj:resourceUri</code>      *       * Path parameter: resourceUri (required)      * Path to the template. The following is supported by the default      * URIResolver. You can prefix with: classpath, file, http, ref, or bean.      * classpath, file and http loads the resource using these protocols      * (classpath is default). ref will lookup the resource in the registry.      * bean will call a method on a bean to be used as the resource. For bean      * you can specify the method name after dot, eg bean:myBean.myMethod      */
+comment|/**      * XJ (camel-xj)      * Transforms json/xml message back and forth using a XSLT.      *       * Category: transformation      * Since: 3.0      * Maven coordinates: org.apache.camel:camel-xj      *       * Syntax:<code>xj:resourceUri</code>      *       * Path parameter: resourceUri (required)      * Path to the template. The following is supported by the default      * URIResolver. You can prefix with: classpath, file, http, ref, or bean.      * classpath, file and http loads the resource using these protocols      * (classpath is default). ref will lookup the resource in the registry.      * bean will call a method on a bean to be used as the resource. For bean      * you can specify the method name after dot, eg bean:myBean.myMethod      */
 DECL|method|xj (String path)
 specifier|default
 name|XJEndpointBuilder

@@ -1714,7 +1714,7 @@ block|,
 DECL|enumConstant|HELSINKI
 name|HELSINKI
 block|;     }
-comment|/**      * ServiceNow (camel-servicenow)      * The servicenow component is used to integrate Camel with ServiceNow cloud      * services.      *       * Category: api,cloud,management      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-servicenow      *       * Syntax:<code>servicenow:instanceName</code>      *       * Path parameter: instanceName (required)      * The ServiceNow instance name      */
+comment|/**      * ServiceNow (camel-servicenow)      * The servicenow component is used to integrate Camel with ServiceNow cloud      * services.      *       * Category: api,cloud,management      * Since: 2.18      * Maven coordinates: org.apache.camel:camel-servicenow      *       * Syntax:<code>servicenow:instanceName</code>      *       * Path parameter: instanceName (required)      * The ServiceNow instance name      */
 DECL|method|servicenow (String path)
 specifier|default
 name|ServiceNowEndpointBuilder

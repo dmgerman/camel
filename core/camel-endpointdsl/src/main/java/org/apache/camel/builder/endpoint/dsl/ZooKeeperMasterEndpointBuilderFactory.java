@@ -369,7 +369,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * ZooKeeper Master (camel-zookeeper-master)      * Represents an endpoint which only becomes active when it obtains the      * master lock      *       * Category: clustering      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-zookeeper-master      *       * Syntax:<code>zookeeper-master:groupName:consumerEndpointUri</code>      *       * Path parameter: groupName (required)      * The name of the cluster group to use      *       * Path parameter: consumerEndpointUri (required)      * The consumer endpoint to use in master/slave mode      */
+comment|/**      * ZooKeeper Master (camel-zookeeper-master)      * Represents an endpoint which only becomes active when it obtains the      * master lock      *       * Category: clustering      * Since: 2.19      * Maven coordinates: org.apache.camel:camel-zookeeper-master      *       * Syntax:<code>zookeeper-master:groupName:consumerEndpointUri</code>      *       * Path parameter: groupName (required)      * The name of the cluster group to use      *       * Path parameter: consumerEndpointUri (required)      * The consumer endpoint to use in master/slave mode      */
 DECL|method|zookeeperMaster (String path)
 specifier|default
 name|ZooKeeperMasterEndpointBuilder

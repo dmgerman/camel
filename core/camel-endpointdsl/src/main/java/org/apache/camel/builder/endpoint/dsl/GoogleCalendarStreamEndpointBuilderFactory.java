@@ -1413,7 +1413,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Google Calendar Stream (camel-google-calendar)      * The google-calendar component provides access to Google Calendar in a      * streaming mode.      *       * Category: api,cloud      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-google-calendar      *       * Syntax:<code>google-calendar-stream:index</code>      *       * Path parameter: index      * Specifies an index for the endpoint      */
+comment|/**      * Google Calendar Stream (camel-google-calendar)      * The google-calendar component provides access to Google Calendar in a      * streaming mode.      *       * Category: api,cloud      * Since: 2.23      * Maven coordinates: org.apache.camel:camel-google-calendar      *       * Syntax:<code>google-calendar-stream:index</code>      *       * Path parameter: index      * Specifies an index for the endpoint      */
 DECL|method|googleCalendarStream (String path)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder

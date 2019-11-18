@@ -2028,7 +2028,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Debezium PostgresSQL Connector (camel-debezium-postgres)      * Represents a Debezium PostgresSQL endpoint which is used to capture      * changes in PostgresSQL database so that that applications can see those      * changes and respond to them.      *       * Category: database,sql,postgres      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-debezium-postgres      *       * Syntax:<code>debezium-postgres:name</code>      *       * Path parameter: name (required)      * Unique name for the connector. Attempting to register again with the same      * name will fail.      */
+comment|/**      * Debezium PostgresSQL Connector (camel-debezium-postgres)      * Represents a Debezium PostgresSQL endpoint which is used to capture      * changes in PostgresSQL database so that that applications can see those      * changes and respond to them.      *       * Category: database,sql,postgres      * Since: 3.0      * Maven coordinates: org.apache.camel:camel-debezium-postgres      *       * Syntax:<code>debezium-postgres:name</code>      *       * Path parameter: name (required)      * Unique name for the connector. Attempting to register again with the same      * name will fail.      */
 DECL|method|debeziumPostgres (String path)
 specifier|default
 name|DebeziumPostgresEndpointBuilder

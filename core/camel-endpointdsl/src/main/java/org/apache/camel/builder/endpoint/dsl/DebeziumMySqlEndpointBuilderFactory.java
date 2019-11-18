@@ -2364,7 +2364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Debezium MySQL Connector (camel-debezium-mysql)      * Represents a Debezium MySQL endpoint which is used to capture changes in      * MySQL database so that that applications can see those changes and      * respond to them.      *       * Category: database,sql,mysql      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-debezium-mysql      *       * Syntax:<code>debezium-mysql:name</code>      *       * Path parameter: name (required)      * Unique name for the connector. Attempting to register again with the same      * name will fail.      */
+comment|/**      * Debezium MySQL Connector (camel-debezium-mysql)      * Represents a Debezium MySQL endpoint which is used to capture changes in      * MySQL database so that that applications can see those changes and      * respond to them.      *       * Category: database,sql,mysql      * Since: 3.0      * Maven coordinates: org.apache.camel:camel-debezium-mysql      *       * Syntax:<code>debezium-mysql:name</code>      *       * Path parameter: name (required)      * Unique name for the connector. Attempting to register again with the same      * name will fail.      */
 DECL|method|debeziumMysql (String path)
 specifier|default
 name|DebeziumMySqlEndpointBuilder

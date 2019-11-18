@@ -638,7 +638,7 @@ block|,
 DECL|enumConstant|https
 name|https
 block|;     }
-comment|/**      * AWS SimpleDB (camel-aws-sdb)      * The aws-sdb component is for storing and retrieving data from/to Amazon's      * SDB service.      *       * Category: cloud,database,nosql      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-aws-sdb      *       * Syntax:<code>aws-sdb:domainName</code>      *       * Path parameter: domainName (required)      * The name of the domain currently worked with.      */
+comment|/**      * AWS SimpleDB (camel-aws-sdb)      * The aws-sdb component is for storing and retrieving data from/to Amazon's      * SDB service.      *       * Category: cloud,database,nosql      * Since: 2.9      * Maven coordinates: org.apache.camel:camel-aws-sdb      *       * Syntax:<code>aws-sdb:domainName</code>      *       * Path parameter: domainName (required)      * The name of the domain currently worked with.      */
 DECL|method|awsSdb (String path)
 specifier|default
 name|SdbEndpointBuilder

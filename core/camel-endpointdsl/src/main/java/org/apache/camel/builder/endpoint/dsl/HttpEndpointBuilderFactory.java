@@ -2039,7 +2039,7 @@ block|,
 DECL|enumConstant|PATCH
 name|PATCH
 block|;     }
-comment|/**      * HTTP (camel-http)      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      *       * Category: http      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-http      *       * Syntax:<code>http:httpUri</code>      *       * Path parameter: httpUri (required)      * The url of the HTTP endpoint to call.      */
+comment|/**      * HTTP (camel-http)      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      *       * Category: http      * Since: 2.3      * Maven coordinates: org.apache.camel:camel-http      *       * Syntax:<code>http:httpUri</code>      *       * Path parameter: httpUri (required)      * The url of the HTTP endpoint to call.      */
 DECL|method|http (String path)
 specifier|default
 name|HttpEndpointBuilder
@@ -2058,7 +2058,7 @@ name|path
 argument_list|)
 return|;
 block|}
-comment|/**      * HTTPS (Secure) (camel-http)      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      *       * Category: http      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-http      *       * Syntax:<code>https:httpUri</code>      *       * Path parameter: httpUri (required)      * The url of the HTTP endpoint to call.      */
+comment|/**      * HTTPS (Secure) (camel-http)      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      *       * Category: http      * Since: 2.3      * Maven coordinates: org.apache.camel:camel-http      *       * Syntax:<code>https:httpUri</code>      *       * Path parameter: httpUri (required)      * The url of the HTTP endpoint to call.      */
 DECL|method|https (String path)
 specifier|default
 name|HttpEndpointBuilder
@@ -2077,7 +2077,7 @@ name|path
 argument_list|)
 return|;
 block|}
-comment|/**      * HTTP (camel-http)      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      *       * Category: http      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-http      */
+comment|/**      * HTTP (camel-http)      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      *       * Category: http      * Since: 2.3      * Maven coordinates: org.apache.camel:camel-http      */
 DECL|method|http (String scheme, String path)
 specifier|default
 name|HttpEndpointBuilder

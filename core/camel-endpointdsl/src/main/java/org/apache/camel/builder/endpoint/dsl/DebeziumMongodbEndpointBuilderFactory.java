@@ -1545,7 +1545,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Debezium MongoDB Connector (camel-debezium-mongodb)      * Represents a Debezium MongoDB endpoint which is used to capture changes      * in MongoDB database so that that applications can see those changes and      * respond to them.      *       * Category: database,nosql,mongodb      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-debezium-mongodb      *       * Syntax:<code>debezium-mongodb:name</code>      *       * Path parameter: name (required)      * Unique name for the connector. Attempting to register again with the same      * name will fail.      */
+comment|/**      * Debezium MongoDB Connector (camel-debezium-mongodb)      * Represents a Debezium MongoDB endpoint which is used to capture changes      * in MongoDB database so that that applications can see those changes and      * respond to them.      *       * Category: database,nosql,mongodb      * Since: 3.0      * Maven coordinates: org.apache.camel:camel-debezium-mongodb      *       * Syntax:<code>debezium-mongodb:name</code>      *       * Path parameter: name (required)      * Unique name for the connector. Attempting to register again with the same      * name will fail.      */
 DECL|method|debeziumMongodb (String path)
 specifier|default
 name|DebeziumMongodbEndpointBuilder

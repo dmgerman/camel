@@ -2229,7 +2229,7 @@ block|,
 DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
-comment|/**      * Atomix Set (camel-atomix)      * The atomix-set component is used to access Atomix's distributed set.      *       * Category: clustering      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-atomix      *       * Syntax:<code>atomix-set:resourceName</code>      *       * Path parameter: resourceName (required)      * The distributed resource name      */
+comment|/**      * Atomix Set (camel-atomix)      * The atomix-set component is used to access Atomix's distributed set.      *       * Category: clustering      * Since: 2.20      * Maven coordinates: org.apache.camel:camel-atomix      *       * Syntax:<code>atomix-set:resourceName</code>      *       * Path parameter: resourceName (required)      * The distributed resource name      */
 DECL|method|atomixSet (String path)
 specifier|default
 name|AtomixSetEndpointBuilder

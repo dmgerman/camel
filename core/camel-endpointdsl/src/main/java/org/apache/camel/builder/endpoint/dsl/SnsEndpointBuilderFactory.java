@@ -809,7 +809,7 @@ block|,
 DECL|enumConstant|https
 name|https
 block|;     }
-comment|/**      * AWS Simple Notification System (camel-aws-sns)      * The aws-sns component is used for sending messages to an Amazon Simple      * Notification Topic.      *       * Category: cloud,mobile,messaging      * Available as of version: 2.8      * Maven coordinates: org.apache.camel:camel-aws-sns      *       * Syntax:<code>aws-sns:topicNameOrArn</code>      *       * Path parameter: topicNameOrArn (required)      * Topic name or ARN      */
+comment|/**      * AWS Simple Notification System (camel-aws-sns)      * The aws-sns component is used for sending messages to an Amazon Simple      * Notification Topic.      *       * Category: cloud,mobile,messaging      * Since: 2.8      * Maven coordinates: org.apache.camel:camel-aws-sns      *       * Syntax:<code>aws-sns:topicNameOrArn</code>      *       * Path parameter: topicNameOrArn (required)      * Topic name or ARN      */
 DECL|method|awsSns (String path)
 specifier|default
 name|SnsEndpointBuilder

@@ -1316,7 +1316,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Google Mail Stream (camel-google-mail)      * The google-mail component provides access to Google Mail.      *       * Category: api,cloud,mail      * Available as of version: 2.22      * Maven coordinates: org.apache.camel:camel-google-mail      *       * Syntax:<code>google-mail-stream:index</code>      *       * Path parameter: index      * Specifies an index for the endpoint      */
+comment|/**      * Google Mail Stream (camel-google-mail)      * The google-mail component provides access to Google Mail.      *       * Category: api,cloud,mail      * Since: 2.22      * Maven coordinates: org.apache.camel:camel-google-mail      *       * Syntax:<code>google-mail-stream:index</code>      *       * Path parameter: index      * Specifies an index for the endpoint      */
 DECL|method|googleMailStream (String path)
 specifier|default
 name|GoogleMailStreamEndpointBuilder

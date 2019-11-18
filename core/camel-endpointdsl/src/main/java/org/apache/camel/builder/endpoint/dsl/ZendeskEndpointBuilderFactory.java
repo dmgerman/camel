@@ -1765,7 +1765,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Zendesk (camel-zendesk)      * Allows producing messages to manage Zendesk ticket, user, organization,      * etc.      *       * Category: api,support,cloud      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-zendesk      *       * Syntax:<code>zendesk:methodName</code>      *       * Path parameter: methodName (required)      * What operation to use      */
+comment|/**      * Zendesk (camel-zendesk)      * Allows producing messages to manage Zendesk ticket, user, organization,      * etc.      *       * Category: api,support,cloud      * Since: 2.19      * Maven coordinates: org.apache.camel:camel-zendesk      *       * Syntax:<code>zendesk:methodName</code>      *       * Path parameter: methodName (required)      * What operation to use      */
 DECL|method|zendesk (String path)
 specifier|default
 name|ZendeskEndpointBuilder

@@ -1099,7 +1099,7 @@ block|,
 DECL|enumConstant|capacity
 name|capacity
 block|;     }
-comment|/**      * Hazelcast List (camel-hazelcast)      * The hazelcast-list component is used to access Hazelcast distributed      * list.      *       * Category: cache,datagrid      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-list:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
+comment|/**      * Hazelcast List (camel-hazelcast)      * The hazelcast-list component is used to access Hazelcast distributed      * list.      *       * Category: cache,datagrid      * Since: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-list:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
 DECL|method|hazelcastList (String path)
 specifier|default
 name|HazelcastListEndpointBuilder

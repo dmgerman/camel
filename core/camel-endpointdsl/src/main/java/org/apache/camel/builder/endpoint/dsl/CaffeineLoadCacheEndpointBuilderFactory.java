@@ -1417,7 +1417,7 @@ block|,
 DECL|enumConstant|time_based
 name|time_based
 block|;     }
-comment|/**      * Caffeine LoadCache (camel-caffeine)      * The caffeine-loadcache component is used for integration with Caffeine      * Load Cache.      *       * Category: cache,datagrid,clustering      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-caffeine      *       * Syntax:<code>caffeine-loadcache:cacheName</code>      *       * Path parameter: cacheName (required)      * the cache name      */
+comment|/**      * Caffeine LoadCache (camel-caffeine)      * The caffeine-loadcache component is used for integration with Caffeine      * Load Cache.      *       * Category: cache,datagrid,clustering      * Since: 2.20      * Maven coordinates: org.apache.camel:camel-caffeine      *       * Syntax:<code>caffeine-loadcache:cacheName</code>      *       * Path parameter: cacheName (required)      * the cache name      */
 DECL|method|caffeineLoadcache (String path)
 specifier|default
 name|CaffeineLoadCacheEndpointBuilder

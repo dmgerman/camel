@@ -545,7 +545,7 @@ block|,
 DECL|enumConstant|https
 name|https
 block|;     }
-comment|/**      * AWS KMS (camel-aws-kms)      * The aws-kms is used for managing Amazon KMS      *       * Category: cloud,management      * Available as of version: 2.21      * Maven coordinates: org.apache.camel:camel-aws-kms      *       * Syntax:<code>aws-kms:label</code>      *       * Path parameter: label (required)      * Logical name      */
+comment|/**      * AWS KMS (camel-aws-kms)      * The aws-kms is used for managing Amazon KMS      *       * Category: cloud,management      * Since: 2.21      * Maven coordinates: org.apache.camel:camel-aws-kms      *       * Syntax:<code>aws-kms:label</code>      *       * Path parameter: label (required)      * Logical name      */
 DECL|method|awsKms (String path)
 specifier|default
 name|KMSEndpointBuilder

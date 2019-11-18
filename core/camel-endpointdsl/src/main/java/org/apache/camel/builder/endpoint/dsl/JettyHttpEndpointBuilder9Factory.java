@@ -1611,7 +1611,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Jetty (camel-jetty)      * To use Jetty as a HTTP server as consumer for Camel routes.      *       * Category: http      * Available as of version: 1.2      * Maven coordinates: org.apache.camel:camel-jetty      *       * Syntax:<code>jetty:httpUri</code>      *       * Path parameter: httpUri (required)      * The url of the HTTP endpoint to call.      */
+comment|/**      * Jetty (camel-jetty)      * To use Jetty as a HTTP server as consumer for Camel routes.      *       * Category: http      * Since: 1.2      * Maven coordinates: org.apache.camel:camel-jetty      *       * Syntax:<code>jetty:httpUri</code>      *       * Path parameter: httpUri (required)      * The url of the HTTP endpoint to call.      */
 DECL|method|jetty (String path)
 specifier|default
 name|JettyHttpEndpointBuilder9
