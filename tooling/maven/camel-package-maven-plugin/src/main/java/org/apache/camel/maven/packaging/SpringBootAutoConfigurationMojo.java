@@ -1608,9 +1608,7 @@ name|starterDir
 argument_list|(
 name|baseDir
 argument_list|,
-name|project
-operator|.
-name|getArtifactId
+name|getStarterArtifactId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1725,11 +1723,26 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// special for camel-core-engine where we generate some special auto-configuration source code
+if|if
+condition|(
+literal|"camel-core-engine"
+operator|.
+name|equals
+argument_list|(
+name|project
+operator|.
+name|getArtifactId
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|executeModels
 argument_list|(
 name|files
 argument_list|)
 expr_stmt|;
+block|}
 name|executeComponent
 argument_list|(
 name|files
@@ -1928,8 +1941,7 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in
-comment|// camel-hystrix-starter
+comment|// Generate properties, auto-configuration for camel-core-starter
 name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
@@ -1937,6 +1949,74 @@ argument_list|,
 name|model
 argument_list|,
 literal|"camel.hystrix"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Resilience4j
+name|json
+operator|=
+name|loadModelJson
+argument_list|(
+name|files
+argument_list|,
+literal|"resilience4jConfiguration"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|json
+operator|!=
+literal|null
+condition|)
+block|{
+name|OtherModel
+name|model
+init|=
+name|generateOtherModel
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|int
+name|pos
+init|=
+name|model
+operator|.
+name|getJavaType
+argument_list|()
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|"."
+argument_list|)
+decl_stmt|;
+name|String
+name|pkg
+init|=
+name|model
+operator|.
+name|getJavaType
+argument_list|()
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|pos
+argument_list|)
+operator|+
+literal|".springboot"
+decl_stmt|;
+comment|// Generate properties, auto-configuration for camel-core-starter
+name|createOtherModelConfigurationSource
+argument_list|(
+name|pkg
+argument_list|,
+name|model
+argument_list|,
+literal|"camel.resilience4j"
 argument_list|,
 literal|true
 argument_list|)
@@ -1997,8 +2077,7 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in
-comment|// camel-consul-starter
+comment|// Generate properties, auto-configuration for camel-core-starter
 name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
@@ -2066,8 +2145,7 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in
-comment|// camel-dns-starter
+comment|// Generate properties, auto-configuration for camel-core-starter
 name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
@@ -2135,8 +2213,7 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in
-comment|// camel-etcd-starter
+comment|// Generate properties, auto-configuration for camel-core-starter
 name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
@@ -2273,8 +2350,7 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in
-comment|// camel-kubernetes-starter
+comment|// Generate properties, auto-configuration for camel-core-starter
 name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
@@ -2342,8 +2418,7 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in
-comment|// camel-kubernetes-starter
+comment|// Generate properties, auto-configuration for camel-core-starter
 name|createRestConfigurationSource
 argument_list|(
 name|pkg
@@ -17918,9 +17993,7 @@ name|starterSrcDir
 argument_list|(
 name|baseDir
 argument_list|,
-name|project
-operator|.
-name|getArtifactId
+name|getStarterArtifactId
 argument_list|()
 argument_list|)
 argument_list|,
@@ -18077,9 +18150,7 @@ name|starterResourceDir
 argument_list|(
 name|baseDir
 argument_list|,
-name|project
-operator|.
-name|getArtifactId
+name|getStarterArtifactId
 argument_list|()
 argument_list|)
 argument_list|,
@@ -18429,6 +18500,42 @@ block|}
 end_function
 
 begin_function
+DECL|method|getStarterArtifactId ()
+specifier|private
+name|String
+name|getStarterArtifactId
+parameter_list|()
+block|{
+if|if
+condition|(
+literal|"camel-core-engine"
+operator|.
+name|equals
+argument_list|(
+name|project
+operator|.
+name|getArtifactId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"camel-core"
+return|;
+block|}
+else|else
+block|{
+return|return
+name|project
+operator|.
+name|getArtifactId
+argument_list|()
+return|;
+block|}
+block|}
+end_function
+
+begin_function
 DECL|method|deleteFileOnMainArtifact (File starterFile)
 specifier|private
 name|void
@@ -18455,9 +18562,7 @@ name|starterDir
 argument_list|(
 name|baseDir
 argument_list|,
-name|project
-operator|.
-name|getArtifactId
+name|getStarterArtifactId
 argument_list|()
 argument_list|)
 operator|.

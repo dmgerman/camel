@@ -369,6 +369,48 @@ name|HystrixConfigurationDefinition
 name|configuration
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the Resilience4j configuration by the given name. If no name is given the      * default configuration is returned, see<tt>setResilience4jConfiguration</tt>      *      * @param id id of the configuration, or<tt>null</tt> to return the default      *            configuration      * @return the configuration, or<tt>null</tt> if no configuration has been      *         registered      */
+DECL|method|getResilience4jConfiguration (String id)
+name|Resilience4jConfigurationDefinition
+name|getResilience4jConfiguration
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the default Resilience4j configuration      *      * @param configuration the configuration      */
+DECL|method|setResilience4jConfiguration (Resilience4jConfigurationDefinition configuration)
+name|void
+name|setResilience4jConfiguration
+parameter_list|(
+name|Resilience4jConfigurationDefinition
+name|configuration
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the Resilience4j configurations      *      * @param configurations the configuration list      */
+DECL|method|setResilience4jConfigurations (List<Resilience4jConfigurationDefinition> configurations)
+name|void
+name|setResilience4jConfigurations
+parameter_list|(
+name|List
+argument_list|<
+name|Resilience4jConfigurationDefinition
+argument_list|>
+name|configurations
+parameter_list|)
+function_decl|;
+comment|/**      * Adds the Resilience4j configuration      *      * @param id name of the configuration      * @param configuration the configuration      */
+DECL|method|addResilience4jConfiguration (String id, Resilience4jConfigurationDefinition configuration)
+name|void
+name|addResilience4jConfiguration
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|Resilience4jConfigurationDefinition
+name|configuration
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the validators that can be referenced in the routes.      *      * @return the validators available      */
 DECL|method|getValidators ()
 name|List

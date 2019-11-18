@@ -200,6 +200,13 @@ name|HystrixConfigurationDefinition
 name|hystrixConfiguration
 decl_stmt|;
 annotation|@
+name|XmlElement
+DECL|field|resilience4jConfiguration
+specifier|private
+name|Resilience4jConfigurationDefinition
+name|resilience4jConfiguration
+decl_stmt|;
+annotation|@
 name|XmlAttribute
 DECL|field|configurationRef
 specifier|private
@@ -525,6 +532,32 @@ operator|=
 name|hystrixConfiguration
 expr_stmt|;
 block|}
+DECL|method|getResilience4jConfiguration ()
+specifier|public
+name|Resilience4jConfigurationCommon
+name|getResilience4jConfiguration
+parameter_list|()
+block|{
+return|return
+name|resilience4jConfiguration
+return|;
+block|}
+DECL|method|setResilience4jConfiguration (Resilience4jConfigurationDefinition resilience4jConfiguration)
+specifier|public
+name|void
+name|setResilience4jConfiguration
+parameter_list|(
+name|Resilience4jConfigurationDefinition
+name|resilience4jConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resilience4jConfiguration
+operator|=
+name|resilience4jConfiguration
+expr_stmt|;
+block|}
 DECL|method|getConfigurationRef ()
 specifier|public
 name|String
@@ -535,7 +568,7 @@ return|return
 name|configurationRef
 return|;
 block|}
-comment|/**      * Refers to a circuit breaker configuration (such as hystrix, resillient4j, or microprofile-fault-tolerance)      * to use for configuring the circuit breaker EIP.      */
+comment|/**      * Refers to a circuit breaker configuration (such as hystrix, resillience4j, or microprofile-fault-tolerance)      * to use for configuring the circuit breaker EIP.      */
 DECL|method|setConfigurationRef (String configurationRef)
 specifier|public
 name|void
@@ -616,6 +649,49 @@ name|configuration
 parameter_list|)
 block|{
 name|hystrixConfiguration
+operator|=
+name|configuration
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Configures the circuit breaker to use Resilience4j.      *<p/>      * Use<tt>end</tt> when configuration is complete, to return back to the      * Circuit Breaker EIP.      */
+DECL|method|resilience4jConfiguration ()
+specifier|public
+name|Resilience4jConfigurationDefinition
+name|resilience4jConfiguration
+parameter_list|()
+block|{
+name|resilience4jConfiguration
+operator|=
+name|resilience4jConfiguration
+operator|==
+literal|null
+condition|?
+operator|new
+name|Resilience4jConfigurationDefinition
+argument_list|(
+name|this
+argument_list|)
+else|:
+name|resilience4jConfiguration
+expr_stmt|;
+return|return
+name|resilience4jConfiguration
+return|;
+block|}
+comment|/**      * Configures the circuit breaker to use Resilience4j with the given configuration.      */
+DECL|method|resilience4jConfiguration (Resilience4jConfigurationDefinition configuration)
+specifier|public
+name|CircuitBreakerDefinition
+name|resilience4jConfiguration
+parameter_list|(
+name|Resilience4jConfigurationDefinition
+name|configuration
+parameter_list|)
+block|{
+name|resilience4jConfiguration
 operator|=
 name|configuration
 expr_stmt|;

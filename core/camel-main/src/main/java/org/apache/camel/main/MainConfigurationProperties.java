@@ -113,6 +113,18 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
+DECL|field|resilience4jConfigurationProperties
+specifier|private
+specifier|final
+name|Resilience4jConfigurationProperties
+name|resilience4jConfigurationProperties
+init|=
+operator|new
+name|Resilience4jConfigurationProperties
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
 DECL|field|restConfigurationProperties
 specifier|private
 specifier|final
@@ -136,6 +148,17 @@ parameter_list|()
 block|{
 return|return
 name|hystrixConfigurationProperties
+return|;
+block|}
+comment|/**      * To configure Circuit Breaker EIP with Resilience4j      */
+DECL|method|resilience4j ()
+specifier|public
+name|Resilience4jConfigurationProperties
+name|resilience4j
+parameter_list|()
+block|{
+return|return
+name|resilience4jConfigurationProperties
 return|;
 block|}
 comment|/**      * To configure Rest DSL      */
