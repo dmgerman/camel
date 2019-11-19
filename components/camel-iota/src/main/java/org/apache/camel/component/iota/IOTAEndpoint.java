@@ -30,6 +30,10 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|iota
+operator|.
 name|jota
 operator|.
 name|IotaAPI
@@ -372,15 +376,10 @@ argument_list|)
 operator|.
 name|port
 argument_list|(
-name|String
-operator|.
-name|valueOf
-argument_list|(
 name|u
 operator|.
 name|getPort
 argument_list|()
-argument_list|)
 argument_list|)
 operator|.
 name|build
@@ -422,7 +421,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * Component name      *       * @param url      */
+comment|/**      * Component name      *      * @param url      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -449,7 +448,7 @@ return|return
 name|url
 return|;
 block|}
-comment|/**      * Node url      *       * @param url      */
+comment|/**      * Node url      *      * @param url      */
 DECL|method|setUrl (String url)
 specifier|public
 name|void
@@ -476,7 +475,7 @@ return|return
 name|tag
 return|;
 block|}
-comment|/**      * TAG      *       * @param tag      */
+comment|/**      * TAG      *      * @param tag      */
 DECL|method|setTag (String tag)
 specifier|public
 name|void
@@ -503,7 +502,7 @@ return|return
 name|securityLevel
 return|;
 block|}
-comment|/**      * Address security level      *       * @param security level      */
+comment|/**      * Address security level      *      * @param security level      */
 DECL|method|setSecurityLevel (Integer securityLevel)
 specifier|public
 name|void
@@ -530,7 +529,7 @@ return|return
 name|minWeightMagnitude
 return|;
 block|}
-comment|/**      * The minWeightMagnitude is the minimum number of zeroes that a      * proof-of-work output/transaction hash must end with to be considered      * valid by full nodes      *       * @param minWeightMagnitude      */
+comment|/**      * The minWeightMagnitude is the minimum number of zeroes that a      * proof-of-work output/transaction hash must end with to be considered      * valid by full nodes      *      * @param minWeightMagnitude      */
 DECL|method|setMinWeightMagnitude (Integer minWeightMagnitude)
 specifier|public
 name|void
@@ -557,7 +556,7 @@ return|return
 name|depth
 return|;
 block|}
-comment|/**      * The depth determines how deep the tangle is analysed for getting Tips      *       * @param depth      */
+comment|/**      * The depth determines how deep the tangle is analysed for getting Tips      *      * @param depth      */
 DECL|method|setDepth (Integer depth)
 specifier|public
 name|void
@@ -594,7 +593,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Supported operations are 'sendTransfer', 'getNewAddress'      *       * @param operation      */
+comment|/**      * Supported operations are 'sendTransfer', 'getNewAddress'      *      * @param operation      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
