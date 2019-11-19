@@ -1149,7 +1149,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"org.apache.camel"
+literal|"org.apache.camel.springboot"
 argument_list|)
 condition|)
 block|{
