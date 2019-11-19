@@ -161,6 +161,11 @@ specifier|final
 class|class
 name|ProtobufConverter
 block|{
+DECL|method|ProtobufConverter ()
+specifier|private
+name|ProtobufConverter
+parameter_list|()
+block|{     }
 DECL|method|toProto (final Map<?, ?> inputData, final Message defaultInstance)
 specifier|public
 specifier|static

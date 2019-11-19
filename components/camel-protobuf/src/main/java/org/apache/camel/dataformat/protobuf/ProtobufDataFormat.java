@@ -752,6 +752,17 @@ parameter_list|)
 throws|throws
 name|NoTypeConversionAvailableException
 block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|inputData
+operator|instanceof
+name|Message
+operator|)
+condition|)
+block|{
+comment|// we just need to make sure input data is not a proto type
 specifier|final
 name|Map
 argument_list|<
@@ -787,7 +798,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//final ProtobufConverter protobufConverter = ProtobufConverter.create(defaultInstance);
 return|return
 name|ProtobufConverter
 operator|.
@@ -798,6 +808,7 @@ argument_list|,
 name|defaultInstance
 argument_list|)
 return|;
+block|}
 block|}
 return|return
 name|exchange
