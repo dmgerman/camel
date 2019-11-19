@@ -33,9 +33,15 @@ end_comment
 begin_class
 DECL|class|Client2Application
 specifier|public
+specifier|final
 class|class
 name|Client2Application
 block|{
+DECL|method|Client2Application ()
+specifier|private
+name|Client2Application
+parameter_list|()
+block|{     }
 DECL|method|main (String[] args)
 specifier|public
 specifier|static

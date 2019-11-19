@@ -47,9 +47,15 @@ annotation|@
 name|SpringBootApplication
 DECL|class|ClientApplication
 specifier|public
+specifier|final
 class|class
 name|ClientApplication
 block|{
+DECL|method|ClientApplication ()
+specifier|private
+name|ClientApplication
+parameter_list|()
+block|{     }
 comment|/**      * A main method to start this application.      */
 DECL|method|main (String[] args)
 specifier|public
