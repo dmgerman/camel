@@ -46,6 +46,9 @@ name|downloadLink
 block|,
 DECL|enumConstant|getObject
 name|getObject
+block|,
+DECL|enumConstant|getObjectRange
+name|getObjectRange
 block|}
 end_enum
 

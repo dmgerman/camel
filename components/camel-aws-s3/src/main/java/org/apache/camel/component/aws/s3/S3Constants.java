@@ -174,6 +174,18 @@ name|REPLICATION_STATUS
 init|=
 literal|"CamelAwsS3ReplicationStatus"
 decl_stmt|;
+DECL|field|RANGE_START
+name|String
+name|RANGE_START
+init|=
+literal|"CamelAwsS3RangeStart"
+decl_stmt|;
+DECL|field|RANGE_END
+name|String
+name|RANGE_END
+init|=
+literal|"CamelAwsS3RangeEnd"
+decl_stmt|;
 block|}
 end_interface
 

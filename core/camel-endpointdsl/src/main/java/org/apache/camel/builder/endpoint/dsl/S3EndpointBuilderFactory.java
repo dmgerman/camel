@@ -3943,6 +3943,9 @@ name|downloadLink
 block|,
 DECL|enumConstant|getObject
 name|getObject
+block|,
+DECL|enumConstant|getObjectRange
+name|getObjectRange
 block|;     }
 comment|/**      * AWS S3 Storage Service (camel-aws-s3)      * The aws-s3 component is used for storing and retrieving object from      * Amazon S3 Storage Service.      *       * Category: cloud,file      * Since: 2.8      * Maven coordinates: org.apache.camel:camel-aws-s3      *       * Syntax:<code>aws-s3://bucketNameOrArn</code>      *       * Path parameter: bucketNameOrArn (required)      * Bucket name or ARN      */
 DECL|method|awsS3 (String path)
