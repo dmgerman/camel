@@ -787,23 +787,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
-name|ProtobufConverter
-name|protobufConverter
-init|=
-name|ProtobufConverter
-operator|.
-name|create
-argument_list|(
-name|defaultInstance
-argument_list|)
-decl_stmt|;
+comment|//final ProtobufConverter protobufConverter = ProtobufConverter.create(defaultInstance);
 return|return
-name|protobufConverter
+name|ProtobufConverter
 operator|.
 name|toProto
 argument_list|(
 name|messageInMap
+argument_list|,
+name|defaultInstance
 argument_list|)
 return|;
 block|}
