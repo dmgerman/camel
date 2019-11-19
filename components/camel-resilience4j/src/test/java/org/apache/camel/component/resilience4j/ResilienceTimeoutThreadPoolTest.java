@@ -247,7 +247,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// this calls the slow route and therefore causes a timeout which triggers an exception
+comment|// this calls the slow route and therefore causes a timeout which
+comment|// triggers an exception
 try|try
 block|{
 name|template
@@ -364,7 +365,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// this calls the slow route and therefore causes a timeout which triggers an exception
+comment|// this calls the slow route and therefore causes a timeout which
+comment|// triggers an exception
 for|for
 control|(
 name|int

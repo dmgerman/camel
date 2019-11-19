@@ -1577,7 +1577,8 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|// run this as if we run inside try .. catch so there is no regular Camel error handler
+comment|// run this as if we run inside try .. catch so there is no regular
+comment|// Camel error handler
 name|exchange
 operator|.
 name|setProperty
@@ -1856,6 +1857,7 @@ block|}
 DECL|class|CircuitBreakerTask
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|CircuitBreakerTask
 implements|implements
@@ -1923,7 +1925,8 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// prepare a copy of exchange so downstream processors don't cause side-effects if they mutate the exchange
+comment|// prepare a copy of exchange so downstream processors don't
+comment|// cause side-effects if they mutate the exchange
 comment|// in case timeout processing and continue with the fallback etc
 name|Exchange
 name|copy
@@ -2049,6 +2052,7 @@ block|}
 DECL|class|CircuitBreakerFallbackTask
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|CircuitBreakerFallbackTask
 implements|implements
@@ -2120,7 +2124,8 @@ operator|instanceof
 name|TimeoutException
 condition|)
 block|{
-comment|// the circuit breaker triggered a timeout (and there is no fallback) so lets mark the exchange as failed
+comment|// the circuit breaker triggered a timeout (and there is no
+comment|// fallback) so lets mark the exchange as failed
 name|exchange
 operator|.
 name|setProperty
@@ -2356,7 +2361,8 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// and we should not be regarded as exhausted as we are in a try .. catch block
+comment|// and we should not be regarded as exhausted as we are in a try ..
+comment|// catch block
 name|exchange
 operator|.
 name|removeProperty
@@ -2422,6 +2428,7 @@ block|}
 DECL|class|CircuitBreakerTimeoutTask
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|CircuitBreakerTimeoutTask
 implements|implements

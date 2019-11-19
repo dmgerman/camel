@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To integrate camel-resilience4j with the Camel routes using the Circuit Breaker EIP.  */
+comment|/**  * To integrate camel-resilience4j with the Camel routes using the Circuit  * Breaker EIP.  */
 end_comment
 
 begin_class

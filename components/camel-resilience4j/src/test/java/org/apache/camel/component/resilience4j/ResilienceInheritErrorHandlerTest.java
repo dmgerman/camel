@@ -172,7 +172,8 @@ name|to
 argument_list|(
 literal|"log:start"
 argument_list|)
-comment|// turn on Camel's error handler on hystrix so it can do redeliveries
+comment|// turn on Camel's error handler on hystrix so it can do
+comment|// redeliveries
 operator|.
 name|circuitBreaker
 argument_list|()
