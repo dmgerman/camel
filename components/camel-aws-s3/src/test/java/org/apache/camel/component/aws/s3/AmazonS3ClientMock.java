@@ -2381,7 +2381,7 @@ name|AmazonClientException
 throws|,
 name|AmazonServiceException
 block|{
-comment|//noop
+comment|// noop
 block|}
 annotation|@
 name|Override

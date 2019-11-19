@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Manage an AWS s3 client for all users to use.  * This implementation is for local instances to use a static and solid credential set.  */
+comment|/**  * Manage an AWS s3 client for all users to use. This implementation is for  * local instances to use a static and solid credential set.  */
 end_comment
 
 begin_class
@@ -294,7 +294,7 @@ operator|=
 name|maxConnections
 expr_stmt|;
 block|}
-comment|/**      * Getting the s3 aws client that is used.      * @return Amazon S3 Client.      */
+comment|/**      * Getting the s3 aws client that is used.      *       * @return Amazon S3 Client.      */
 annotation|@
 name|Override
 DECL|method|getS3Client ()

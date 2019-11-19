@@ -498,7 +498,8 @@ name|maxMessagesPerPoll
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if there was a marker from previous poll then use that to continue from where we left last time
+comment|// if there was a marker from previous poll then use that to
+comment|// continue from where we left last time
 if|if
 condition|(
 name|marker

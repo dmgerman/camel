@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Basic testing to ensure that the StandardAWSS3ClientImpl class is returning a standard client that is  * capable of encryption given certain parameters. These clients have been in existence for a long time, but haven't  * been properly unit tested.  */
+comment|/**  * Basic testing to ensure that the StandardAWSS3ClientImpl class is returning a  * standard client that is capable of encryption given certain parameters. These  * clients have been in existence for a long time, but haven't been properly  * unit tested.  */
 end_comment
 
 begin_class

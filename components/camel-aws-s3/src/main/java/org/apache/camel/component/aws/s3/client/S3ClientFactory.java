@@ -111,7 +111,7 @@ literal|"to learn how to properly use this factory implementation."
 argument_list|)
 throw|;
 block|}
-comment|/**      * Return the correct aws s3 client (based on remote vs local).      * @param maxConnections max connections      * @return AWSS3Client      */
+comment|/**      * Return the correct aws s3 client (based on remote vs local).      *       * @param maxConnections max connections      * @return AWSS3Client      */
 DECL|method|getAWSS3Client (S3Configuration configuration, int maxConnections)
 specifier|public
 specifier|static

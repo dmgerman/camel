@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Basic testing to ensure that the IAMOptimizedAWSS3ClientImplTest class is returning a standard client that is  * capable of encryption given certain parameters. This client is new to Camel as of 02-15-2018 and enables IAM  * temporary credentials to improve security.  */
+comment|/**  * Basic testing to ensure that the IAMOptimizedAWSS3ClientImplTest class is  * returning a standard client that is capable of encryption given certain  * parameters. This client is new to Camel as of 02-15-2018 and enables IAM  * temporary credentials to improve security.  */
 end_comment
 
 begin_class

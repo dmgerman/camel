@@ -345,7 +345,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The aws-s3 component is used for storing and retrieving object from Amazon  * S3 Storage Service.  */
+comment|/**  * The aws-s3 component is used for storing and retrieving object from Amazon S3  * Storage Service.  */
 end_comment
 
 begin_class
@@ -1330,7 +1330,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
-comment|/**      * Gets the maximum number of messages as a limit to poll at each polling.      *<p/>      * Gets the maximum number of messages as a limit to poll at each polling. The      * default value is 10. Use 0 or a negative number to set it as unlimited.      */
+comment|/**      * Gets the maximum number of messages as a limit to poll at each polling.      *<p/>      * Gets the maximum number of messages as a limit to poll at each polling.      * The default value is 10. Use 0 or a negative number to set it as      * unlimited.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void

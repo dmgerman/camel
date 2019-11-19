@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Manage an AWS s3 client for all users to use (enabling temporary creds).  * This implementation is for remote instances to manage the credentials on their own (eliminating credential rotations)  */
+comment|/**  * Manage an AWS s3 client for all users to use (enabling temporary creds). This  * implementation is for remote instances to manage the credentials on their own  * (eliminating credential rotations)  */
 end_comment
 
 begin_class
@@ -258,7 +258,7 @@ operator|=
 name|maxConnections
 expr_stmt|;
 block|}
-comment|/**      * Getting the s3 aws client that is used.      * @return Amazon S3 Client.      */
+comment|/**      * Getting the s3 aws client that is used.      *       * @return Amazon S3 Client.      */
 annotation|@
 name|Override
 DECL|method|getS3Client ()

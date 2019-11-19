@@ -46,7 +46,7 @@ specifier|public
 interface|interface
 name|S3Client
 block|{
-comment|/**      * Returns an s3 client after a factory method determines which one to return.      * @return AmazonS3 AmazonS3      */
+comment|/**      * Returns an s3 client after a factory method determines which one to      * return.      *       * @return AmazonS3 AmazonS3      */
 DECL|method|getS3Client ()
 name|AmazonS3
 name|getS3Client
