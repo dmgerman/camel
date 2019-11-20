@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The aws-kms is used for managing Amazon KMS  */
+comment|/**  * The aws-msk is used for managing Amazon MSK  */
 end_comment
 
 begin_class
