@@ -457,8 +457,6 @@ argument_list|(
 name|chatManager
 argument_list|,
 name|participant
-argument_list|,
-name|thread
 argument_list|)
 decl_stmt|;
 name|endpoint
@@ -550,7 +548,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getOrCreateChat (ChatManager chatManager, final String participant, String thread)
+DECL|method|getOrCreateChat (ChatManager chatManager, final String participant)
 specifier|private
 name|Chat
 name|getOrCreateChat
@@ -561,9 +559,6 @@ parameter_list|,
 specifier|final
 name|String
 name|participant
-parameter_list|,
-name|String
-name|thread
 parameter_list|)
 throws|throws
 name|XmppStringprepException
@@ -579,10 +574,6 @@ operator|.
 name|entityBareFrom
 argument_list|(
 name|participant
-operator|+
-literal|"@"
-operator|+
-name|thread
 argument_list|)
 argument_list|)
 return|;
