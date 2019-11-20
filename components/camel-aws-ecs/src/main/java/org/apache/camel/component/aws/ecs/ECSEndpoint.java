@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The aws-kms is used for managing Amazon ECS  */
+comment|/**  * The aws-ecs is used for managing Amazon ECS  */
 end_comment
 
 begin_class
