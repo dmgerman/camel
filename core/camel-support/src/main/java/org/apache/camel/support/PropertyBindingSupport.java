@@ -3049,7 +3049,7 @@ operator|.
 name|toString
 argument_list|()
 operator|.
-name|equals
+name|startsWith
 argument_list|(
 literal|"#bean:"
 argument_list|)
