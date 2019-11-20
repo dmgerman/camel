@@ -1051,6 +1051,34 @@ name|dep
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// lets log a WARN if some Camel JARs was excluded
+if|if
+condition|(
+name|dep
+operator|.
+name|getGroupId
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"org.apache.camel"
+argument_list|)
+condition|)
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+name|dep
+operator|+
+literal|" excluded from BOM"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 name|Collections
 operator|.
@@ -1556,14 +1584,16 @@ block|{
 name|getLog
 argument_list|()
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Writing new file "
+literal|"File: "
 operator|+
 name|file
 operator|.
 name|getAbsolutePath
 argument_list|()
+operator|+
+literal|" is updated"
 argument_list|)
 expr_stmt|;
 name|fr
@@ -1577,7 +1607,7 @@ block|{
 name|getLog
 argument_list|()
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"File "
 operator|+
@@ -1586,7 +1616,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 operator|+
-literal|" left unchanged"
+literal|" is not changed"
 argument_list|)
 expr_stmt|;
 name|write
