@@ -152,6 +152,14 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
+comment|/**      * Whether to include AMQP annotations when mapping from AMQP to Camel      * Message. Setting this to true will map AMQP message annotations to      * message headers. Due to limitations in Apache Qpid JMS API, currently      * delivery annotations are ignored.      */
+DECL|field|includeAmqpAnnotations
+specifier|private
+name|Boolean
+name|includeAmqpAnnotations
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * To use a shared JMS configuration. The option is a      * org.apache.camel.component.jms.JmsConfiguration type.      */
 DECL|field|configuration
 specifier|private
@@ -755,6 +763,32 @@ name|bridgeErrorHandler
 init|=
 literal|false
 decl_stmt|;
+DECL|method|getIncludeAmqpAnnotations ()
+specifier|public
+name|Boolean
+name|getIncludeAmqpAnnotations
+parameter_list|()
+block|{
+return|return
+name|includeAmqpAnnotations
+return|;
+block|}
+DECL|method|setIncludeAmqpAnnotations (Boolean includeAmqpAnnotations)
+specifier|public
+name|void
+name|setIncludeAmqpAnnotations
+parameter_list|(
+name|Boolean
+name|includeAmqpAnnotations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeAmqpAnnotations
+operator|=
+name|includeAmqpAnnotations
+expr_stmt|;
+block|}
 DECL|method|getConfiguration ()
 specifier|public
 name|String
