@@ -222,7 +222,10 @@ begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
-comment|/* firstVersion = "3.?.0", */
+name|firstVersion
+operator|=
+literal|"3.0.0"
+argument_list|,
 name|scheme
 operator|=
 literal|"platform-http"
