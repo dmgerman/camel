@@ -166,14 +166,6 @@ name|trustAllPackages
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If enabled this will cause all Queues in the ActiveMQ broker to be      * eagerly populated into the CamelContext so that they can be easily      * browsed by any Camel tooling. This option is disabled by default.      */
-DECL|field|exposeAllQueues
-specifier|private
-name|Boolean
-name|exposeAllQueues
-init|=
-literal|false
-decl_stmt|;
 comment|/**      * Enables or disables whether a PooledConnectionFactory will be used so      * that when messages are sent to ActiveMQ from outside of a message      * consuming thread, pooling will be used rather than the default with the      * Spring JmsTemplate which will create a new connection, session, producer      * for each message then close them all down again. The default value is      * true.      */
 DECL|field|usePooledConnection
 specifier|private
@@ -843,32 +835,6 @@ operator|.
 name|trustAllPackages
 operator|=
 name|trustAllPackages
-expr_stmt|;
-block|}
-DECL|method|getExposeAllQueues ()
-specifier|public
-name|Boolean
-name|getExposeAllQueues
-parameter_list|()
-block|{
-return|return
-name|exposeAllQueues
-return|;
-block|}
-DECL|method|setExposeAllQueues (Boolean exposeAllQueues)
-specifier|public
-name|void
-name|setExposeAllQueues
-parameter_list|(
-name|Boolean
-name|exposeAllQueues
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exposeAllQueues
-operator|=
-name|exposeAllQueues
 expr_stmt|;
 block|}
 DECL|method|getUsePooledConnection ()
