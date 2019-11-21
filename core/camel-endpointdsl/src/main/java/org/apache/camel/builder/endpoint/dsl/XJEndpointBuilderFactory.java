@@ -838,6 +838,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * A configuration strategy to apply on freshly created instances of          * TransformerFactory.          *           * The option is a:          *<code>org.apache.camel.component.xslt.TransformerFactoryConfigurationStrategy</code> type.          *           * Group: advanced          */
+DECL|method|transformerFactoryConfigurationStrategy ( Object transformerFactoryConfigurationStrategy)
+specifier|default
+name|AdvancedXJEndpointBuilder
+name|transformerFactoryConfigurationStrategy
+parameter_list|(
+name|Object
+name|transformerFactoryConfigurationStrategy
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"transformerFactoryConfigurationStrategy"
+argument_list|,
+name|transformerFactoryConfigurationStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * A configuration strategy to apply on freshly created instances of          * TransformerFactory.          *           * The option will be converted to a          *<code>org.apache.camel.component.xslt.TransformerFactoryConfigurationStrategy</code> type.          *           * Group: advanced          */
+DECL|method|transformerFactoryConfigurationStrategy ( String transformerFactoryConfigurationStrategy)
+specifier|default
+name|AdvancedXJEndpointBuilder
+name|transformerFactoryConfigurationStrategy
+parameter_list|(
+name|String
+name|transformerFactoryConfigurationStrategy
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"transformerFactoryConfigurationStrategy"
+argument_list|,
+name|transformerFactoryConfigurationStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * To use a custom javax.xml.transform.URIResolver.          *           * The option is a:<code>javax.xml.transform.URIResolver</code> type.          *           * Group: advanced          */
 DECL|method|uriResolver (Object uriResolver)
 specifier|default

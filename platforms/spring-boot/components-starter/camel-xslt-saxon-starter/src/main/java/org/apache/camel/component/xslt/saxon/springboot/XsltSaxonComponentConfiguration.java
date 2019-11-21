@@ -147,6 +147,18 @@ name|contentCache
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * A configuration strategy to apply on freshly created instances of      * TransformerFactory. The option is a      * org.apache.camel.component.xslt.TransformerFactoryConfigurationStrategy      * type.      */
+DECL|field|transformerFactoryConfigurationStrategy
+specifier|private
+name|String
+name|transformerFactoryConfigurationStrategy
+decl_stmt|;
+comment|/**      * To use a custom XSLT transformer factory, specified as a FQN class name      */
+DECL|field|transformerFactoryClass
+specifier|private
+name|String
+name|transformerFactoryClass
+decl_stmt|;
 comment|/**      * Whether the component should use basic property binding (Camel 2.x) or      * the newer property binding with additional capabilities      */
 DECL|field|basicPropertyBinding
 specifier|private
@@ -335,6 +347,58 @@ operator|.
 name|contentCache
 operator|=
 name|contentCache
+expr_stmt|;
+block|}
+DECL|method|getTransformerFactoryConfigurationStrategy ()
+specifier|public
+name|String
+name|getTransformerFactoryConfigurationStrategy
+parameter_list|()
+block|{
+return|return
+name|transformerFactoryConfigurationStrategy
+return|;
+block|}
+DECL|method|setTransformerFactoryConfigurationStrategy ( String transformerFactoryConfigurationStrategy)
+specifier|public
+name|void
+name|setTransformerFactoryConfigurationStrategy
+parameter_list|(
+name|String
+name|transformerFactoryConfigurationStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transformerFactoryConfigurationStrategy
+operator|=
+name|transformerFactoryConfigurationStrategy
+expr_stmt|;
+block|}
+DECL|method|getTransformerFactoryClass ()
+specifier|public
+name|String
+name|getTransformerFactoryClass
+parameter_list|()
+block|{
+return|return
+name|transformerFactoryClass
+return|;
+block|}
+DECL|method|setTransformerFactoryClass (String transformerFactoryClass)
+specifier|public
+name|void
+name|setTransformerFactoryClass
+parameter_list|(
+name|String
+name|transformerFactoryClass
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transformerFactoryClass
+operator|=
+name|transformerFactoryClass
 expr_stmt|;
 block|}
 DECL|method|getBasicPropertyBinding ()
