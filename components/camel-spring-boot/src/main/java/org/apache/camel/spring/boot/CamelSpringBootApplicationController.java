@@ -279,6 +279,20 @@ block|}
 block|}
 block|}
 expr_stmt|;
+comment|// turn off route collector on main as camel-spring-boot has already discovered the routes
+comment|// and here we just use the main as implementation detail (to keep the jvm running)
+name|this
+operator|.
+name|main
+operator|.
+name|configure
+argument_list|()
+operator|.
+name|setRoutesCollectorEnabled
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getLatch ()
 specifier|public
