@@ -32,18 +32,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|iota
-operator|.
-name|jota
-operator|.
-name|IotaAPI
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|camel
@@ -146,6 +134,18 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|iota
+operator|.
+name|jota
+operator|.
+name|IotaAPI
+import|;
+end_import
+
 begin_comment
 comment|/**  * Component for integrate IOTA DLT  */
 end_comment
@@ -172,7 +172,11 @@ literal|"iota:name"
 argument_list|,
 name|label
 operator|=
-literal|"dlt"
+literal|"ledger"
+argument_list|,
+name|producerOnly
+operator|=
+literal|true
 argument_list|)
 DECL|class|IOTAEndpoint
 specifier|public
@@ -183,6 +187,7 @@ name|DefaultEndpoint
 block|{
 DECL|field|apiClient
 specifier|private
+specifier|volatile
 name|IotaAPI
 name|apiClient
 decl_stmt|;
@@ -202,6 +207,13 @@ name|name
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|url
 specifier|private
 name|String
@@ -209,6 +221,18 @@ name|url
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"sendTransfer,getNewAddress,getTransfers"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|operation
 specifier|private
 name|String
@@ -224,6 +248,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
@@ -421,7 +449,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * Component name      *      * @param url      */
+comment|/**      * Component name      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -448,7 +476,7 @@ return|return
 name|url
 return|;
 block|}
-comment|/**      * Node url      *      * @param url      */
+comment|/**      * Node url      */
 DECL|method|setUrl (String url)
 specifier|public
 name|void
@@ -475,7 +503,7 @@ return|return
 name|tag
 return|;
 block|}
-comment|/**      * TAG      *      * @param tag      */
+comment|/**      * TAG      */
 DECL|method|setTag (String tag)
 specifier|public
 name|void
@@ -502,7 +530,7 @@ return|return
 name|securityLevel
 return|;
 block|}
-comment|/**      * Address security level      *      * @param security level      */
+comment|/**      * Address security level      */
 DECL|method|setSecurityLevel (Integer securityLevel)
 specifier|public
 name|void
@@ -529,7 +557,7 @@ return|return
 name|minWeightMagnitude
 return|;
 block|}
-comment|/**      * The minWeightMagnitude is the minimum number of zeroes that a      * proof-of-work output/transaction hash must end with to be considered      * valid by full nodes      *      * @param minWeightMagnitude      */
+comment|/**      * The minWeightMagnitude is the minimum number of zeroes that a      * proof-of-work output/transaction hash must end with to be considered      * valid by full nodes      */
 DECL|method|setMinWeightMagnitude (Integer minWeightMagnitude)
 specifier|public
 name|void
@@ -556,7 +584,7 @@ return|return
 name|depth
 return|;
 block|}
-comment|/**      * The depth determines how deep the tangle is analysed for getting Tips      *      * @param depth      */
+comment|/**      * The depth determines how deep the tangle is analysed for getting Tips      */
 DECL|method|setDepth (Integer depth)
 specifier|public
 name|void
@@ -593,7 +621,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Supported operations are 'sendTransfer', 'getNewAddress'      *      * @param operation      */
+comment|/**      * Which operation to perform, one of: sendTransfer, getNewAddress, getTransfers      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void

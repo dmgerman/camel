@@ -196,9 +196,7 @@ name|sendBody
 argument_list|(
 literal|"direct:iota-new-address"
 argument_list|,
-operator|new
-name|String
-argument_list|()
+literal|""
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -236,9 +234,7 @@ name|sendBody
 argument_list|(
 literal|"direct:iota-get-transfers"
 argument_list|,
-operator|new
-name|String
-argument_list|()
+literal|""
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
