@@ -784,6 +784,14 @@ operator|::
 name|hasMatchingOwner
 argument_list|)
 operator|.
+name|limit
+argument_list|(
+name|endpointConfig
+operator|.
+name|getMaxMessagesPerPoll
+argument_list|()
+argument_list|)
+operator|.
 name|map
 argument_list|(
 name|this

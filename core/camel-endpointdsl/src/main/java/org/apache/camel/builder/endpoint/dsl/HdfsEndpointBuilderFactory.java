@@ -595,6 +595,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a maximum messages to gather per poll. By default a limit          * of 100 is set. Can be used to set a limit of e.g. 1000 to avoid when          * starting up the server that there are thousands of files. Values can          * only be greater than 0. Notice: If this option is in use then the          * limit will be applied on the valid files. For example if you have          * 100000 files and use maxMessagesPerPoll=500, then only the first 500          * files will be picked up.          *           * The option is a:<code>int</code> type.          *           * Group: filter          */
+DECL|method|maxMessagesPerPoll ( int maxMessagesPerPoll)
+specifier|default
+name|HdfsEndpointConsumerBuilder
+name|maxMessagesPerPoll
+parameter_list|(
+name|int
+name|maxMessagesPerPoll
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"maxMessagesPerPoll"
+argument_list|,
+name|maxMessagesPerPoll
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a maximum messages to gather per poll. By default a limit          * of 100 is set. Can be used to set a limit of e.g. 1000 to avoid when          * starting up the server that there are thousands of files. Values can          * only be greater than 0. Notice: If this option is in use then the          * limit will be applied on the valid files. For example if you have          * 100000 files and use maxMessagesPerPoll=500, then only the first 500          * files will be picked up.          *           * The option will be converted to a<code>int</code> type.          *           * Group: filter          */
+DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
+specifier|default
+name|HdfsEndpointConsumerBuilder
+name|maxMessagesPerPoll
+parameter_list|(
+name|String
+name|maxMessagesPerPoll
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"maxMessagesPerPoll"
+argument_list|,
+name|maxMessagesPerPoll
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
 specifier|default

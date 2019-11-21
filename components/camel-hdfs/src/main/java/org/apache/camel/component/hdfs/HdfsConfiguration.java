@@ -626,6 +626,30 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,filter"
+argument_list|,
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|HdfsConstants
+operator|.
+name|DEFAULT_MAX_MESSAGES_PER_POLL
+argument_list|)
+DECL|field|maxMessagesPerPoll
+specifier|private
+name|int
+name|maxMessagesPerPoll
+init|=
+name|HdfsConstants
+operator|.
+name|DEFAULT_MAX_MESSAGES_PER_POLL
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|owner
 specifier|private
 name|String
@@ -2493,6 +2517,33 @@ operator|.
 name|connectOnStartup
 operator|=
 name|connectOnStartup
+expr_stmt|;
+block|}
+DECL|method|getMaxMessagesPerPoll ()
+specifier|public
+name|int
+name|getMaxMessagesPerPoll
+parameter_list|()
+block|{
+return|return
+name|maxMessagesPerPoll
+return|;
+block|}
+comment|/**      * To define a maximum messages to gather per poll.      * By default a limit of 100 is set. Can be used to set a limit of e.g. 1000 to avoid when starting up the server that there are thousands of files.      * Values can only be greater than 0.      * Notice: If this option is in use then the limit will be applied on the valid files.      * For example if you have 100000 files and use maxMessagesPerPoll=500, then only the first 500 files will be picked up.      */
+DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
+specifier|public
+name|void
+name|setMaxMessagesPerPoll
+parameter_list|(
+name|int
+name|maxMessagesPerPoll
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxMessagesPerPoll
+operator|=
+name|maxMessagesPerPoll
 expr_stmt|;
 block|}
 DECL|method|getOwner ()

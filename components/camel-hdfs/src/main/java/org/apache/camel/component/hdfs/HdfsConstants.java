@@ -168,6 +168,15 @@ name|HDFS_CLOSE
 init|=
 literal|"CamelHdfsClose"
 decl_stmt|;
+DECL|field|DEFAULT_MAX_MESSAGES_PER_POLL
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_MAX_MESSAGES_PER_POLL
+init|=
+literal|100
+decl_stmt|;
 DECL|method|HdfsConstants ()
 specifier|private
 name|HdfsConstants
