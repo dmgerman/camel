@@ -4520,13 +4520,7 @@ name|toList
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// resolvePropertyPlaceholders is an option which only make
-comment|// sense to use if the component has other options
-comment|// boolean hasOptions =
-comment|// model.getComponentOptions().stream().anyMatch(o ->
-comment|// !o.getName().equals("resolvePropertyPlaceholders"));
-comment|// use springboot as sub package name so the code is not in
-comment|// normal
+comment|// use springboot as sub package name so the code is not in normal
 comment|// package so the Spring Boot JARs can be optional at runtime
 name|int
 name|pos
@@ -5534,6 +5528,14 @@ decl_stmt|;
 name|boolean
 name|isNestedProperty
 init|=
+name|isValidNestedProperty
+argument_list|(
+name|model
+argument_list|,
+name|option
+argument_list|)
+operator|&&
+operator|(
 name|isNestedProperty
 argument_list|(
 name|nestedTypes
@@ -5547,6 +5549,7 @@ name|equals
 argument_list|(
 name|type
 argument_list|)
+operator|)
 decl_stmt|;
 if|if
 condition|(
@@ -8325,6 +8328,51 @@ return|return
 name|type
 operator|!=
 literal|null
+return|;
+block|}
+DECL|method|isValidNestedProperty (ComponentModel model, ComponentOptionModel option)
+specifier|private
+name|boolean
+name|isValidNestedProperty
+parameter_list|(
+name|ComponentModel
+name|model
+parameter_list|,
+name|ComponentOptionModel
+name|option
+parameter_list|)
+block|{
+if|if
+condition|(
+literal|"camel-jms"
+operator|.
+name|equals
+argument_list|(
+name|model
+operator|.
+name|getArtifactId
+argument_list|()
+argument_list|)
+operator|&&
+literal|"configuration"
+operator|.
+name|equals
+argument_list|(
+name|option
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// skip camel-jms JmsConfiguration as all these options has already
+comment|// been set on component level direction, as otherwise we have duplicates
+return|return
+literal|false
+return|;
+block|}
+return|return
+literal|true
 return|;
 block|}
 comment|// read java type from project, returns null if not found
