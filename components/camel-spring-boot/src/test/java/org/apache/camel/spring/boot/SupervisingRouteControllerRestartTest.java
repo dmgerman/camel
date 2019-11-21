@@ -302,7 +302,7 @@ literal|"camel.supervising.controller.routes.bar.back-off.delay = 10s"
 block|,
 literal|"camel.supervising.controller.routes.bar.back-off.max-attempts = 3"
 block|,
-literal|"camel.supervising.controller.routes.timer-unmanaged.supervise = false"
+literal|"camel.supervising.controller.routes.scheduler-unmanaged.supervise = false"
 block|}
 argument_list|)
 DECL|class|SupervisingRouteControllerRestartTest
@@ -441,6 +441,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+name|Assert
+operator|.
+name|assertEquals
+argument_list|(
+name|ServiceStatus
+operator|.
+name|Stopped
+argument_list|,
+name|context
+operator|.
+name|getRouteController
+argument_list|()
+operator|.
+name|getRouteStatus
+argument_list|(
+literal|"scheduler-unmanaged"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// restart the dummy route which should fail on first attempt
@@ -636,6 +655,25 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
+name|assertEquals
+argument_list|(
+name|ServiceStatus
+operator|.
+name|Stopped
+argument_list|,
+name|context
+operator|.
+name|getRouteController
+argument_list|()
+operator|.
+name|getRouteStatus
+argument_list|(
+literal|"scheduler-unmanaged"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|// *************************************
 comment|// Config
@@ -724,17 +762,17 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"timer:unmanaged?period=5s"
+literal|"scheduler:unmanaged?initialDelay=5s"
 argument_list|)
 operator|.
 name|id
 argument_list|(
-literal|"timer-unmanaged"
+literal|"scheduler-unmanaged"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:timer-unmanaged"
+literal|"mock:scheduler-unmanaged"
 argument_list|)
 expr_stmt|;
 name|from
