@@ -152,13 +152,13 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * Sets the broker URL to use to connect to ActiveMQ using the ActiveMQ URI      * format      */
+comment|/**      * Sets the broker URL to use to connect to ActiveMQ      */
 DECL|field|brokerURL
 specifier|private
 name|String
 name|brokerURL
 decl_stmt|;
-comment|/**      * Define if all packages are trusted or not      */
+comment|/**      * Define if all Java packages are trusted or not (for Java object JMS      * message types). Notice its not recommended practice to send Java      * serialized objects over network. Setting this to true can expose security      * risks, so use this with care.      */
 DECL|field|trustAllPackages
 specifier|private
 name|Boolean
@@ -174,7 +174,7 @@ name|exposeAllQueues
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Enables or disables whether a PooledConnectionFactory will be used so      * that when messages are sent to ActiveMQ from outside of a message      * consuming thread, pooling will be used rather than the default with the      * Spring JmsTemplate which will create a new connection, session, producer      * for each message then close them all down again. The default value is      * true. Note that this requires an extra dependency on commons-pool2.      */
+comment|/**      * Enables or disables whether a PooledConnectionFactory will be used so      * that when messages are sent to ActiveMQ from outside of a message      * consuming thread, pooling will be used rather than the default with the      * Spring JmsTemplate which will create a new connection, session, producer      * for each message then close them all down again. The default value is      * true.      */
 DECL|field|usePooledConnection
 specifier|private
 name|Boolean

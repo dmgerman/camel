@@ -164,6 +164,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|annotations
 operator|.
 name|Component
@@ -296,23 +310,21 @@ argument_list|)
 decl_stmt|;
 DECL|field|source
 specifier|private
+specifier|volatile
 name|DestinationSource
 name|source
 decl_stmt|;
-DECL|field|exposeAllQueues
+DECL|field|connection
 specifier|private
-name|boolean
-name|exposeAllQueues
+specifier|volatile
+name|EnhancedConnection
+name|connection
 decl_stmt|;
 DECL|field|endpointLoader
 specifier|private
+specifier|volatile
 name|CamelEndpointLoader
 name|endpointLoader
-decl_stmt|;
-DECL|field|connection
-specifier|private
-name|EnhancedConnection
-name|connection
 decl_stmt|;
 DECL|field|singleConnectionFactoryList
 specifier|private
@@ -341,6 +353,18 @@ operator|new
 name|CopyOnWriteArrayList
 argument_list|<>
 argument_list|()
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|exposeAllQueues
+specifier|private
+name|boolean
+name|exposeAllQueues
 decl_stmt|;
 DECL|method|ActiveMQComponent ()
 specifier|public
@@ -437,7 +461,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Sets the broker URL to use to connect to ActiveMQ using the      *<a href="http://activemq.apache.org/configuring-transports.html">ActiveMQ      * URI format</a>      */
+comment|/**      * Sets the broker URL to use to connect to ActiveMQ      */
 DECL|method|setBrokerURL (String brokerURL)
 specifier|public
 name|void
@@ -470,7 +494,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Define if all packages are trusted or not      */
+comment|/**      * Define if all Java packages are trusted or not (for Java object JMS message types).      * Notice its not recommended practice to send Java serialized objects over network.      * Setting this to true can expose security risks, so use this with care.      */
 DECL|method|setTrustAllPackages (boolean trustAllPackages)
 specifier|public
 name|void
@@ -530,7 +554,7 @@ operator|=
 name|exposeAllQueues
 expr_stmt|;
 block|}
-comment|/**      * Enables or disables whether a PooledConnectionFactory will be used so      * that when messages are sent to ActiveMQ from outside of a message      * consuming thread, pooling will be used rather than the default with the      * Spring {@link JmsTemplate} which will create a new connection, session,      * producer for each message then close them all down again.      *<p/>      * The default value is true. Note that this requires an extra dependency on      * commons-pool2.      */
+comment|/**      * Enables or disables whether a PooledConnectionFactory will be used so      * that when messages are sent to ActiveMQ from outside of a message      * consuming thread, pooling will be used rather than the default with the      * Spring {@link JmsTemplate} which will create a new connection, session,      * producer for each message then close them all down again.      *<p/>      * The default value is true.      */
 DECL|method|setUsePooledConnection (boolean usePooledConnection)
 specifier|public
 name|void
