@@ -39,7 +39,7 @@ name|JMS_AMQP_MA_PREFIX
 init|=
 literal|"JMS_AMQP_MA_"
 decl_stmt|;
-comment|/**      * AMQP message delivery prefix      */
+comment|/**      * AMQP delivery annotation prefix      */
 DECL|field|JMS_AMQP_DA_PREFIX
 specifier|public
 specifier|static
