@@ -165,6 +165,30 @@ name|contentCache
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|transformerFactoryConfigurationStrategy
+specifier|private
+name|TransformerFactoryConfigurationStrategy
+name|transformerFactoryConfigurationStrategy
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|transformerFactoryClass
+specifier|private
+name|String
+name|transformerFactoryClass
+decl_stmt|;
 DECL|method|XsltComponent ()
 specifier|public
 name|XsltComponent
@@ -249,6 +273,60 @@ operator|.
 name|contentCache
 operator|=
 name|contentCache
+expr_stmt|;
+block|}
+DECL|method|getTransformerFactoryConfigurationStrategy ()
+specifier|public
+name|TransformerFactoryConfigurationStrategy
+name|getTransformerFactoryConfigurationStrategy
+parameter_list|()
+block|{
+return|return
+name|transformerFactoryConfigurationStrategy
+return|;
+block|}
+comment|/**      * A configuration strategy to apply on freshly created instances of TransformerFactory.      */
+DECL|method|setTransformerFactoryConfigurationStrategy ( TransformerFactoryConfigurationStrategy transformerFactoryConfigurationStrategy)
+specifier|public
+name|void
+name|setTransformerFactoryConfigurationStrategy
+parameter_list|(
+name|TransformerFactoryConfigurationStrategy
+name|transformerFactoryConfigurationStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transformerFactoryConfigurationStrategy
+operator|=
+name|transformerFactoryConfigurationStrategy
+expr_stmt|;
+block|}
+DECL|method|getTransformerFactoryClass ()
+specifier|public
+name|String
+name|getTransformerFactoryClass
+parameter_list|()
+block|{
+return|return
+name|transformerFactoryClass
+return|;
+block|}
+comment|/**      * To use a custom XSLT transformer factory, specified as a FQN class name      */
+DECL|method|setTransformerFactoryClass (String transformerFactoryClass)
+specifier|public
+name|void
+name|setTransformerFactoryClass
+parameter_list|(
+name|String
+name|transformerFactoryClass
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transformerFactoryClass
+operator|=
+name|transformerFactoryClass
 expr_stmt|;
 block|}
 annotation|@
