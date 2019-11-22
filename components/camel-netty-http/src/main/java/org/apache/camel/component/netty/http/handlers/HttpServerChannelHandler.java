@@ -530,24 +530,6 @@ name|http
 operator|.
 name|HttpResponseStatus
 operator|.
-name|INTERNAL_SERVER_ERROR
-import|;
-end_import
-
-begin_import
-import|import static
-name|io
-operator|.
-name|netty
-operator|.
-name|handler
-operator|.
-name|codec
-operator|.
-name|http
-operator|.
-name|HttpResponseStatus
-operator|.
 name|METHOD_NOT_ALLOWED
 import|;
 end_import
