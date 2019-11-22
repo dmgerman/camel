@@ -74,7 +74,7 @@ DECL|enumConstant|BLOOMMAP_FILE
 name|BLOOMMAP_FILE
 argument_list|(
 operator|new
-name|HdfsBloommapFileHandler
+name|HdfsBloomMapFileHandler
 argument_list|()
 argument_list|)
 block|,
@@ -191,7 +191,7 @@ name|hdfsInfoFactory
 argument_list|)
 return|;
 block|}
-DECL|method|next (HdfsInputStream hdfsInputStream, Holder<Object> key, Holder<Object> value)
+DECL|method|next (HdfsInputStream hdfsInputStream, final Holder<Object> key, final Holder<Object> value)
 specifier|public
 name|long
 name|next
@@ -199,12 +199,14 @@ parameter_list|(
 name|HdfsInputStream
 name|hdfsInputStream
 parameter_list|,
+specifier|final
 name|Holder
 argument_list|<
 name|Object
 argument_list|>
 name|key
 parameter_list|,
+specifier|final
 name|Holder
 argument_list|<
 name|Object
