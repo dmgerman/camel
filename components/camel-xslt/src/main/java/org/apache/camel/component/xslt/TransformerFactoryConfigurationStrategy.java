@@ -42,7 +42,6 @@ name|TransformerFactoryConfigurationStrategy
 block|{
 comment|/**      * Configure the given {@code factory} associated with the given {@code endpoint}.      *      * @param factory the {@link TransformerFactory} to configure      * @param endpoint the {@link XsltEndpoint} owning the given {@code factory}      */
 DECL|method|configure (TransformerFactory factory, XsltEndpoint endpoint)
-specifier|public
 name|void
 name|configure
 parameter_list|(
