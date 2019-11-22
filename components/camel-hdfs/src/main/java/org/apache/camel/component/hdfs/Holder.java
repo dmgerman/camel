@@ -30,7 +30,7 @@ parameter_list|>
 block|{
 comment|/**      * The value contained in the holder.      **/
 DECL|field|value
-specifier|public
+specifier|private
 name|T
 name|value
 decl_stmt|;
@@ -44,6 +44,32 @@ comment|/**      * Create a new holder with the specified value.      *      * @
 DECL|method|Holder (T value)
 specifier|public
 name|Holder
+parameter_list|(
+name|T
+name|value
+parameter_list|)
+block|{
+name|this
+operator|.
+name|value
+operator|=
+name|value
+expr_stmt|;
+block|}
+DECL|method|getValue ()
+specifier|public
+name|T
+name|getValue
+parameter_list|()
+block|{
+return|return
+name|value
+return|;
+block|}
+DECL|method|setValue (T value)
+specifier|public
+name|void
+name|setValue
 parameter_list|(
 name|T
 name|value
