@@ -1548,6 +1548,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Whether Netty HTTP server should log a WARN if decoding the HTTP          * request failed and a HTTP Status 400 (bad request) is returned.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
+DECL|method|logWarnOnBadRequest ( boolean logWarnOnBadRequest)
+specifier|default
+name|AdvancedNettyHttpEndpointConsumerBuilder
+name|logWarnOnBadRequest
+parameter_list|(
+name|boolean
+name|logWarnOnBadRequest
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"logWarnOnBadRequest"
+argument_list|,
+name|logWarnOnBadRequest
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether Netty HTTP server should log a WARN if decoding the HTTP          * request failed and a HTTP Status 400 (bad request) is returned.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
+DECL|method|logWarnOnBadRequest ( String logWarnOnBadRequest)
+specifier|default
+name|AdvancedNettyHttpEndpointConsumerBuilder
+name|logWarnOnBadRequest
+parameter_list|(
+name|String
+name|logWarnOnBadRequest
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"logWarnOnBadRequest"
+argument_list|,
+name|logWarnOnBadRequest
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * If this option is enabled, then during binding from Netty to Camel          * Message then the headers will be mapped as well (eg added as header          * to the Camel Message as well). You can turn off this option to          * disable this. The headers can still be accessed from the          * org.apache.camel.component.netty.http.NettyHttpMessage message with          * the method getHttpRequest() that returns the Netty HTTP request          * io.netty.handler.codec.http.HttpRequest instance.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|mapHeaders ( boolean mapHeaders)
 specifier|default

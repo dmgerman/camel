@@ -607,6 +607,14 @@ name|matchOnUriPrefix
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Whether Netty HTTP server should log a WARN if decoding the HTTP          * request failed and a HTTP Status 400 (bad request) is returned.          */
+DECL|field|logWarnOnBadRequest
+specifier|private
+name|Boolean
+name|logWarnOnBadRequest
+init|=
+literal|true
+decl_stmt|;
 comment|/**          * If the option is true, the producer will ignore the Exchange.HTTP_URI          * header, and use the endpoint's URI for request. You may also set the          * throwExceptionOnFailure to be false to let the producer send all the          * fault response back. The consumer working in the bridge mode will          * skip the gzip compression and WWW URL form encoding (by adding the          * Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED          * headers to the consumed exchange).          */
 DECL|field|bridgeEndpoint
 specifier|private
@@ -927,6 +935,32 @@ operator|.
 name|matchOnUriPrefix
 operator|=
 name|matchOnUriPrefix
+expr_stmt|;
+block|}
+DECL|method|getLogWarnOnBadRequest ()
+specifier|public
+name|Boolean
+name|getLogWarnOnBadRequest
+parameter_list|()
+block|{
+return|return
+name|logWarnOnBadRequest
+return|;
+block|}
+DECL|method|setLogWarnOnBadRequest (Boolean logWarnOnBadRequest)
+specifier|public
+name|void
+name|setLogWarnOnBadRequest
+parameter_list|(
+name|Boolean
+name|logWarnOnBadRequest
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logWarnOnBadRequest
+operator|=
+name|logWarnOnBadRequest
 expr_stmt|;
 block|}
 DECL|method|getBridgeEndpoint ()

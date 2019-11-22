@@ -300,6 +300,22 @@ name|matchOnUriPrefix
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|logWarnOnBadRequest
+specifier|private
+name|boolean
+name|logWarnOnBadRequest
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|bridgeEndpoint
 specifier|private
 name|boolean
@@ -818,6 +834,33 @@ operator|.
 name|matchOnUriPrefix
 operator|=
 name|matchOnUriPrefix
+expr_stmt|;
+block|}
+DECL|method|isLogWarnOnBadRequest ()
+specifier|public
+name|boolean
+name|isLogWarnOnBadRequest
+parameter_list|()
+block|{
+return|return
+name|logWarnOnBadRequest
+return|;
+block|}
+comment|/**      * Whether Netty HTTP server should log a WARN if decoding the HTTP request failed and a HTTP Status 400 (bad request) is returned.      */
+DECL|method|setLogWarnOnBadRequest (boolean logWarnOnBadRequest)
+specifier|public
+name|void
+name|setLogWarnOnBadRequest
+parameter_list|(
+name|boolean
+name|logWarnOnBadRequest
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logWarnOnBadRequest
+operator|=
+name|logWarnOnBadRequest
 expr_stmt|;
 block|}
 DECL|method|isBridgeEndpoint ()
