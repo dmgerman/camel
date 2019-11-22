@@ -151,9 +151,9 @@ import|;
 end_import
 
 begin_class
-DECL|class|HdfsBloomMapFileHandler
+DECL|class|HdfsBloommapFileHandler
 class|class
-name|HdfsBloomMapFileHandler
+name|HdfsBloommapFileHandler
 extends|extends
 name|DefaultHdfsFile
 argument_list|<
@@ -308,7 +308,7 @@ name|progressable
 argument_list|(
 parameter_list|()
 lambda|->
-block|{ }
+block|{                     }
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -431,13 +431,11 @@ name|sum
 argument_list|(
 name|keySize
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|,
 name|valueSize
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|)
 return|;
 block|}
@@ -649,26 +647,24 @@ condition|)
 block|{
 name|key
 operator|.
-name|setValue
-argument_list|(
+name|value
+operator|=
 name|getObject
 argument_list|(
 name|keyWritable
 argument_list|,
 name|keySize
 argument_list|)
-argument_list|)
 expr_stmt|;
 name|value
 operator|.
-name|setValue
-argument_list|(
+name|value
+operator|=
 name|getObject
 argument_list|(
 name|valueWritable
 argument_list|,
 name|valueSize
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -678,13 +674,11 @@ name|sum
 argument_list|(
 name|keySize
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|,
 name|valueSize
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|)
 return|;
 block|}
