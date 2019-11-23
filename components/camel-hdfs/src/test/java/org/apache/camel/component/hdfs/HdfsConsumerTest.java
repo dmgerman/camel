@@ -904,11 +904,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"TODO: https://issues.apache.org/jira/browse/CAMEL-14211"
-argument_list|)
 DECL|method|doPollFromExistingLocalFile ()
 specifier|public
 name|void
@@ -1021,6 +1016,19 @@ argument_list|(
 literal|100
 operator|*
 literal|1000
+argument_list|)
+expr_stmt|;
+name|when
+argument_list|(
+name|endpointConfig
+operator|.
+name|getMaxMessagesPerPoll
+argument_list|()
+argument_list|)
+operator|.
+name|thenReturn
+argument_list|(
+literal|10
 argument_list|)
 expr_stmt|;
 name|when
@@ -1387,11 +1395,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"TODO: https://issues.apache.org/jira/browse/CAMEL-14211"
-argument_list|)
 DECL|method|doPollFromExistingLocalFileWithStreamDownload ()
 specifier|public
 name|void
@@ -1517,6 +1520,19 @@ operator|.
 name|thenReturn
 argument_list|(
 literal|true
+argument_list|)
+expr_stmt|;
+name|when
+argument_list|(
+name|endpointConfig
+operator|.
+name|getMaxMessagesPerPoll
+argument_list|()
+argument_list|)
+operator|.
+name|thenReturn
+argument_list|(
+literal|10
 argument_list|)
 expr_stmt|;
 name|when
