@@ -854,7 +854,7 @@ argument_list|(
 operator|new
 name|DefaultArtifact
 argument_list|(
-literal|"org.apache.camel:spring-boot:pom:"
+literal|"org.apache.camel.springboot:spring-boot:pom:"
 operator|+
 name|camelVersion
 argument_list|)
@@ -875,7 +875,7 @@ argument_list|(
 operator|new
 name|DefaultArtifact
 argument_list|(
-literal|"org.apache.camel:camel-spring-boot-dm:pom:"
+literal|"org.apache.camel.springboot:camel-spring-boot-dm:pom:"
 operator|+
 name|camelVersion
 argument_list|)
@@ -896,7 +896,7 @@ argument_list|(
 operator|new
 name|DefaultArtifact
 argument_list|(
-literal|"org.apache.camel:camel-spring-boot-dependencies:pom:"
+literal|"org.apache.camel.springboot:camel-spring-boot-dependencies:pom:"
 operator|+
 name|camelVersion
 argument_list|)
@@ -916,7 +916,7 @@ init|=
 operator|new
 name|DefaultArtifact
 argument_list|(
-literal|"org.apache.camel:camel-starter-parent:pom:"
+literal|"org.apache.camel.springboot:camel-starter-parent:pom:"
 operator|+
 name|camelVersion
 argument_list|)
