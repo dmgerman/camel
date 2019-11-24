@@ -2800,6 +2800,31 @@ name|autoConfiguredProperties
 argument_list|)
 expr_stmt|;
 block|}
+comment|// tracing may be enabled by some other property (i.e. camel.context.tracer.exchange-formatter.show-headers)
+if|if
+condition|(
+name|camelContext
+operator|.
+name|isTracing
+argument_list|()
+operator|&&
+operator|!
+name|mainConfigurationProperties
+operator|.
+name|isTracing
+argument_list|()
+condition|)
+block|{
+name|camelContext
+operator|.
+name|setTracing
+argument_list|(
+name|Boolean
+operator|.
+name|FALSE
+argument_list|)
+expr_stmt|;
+block|}
 comment|// log summary of configurations
 if|if
 condition|(
