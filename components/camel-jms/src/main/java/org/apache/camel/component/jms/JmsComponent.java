@@ -393,6 +393,46 @@ specifier|private
 name|MessageCreatedStrategy
 name|messageCreatedStrategy
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to auto-discover ConnectionFactory from the registry, if no connection factory has been configured."
+operator|+
+literal|" If only one instance of ConnectionFactory is found then it will be used. This is enabled by default."
+argument_list|)
+DECL|field|allowAutoWiredConnectionFactory
+specifier|private
+name|boolean
+name|allowAutoWiredConnectionFactory
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to auto-discover DestinationResolver from the registry, if no destination resolver has been configured."
+operator|+
+literal|" If only one instance of DestinationResolver is found then it will be used. This is enabled by default."
+argument_list|)
+DECL|field|allowAutoWiredDestinationResolver
+specifier|private
+name|boolean
+name|allowAutoWiredDestinationResolver
+init|=
+literal|true
+decl_stmt|;
 DECL|method|JmsComponent ()
 specifier|public
 name|JmsComponent
@@ -657,7 +697,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * Subclasses can override to prevent the jms configuration from being      * setup to use an auto-wired the connection factory that's found in the spring      * application context.      *      * @return true by default      */
+comment|/**      * Whether to auto-discover ConnectionFactory from the registry, if no connection factory has been configured.      * If only one instance of ConnectionFactory is found then it will be used. This is enabled by default.      */
 DECL|method|isAllowAutoWiredConnectionFactory ()
 specifier|public
 name|boolean
@@ -665,10 +705,26 @@ name|isAllowAutoWiredConnectionFactory
 parameter_list|()
 block|{
 return|return
-literal|true
+name|allowAutoWiredConnectionFactory
 return|;
 block|}
-comment|/**      * Subclasses can override to prevent the jms configuration from being      * setup to use an auto-wired the destination resolved that's found in the spring      * application context.      *      * @return true by default      */
+DECL|method|setAllowAutoWiredConnectionFactory (boolean allowAutoWiredConnectionFactory)
+specifier|public
+name|void
+name|setAllowAutoWiredConnectionFactory
+parameter_list|(
+name|boolean
+name|allowAutoWiredConnectionFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowAutoWiredConnectionFactory
+operator|=
+name|allowAutoWiredConnectionFactory
+expr_stmt|;
+block|}
+comment|/**      * Whether to auto-discover DestinationResolver from the registry, if no destination resolver has been configured.      * If only one instance of DestinationResolver is found then it will be used. This is enabled by default.      */
 DECL|method|isAllowAutoWiredDestinationResolver ()
 specifier|public
 name|boolean
@@ -676,8 +732,24 @@ name|isAllowAutoWiredDestinationResolver
 parameter_list|()
 block|{
 return|return
-literal|true
+name|allowAutoWiredDestinationResolver
 return|;
+block|}
+DECL|method|setAllowAutoWiredDestinationResolver (boolean allowAutoWiredDestinationResolver)
+specifier|public
+name|void
+name|setAllowAutoWiredDestinationResolver
+parameter_list|(
+name|boolean
+name|allowAutoWiredDestinationResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowAutoWiredDestinationResolver
+operator|=
+name|allowAutoWiredDestinationResolver
+expr_stmt|;
 block|}
 comment|/**      * To use a shared JMS configuration      */
 DECL|method|setConfiguration (JmsConfiguration configuration)
@@ -3621,11 +3693,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// only attempt to set connection factory if there is no transaction manager
 if|if
 condition|(
 name|configuration
 operator|.
 name|getConnectionFactory
+argument_list|()
+operator|==
+literal|null
+operator|&&
+name|configuration
+operator|.
+name|getTransactionManager
 argument_list|()
 operator|==
 literal|null
