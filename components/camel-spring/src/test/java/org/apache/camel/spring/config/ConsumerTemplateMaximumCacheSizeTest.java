@@ -195,7 +195,7 @@ name|getCurrentCacheSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// test that we cache at most 50 producers to avoid it eating too much memory
+comment|// test that we cache around 50 producers to avoid it eating too much memory
 for|for
 control|(
 name|int
@@ -204,8 +204,8 @@ init|=
 literal|0
 init|;
 name|i
-operator|<
-literal|53
+operator|<=
+literal|55
 condition|;
 name|i
 operator|++
@@ -254,7 +254,7 @@ name|currentCacheSize
 argument_list|,
 name|currentCacheSize
 operator|<=
-literal|51
+literal|53
 argument_list|)
 expr_stmt|;
 name|template
