@@ -188,6 +188,22 @@ specifier|private
 name|String
 name|configuration
 decl_stmt|;
+comment|/**      * Whether to auto-discover ConnectionFactory from the registry, if no      * connection factory has been configured. If only one instance of      * ConnectionFactory is found then it will be used. This is enabled by      * default.      */
+DECL|field|allowAutoWiredConnectionFactory
+specifier|private
+name|Boolean
+name|allowAutoWiredConnectionFactory
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Whether to auto-discover DestinationResolver from the registry, if no      * destination resolver has been configured. If only one instance of      * DestinationResolver is found then it will be used. This is enabled by      * default.      */
+DECL|field|allowAutoWiredDestinationResolver
+specifier|private
+name|Boolean
+name|allowAutoWiredDestinationResolver
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Specifies whether the consumer accept messages while it is stopping. You      * may consider enabling this option, if you start and stop JMS routes at      * runtime, while there are still messages enqueued on the queue. If this      * option is false, and you stop the JMS route, then messages may be      * rejected, and the JMS broker would have to attempt redeliveries, which      * yet again may be rejected, and eventually the message may be moved at a      * dead letter queue on the JMS broker. To avoid this its recommended to      * enable this option.      */
 DECL|field|acceptMessagesWhileStopping
 specifier|private
@@ -913,6 +929,58 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+block|}
+DECL|method|getAllowAutoWiredConnectionFactory ()
+specifier|public
+name|Boolean
+name|getAllowAutoWiredConnectionFactory
+parameter_list|()
+block|{
+return|return
+name|allowAutoWiredConnectionFactory
+return|;
+block|}
+DECL|method|setAllowAutoWiredConnectionFactory ( Boolean allowAutoWiredConnectionFactory)
+specifier|public
+name|void
+name|setAllowAutoWiredConnectionFactory
+parameter_list|(
+name|Boolean
+name|allowAutoWiredConnectionFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowAutoWiredConnectionFactory
+operator|=
+name|allowAutoWiredConnectionFactory
+expr_stmt|;
+block|}
+DECL|method|getAllowAutoWiredDestinationResolver ()
+specifier|public
+name|Boolean
+name|getAllowAutoWiredDestinationResolver
+parameter_list|()
+block|{
+return|return
+name|allowAutoWiredDestinationResolver
+return|;
+block|}
+DECL|method|setAllowAutoWiredDestinationResolver ( Boolean allowAutoWiredDestinationResolver)
+specifier|public
+name|void
+name|setAllowAutoWiredDestinationResolver
+parameter_list|(
+name|Boolean
+name|allowAutoWiredDestinationResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowAutoWiredDestinationResolver
+operator|=
+name|allowAutoWiredDestinationResolver
 expr_stmt|;
 block|}
 DECL|method|getAcceptMessagesWhileStopping ()
