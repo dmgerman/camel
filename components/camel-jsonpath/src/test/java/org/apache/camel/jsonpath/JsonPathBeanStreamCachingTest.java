@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|junit5
 operator|.
 name|CamelTestSupport
 import|;
@@ -73,6 +73,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;

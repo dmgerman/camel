@@ -90,7 +90,7 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|junit5
 operator|.
 name|CamelTestSupport
 import|;
@@ -102,7 +102,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 import|;
 end_import
 
@@ -112,7 +116,43 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
 import|;
 end_import
 
@@ -281,8 +321,6 @@ argument_list|(
 literal|"booksUTF16BE.json"
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertNotNull
 argument_list|(
 name|input
@@ -331,8 +369,6 @@ argument_list|(
 literal|"file:src/test/resources/booksUTF16BE.json"
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertNotNull
 argument_list|(
 name|url
@@ -378,8 +414,6 @@ argument_list|(
 literal|"file:src/test/resources/germanbooks-iso-8859-1.json"
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertNotNull
 argument_list|(
 name|url

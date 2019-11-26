@@ -28,6 +28,8 @@ name|test
 operator|.
 name|spring
 operator|.
+name|junit5
+operator|.
 name|CamelSpringTestSupport
 import|;
 end_import
@@ -37,6 +39,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;

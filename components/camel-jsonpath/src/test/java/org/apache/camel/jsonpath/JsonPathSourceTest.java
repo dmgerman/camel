@@ -90,7 +90,7 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|junit5
 operator|.
 name|CamelTestSupport
 import|;
@@ -102,7 +102,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|AfterClass
+name|jupiter
+operator|.
+name|api
+operator|.
+name|AfterAll
 import|;
 end_import
 
@@ -111,6 +115,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;
@@ -155,7 +163,7 @@ name|defaultCharset
 argument_list|()
 decl_stmt|;
 annotation|@
-name|AfterClass
+name|AfterAll
 DECL|method|setDefaultCharsetBack ()
 specifier|public
 specifier|static

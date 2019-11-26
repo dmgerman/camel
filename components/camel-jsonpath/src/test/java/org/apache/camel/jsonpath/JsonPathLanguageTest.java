@@ -142,7 +142,7 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|junit5
 operator|.
 name|CamelTestSupport
 import|;
@@ -154,7 +154,111 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -166,6 +270,22 @@ name|JsonPathLanguageTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|JsonPathLanguageTest
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|isUseRouteBuilder ()
@@ -248,7 +368,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -321,11 +441,11 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Got a wrong result"
-argument_list|,
 literal|"19.95"
 argument_list|,
 name|price
+argument_list|,
+literal|"Got a wrong result"
 argument_list|)
 expr_stmt|;
 block|}
@@ -646,9 +766,9 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should have cheap books"
-argument_list|,
 name|cheap
+argument_list|,
+literal|"Should have cheap books"
 argument_list|)
 expr_stmt|;
 name|pre
@@ -672,9 +792,9 @@ argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(
-literal|"Should not have expensive books"
-argument_list|,
 name|expensive
+argument_list|,
+literal|"Should not have expensive books"
 argument_list|)
 expr_stmt|;
 block|}

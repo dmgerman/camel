@@ -64,6 +64,10 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
 import|;
 end_import
@@ -74,7 +78,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 operator|.
 name|assertEquals
 import|;
@@ -86,7 +94,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 operator|.
 name|assertNotNull
 import|;
@@ -98,7 +110,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 operator|.
 name|fail
 import|;
@@ -149,7 +165,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Error exepcted"
+literal|"Error expected"
 argument_list|)
 expr_stmt|;
 block|}
@@ -431,13 +447,13 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+name|is
+argument_list|,
 literal|"File "
 operator|+
 name|file
 operator|+
 literal|" not found"
-argument_list|,
-name|is
 argument_list|)
 expr_stmt|;
 name|JsonStream
