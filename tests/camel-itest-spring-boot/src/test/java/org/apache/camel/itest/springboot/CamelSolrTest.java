@@ -88,6 +88,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -105,6 +115,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Don't run this on CI"
+argument_list|)
 annotation|@
 name|RunWith
 argument_list|(
