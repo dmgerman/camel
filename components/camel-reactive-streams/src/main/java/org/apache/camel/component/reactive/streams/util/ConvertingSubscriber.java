@@ -108,6 +108,14 @@ argument_list|<
 name|R
 argument_list|>
 block|{
+DECL|field|type
+specifier|private
+name|Class
+argument_list|<
+name|R
+argument_list|>
+name|type
+decl_stmt|;
 DECL|field|delegate
 specifier|private
 name|Subscriber
@@ -121,7 +129,7 @@ specifier|private
 name|CamelContext
 name|context
 decl_stmt|;
-DECL|method|ConvertingSubscriber (Subscriber<Exchange> delegate, CamelContext context)
+DECL|method|ConvertingSubscriber (Subscriber<Exchange> delegate, CamelContext context, Class<R> type)
 specifier|public
 name|ConvertingSubscriber
 parameter_list|(
@@ -133,6 +141,12 @@ name|delegate
 parameter_list|,
 name|CamelContext
 name|context
+parameter_list|,
+name|Class
+argument_list|<
+name|R
+argument_list|>
+name|type
 parameter_list|)
 block|{
 name|Objects
@@ -142,6 +156,15 @@ argument_list|(
 name|delegate
 argument_list|,
 literal|"delegate subscriber cannot be null"
+argument_list|)
+expr_stmt|;
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|type
+argument_list|,
+literal|"type cannot be null"
 argument_list|)
 expr_stmt|;
 name|this
@@ -155,6 +178,12 @@ operator|.
 name|context
 operator|=
 name|context
+expr_stmt|;
+name|this
+operator|.
+name|type
+operator|=
+name|type
 expr_stmt|;
 block|}
 annotation|@
@@ -234,6 +263,8 @@ operator|.
 name|setBody
 argument_list|(
 name|r
+argument_list|,
+name|type
 argument_list|)
 expr_stmt|;
 name|delegate

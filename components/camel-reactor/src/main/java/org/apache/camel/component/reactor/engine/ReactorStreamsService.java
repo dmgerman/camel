@@ -775,6 +775,8 @@ argument_list|(
 name|subscriber
 argument_list|,
 name|context
+argument_list|,
+name|type
 argument_list|)
 return|;
 block|}
@@ -1218,6 +1220,8 @@ name|uri
 argument_list|)
 argument_list|,
 name|context
+argument_list|,
+name|type
 argument_list|)
 return|;
 block|}
