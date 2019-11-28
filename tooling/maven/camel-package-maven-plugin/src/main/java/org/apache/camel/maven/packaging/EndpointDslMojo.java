@@ -1047,10 +1047,15 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// generate component endpoint DSL files and write them
 name|executeComponent
 argument_list|(
 name|files
 argument_list|)
+expr_stmt|;
+comment|// make sure EndpointBuilderFactory is synced
+name|synchronizeEndpointBuilderFactoryInterface
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|loadJson (File file)
@@ -1411,9 +1416,6 @@ name|compModels
 argument_list|,
 name|overrideComponentName
 argument_list|)
-expr_stmt|;
-name|synchronizeEndpointBuilderFactoryInterface
-argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -3681,7 +3683,7 @@ name|map
 argument_list|(
 name|file
 lambda|->
-literal|"\t"
+literal|"        "
 operator|+
 name|file
 argument_list|)
@@ -3765,6 +3767,57 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|String
+name|existingExtendList
+init|=
+name|StringHelper
+operator|.
+name|between
+argument_list|(
+name|loadedText
+argument_list|,
+name|markerStart
+argument_list|,
+name|markerEnd
+argument_list|)
+decl_stmt|;
+specifier|final
+name|String
+name|updatedExtendList
+init|=
+name|String
+operator|.
+name|join
+argument_list|(
+literal|",\n"
+argument_list|,
+name|allComponentsDslEndpointFactories
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|existingExtendList
+operator|!=
+literal|null
+operator|&&
+name|existingExtendList
+operator|.
+name|trim
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|updatedExtendList
+operator|.
+name|trim
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// we test if the content did not change, we just skip updating
+return|return;
+block|}
+specifier|final
+name|String
 name|before
 init|=
 name|StringHelper
@@ -3809,7 +3862,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Markers '%s' and '%s' don't exist, make sure they exist."
+literal|"Markers '%s' and '%s' don't exist in EndpointBuilderFactory.java, make sure they exist."
 argument_list|,
 name|markerStart
 argument_list|,
