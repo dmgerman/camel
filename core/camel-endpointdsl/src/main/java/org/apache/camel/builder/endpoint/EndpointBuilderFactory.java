@@ -136,6 +136,7 @@ specifier|public
 interface|interface
 name|EndpointBuilderFactory
 extends|extends
+comment|// FACTORY INTERFACE UPDATE START
 name|AMQPEndpointBuilderFactory
 extends|,
 name|AS2EndpointBuilderFactory
@@ -236,6 +237,14 @@ name|DdbEndpointBuilderFactory
 extends|,
 name|DdbStreamEndpointBuilderFactory
 extends|,
+name|DebeziumMongodbEndpointBuilderFactory
+extends|,
+name|DebeziumMySqlEndpointBuilderFactory
+extends|,
+name|DebeziumPostgresEndpointBuilderFactory
+extends|,
+name|DebeziumSqlserverEndpointBuilderFactory
+extends|,
 name|DigitalOceanEndpointBuilderFactory
 extends|,
 name|DigitalSignatureEndpointBuilderFactory
@@ -284,6 +293,8 @@ name|FhirEndpointBuilderFactory
 extends|,
 name|FileEndpointBuilderFactory
 extends|,
+name|FileWatchEndpointBuilderFactory
+extends|,
 name|FlatpackEndpointBuilderFactory
 extends|,
 name|FlinkEndpointBuilderFactory
@@ -329,6 +340,8 @@ extends|,
 name|GoraEndpointBuilderFactory
 extends|,
 name|GrapeEndpointBuilderFactory
+extends|,
+name|GraphqlEndpointBuilderFactory
 extends|,
 name|GridFsEndpointBuilderFactory
 extends|,
@@ -412,8 +425,6 @@ name|JcrEndpointBuilderFactory
 extends|,
 name|JdbcEndpointBuilderFactory
 extends|,
-name|JettyHttpEndpointBuilder9Factory
-extends|,
 name|JingEndpointBuilderFactory
 extends|,
 name|JiraEndpointBuilderFactory
@@ -468,6 +479,8 @@ name|KubernetesServiceAccountsEndpointBuilderFactory
 extends|,
 name|KubernetesServicesEndpointBuilderFactory
 extends|,
+name|KuduEndpointBuilderFactory
+extends|,
 name|LambdaEndpointBuilderFactory
 extends|,
 name|LanguageEndpointBuilderFactory
@@ -491,6 +504,8 @@ extends|,
 name|MasterEndpointBuilderFactory
 extends|,
 name|MetricsEndpointBuilderFactory
+extends|,
+name|MicroProfileMetricsEndpointBuilderFactory
 extends|,
 name|MicrometerEndpointBuilderFactory
 extends|,
@@ -528,6 +543,8 @@ name|NettyHttpEndpointBuilderFactory
 extends|,
 name|NeutronEndpointBuilderFactory
 extends|,
+name|NitriteEndpointBuilderFactory
+extends|,
 name|NovaEndpointBuilderFactory
 extends|,
 name|NsqEndpointBuilderFactory
@@ -549,6 +566,10 @@ extends|,
 name|PdfEndpointBuilderFactory
 extends|,
 name|PgEventEndpointBuilderFactory
+extends|,
+name|PgReplicationSlotEndpointBuilderFactory
+extends|,
+name|PlatformHttpEndpointBuilderFactory
 extends|,
 name|PrinterEndpointBuilderFactory
 extends|,
@@ -575,6 +596,8 @@ extends|,
 name|RestEndpointBuilderFactory
 extends|,
 name|RestSwaggerEndpointBuilderFactory
+extends|,
+name|RobotFrameworkEndpointBuilderFactory
 extends|,
 name|RssEndpointBuilderFactory
 extends|,
@@ -668,6 +691,8 @@ name|TikaEndpointBuilderFactory
 extends|,
 name|TimerEndpointBuilderFactory
 extends|,
+name|TranslateEndpointBuilderFactory
+extends|,
 name|TwilioEndpointBuilderFactory
 extends|,
 name|TwitterDirectMessageEndpointBuilderFactory
@@ -700,6 +725,8 @@ name|WsEndpointBuilderFactory
 extends|,
 name|XChangeEndpointBuilderFactory
 extends|,
+name|XJEndpointBuilderFactory
+extends|,
 name|XQueryEndpointBuilderFactory
 extends|,
 name|XmlSignatureEndpointBuilderFactory
@@ -708,6 +735,8 @@ name|XmppEndpointBuilderFactory
 extends|,
 name|XsltEndpointBuilderFactory
 extends|,
+name|XsltSaxonEndpointBuilderFactory
+extends|,
 name|YammerEndpointBuilderFactory
 extends|,
 name|ZendeskEndpointBuilderFactory
@@ -715,6 +744,7 @@ extends|,
 name|ZooKeeperEndpointBuilderFactory
 extends|,
 name|ZooKeeperMasterEndpointBuilderFactory
+comment|// FACTORY INTERFACE UPDATE END
 block|{
 DECL|method|endpoints (EndpointProducerBuilder... endpoints)
 specifier|default
