@@ -425,6 +425,8 @@ name|JcrEndpointBuilderFactory
 extends|,
 name|JdbcEndpointBuilderFactory
 extends|,
+name|JettyHttpEndpointBuilder9Factory
+extends|,
 name|JingEndpointBuilderFactory
 extends|,
 name|JiraEndpointBuilderFactory

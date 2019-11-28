@@ -690,15 +690,6 @@ argument_list|>
 argument_list|>
 name|PRIMITIVEMAP
 decl_stmt|;
-DECL|field|SUFFIX
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|SUFFIX
-init|=
-literal|"EndpointBuilderFactory"
-decl_stmt|;
 static|static
 block|{
 name|PRIMITIVEMAP
@@ -3991,9 +3982,9 @@ operator|.
 name|getName
 argument_list|()
 operator|.
-name|contains
+name|endsWith
 argument_list|(
-name|SUFFIX
+literal|".java"
 argument_list|)
 operator|&&
 name|file
