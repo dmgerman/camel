@@ -3681,7 +3681,7 @@ name|map
 argument_list|(
 name|file
 lambda|->
-literal|"\t\t"
+literal|"\t"
 operator|+
 name|file
 argument_list|)
