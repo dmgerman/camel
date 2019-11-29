@@ -424,6 +424,10 @@ argument_list|,
 literal|".*_EXPORT_.*"
 argument_list|,
 literal|".*_DES_.*"
+argument_list|,
+literal|".*MD5"
+argument_list|,
+literal|".*RC4.*"
 argument_list|)
 argument_list|)
 decl_stmt|;
