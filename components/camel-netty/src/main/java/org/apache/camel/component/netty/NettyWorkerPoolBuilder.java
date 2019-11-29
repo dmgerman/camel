@@ -256,19 +256,6 @@ name|EventLoopGroup
 name|build
 parameter_list|()
 block|{
-name|int
-name|count
-init|=
-name|workerCount
-operator|>
-literal|0
-condition|?
-name|workerCount
-else|:
-name|NettyHelper
-operator|.
-name|DEFAULT_IO_THREADS
-decl_stmt|;
 if|if
 condition|(
 name|nativeTransport
@@ -279,7 +266,7 @@ operator|=
 operator|new
 name|EpollEventLoopGroup
 argument_list|(
-name|count
+name|workerCount
 argument_list|,
 operator|new
 name|CamelThreadFactory
@@ -300,7 +287,7 @@ operator|=
 operator|new
 name|NioEventLoopGroup
 argument_list|(
-name|count
+name|workerCount
 argument_list|,
 operator|new
 name|CamelThreadFactory

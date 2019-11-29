@@ -1445,7 +1445,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When netty works on nio mode, it uses default bossCount parameter          * from Netty, which is 1. User can use this operation to override the          * default bossCount from Netty.          *           * The option is a:<code>int</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * When netty works on nio mode, it uses default bossCount parameter          * from Netty, which is 1. User can use this option to override the          * default bossCount from Netty.          *           * The option is a:<code>int</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|bossCount (int bossCount)
 specifier|default
 name|AdvancedNettyEndpointConsumerBuilder
@@ -1466,7 +1466,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When netty works on nio mode, it uses default bossCount parameter          * from Netty, which is 1. User can use this operation to override the          * default bossCount from Netty.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * When netty works on nio mode, it uses default bossCount parameter          * from Netty, which is 1. User can use this option to override the          * default bossCount from Netty.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|bossCount (String bossCount)
 specifier|default
 name|AdvancedNettyEndpointConsumerBuilder
@@ -2395,7 +2395,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty (which is cpu_core_threads x 2). User can use this option          * to override the default workerCount from Netty.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|workerCount (int workerCount)
 specifier|default
 name|AdvancedNettyEndpointConsumerBuilder
@@ -2416,7 +2416,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty (which is cpu_core_threads x 2). User can use this option          * to override the default workerCount from Netty.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|workerCount ( String workerCount)
 specifier|default
 name|AdvancedNettyEndpointConsumerBuilder
@@ -4487,7 +4487,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty (which is cpu_core_threads x 2). User can use this option          * to override the default workerCount from Netty.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|workerCount (int workerCount)
 specifier|default
 name|AdvancedNettyEndpointProducerBuilder
@@ -4508,7 +4508,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty (which is cpu_core_threads x 2). User can use this option          * to override the default workerCount from Netty.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|workerCount ( String workerCount)
 specifier|default
 name|AdvancedNettyEndpointProducerBuilder
@@ -6037,7 +6037,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty (which is cpu_core_threads x 2). User can use this option          * to override the default workerCount from Netty.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|workerCount (int workerCount)
 specifier|default
 name|AdvancedNettyEndpointBuilder
@@ -6058,7 +6058,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty (which is cpu_core_threads x 2). User can use this option          * to override the default workerCount from Netty.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|workerCount (String workerCount)
 specifier|default
 name|AdvancedNettyEndpointBuilder
