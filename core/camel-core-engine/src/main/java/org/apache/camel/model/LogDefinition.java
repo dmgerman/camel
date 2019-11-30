@@ -181,7 +181,7 @@ literal|"INFO"
 argument_list|)
 DECL|field|loggingLevel
 specifier|private
-name|LoggingLevel
+name|String
 name|loggingLevel
 decl_stmt|;
 annotation|@
@@ -277,7 +277,7 @@ return|;
 block|}
 DECL|method|getLoggingLevel ()
 specifier|public
-name|LoggingLevel
+name|String
 name|getLoggingLevel
 parameter_list|()
 block|{
@@ -286,12 +286,12 @@ name|loggingLevel
 return|;
 block|}
 comment|/**      * Sets the logging level.      *<p/>      * The default value is INFO      */
-DECL|method|setLoggingLevel (LoggingLevel loggingLevel)
+DECL|method|setLoggingLevel (String loggingLevel)
 specifier|public
 name|void
 name|setLoggingLevel
 parameter_list|(
-name|LoggingLevel
+name|String
 name|loggingLevel
 parameter_list|)
 block|{

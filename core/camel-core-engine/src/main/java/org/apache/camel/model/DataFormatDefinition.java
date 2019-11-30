@@ -216,9 +216,16 @@ name|otherAttributes
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|contentTypeHeader
 specifier|private
-name|Boolean
+name|String
 name|contentTypeHeader
 decl_stmt|;
 DECL|method|DataFormatDefinition ()
@@ -351,7 +358,7 @@ expr_stmt|;
 block|}
 DECL|method|getContentTypeHeader ()
 specifier|public
-name|Boolean
+name|String
 name|getContentTypeHeader
 parameter_list|()
 block|{
@@ -360,12 +367,12 @@ name|contentTypeHeader
 return|;
 block|}
 comment|/**      * Whether the data format should set the<tt>Content-Type</tt> header with      * the type from the data format if the data format is capable of doing so.      *<p/>      * For example<tt>application/xml</tt> for data formats marshalling to XML,      * or<tt>application/json</tt> for data formats marshalling to JSon etc.      */
-DECL|method|setContentTypeHeader (Boolean contentTypeHeader)
+DECL|method|setContentTypeHeader (String contentTypeHeader)
 specifier|public
 name|void
 name|setContentTypeHeader
 parameter_list|(
-name|Boolean
+name|String
 name|contentTypeHeader
 parameter_list|)
 block|{

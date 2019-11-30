@@ -273,10 +273,15 @@ argument_list|()
 operator|==
 literal|null
 operator|||
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|definition
 operator|.
 name|getCache
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

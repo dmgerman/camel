@@ -218,14 +218,14 @@ annotation|@
 name|XmlAttribute
 DECL|field|ignoreInvalidEndpoints
 specifier|private
-name|Boolean
+name|String
 name|ignoreInvalidEndpoints
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|cacheSize
 specifier|private
-name|Integer
+name|String
 name|cacheSize
 decl_stmt|;
 DECL|method|RoutingSlipDefinition ()
@@ -438,12 +438,12 @@ return|return
 name|uriDelimiter
 return|;
 block|}
-DECL|method|setIgnoreInvalidEndpoints (Boolean ignoreInvalidEndpoints)
+DECL|method|setIgnoreInvalidEndpoints (String ignoreInvalidEndpoints)
 specifier|public
 name|void
 name|setIgnoreInvalidEndpoints
 parameter_list|(
-name|Boolean
+name|String
 name|ignoreInvalidEndpoints
 parameter_list|)
 block|{
@@ -456,7 +456,7 @@ expr_stmt|;
 block|}
 DECL|method|getIgnoreInvalidEndpoints ()
 specifier|public
-name|Boolean
+name|String
 name|getIgnoreInvalidEndpoints
 parameter_list|()
 block|{
@@ -466,7 +466,7 @@ return|;
 block|}
 DECL|method|getCacheSize ()
 specifier|public
-name|Integer
+name|String
 name|getCacheSize
 parameter_list|()
 block|{
@@ -474,12 +474,12 @@ return|return
 name|cacheSize
 return|;
 block|}
-DECL|method|setCacheSize (Integer cacheSize)
+DECL|method|setCacheSize (String cacheSize)
 specifier|public
 name|void
 name|setCacheSize
 parameter_list|(
-name|Integer
+name|String
 name|cacheSize
 parameter_list|)
 block|{
@@ -528,7 +528,12 @@ parameter_list|()
 block|{
 name|setIgnoreInvalidEndpoints
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -572,7 +577,12 @@ parameter_list|)
 block|{
 name|setCacheSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|cacheSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

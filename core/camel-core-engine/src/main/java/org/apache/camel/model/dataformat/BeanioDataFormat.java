@@ -76,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlSchemaType
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -169,23 +183,44 @@ name|streamName
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|ignoreUnidentifiedRecords
 specifier|private
-name|Boolean
+name|String
 name|ignoreUnidentifiedRecords
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|ignoreUnexpectedRecords
 specifier|private
-name|Boolean
+name|String
 name|ignoreUnexpectedRecords
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|ignoreInvalidRecords
 specifier|private
-name|Boolean
+name|String
 name|ignoreInvalidRecords
 decl_stmt|;
 annotation|@
@@ -217,10 +252,14 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
 argument_list|)
 DECL|field|unmarshalSingleObject
 specifier|private
-name|Boolean
+name|String
 name|unmarshalSingleObject
 decl_stmt|;
 DECL|method|BeanioDataFormat ()
@@ -290,7 +329,7 @@ expr_stmt|;
 block|}
 DECL|method|getIgnoreUnidentifiedRecords ()
 specifier|public
-name|Boolean
+name|String
 name|getIgnoreUnidentifiedRecords
 parameter_list|()
 block|{
@@ -299,12 +338,12 @@ name|ignoreUnidentifiedRecords
 return|;
 block|}
 comment|/**      * Whether to ignore unidentified records.      */
-DECL|method|setIgnoreUnidentifiedRecords (Boolean ignoreUnidentifiedRecords)
+DECL|method|setIgnoreUnidentifiedRecords (String ignoreUnidentifiedRecords)
 specifier|public
 name|void
 name|setIgnoreUnidentifiedRecords
 parameter_list|(
-name|Boolean
+name|String
 name|ignoreUnidentifiedRecords
 parameter_list|)
 block|{
@@ -317,7 +356,7 @@ expr_stmt|;
 block|}
 DECL|method|getIgnoreUnexpectedRecords ()
 specifier|public
-name|Boolean
+name|String
 name|getIgnoreUnexpectedRecords
 parameter_list|()
 block|{
@@ -326,12 +365,12 @@ name|ignoreUnexpectedRecords
 return|;
 block|}
 comment|/**      * Whether to ignore unexpected records.      */
-DECL|method|setIgnoreUnexpectedRecords (Boolean ignoreUnexpectedRecords)
+DECL|method|setIgnoreUnexpectedRecords (String ignoreUnexpectedRecords)
 specifier|public
 name|void
 name|setIgnoreUnexpectedRecords
 parameter_list|(
-name|Boolean
+name|String
 name|ignoreUnexpectedRecords
 parameter_list|)
 block|{
@@ -344,7 +383,7 @@ expr_stmt|;
 block|}
 DECL|method|getIgnoreInvalidRecords ()
 specifier|public
-name|Boolean
+name|String
 name|getIgnoreInvalidRecords
 parameter_list|()
 block|{
@@ -353,12 +392,12 @@ name|ignoreInvalidRecords
 return|;
 block|}
 comment|/**      * Whether to ignore invalid records.      */
-DECL|method|setIgnoreInvalidRecords (Boolean ignoreInvalidRecords)
+DECL|method|setIgnoreInvalidRecords (String ignoreInvalidRecords)
 specifier|public
 name|void
 name|setIgnoreInvalidRecords
 parameter_list|(
-name|Boolean
+name|String
 name|ignoreInvalidRecords
 parameter_list|)
 block|{
@@ -425,7 +464,7 @@ expr_stmt|;
 block|}
 DECL|method|getUnmarshalSingleObject ()
 specifier|public
-name|Boolean
+name|String
 name|getUnmarshalSingleObject
 parameter_list|()
 block|{
@@ -434,12 +473,12 @@ name|unmarshalSingleObject
 return|;
 block|}
 comment|/**      * This options controls whether to unmarshal as a list of objects or as a      * single object only. The former is the default mode, and the latter is      * only intended in special use-cases where beanio maps the Camel message to      * a single POJO bean.      */
-DECL|method|setUnmarshalSingleObject (Boolean unmarshalSingleObject)
+DECL|method|setUnmarshalSingleObject (String unmarshalSingleObject)
 specifier|public
 name|void
 name|setUnmarshalSingleObject
 parameter_list|(
-name|Boolean
+name|String
 name|unmarshalSingleObject
 parameter_list|)
 block|{

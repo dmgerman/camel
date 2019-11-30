@@ -154,7 +154,7 @@ specifier|protected
 name|String
 name|ssrfPayloud
 init|=
-literal|"<!DOCTYPE roottag PUBLIC \"-//VSR//PENTEST//EN\" \"http://notexisting/test\">\n"
+literal|"<!DOCTYPE roottag PUBLIC \"-//VSR//PENTEST//EN\" \"http://notex.isting/test\">\n"
 operator|+
 name|payloud
 decl_stmt|;
@@ -163,7 +163,7 @@ specifier|protected
 name|String
 name|xxePayloud
 init|=
-literal|"<!DOCTYPE updateProfile [<!ENTITY file SYSTEM \"http://notexistinghost/test\">]>\n"
+literal|"<!DOCTYPE updateProfile [<!ENTITY file SYSTEM \"http://notex.istinghost/test\">]>\n"
 operator|+
 name|getPayloudPart
 argument_list|(

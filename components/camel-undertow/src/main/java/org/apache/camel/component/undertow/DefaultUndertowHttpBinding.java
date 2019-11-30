@@ -512,6 +512,22 @@ name|ChannelInputStream
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|BufferCaster
+operator|.
+name|cast
+import|;
+end_import
+
 begin_comment
 comment|/**  * DefaultUndertowHttpBinding represent binding used by default, if user doesn't provide any.  * By default {@link UndertowHeaderFilterStrategy} is also used.  */
 end_comment
@@ -2955,7 +2971,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|cast
+argument_list|(
 name|buffer
+argument_list|)
 operator|.
 name|flip
 argument_list|()

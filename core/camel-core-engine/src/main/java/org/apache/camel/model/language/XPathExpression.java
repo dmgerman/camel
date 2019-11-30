@@ -84,6 +84,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlSchemaType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlTransient
 import|;
 end_import
@@ -254,9 +268,16 @@ name|resultTypeName
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|saxon
 specifier|private
-name|Boolean
+name|String
 name|saxon
 decl_stmt|;
 annotation|@
@@ -289,9 +310,16 @@ name|objectModel
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|logNamespaces
 specifier|private
-name|Boolean
+name|String
 name|logNamespaces
 decl_stmt|;
 annotation|@
@@ -336,10 +364,14 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
 argument_list|)
 DECL|field|threadSafety
 specifier|private
-name|Boolean
+name|String
 name|threadSafety
 decl_stmt|;
 DECL|method|XPathExpression ()
@@ -508,12 +540,12 @@ name|resultTypeName
 expr_stmt|;
 block|}
 comment|/**      * Whether to use Saxon.      */
-DECL|method|setSaxon (Boolean saxon)
+DECL|method|setSaxon (String saxon)
 specifier|public
 name|void
 name|setSaxon
 parameter_list|(
-name|Boolean
+name|String
 name|saxon
 parameter_list|)
 block|{
@@ -526,7 +558,7 @@ expr_stmt|;
 block|}
 DECL|method|getSaxon ()
 specifier|public
-name|Boolean
+name|String
 name|getSaxon
 parameter_list|()
 block|{
@@ -589,12 +621,12 @@ name|objectModel
 return|;
 block|}
 comment|/**      * Whether to log namespaces which can assist during trouble shooting      */
-DECL|method|setLogNamespaces (Boolean logNamespaces)
+DECL|method|setLogNamespaces (String logNamespaces)
 specifier|public
 name|void
 name|setLogNamespaces
 parameter_list|(
-name|Boolean
+name|String
 name|logNamespaces
 parameter_list|)
 block|{
@@ -607,7 +639,7 @@ expr_stmt|;
 block|}
 DECL|method|getLogNamespaces ()
 specifier|public
-name|Boolean
+name|String
 name|getLogNamespaces
 parameter_list|()
 block|{
@@ -644,7 +676,7 @@ expr_stmt|;
 block|}
 DECL|method|getThreadSafety ()
 specifier|public
-name|Boolean
+name|String
 name|getThreadSafety
 parameter_list|()
 block|{
@@ -653,12 +685,12 @@ name|threadSafety
 return|;
 block|}
 comment|/**      * Whether to enable thread-safety for the returned result of the xpath      * expression. This applies to when using NODESET as the result type, and      * the returned set has multiple elements. In this situation there can be      * thread-safety issues if you process the NODESET concurrently such as from      * a Camel Splitter EIP in parallel processing mode. This option prevents      * concurrency issues by doing defensive copies of the nodes.      *<p/>      * It is recommended to turn this option on if you are using camel-saxon or      * Saxon in your application. Saxon has thread-safety issues which can be      * prevented by turning this option on.      */
-DECL|method|setThreadSafety (Boolean threadSafety)
+DECL|method|setThreadSafety (String threadSafety)
 specifier|public
 name|void
 name|setThreadSafety
 parameter_list|(
-name|Boolean
+name|String
 name|threadSafety
 parameter_list|)
 block|{
@@ -867,8 +899,13 @@ argument_list|()
 operator|!=
 literal|null
 operator|&&
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|getSaxon
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|boolean
 name|isLogNamespaces
@@ -878,8 +915,13 @@ argument_list|()
 operator|!=
 literal|null
 operator|&&
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|getLogNamespaces
 argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -1068,8 +1110,13 @@ argument_list|()
 operator|!=
 literal|null
 operator|&&
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|getSaxon
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|boolean
 name|isLogNamespaces
@@ -1079,8 +1126,13 @@ argument_list|()
 operator|!=
 literal|null
 operator|&&
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|getLogNamespaces
 argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

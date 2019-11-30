@@ -167,9 +167,20 @@ name|required
 operator|=
 literal|true
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|enums
+operator|=
+literal|"Get,GetAndRemove,Set,Push,Pop"
+argument_list|,
+name|javaType
+operator|=
+literal|"org.apache.camel.model.ClaimCheckOperation"
+argument_list|)
 DECL|field|operation
 specifier|private
-name|ClaimCheckOperation
+name|String
 name|operation
 decl_stmt|;
 annotation|@
@@ -299,6 +310,26 @@ name|ClaimCheckDefinition
 name|operation
 parameter_list|(
 name|ClaimCheckOperation
+name|operation
+parameter_list|)
+block|{
+return|return
+name|operation
+argument_list|(
+name|operation
+operator|.
+name|name
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * The claim check operation to use. The following operations is supported:      *<ul>      *<li>Get</li> - Gets (does not remove) the claim check by the given key.      *<li>GetAndRemove</li> - Gets and remove the claim check by the given key.      *<li>Set</li> - Sets a new (will override if key already exists) claim      * check with the given key.      *<li>Push</li> - Sets a new claim check on the stack (does not use key).      *<li>Pop</li> - Gets the latest claim check from the stack (does not use      * key).      *</ul>      */
+DECL|method|operation (String operation)
+specifier|public
+name|ClaimCheckDefinition
+name|operation
+parameter_list|(
+name|String
 name|operation
 parameter_list|)
 block|{
@@ -461,7 +492,7 @@ expr_stmt|;
 block|}
 DECL|method|getOperation ()
 specifier|public
-name|ClaimCheckOperation
+name|String
 name|getOperation
 parameter_list|()
 block|{
@@ -469,12 +500,12 @@ return|return
 name|operation
 return|;
 block|}
-DECL|method|setOperation (ClaimCheckOperation operation)
+DECL|method|setOperation (String operation)
 specifier|public
 name|void
 name|setOperation
 parameter_list|(
-name|ClaimCheckOperation
+name|String
 name|operation
 parameter_list|)
 block|{

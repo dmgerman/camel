@@ -758,7 +758,12 @@ name|onFallback
 operator|.
 name|setFallbackViaNetwork
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|onFallback

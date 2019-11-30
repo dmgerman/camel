@@ -172,10 +172,14 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
 argument_list|)
 DECL|field|useDefaultObjectMapper
 specifier|private
-name|Boolean
+name|String
 name|useDefaultObjectMapper
 decl_stmt|;
 annotation|@
@@ -214,30 +218,74 @@ name|collectionType
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|useList
 specifier|private
-name|Boolean
+name|String
 name|useList
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|allowUnmarshallType
 specifier|private
-name|Boolean
+name|String
 name|allowUnmarshallType
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|prettyPrint
 specifier|private
-name|Boolean
+name|String
 name|prettyPrint
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|allowJmsType
 specifier|private
-name|Boolean
+name|String
 name|allowJmsType
 decl_stmt|;
 annotation|@
@@ -294,7 +342,7 @@ expr_stmt|;
 block|}
 DECL|method|getUseDefaultObjectMapper ()
 specifier|public
-name|Boolean
+name|String
 name|getUseDefaultObjectMapper
 parameter_list|()
 block|{
@@ -303,12 +351,12 @@ name|useDefaultObjectMapper
 return|;
 block|}
 comment|/**      * Whether to lookup and use default Jackson CBOR ObjectMapper from the      * registry.      */
-DECL|method|setUseDefaultObjectMapper (Boolean useDefaultObjectMapper)
+DECL|method|setUseDefaultObjectMapper (String useDefaultObjectMapper)
 specifier|public
 name|void
 name|setUseDefaultObjectMapper
 parameter_list|(
-name|Boolean
+name|String
 name|useDefaultObjectMapper
 parameter_list|)
 block|{
@@ -361,7 +409,7 @@ return|;
 block|}
 DECL|method|getPrettyPrint ()
 specifier|public
-name|Boolean
+name|String
 name|getPrettyPrint
 parameter_list|()
 block|{
@@ -370,12 +418,12 @@ name|prettyPrint
 return|;
 block|}
 comment|/**      * To enable pretty printing output nicely formatted.      *<p/>      * Is by default false.      */
-DECL|method|setPrettyPrint (Boolean prettyPrint)
+DECL|method|setPrettyPrint (String prettyPrint)
 specifier|public
 name|void
 name|setPrettyPrint
 parameter_list|(
-name|Boolean
+name|String
 name|prettyPrint
 parameter_list|)
 block|{
@@ -388,7 +436,7 @@ expr_stmt|;
 block|}
 DECL|method|getAllowJmsType ()
 specifier|public
-name|Boolean
+name|String
 name|getAllowJmsType
 parameter_list|()
 block|{
@@ -397,12 +445,12 @@ name|allowJmsType
 return|;
 block|}
 comment|/**      * Used for JMS users to allow the JMSType header from the JMS spec to      * specify a FQN classname to use to unmarshal to.      */
-DECL|method|setAllowJmsType (Boolean allowJmsType)
+DECL|method|setAllowJmsType (String allowJmsType)
 specifier|public
 name|void
 name|setAllowJmsType
 parameter_list|(
-name|Boolean
+name|String
 name|allowJmsType
 parameter_list|)
 block|{
@@ -494,7 +542,7 @@ expr_stmt|;
 block|}
 DECL|method|getUseList ()
 specifier|public
-name|Boolean
+name|String
 name|getUseList
 parameter_list|()
 block|{
@@ -503,12 +551,12 @@ name|useList
 return|;
 block|}
 comment|/**      * To unarmshal to a List of Map or a List of Pojo.      */
-DECL|method|setUseList (Boolean useList)
+DECL|method|setUseList (String useList)
 specifier|public
 name|void
 name|setUseList
 parameter_list|(
-name|Boolean
+name|String
 name|useList
 parameter_list|)
 block|{
@@ -521,7 +569,7 @@ expr_stmt|;
 block|}
 DECL|method|getAllowUnmarshallType ()
 specifier|public
-name|Boolean
+name|String
 name|getAllowUnmarshallType
 parameter_list|()
 block|{
@@ -530,12 +578,12 @@ name|allowUnmarshallType
 return|;
 block|}
 comment|/**      * If enabled then Jackson CBOR is allowed to attempt to use the      * CamelCBORUnmarshalType header during the unmarshalling.      *<p/>      * This should only be enabled when desired to be used.      */
-DECL|method|setAllowUnmarshallType (Boolean allowUnmarshallType)
+DECL|method|setAllowUnmarshallType (String allowUnmarshallType)
 specifier|public
 name|void
 name|setAllowUnmarshallType
 parameter_list|(
-name|Boolean
+name|String
 name|allowUnmarshallType
 parameter_list|)
 block|{

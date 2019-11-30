@@ -995,12 +995,10 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// must sort the verbs by uri so we group them together when an uri has multiple operations
-name|Collections
+name|verbs
 operator|.
 name|sort
 argument_list|(
-name|verbs
-argument_list|,
 operator|new
 name|VerbOrdering
 argument_list|()
@@ -1429,7 +1427,7 @@ name|verbs
 control|)
 block|{
 comment|// check if the Verb Definition must be excluded from documentation
-name|Boolean
+name|String
 name|apiDocs
 decl_stmt|;
 if|if
@@ -1468,7 +1466,12 @@ operator|!=
 literal|null
 operator|&&
 operator|!
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|apiDocs
+argument_list|)
 condition|)
 block|{
 continue|continue;
@@ -1776,7 +1779,7 @@ name|verbs
 control|)
 block|{
 comment|// check if the Verb Definition must be excluded from documentation
-name|Boolean
+name|String
 name|apiDocs
 decl_stmt|;
 if|if
@@ -1815,7 +1818,12 @@ operator|!=
 literal|null
 operator|&&
 operator|!
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|apiDocs
+argument_list|)
 condition|)
 block|{
 continue|continue;

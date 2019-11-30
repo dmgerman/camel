@@ -355,7 +355,7 @@ expr_stmt|;
 block|}
 DECL|method|getPattern ()
 specifier|public
-name|ExchangePattern
+name|String
 name|getPattern
 parameter_list|()
 block|{

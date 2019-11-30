@@ -147,16 +147,78 @@ literal|"false"
 argument_list|)
 DECL|field|validate
 specifier|private
-name|Boolean
+name|String
 name|validate
 init|=
-literal|false
+literal|"false"
 decl_stmt|;
 DECL|method|OutputTypeDefinition ()
 specifier|public
 name|OutputTypeDefinition
 parameter_list|()
 block|{     }
+DECL|method|urn (String urn)
+specifier|public
+name|OutputTypeDefinition
+name|urn
+parameter_list|(
+name|String
+name|urn
+parameter_list|)
+block|{
+name|setUrn
+argument_list|(
+name|urn
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|javaClass (Class<?> clazz)
+specifier|public
+name|OutputTypeDefinition
+name|javaClass
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|clazz
+parameter_list|)
+block|{
+name|setJavaClass
+argument_list|(
+name|clazz
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|validate (boolean validate)
+specifier|public
+name|OutputTypeDefinition
+name|validate
+parameter_list|(
+name|boolean
+name|validate
+parameter_list|)
+block|{
+name|setValidate
+argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+name|validate
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Get output type URN.      *       * @return output type URN      */
 DECL|method|getUrn ()
 specifier|public
@@ -211,10 +273,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Get if validation is required for this output type.      *       * @return true if validate      */
-DECL|method|isValidate ()
+DECL|method|getValidate ()
 specifier|public
-name|boolean
-name|isValidate
+name|String
+name|getValidate
 parameter_list|()
 block|{
 return|return
@@ -224,12 +286,12 @@ name|validate
 return|;
 block|}
 comment|/**      * Set if validation is required for this output type.      *       * @param validate true if validate      */
-DECL|method|setValidate (boolean validate)
+DECL|method|setValidate (String validate)
 specifier|public
 name|void
 name|setValidate
 parameter_list|(
-name|boolean
+name|String
 name|validate
 parameter_list|)
 block|{

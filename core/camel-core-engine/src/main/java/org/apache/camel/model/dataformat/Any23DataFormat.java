@@ -225,10 +225,18 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"RDF4JMODEL"
+argument_list|,
+name|enums
+operator|=
+literal|"NTRIPLES,TURTLE,NQUADS,RDFXML,JSONLD,RDFJSON,RDF4JMODEL"
+argument_list|,
+name|javaType
+operator|=
+literal|"org.apache.camel.model.dataformat.Any23Type"
 argument_list|)
 DECL|field|outputFormat
 specifier|private
-name|Any23Type
+name|String
 name|outputFormat
 decl_stmt|;
 annotation|@
@@ -320,6 +328,9 @@ operator|.
 name|outputFormat
 operator|=
 name|outputFormat
+operator|.
+name|name
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|Any23DataFormat (String baseuri, Any23Type outputFormat, Map<String, String> configurations)
@@ -353,6 +364,9 @@ operator|.
 name|outputFormat
 operator|=
 name|outputFormat
+operator|.
+name|name
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -400,6 +414,9 @@ operator|.
 name|outputFormat
 operator|=
 name|outputFormat
+operator|.
+name|name
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -416,7 +433,7 @@ expr_stmt|;
 block|}
 DECL|method|getOutputFormat ()
 specifier|public
-name|Any23Type
+name|String
 name|getOutputFormat
 parameter_list|()
 block|{
@@ -425,12 +442,12 @@ name|outputFormat
 return|;
 block|}
 comment|/**      * What RDF syntax to unmarshal as, can be: NTRIPLES, TURTLE, NQUADS,      * RDFXML, JSONLD, RDFJSON, RDF4JMODEL. It is by default: RDF4JMODEL.      */
-DECL|method|setOutputFormat (Any23Type outputFormat)
+DECL|method|setOutputFormat (String outputFormat)
 specifier|public
 name|void
 name|setOutputFormat
 parameter_list|(
-name|Any23Type
+name|String
 name|outputFormat
 parameter_list|)
 block|{

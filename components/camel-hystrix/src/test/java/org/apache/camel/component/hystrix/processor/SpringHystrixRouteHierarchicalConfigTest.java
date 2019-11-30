@@ -250,7 +250,7 @@ name|assertEquals
 argument_list|(
 name|Integer
 operator|.
-name|valueOf
+name|toString
 argument_list|(
 literal|5
 argument_list|)

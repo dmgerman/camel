@@ -328,7 +328,7 @@ literal|"true"
 argument_list|)
 DECL|field|copy
 specifier|private
-name|Boolean
+name|String
 name|copy
 decl_stmt|;
 annotation|@
@@ -342,7 +342,7 @@ literal|"true"
 argument_list|)
 DECL|field|dynamicUri
 specifier|private
-name|Boolean
+name|String
 name|dynamicUri
 decl_stmt|;
 annotation|@
@@ -364,26 +364,11 @@ specifier|public
 name|WireTapDefinition
 parameter_list|()
 block|{     }
-DECL|method|isDynamic ()
-specifier|public
-name|boolean
-name|isDynamic
-parameter_list|()
-block|{
-comment|// its dynamic by default
-return|return
-name|dynamicUri
-operator|==
-literal|null
-operator|||
-name|dynamicUri
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|getPattern ()
 specifier|public
-name|ExchangePattern
+name|String
 name|getPattern
 parameter_list|()
 block|{
@@ -391,6 +376,9 @@ return|return
 name|ExchangePattern
 operator|.
 name|InOnly
+operator|.
+name|name
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -549,7 +537,12 @@ parameter_list|()
 block|{
 name|setCopy
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -571,7 +564,12 @@ parameter_list|)
 block|{
 name|setCopy
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|copy
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -593,7 +591,12 @@ parameter_list|)
 block|{
 name|setDynamicUri
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|dynamicUri
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -820,7 +823,12 @@ parameter_list|)
 block|{
 name|setCacheSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|cacheSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -841,7 +849,12 @@ parameter_list|()
 block|{
 name|setIgnoreInvalidEndpoint
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1028,7 +1041,7 @@ expr_stmt|;
 block|}
 DECL|method|getCopy ()
 specifier|public
-name|Boolean
+name|String
 name|getCopy
 parameter_list|()
 block|{
@@ -1036,12 +1049,12 @@ return|return
 name|copy
 return|;
 block|}
-DECL|method|setCopy (Boolean copy)
+DECL|method|setCopy (String copy)
 specifier|public
 name|void
 name|setCopy
 parameter_list|(
-name|Boolean
+name|String
 name|copy
 parameter_list|)
 block|{
@@ -1054,7 +1067,7 @@ expr_stmt|;
 block|}
 DECL|method|getDynamicUri ()
 specifier|public
-name|Boolean
+name|String
 name|getDynamicUri
 parameter_list|()
 block|{
@@ -1062,12 +1075,12 @@ return|return
 name|dynamicUri
 return|;
 block|}
-DECL|method|setDynamicUri (Boolean dynamicUri)
+DECL|method|setDynamicUri (String dynamicUri)
 specifier|public
 name|void
 name|setDynamicUri
 parameter_list|(
-name|Boolean
+name|String
 name|dynamicUri
 parameter_list|)
 block|{

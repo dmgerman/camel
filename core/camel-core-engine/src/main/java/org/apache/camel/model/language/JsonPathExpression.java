@@ -84,6 +84,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlSchemaType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlTransient
 import|;
 end_import
@@ -221,10 +235,14 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
 argument_list|)
 DECL|field|suppressExceptions
 specifier|private
-name|Boolean
+name|String
 name|suppressExceptions
 decl_stmt|;
 annotation|@
@@ -235,10 +253,14 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
 argument_list|)
 DECL|field|allowSimple
 specifier|private
-name|Boolean
+name|String
 name|allowSimple
 decl_stmt|;
 annotation|@
@@ -249,10 +271,14 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
 argument_list|)
 DECL|field|allowEasyPredicate
 specifier|private
-name|Boolean
+name|String
 name|allowEasyPredicate
 decl_stmt|;
 annotation|@
@@ -263,10 +289,14 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
 argument_list|)
 DECL|field|writeAsString
 specifier|private
-name|Boolean
+name|String
 name|writeAsString
 decl_stmt|;
 annotation|@
@@ -357,7 +387,7 @@ expr_stmt|;
 block|}
 DECL|method|getSuppressExceptions ()
 specifier|public
-name|Boolean
+name|String
 name|getSuppressExceptions
 parameter_list|()
 block|{
@@ -367,7 +397,7 @@ return|;
 block|}
 DECL|method|getAllowSimple ()
 specifier|public
-name|Boolean
+name|String
 name|getAllowSimple
 parameter_list|()
 block|{
@@ -376,12 +406,12 @@ name|allowSimple
 return|;
 block|}
 comment|/**      * Whether to allow in inlined simple exceptions in the JsonPath expression      */
-DECL|method|setAllowSimple (Boolean allowSimple)
+DECL|method|setAllowSimple (String allowSimple)
 specifier|public
 name|void
 name|setAllowSimple
 parameter_list|(
-name|Boolean
+name|String
 name|allowSimple
 parameter_list|)
 block|{
@@ -394,7 +424,7 @@ expr_stmt|;
 block|}
 DECL|method|getAllowEasyPredicate ()
 specifier|public
-name|Boolean
+name|String
 name|getAllowEasyPredicate
 parameter_list|()
 block|{
@@ -403,12 +433,12 @@ name|allowEasyPredicate
 return|;
 block|}
 comment|/**      * Whether to allow using the easy predicate parser to pre-parse predicates.      */
-DECL|method|setAllowEasyPredicate (Boolean allowEasyPredicate)
+DECL|method|setAllowEasyPredicate (String allowEasyPredicate)
 specifier|public
 name|void
 name|setAllowEasyPredicate
 parameter_list|(
-name|Boolean
+name|String
 name|allowEasyPredicate
 parameter_list|)
 block|{
@@ -420,12 +450,12 @@ name|allowEasyPredicate
 expr_stmt|;
 block|}
 comment|/**      * Whether to suppress exceptions such as PathNotFoundException.      */
-DECL|method|setSuppressExceptions (Boolean suppressExceptions)
+DECL|method|setSuppressExceptions (String suppressExceptions)
 specifier|public
 name|void
 name|setSuppressExceptions
 parameter_list|(
-name|Boolean
+name|String
 name|suppressExceptions
 parameter_list|)
 block|{
@@ -438,7 +468,7 @@ expr_stmt|;
 block|}
 DECL|method|getWriteAsString ()
 specifier|public
-name|Boolean
+name|String
 name|getWriteAsString
 parameter_list|()
 block|{
@@ -447,12 +477,12 @@ name|writeAsString
 return|;
 block|}
 comment|/**      * Whether to write the output of each row/element as a JSON String value      * instead of a Map/POJO value.      */
-DECL|method|setWriteAsString (Boolean writeAsString)
+DECL|method|setWriteAsString (String writeAsString)
 specifier|public
 name|void
 name|setWriteAsString
 parameter_list|(
-name|Boolean
+name|String
 name|writeAsString
 parameter_list|)
 block|{

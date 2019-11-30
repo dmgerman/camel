@@ -139,7 +139,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|roundRobin
 specifier|private
-name|Boolean
+name|String
 name|roundRobin
 decl_stmt|;
 annotation|@
@@ -175,7 +175,7 @@ parameter_list|()
 block|{     }
 DECL|method|getRoundRobin ()
 specifier|public
-name|Boolean
+name|String
 name|getRoundRobin
 parameter_list|()
 block|{
@@ -184,12 +184,12 @@ name|roundRobin
 return|;
 block|}
 comment|/**      * To enable round robin mode. By default the weighted distribution mode is      * used.      *<p/>      * The default value is false.      */
-DECL|method|setRoundRobin (Boolean roundRobin)
+DECL|method|setRoundRobin (String roundRobin)
 specifier|public
 name|void
 name|setRoundRobin
 parameter_list|(
-name|Boolean
+name|String
 name|roundRobin
 parameter_list|)
 block|{
@@ -268,20 +268,51 @@ name|String
 name|toString
 parameter_list|()
 block|{
-name|boolean
-name|isRoundRobin
-init|=
-name|getRoundRobin
+if|if
+condition|(
+name|roundRobin
+operator|==
+literal|null
+operator|||
+name|Boolean
+operator|.
+name|FALSE
+operator|.
+name|toString
 argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|roundRobin
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"WeightedRandomLoadBalancer["
+operator|+
+name|distributionRatio
+operator|+
+literal|"]"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|roundRobin
 operator|!=
 literal|null
 operator|&&
-name|getRoundRobin
+name|Boolean
+operator|.
+name|TRUE
+operator|.
+name|toString
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|isRoundRobin
+operator|.
+name|equals
+argument_list|(
+name|roundRobin
+argument_list|)
 condition|)
 block|{
 return|return
@@ -295,7 +326,11 @@ block|}
 else|else
 block|{
 return|return
-literal|"WeightedRandomLoadBalancer["
+literal|"WeightedLoadBalancer[roundRobin="
+operator|+
+name|roundRobin
+operator|+
+literal|","
 operator|+
 name|distributionRatio
 operator|+

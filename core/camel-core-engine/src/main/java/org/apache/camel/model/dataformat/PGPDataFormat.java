@@ -194,9 +194,20 @@ name|signatureKeyRing
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|armored
 specifier|private
-name|Boolean
+name|String
 name|armored
 decl_stmt|;
 annotation|@
@@ -207,10 +218,14 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
 argument_list|)
 DECL|field|integrity
 specifier|private
-name|Boolean
+name|String
 name|integrity
 decl_stmt|;
 annotation|@
@@ -222,23 +237,44 @@ name|provider
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Integer"
+argument_list|)
 DECL|field|algorithm
 specifier|private
-name|Integer
+name|String
 name|algorithm
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Integer"
+argument_list|)
 DECL|field|compressionAlgorithm
 specifier|private
-name|Integer
+name|String
 name|compressionAlgorithm
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Integer"
+argument_list|)
 DECL|field|hashAlgorithm
 specifier|private
-name|Integer
+name|String
 name|hashAlgorithm
 decl_stmt|;
 annotation|@
@@ -369,7 +405,7 @@ expr_stmt|;
 block|}
 DECL|method|getHashAlgorithm ()
 specifier|public
-name|Integer
+name|String
 name|getHashAlgorithm
 parameter_list|()
 block|{
@@ -378,12 +414,12 @@ name|hashAlgorithm
 return|;
 block|}
 comment|/**      * Signature hash algorithm; possible values are defined in      * org.bouncycastle.bcpg.HashAlgorithmTags; for example 2 (= SHA1), 8 (=      * SHA256), 9 (= SHA384), 10 (= SHA512), 11 (=SHA224). Only relevant for      * signing.      */
-DECL|method|setHashAlgorithm (Integer hashAlgorithm)
+DECL|method|setHashAlgorithm (String hashAlgorithm)
 specifier|public
 name|void
 name|setHashAlgorithm
 parameter_list|(
-name|Integer
+name|String
 name|hashAlgorithm
 parameter_list|)
 block|{
@@ -396,7 +432,7 @@ expr_stmt|;
 block|}
 DECL|method|getArmored ()
 specifier|public
-name|Boolean
+name|String
 name|getArmored
 parameter_list|()
 block|{
@@ -405,12 +441,12 @@ name|armored
 return|;
 block|}
 comment|/**      * This option will cause PGP to base64 encode the encrypted text, making it      * available for copy/paste, etc.      */
-DECL|method|setArmored (Boolean armored)
+DECL|method|setArmored (String armored)
 specifier|public
 name|void
 name|setArmored
 parameter_list|(
-name|Boolean
+name|String
 name|armored
 parameter_list|)
 block|{
@@ -423,7 +459,7 @@ expr_stmt|;
 block|}
 DECL|method|getIntegrity ()
 specifier|public
-name|Boolean
+name|String
 name|getIntegrity
 parameter_list|()
 block|{
@@ -432,12 +468,12 @@ name|integrity
 return|;
 block|}
 comment|/**      * Adds an integrity check/sign into the encryption file.      *<p/>      * The default value is true.      */
-DECL|method|setIntegrity (Boolean integrity)
+DECL|method|setIntegrity (String integrity)
 specifier|public
 name|void
 name|setIntegrity
 parameter_list|(
-name|Boolean
+name|String
 name|integrity
 parameter_list|)
 block|{
@@ -514,7 +550,7 @@ return|;
 block|}
 DECL|method|getAlgorithm ()
 specifier|public
-name|Integer
+name|String
 name|getAlgorithm
 parameter_list|()
 block|{
@@ -523,12 +559,12 @@ name|algorithm
 return|;
 block|}
 comment|/**      * Symmetric key encryption algorithm; possible values are defined in      * org.bouncycastle.bcpg.SymmetricKeyAlgorithmTags; for example 2 (= TRIPLE      * DES), 3 (= CAST5), 4 (= BLOWFISH), 6 (= DES), 7 (= AES_128). Only      * relevant for encrypting.      */
-DECL|method|setAlgorithm (Integer algorithm)
+DECL|method|setAlgorithm (String algorithm)
 specifier|public
 name|void
 name|setAlgorithm
 parameter_list|(
-name|Integer
+name|String
 name|algorithm
 parameter_list|)
 block|{
@@ -541,7 +577,7 @@ expr_stmt|;
 block|}
 DECL|method|getCompressionAlgorithm ()
 specifier|public
-name|Integer
+name|String
 name|getCompressionAlgorithm
 parameter_list|()
 block|{
@@ -550,12 +586,12 @@ name|compressionAlgorithm
 return|;
 block|}
 comment|/**      * Compression algorithm; possible values are defined in      * org.bouncycastle.bcpg.CompressionAlgorithmTags; for example 0 (=      * UNCOMPRESSED), 1 (= ZIP), 2 (= ZLIB), 3 (= BZIP2). Only relevant for      * encrypting.      */
-DECL|method|setCompressionAlgorithm (Integer compressionAlgorithm)
+DECL|method|setCompressionAlgorithm (String compressionAlgorithm)
 specifier|public
 name|void
 name|setCompressionAlgorithm
 parameter_list|(
-name|Integer
+name|String
 name|compressionAlgorithm
 parameter_list|)
 block|{

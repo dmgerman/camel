@@ -206,14 +206,14 @@ literal|"strategyMethodAllowNull"
 argument_list|)
 DECL|field|aggregationStrategyMethodAllowNull
 specifier|private
-name|Boolean
+name|String
 name|aggregationStrategyMethodAllowNull
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|aggregateOnException
 specifier|private
-name|Boolean
+name|String
 name|aggregateOnException
 decl_stmt|;
 annotation|@
@@ -227,21 +227,21 @@ annotation|@
 name|XmlAttribute
 DECL|field|shareUnitOfWork
 specifier|private
-name|Boolean
+name|String
 name|shareUnitOfWork
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|cacheSize
 specifier|private
-name|Integer
+name|String
 name|cacheSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|ignoreInvalidEndpoint
 specifier|private
-name|Boolean
+name|String
 name|ignoreInvalidEndpoint
 decl_stmt|;
 DECL|method|EnrichDefinition ()
@@ -412,7 +412,12 @@ parameter_list|)
 block|{
 name|setAggregationStrategyMethodAllowNull
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|aggregationStrategyMethodAllowNull
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -431,7 +436,12 @@ parameter_list|)
 block|{
 name|setAggregateOnException
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|aggregateOnException
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -447,7 +457,12 @@ parameter_list|()
 block|{
 name|setShareUnitOfWork
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -466,7 +481,12 @@ parameter_list|)
 block|{
 name|setCacheSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|cacheSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -482,7 +502,12 @@ parameter_list|()
 block|{
 name|setIgnoreInvalidEndpoint
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -566,7 +591,7 @@ expr_stmt|;
 block|}
 DECL|method|getAggregationStrategyMethodAllowNull ()
 specifier|public
-name|Boolean
+name|String
 name|getAggregationStrategyMethodAllowNull
 parameter_list|()
 block|{
@@ -574,12 +599,12 @@ return|return
 name|aggregationStrategyMethodAllowNull
 return|;
 block|}
-DECL|method|setAggregationStrategyMethodAllowNull (Boolean aggregationStrategyMethodAllowNull)
+DECL|method|setAggregationStrategyMethodAllowNull (String aggregationStrategyMethodAllowNull)
 specifier|public
 name|void
 name|setAggregationStrategyMethodAllowNull
 parameter_list|(
-name|Boolean
+name|String
 name|aggregationStrategyMethodAllowNull
 parameter_list|)
 block|{
@@ -618,7 +643,7 @@ expr_stmt|;
 block|}
 DECL|method|getAggregateOnException ()
 specifier|public
-name|Boolean
+name|String
 name|getAggregateOnException
 parameter_list|()
 block|{
@@ -626,12 +651,12 @@ return|return
 name|aggregateOnException
 return|;
 block|}
-DECL|method|setAggregateOnException (Boolean aggregateOnException)
+DECL|method|setAggregateOnException (String aggregateOnException)
 specifier|public
 name|void
 name|setAggregateOnException
 parameter_list|(
-name|Boolean
+name|String
 name|aggregateOnException
 parameter_list|)
 block|{
@@ -644,7 +669,7 @@ expr_stmt|;
 block|}
 DECL|method|getShareUnitOfWork ()
 specifier|public
-name|Boolean
+name|String
 name|getShareUnitOfWork
 parameter_list|()
 block|{
@@ -652,12 +677,12 @@ return|return
 name|shareUnitOfWork
 return|;
 block|}
-DECL|method|setShareUnitOfWork (Boolean shareUnitOfWork)
+DECL|method|setShareUnitOfWork (String shareUnitOfWork)
 specifier|public
 name|void
 name|setShareUnitOfWork
 parameter_list|(
-name|Boolean
+name|String
 name|shareUnitOfWork
 parameter_list|)
 block|{
@@ -670,7 +695,7 @@ expr_stmt|;
 block|}
 DECL|method|getCacheSize ()
 specifier|public
-name|Integer
+name|String
 name|getCacheSize
 parameter_list|()
 block|{
@@ -678,12 +703,12 @@ return|return
 name|cacheSize
 return|;
 block|}
-DECL|method|setCacheSize (Integer cacheSize)
+DECL|method|setCacheSize (String cacheSize)
 specifier|public
 name|void
 name|setCacheSize
 parameter_list|(
-name|Integer
+name|String
 name|cacheSize
 parameter_list|)
 block|{
@@ -696,7 +721,7 @@ expr_stmt|;
 block|}
 DECL|method|getIgnoreInvalidEndpoint ()
 specifier|public
-name|Boolean
+name|String
 name|getIgnoreInvalidEndpoint
 parameter_list|()
 block|{
@@ -704,12 +729,12 @@ return|return
 name|ignoreInvalidEndpoint
 return|;
 block|}
-DECL|method|setIgnoreInvalidEndpoint (Boolean ignoreInvalidEndpoint)
+DECL|method|setIgnoreInvalidEndpoint (String ignoreInvalidEndpoint)
 specifier|public
 name|void
 name|setIgnoreInvalidEndpoint
 parameter_list|(
-name|Boolean
+name|String
 name|ignoreInvalidEndpoint
 parameter_list|)
 block|{

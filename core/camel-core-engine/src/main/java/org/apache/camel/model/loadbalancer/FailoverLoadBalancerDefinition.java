@@ -225,14 +225,14 @@ annotation|@
 name|XmlAttribute
 DECL|field|roundRobin
 specifier|private
-name|Boolean
+name|String
 name|roundRobin
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|sticky
 specifier|private
-name|Boolean
+name|String
 name|sticky
 decl_stmt|;
 annotation|@
@@ -246,7 +246,7 @@ literal|"-1"
 argument_list|)
 DECL|field|maximumFailoverAttempts
 specifier|private
-name|Integer
+name|String
 name|maximumFailoverAttempts
 decl_stmt|;
 DECL|method|FailoverLoadBalancerDefinition ()
@@ -328,7 +328,7 @@ expr_stmt|;
 block|}
 DECL|method|getRoundRobin ()
 specifier|public
-name|Boolean
+name|String
 name|getRoundRobin
 parameter_list|()
 block|{
@@ -337,12 +337,12 @@ name|roundRobin
 return|;
 block|}
 comment|/**      * Whether or not the failover load balancer should operate in round robin      * mode or not. If not, then it will always start from the first endpoint      * when a new message is to be processed. In other words it restart from the      * top for every message. If round robin is enabled, then it keeps state and      * will continue with the next endpoint in a round robin fashion.      *<p/>      * You can also enable sticky mode together with round robin, if so then it      * will pick the last known good endpoint to use when starting the load      * balancing (instead of using the next when starting).      */
-DECL|method|setRoundRobin (Boolean roundRobin)
+DECL|method|setRoundRobin (String roundRobin)
 specifier|public
 name|void
 name|setRoundRobin
 parameter_list|(
-name|Boolean
+name|String
 name|roundRobin
 parameter_list|)
 block|{
@@ -355,7 +355,7 @@ expr_stmt|;
 block|}
 DECL|method|getSticky ()
 specifier|public
-name|Boolean
+name|String
 name|getSticky
 parameter_list|()
 block|{
@@ -364,12 +364,12 @@ name|sticky
 return|;
 block|}
 comment|/**      * Whether or not the failover load balancer should operate in sticky mode      * or not. If not, then it will always start from the first endpoint when a      * new message is to be processed. In other words it restart from the top      * for every message. If sticky is enabled, then it keeps state and will      * continue with the last known good endpoint.      *<p/>      * You can also enable sticky mode together with round robin, if so then it      * will pick the last known good endpoint to use when starting the load      * balancing (instead of using the next when starting).      */
-DECL|method|setSticky (Boolean sticky)
+DECL|method|setSticky (String sticky)
 specifier|public
 name|void
 name|setSticky
 parameter_list|(
-name|Boolean
+name|String
 name|sticky
 parameter_list|)
 block|{
@@ -382,7 +382,7 @@ expr_stmt|;
 block|}
 DECL|method|getMaximumFailoverAttempts ()
 specifier|public
-name|Integer
+name|String
 name|getMaximumFailoverAttempts
 parameter_list|()
 block|{
@@ -391,12 +391,12 @@ name|maximumFailoverAttempts
 return|;
 block|}
 comment|/**      * A value to indicate after X failover attempts we should exhaust (give      * up). Use -1 to indicate never give up and continuously try to failover.      * Use 0 to never failover. And use e.g. 3 to failover at most 3 times      * before giving up. his option can be used whether or not roundRobin is      * enabled or not.      */
-DECL|method|setMaximumFailoverAttempts (Integer maximumFailoverAttempts)
+DECL|method|setMaximumFailoverAttempts (String maximumFailoverAttempts)
 specifier|public
 name|void
 name|setMaximumFailoverAttempts
 parameter_list|(
-name|Integer
+name|String
 name|maximumFailoverAttempts
 parameter_list|)
 block|{

@@ -164,7 +164,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|pattern
 specifier|private
-name|ExchangePattern
+name|String
 name|pattern
 decl_stmt|;
 DECL|method|ToDefinition ()
@@ -244,6 +244,9 @@ operator|.
 name|pattern
 operator|=
 name|pattern
+operator|.
+name|name
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|ToDefinition (Endpoint endpoint, ExchangePattern pattern)
@@ -267,6 +270,9 @@ operator|.
 name|pattern
 operator|=
 name|pattern
+operator|.
+name|name
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|ToDefinition (EndpointProducerBuilder endpoint, ExchangePattern pattern)
@@ -290,6 +296,9 @@ operator|.
 name|pattern
 operator|=
 name|pattern
+operator|.
+name|name
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -325,7 +334,7 @@ annotation|@
 name|Override
 DECL|method|getPattern ()
 specifier|public
-name|ExchangePattern
+name|String
 name|getPattern
 parameter_list|()
 block|{
@@ -334,12 +343,12 @@ name|pattern
 return|;
 block|}
 comment|/**      * Sets the optional {@link ExchangePattern} used to invoke this endpoint      */
-DECL|method|setPattern (ExchangePattern pattern)
+DECL|method|setPattern (String pattern)
 specifier|public
 name|void
 name|setPattern
 parameter_list|(
-name|ExchangePattern
+name|String
 name|pattern
 parameter_list|)
 block|{

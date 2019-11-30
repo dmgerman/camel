@@ -210,14 +210,14 @@ literal|"true"
 argument_list|)
 DECL|field|eager
 specifier|private
-name|Boolean
+name|String
 name|eager
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|completionEager
 specifier|private
-name|Boolean
+name|String
 name|completionEager
 decl_stmt|;
 annotation|@
@@ -231,7 +231,7 @@ literal|"true"
 argument_list|)
 DECL|field|skipDuplicate
 specifier|private
-name|Boolean
+name|String
 name|skipDuplicate
 decl_stmt|;
 annotation|@
@@ -245,7 +245,7 @@ literal|"true"
 argument_list|)
 DECL|field|removeOnFailure
 specifier|private
-name|Boolean
+name|String
 name|removeOnFailure
 decl_stmt|;
 annotation|@
@@ -411,7 +411,12 @@ parameter_list|)
 block|{
 name|setEager
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|eager
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -430,7 +435,12 @@ parameter_list|)
 block|{
 name|setCompletionEager
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|completionEager
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -449,7 +459,12 @@ parameter_list|)
 block|{
 name|setRemoveOnFailure
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|removeOnFailure
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -468,7 +483,12 @@ parameter_list|)
 block|{
 name|setSkipDuplicate
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|skipDuplicate
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -550,7 +570,7 @@ expr_stmt|;
 block|}
 DECL|method|getEager ()
 specifier|public
-name|Boolean
+name|String
 name|getEager
 parameter_list|()
 block|{
@@ -558,12 +578,12 @@ return|return
 name|eager
 return|;
 block|}
-DECL|method|setEager (Boolean eager)
+DECL|method|setEager (String eager)
 specifier|public
 name|void
 name|setEager
 parameter_list|(
-name|Boolean
+name|String
 name|eager
 parameter_list|)
 block|{
@@ -576,7 +596,7 @@ expr_stmt|;
 block|}
 DECL|method|getSkipDuplicate ()
 specifier|public
-name|Boolean
+name|String
 name|getSkipDuplicate
 parameter_list|()
 block|{
@@ -584,12 +604,12 @@ return|return
 name|skipDuplicate
 return|;
 block|}
-DECL|method|setSkipDuplicate (Boolean skipDuplicate)
+DECL|method|setSkipDuplicate (String skipDuplicate)
 specifier|public
 name|void
 name|setSkipDuplicate
 parameter_list|(
-name|Boolean
+name|String
 name|skipDuplicate
 parameter_list|)
 block|{
@@ -602,7 +622,7 @@ expr_stmt|;
 block|}
 DECL|method|getRemoveOnFailure ()
 specifier|public
-name|Boolean
+name|String
 name|getRemoveOnFailure
 parameter_list|()
 block|{
@@ -610,12 +630,12 @@ return|return
 name|removeOnFailure
 return|;
 block|}
-DECL|method|setRemoveOnFailure (Boolean removeOnFailure)
+DECL|method|setRemoveOnFailure (String removeOnFailure)
 specifier|public
 name|void
 name|setRemoveOnFailure
 parameter_list|(
-name|Boolean
+name|String
 name|removeOnFailure
 parameter_list|)
 block|{
@@ -628,7 +648,7 @@ expr_stmt|;
 block|}
 DECL|method|getCompletionEager ()
 specifier|public
-name|Boolean
+name|String
 name|getCompletionEager
 parameter_list|()
 block|{
@@ -636,12 +656,12 @@ return|return
 name|completionEager
 return|;
 block|}
-DECL|method|setCompletionEager (Boolean completionEager)
+DECL|method|setCompletionEager (String completionEager)
 specifier|public
 name|void
 name|setCompletionEager
 parameter_list|(
-name|Boolean
+name|String
 name|completionEager
 parameter_list|)
 block|{

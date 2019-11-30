@@ -546,7 +546,7 @@ name|put
 argument_list|(
 literal|"httpURI"
 argument_list|,
-literal|"http://no-host:"
+literal|"http://no.host:"
 operator|+
 name|getPort
 argument_list|()

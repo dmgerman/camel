@@ -215,10 +215,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|isRoundRobin ()
+DECL|method|getRoundRobin ()
 specifier|public
-name|Boolean
-name|isRoundRobin
+name|String
+name|getRoundRobin
 parameter_list|()
 block|{
 name|WeightedLoadBalancerDefinition

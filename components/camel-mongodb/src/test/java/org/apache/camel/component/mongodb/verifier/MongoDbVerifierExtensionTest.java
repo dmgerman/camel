@@ -370,7 +370,7 @@ name|put
 argument_list|(
 literal|"host"
 argument_list|,
-literal|"notReachableHost"
+literal|"notReachable.host"
 argument_list|)
 expr_stmt|;
 name|parameters

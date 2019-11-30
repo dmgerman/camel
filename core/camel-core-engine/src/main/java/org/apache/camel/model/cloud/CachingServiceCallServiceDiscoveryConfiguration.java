@@ -134,6 +134,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlSchemaType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|adapters
 operator|.
 name|XmlJavaTypeAdapter
@@ -217,13 +231,22 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"60"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Integer"
 argument_list|)
 DECL|field|timeout
 specifier|private
-name|Integer
+name|String
 name|timeout
 init|=
+name|Integer
+operator|.
+name|toString
+argument_list|(
 literal|60
+argument_list|)
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -376,7 +399,7 @@ comment|// Properties
 comment|// *************************************************************************
 DECL|method|getTimeout ()
 specifier|public
-name|Integer
+name|String
 name|getTimeout
 parameter_list|()
 block|{
@@ -385,12 +408,12 @@ name|timeout
 return|;
 block|}
 comment|/**      * Set the time the services will be retained.      */
-DECL|method|setTimeout (Integer timeout)
+DECL|method|setTimeout (String timeout)
 specifier|public
 name|void
 name|setTimeout
 parameter_list|(
-name|Integer
+name|String
 name|timeout
 parameter_list|)
 block|{
@@ -459,18 +482,23 @@ comment|// *********************************************************************
 comment|// Fluent API
 comment|// *************************************************************************
 comment|/**      * Set the time the services will be retained.      */
-DECL|method|timeout (Integer timeout)
+DECL|method|timeout (int timeout)
 specifier|public
 name|CachingServiceCallServiceDiscoveryConfiguration
 name|timeout
 parameter_list|(
-name|Integer
+name|int
 name|timeout
 parameter_list|)
 block|{
 name|setTimeout
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|timeout
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

@@ -76,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlSchemaType
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -151,10 +165,14 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"76"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Integer"
 argument_list|)
 DECL|field|lineLength
 specifier|private
-name|Integer
+name|String
 name|lineLength
 decl_stmt|;
 annotation|@
@@ -166,9 +184,16 @@ name|lineSeparator
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|urlSafe
 specifier|private
-name|Boolean
+name|String
 name|urlSafe
 decl_stmt|;
 DECL|method|Base64DataFormat ()
@@ -184,7 +209,7 @@ expr_stmt|;
 block|}
 DECL|method|getLineLength ()
 specifier|public
-name|Integer
+name|String
 name|getLineLength
 parameter_list|()
 block|{
@@ -193,12 +218,12 @@ name|lineLength
 return|;
 block|}
 comment|/**      * To specific a maximum line length for the encoded data.      *<p/>      * By default 76 is used.      */
-DECL|method|setLineLength (Integer lineLength)
+DECL|method|setLineLength (String lineLength)
 specifier|public
 name|void
 name|setLineLength
 parameter_list|(
-name|Integer
+name|String
 name|lineLength
 parameter_list|)
 block|{
@@ -238,7 +263,7 @@ expr_stmt|;
 block|}
 DECL|method|getUrlSafe ()
 specifier|public
-name|Boolean
+name|String
 name|getUrlSafe
 parameter_list|()
 block|{
@@ -247,12 +272,12 @@ name|urlSafe
 return|;
 block|}
 comment|/**      * Instead of emitting '+' and '/' we emit '-' and '_' respectively. urlSafe      * is only applied to encode operations. Decoding seamlessly handles both      * modes. Is by default false.      */
-DECL|method|setUrlSafe (Boolean urlSafe)
+DECL|method|setUrlSafe (String urlSafe)
 specifier|public
 name|void
 name|setUrlSafe
 parameter_list|(
-name|Boolean
+name|String
 name|urlSafe
 parameter_list|)
 block|{

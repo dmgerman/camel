@@ -84,6 +84,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlSchemaType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlTransient
 import|;
 end_import
@@ -159,10 +173,14 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"100"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Integer"
 argument_list|)
 DECL|field|capacity
 specifier|private
-name|Integer
+name|String
 name|capacity
 decl_stmt|;
 annotation|@
@@ -173,10 +191,14 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"1000"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Long"
 argument_list|)
 DECL|field|timeout
 specifier|private
-name|Long
+name|String
 name|timeout
 decl_stmt|;
 annotation|@
@@ -187,17 +209,28 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"1000"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Long"
 argument_list|)
 DECL|field|deliveryAttemptInterval
 specifier|private
-name|Long
+name|String
 name|deliveryAttemptInterval
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|ignoreInvalidExchanges
 specifier|private
-name|Boolean
+name|String
 name|ignoreInvalidExchanges
 decl_stmt|;
 annotation|@
@@ -216,9 +249,16 @@ name|comparatorRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|rejectOld
 specifier|private
-name|Boolean
+name|String
 name|rejectOld
 decl_stmt|;
 comment|/**      * Creates a new {@link StreamResequencerConfig} instance using default      * values for<code>capacity</code> (1000) and<code>timeout</code> (1000L).      * Elements of the sequence are compared using the default      * {@link ExpressionResultComparator}.      */
@@ -335,19 +375,40 @@ name|this
 operator|.
 name|capacity
 operator|=
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|capacity
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
 name|timeout
 operator|=
+name|Long
+operator|.
+name|toString
+argument_list|(
 name|timeout
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
 name|rejectOld
 operator|=
 name|rejectOld
+operator|!=
+literal|null
+condition|?
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+name|rejectOld
+argument_list|)
+else|:
+literal|null
 expr_stmt|;
 name|this
 operator|.
@@ -372,7 +433,7 @@ return|;
 block|}
 DECL|method|getCapacity ()
 specifier|public
-name|int
+name|String
 name|getCapacity
 parameter_list|()
 block|{
@@ -381,12 +442,12 @@ name|capacity
 return|;
 block|}
 comment|/**      * Sets the capacity of the resequencer's inbound queue.      */
-DECL|method|setCapacity (int capacity)
+DECL|method|setCapacity (String capacity)
 specifier|public
 name|void
 name|setCapacity
 parameter_list|(
-name|int
+name|String
 name|capacity
 parameter_list|)
 block|{
@@ -399,7 +460,7 @@ expr_stmt|;
 block|}
 DECL|method|getTimeout ()
 specifier|public
-name|long
+name|String
 name|getTimeout
 parameter_list|()
 block|{
@@ -408,12 +469,12 @@ name|timeout
 return|;
 block|}
 comment|/**      * Sets minimum time to wait for missing elements (messages).      */
-DECL|method|setTimeout (long timeout)
+DECL|method|setTimeout (String timeout)
 specifier|public
 name|void
 name|setTimeout
 parameter_list|(
-name|long
+name|String
 name|timeout
 parameter_list|)
 block|{
@@ -426,7 +487,7 @@ expr_stmt|;
 block|}
 DECL|method|getDeliveryAttemptInterval ()
 specifier|public
-name|Long
+name|String
 name|getDeliveryAttemptInterval
 parameter_list|()
 block|{
@@ -435,12 +496,12 @@ name|deliveryAttemptInterval
 return|;
 block|}
 comment|/**      * Sets the interval in milli seconds the stream resequencer will at most      * wait while waiting for condition of being able to deliver.      */
-DECL|method|setDeliveryAttemptInterval (Long deliveryAttemptInterval)
+DECL|method|setDeliveryAttemptInterval (String deliveryAttemptInterval)
 specifier|public
 name|void
 name|setDeliveryAttemptInterval
 parameter_list|(
-name|Long
+name|String
 name|deliveryAttemptInterval
 parameter_list|)
 block|{
@@ -453,7 +514,7 @@ expr_stmt|;
 block|}
 DECL|method|getIgnoreInvalidExchanges ()
 specifier|public
-name|Boolean
+name|String
 name|getIgnoreInvalidExchanges
 parameter_list|()
 block|{
@@ -462,12 +523,12 @@ name|ignoreInvalidExchanges
 return|;
 block|}
 comment|/**      * Whether to ignore invalid exchanges      */
-DECL|method|setIgnoreInvalidExchanges (Boolean ignoreInvalidExchanges)
+DECL|method|setIgnoreInvalidExchanges (String ignoreInvalidExchanges)
 specifier|public
 name|void
 name|setIgnoreInvalidExchanges
 parameter_list|(
-name|Boolean
+name|String
 name|ignoreInvalidExchanges
 parameter_list|)
 block|{
@@ -533,12 +594,12 @@ name|comparatorRef
 expr_stmt|;
 block|}
 comment|/**      * If true, throws an exception when messages older than the last delivered      * message are processed      */
-DECL|method|setRejectOld (boolean value)
+DECL|method|setRejectOld (String value)
 specifier|public
 name|void
 name|setRejectOld
 parameter_list|(
-name|boolean
+name|String
 name|value
 parameter_list|)
 block|{
@@ -551,7 +612,7 @@ expr_stmt|;
 block|}
 DECL|method|getRejectOld ()
 specifier|public
-name|Boolean
+name|String
 name|getRejectOld
 parameter_list|()
 block|{

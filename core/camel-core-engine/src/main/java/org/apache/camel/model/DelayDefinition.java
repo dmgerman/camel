@@ -217,7 +217,7 @@ literal|"true"
 argument_list|)
 DECL|field|asyncDelayed
 specifier|private
-name|Boolean
+name|String
 name|asyncDelayed
 decl_stmt|;
 annotation|@
@@ -231,7 +231,7 @@ literal|"true"
 argument_list|)
 DECL|field|callerRunsWhenRejected
 specifier|private
-name|Boolean
+name|String
 name|callerRunsWhenRejected
 decl_stmt|;
 DECL|method|DelayDefinition ()
@@ -347,7 +347,12 @@ parameter_list|)
 block|{
 name|setCallerRunsWhenRejected
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|callerRunsWhenRejected
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -363,7 +368,12 @@ parameter_list|()
 block|{
 name|setAsyncDelayed
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -379,7 +389,12 @@ parameter_list|()
 block|{
 name|setAsyncDelayed
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -453,7 +468,7 @@ expr_stmt|;
 block|}
 DECL|method|getAsyncDelayed ()
 specifier|public
-name|Boolean
+name|String
 name|getAsyncDelayed
 parameter_list|()
 block|{
@@ -461,12 +476,12 @@ return|return
 name|asyncDelayed
 return|;
 block|}
-DECL|method|setAsyncDelayed (Boolean asyncDelayed)
+DECL|method|setAsyncDelayed (String asyncDelayed)
 specifier|public
 name|void
 name|setAsyncDelayed
 parameter_list|(
-name|Boolean
+name|String
 name|asyncDelayed
 parameter_list|)
 block|{
@@ -479,7 +494,7 @@ expr_stmt|;
 block|}
 DECL|method|getCallerRunsWhenRejected ()
 specifier|public
-name|Boolean
+name|String
 name|getCallerRunsWhenRejected
 parameter_list|()
 block|{
@@ -487,12 +502,12 @@ return|return
 name|callerRunsWhenRejected
 return|;
 block|}
-DECL|method|setCallerRunsWhenRejected (Boolean callerRunsWhenRejected)
+DECL|method|setCallerRunsWhenRejected (String callerRunsWhenRejected)
 specifier|public
 name|void
 name|setCallerRunsWhenRejected
 parameter_list|(
-name|Boolean
+name|String
 name|callerRunsWhenRejected
 parameter_list|)
 block|{

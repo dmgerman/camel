@@ -180,9 +180,16 @@ name|algorithmParameterRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Integer"
+argument_list|)
 DECL|field|buffersize
 specifier|private
-name|Integer
+name|String
 name|buffersize
 decl_stmt|;
 annotation|@
@@ -203,16 +210,38 @@ literal|"HmacSHA1"
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|shouldAppendHMAC
 specifier|private
-name|Boolean
+name|String
 name|shouldAppendHMAC
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|inline
 specifier|private
-name|Boolean
+name|String
 name|inline
 decl_stmt|;
 DECL|method|CryptoDataFormat ()
@@ -363,7 +392,7 @@ expr_stmt|;
 block|}
 DECL|method|getBuffersize ()
 specifier|public
-name|Integer
+name|String
 name|getBuffersize
 parameter_list|()
 block|{
@@ -372,12 +401,12 @@ name|buffersize
 return|;
 block|}
 comment|/**      * The size of the buffer used in the signature process.      */
-DECL|method|setBuffersize (Integer buffersize)
+DECL|method|setBuffersize (String buffersize)
 specifier|public
 name|void
 name|setBuffersize
 parameter_list|(
-name|Integer
+name|String
 name|buffersize
 parameter_list|)
 block|{
@@ -417,7 +446,7 @@ expr_stmt|;
 block|}
 DECL|method|getShouldAppendHMAC ()
 specifier|public
-name|Boolean
+name|String
 name|getShouldAppendHMAC
 parameter_list|()
 block|{
@@ -426,12 +455,12 @@ name|shouldAppendHMAC
 return|;
 block|}
 comment|/**      * Flag indicating that a Message Authentication Code should be calculated      * and appended to the encrypted data.      */
-DECL|method|setShouldAppendHMAC (Boolean shouldAppendHMAC)
+DECL|method|setShouldAppendHMAC (String shouldAppendHMAC)
 specifier|public
 name|void
 name|setShouldAppendHMAC
 parameter_list|(
-name|Boolean
+name|String
 name|shouldAppendHMAC
 parameter_list|)
 block|{
@@ -444,7 +473,7 @@ expr_stmt|;
 block|}
 DECL|method|getInline ()
 specifier|public
-name|Boolean
+name|String
 name|getInline
 parameter_list|()
 block|{
@@ -453,12 +482,12 @@ name|inline
 return|;
 block|}
 comment|/**      * Flag indicating that the configured IV should be inlined into the      * encrypted data stream.      *<p/>      * Is by default false.      */
-DECL|method|setInline (Boolean inline)
+DECL|method|setInline (String inline)
 specifier|public
 name|void
 name|setInline
 parameter_list|(
-name|Boolean
+name|String
 name|inline
 parameter_list|)
 block|{

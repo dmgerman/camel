@@ -993,14 +993,14 @@ argument_list|)
 decl_stmt|;
 name|agg
 operator|.
-name|setCompletionTimeout
+name|completionTimeout
 argument_list|(
 literal|100L
 argument_list|)
 expr_stmt|;
 name|agg
 operator|.
-name|setCompletionTimeoutCheckerInterval
+name|completionTimeoutCheckerInterval
 argument_list|(
 literal|10L
 argument_list|)

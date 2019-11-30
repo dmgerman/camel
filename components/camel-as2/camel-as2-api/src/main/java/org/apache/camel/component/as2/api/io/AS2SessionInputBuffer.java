@@ -240,6 +240,22 @@ name|CharArrayBuffer
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|BufferCaster
+operator|.
+name|cast
+import|;
+end_import
+
 begin_class
 DECL|class|AS2SessionInputBuffer
 specifier|public
@@ -1856,9 +1872,12 @@ name|throwException
 argument_list|()
 expr_stmt|;
 block|}
+name|cast
+argument_list|(
 name|this
 operator|.
 name|cbuf
+argument_list|)
 operator|.
 name|flip
 argument_list|()

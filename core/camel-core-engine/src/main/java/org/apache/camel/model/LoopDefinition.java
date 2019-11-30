@@ -163,14 +163,14 @@ annotation|@
 name|XmlAttribute
 DECL|field|copy
 specifier|private
-name|Boolean
+name|String
 name|copy
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|doWhile
 specifier|private
-name|Boolean
+name|String
 name|doWhile
 decl_stmt|;
 DECL|method|LoopDefinition ()
@@ -207,7 +207,12 @@ argument_list|)
 expr_stmt|;
 name|setDoWhile
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -234,7 +239,12 @@ parameter_list|()
 block|{
 name|setCopy
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -243,7 +253,7 @@ return|;
 block|}
 DECL|method|getCopy ()
 specifier|public
-name|Boolean
+name|String
 name|getCopy
 parameter_list|()
 block|{
@@ -253,7 +263,7 @@ return|;
 block|}
 DECL|method|getDoWhile ()
 specifier|public
-name|Boolean
+name|String
 name|getDoWhile
 parameter_list|()
 block|{
@@ -262,12 +272,12 @@ name|doWhile
 return|;
 block|}
 comment|/**      * Enables the while loop that loops until the predicate evaluates to false      * or null.      */
-DECL|method|setDoWhile (Boolean doWhile)
+DECL|method|setDoWhile (String doWhile)
 specifier|public
 name|void
 name|setDoWhile
 parameter_list|(
-name|Boolean
+name|String
 name|doWhile
 parameter_list|)
 block|{
@@ -279,12 +289,12 @@ name|doWhile
 expr_stmt|;
 block|}
 comment|/**      * If the copy attribute is true, a copy of the input Exchange is used for      * each iteration. That means each iteration will start from a copy of the      * same message.      *<p/>      * By default loop will loop the same exchange all over, so each iteration      * may have different message content.      */
-DECL|method|setCopy (Boolean copy)
+DECL|method|setCopy (String copy)
 specifier|public
 name|void
 name|setCopy
 parameter_list|(
-name|Boolean
+name|String
 name|copy
 parameter_list|)
 block|{

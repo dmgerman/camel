@@ -58,6 +58,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -137,6 +149,18 @@ operator|.
 name|camel
 operator|.
 name|NoSuchEndpointException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|NoTypeConversionAvailableException
 import|;
 end_import
 
@@ -1482,7 +1506,7 @@ return|return
 literal|1000
 return|;
 block|}
-comment|/**      * Parses the given text and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the parsed text, or<tt>null</tt> if the text was<tt>null</tt>      * @throws Exception is thrown if illegal argument      */
+comment|/**      * Parses the given text and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the parsed text, or<tt>null</tt> if the text was<tt>null</tt>      * @throws IllegalStateException is thrown if illegal argument      */
 DECL|method|parseText (CamelContext camelContext, String text)
 specifier|public
 specifier|static
@@ -1495,8 +1519,6 @@ parameter_list|,
 name|String
 name|text
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// ensure we support property placeholders
 return|return
@@ -1508,7 +1530,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses the given text and converts it to an Integer and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the integer vale, or<tt>null</tt> if the text was<tt>null</tt>      * @throws Exception is thrown if illegal argument or type conversion not possible      */
+comment|/**      * Parses the given text and converts it to an Integer and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the integer vale, or<tt>null</tt> if the text was<tt>null</tt>      * @throws IllegalStateException is thrown if illegal argument or type conversion not possible      */
 DECL|method|parseInteger (CamelContext camelContext, String text)
 specifier|public
 specifier|static
@@ -1521,102 +1543,21 @@ parameter_list|,
 name|String
 name|text
 parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// ensure we support property placeholders
-name|String
-name|s
-init|=
-name|camelContext
-operator|.
-name|resolvePropertyPlaceholders
-argument_list|(
-name|text
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|s
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
 block|{
 return|return
-name|camelContext
-operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|mandatoryConvertTo
+name|parse
 argument_list|(
+name|camelContext
+argument_list|,
 name|Integer
 operator|.
 name|class
 argument_list|,
-name|s
+name|text
 argument_list|)
 return|;
 block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|s
-operator|.
-name|equals
-argument_list|(
-name|text
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Error parsing ["
-operator|+
-name|s
-operator|+
-literal|"] as an Integer."
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Error parsing ["
-operator|+
-name|s
-operator|+
-literal|"] from property "
-operator|+
-name|text
-operator|+
-literal|" as an Integer."
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
-return|return
-literal|null
-return|;
-block|}
-comment|/**      * Parses the given text and converts it to an Long and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the long vale, or<tt>null</tt> if the text was<tt>null</tt>      * @throws Exception is thrown if illegal argument or type conversion not possible      */
+comment|/**      * Parses the given text and converts it to an Long and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the long vale, or<tt>null</tt> if the text was<tt>null</tt>      * @throws IllegalStateException is thrown if illegal argument or type conversion not possible      */
 DECL|method|parseLong (CamelContext camelContext, String text)
 specifier|public
 specifier|static
@@ -1629,102 +1570,21 @@ parameter_list|,
 name|String
 name|text
 parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// ensure we support property placeholders
-name|String
-name|s
-init|=
-name|camelContext
-operator|.
-name|resolvePropertyPlaceholders
-argument_list|(
-name|text
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|s
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
 block|{
 return|return
-name|camelContext
-operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|mandatoryConvertTo
+name|parse
 argument_list|(
+name|camelContext
+argument_list|,
 name|Long
 operator|.
 name|class
 argument_list|,
-name|s
+name|text
 argument_list|)
 return|;
 block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|s
-operator|.
-name|equals
-argument_list|(
-name|text
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Error parsing ["
-operator|+
-name|s
-operator|+
-literal|"] as a Long."
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Error parsing ["
-operator|+
-name|s
-operator|+
-literal|"] from property "
-operator|+
-name|text
-operator|+
-literal|" as a Long."
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
-return|return
-literal|null
-return|;
-block|}
-comment|/**      * Parses the given text and converts it to a Double and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the double vale, or<tt>null</tt> if the text was<tt>null</tt>      * @throws Exception is thrown if illegal argument or type conversion not possible      */
+comment|/**      * Parses the given text and converts it to a Double and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the double vale, or<tt>null</tt> if the text was<tt>null</tt>      * @throws IllegalStateException is thrown if illegal argument or type conversion not possible      */
 DECL|method|parseDouble (CamelContext camelContext, String text)
 specifier|public
 specifier|static
@@ -1737,99 +1597,18 @@ parameter_list|,
 name|String
 name|text
 parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// ensure we support property placeholders
-name|String
-name|s
-init|=
-name|camelContext
-operator|.
-name|resolvePropertyPlaceholders
-argument_list|(
-name|text
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|s
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
 block|{
 return|return
-name|camelContext
-operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|mandatoryConvertTo
+name|parse
 argument_list|(
+name|camelContext
+argument_list|,
 name|Double
 operator|.
 name|class
 argument_list|,
-name|s
-argument_list|)
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|s
-operator|.
-name|equals
-argument_list|(
 name|text
 argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Error parsing ["
-operator|+
-name|s
-operator|+
-literal|"] as an Integer."
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Error parsing ["
-operator|+
-name|s
-operator|+
-literal|"] from property "
-operator|+
-name|text
-operator|+
-literal|" as an Integer."
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
-return|return
-literal|null
 return|;
 block|}
 comment|/**      * Parses the given text and converts it to an Boolean and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the boolean vale, or<tt>null</tt> if the text was<tt>null</tt>      * @throws IllegalArgumentException is thrown if illegal argument or type conversion not possible      */
@@ -1846,6 +1625,42 @@ name|String
 name|text
 parameter_list|)
 block|{
+return|return
+name|parse
+argument_list|(
+name|camelContext
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|,
+name|text
+argument_list|)
+return|;
+block|}
+comment|/**      * Parses the given text and converts it to the specified class and handling property placeholders as well      *      * @param camelContext the camel context      * @param clazz the class to convert the value to      * @param text  the text      * @return the boolean vale, or<tt>null</tt> if the text was<tt>null</tt>      * @throws IllegalArgumentException is thrown if illegal argument or type conversion not possible      */
+DECL|method|parse (CamelContext camelContext, Class<T> clazz, String text)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|parse
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|clazz
+parameter_list|,
+name|String
+name|text
+parameter_list|)
+block|{
 comment|// ensure we support property placeholders
 name|String
 name|s
@@ -1864,55 +1679,27 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|s
-operator|=
-name|s
-operator|.
-name|trim
-argument_list|()
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|ENGLISH
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|s
-operator|.
-name|equals
-argument_list|(
-literal|"true"
-argument_list|)
-operator|||
-name|s
-operator|.
-name|equals
-argument_list|(
-literal|"false"
-argument_list|)
-condition|)
+try|try
 block|{
 return|return
-literal|"true"
+name|camelContext
 operator|.
-name|equals
+name|getTypeConverter
+argument_list|()
+operator|.
+name|mandatoryConvertTo
 argument_list|(
+name|clazz
+argument_list|,
 name|s
 argument_list|)
-condition|?
-name|Boolean
-operator|.
-name|TRUE
-else|:
-name|Boolean
-operator|.
-name|FALSE
 return|;
 block|}
-else|else
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -1932,7 +1719,16 @@ literal|"Error parsing ["
 operator|+
 name|s
 operator|+
-literal|"] as a Boolean."
+literal|"] as a "
+operator|+
+name|clazz
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"."
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1950,7 +1746,16 @@ literal|"] from property "
 operator|+
 name|text
 operator|+
-literal|" as a Boolean."
+literal|" as a "
+operator|+
+name|clazz
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"."
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}

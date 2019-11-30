@@ -179,10 +179,14 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
 argument_list|)
 DECL|field|cache
 specifier|private
-name|Boolean
+name|String
 name|cache
 decl_stmt|;
 annotation|@
@@ -526,7 +530,7 @@ expr_stmt|;
 block|}
 DECL|method|getCache ()
 specifier|public
-name|Boolean
+name|String
 name|getCache
 parameter_list|()
 block|{
@@ -535,12 +539,12 @@ name|cache
 return|;
 block|}
 comment|/**      * Caches the bean lookup, to avoid lookup up bean on every usage.      */
-DECL|method|setCache (Boolean cache)
+DECL|method|setCache (String cache)
 specifier|public
 name|void
 name|setCache
 parameter_list|(
-name|Boolean
+name|String
 name|cache
 parameter_list|)
 block|{

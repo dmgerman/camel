@@ -154,7 +154,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|reconnectMaxRetries
 specifier|private
-name|Integer
+name|String
 name|reconnectMaxRetries
 decl_stmt|;
 annotation|@
@@ -323,7 +323,7 @@ expr_stmt|;
 block|}
 DECL|method|getReconnectMaxRetries ()
 specifier|public
-name|Integer
+name|String
 name|getReconnectMaxRetries
 parameter_list|()
 block|{
@@ -332,12 +332,12 @@ name|reconnectMaxRetries
 return|;
 block|}
 comment|/**      * Max number of times to retry      */
-DECL|method|setReconnectMaxRetries (Integer reconnectMaxRetries)
+DECL|method|setReconnectMaxRetries (String reconnectMaxRetries)
 specifier|public
 name|void
 name|setReconnectMaxRetries
 parameter_list|(
-name|Integer
+name|String
 name|reconnectMaxRetries
 parameter_list|)
 block|{
@@ -515,7 +515,12 @@ parameter_list|)
 block|{
 name|setReconnectMaxRetries
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|reconnectMaxRetries
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

@@ -63,9 +63,9 @@ name|description
 operator|=
 literal|"Whether round robin mode is enabled"
 argument_list|)
-DECL|method|isRoundRobin ()
-name|Boolean
-name|isRoundRobin
+DECL|method|getRoundRobin ()
+name|String
+name|getRoundRobin
 parameter_list|()
 function_decl|;
 annotation|@

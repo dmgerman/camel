@@ -164,7 +164,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|skipSendToOriginalEndpoint
 specifier|private
-name|Boolean
+name|String
 name|skipSendToOriginalEndpoint
 decl_stmt|;
 annotation|@
@@ -308,7 +308,10 @@ name|setSkipSendToOriginalEndpoint
 argument_list|(
 name|Boolean
 operator|.
-name|TRUE
+name|toString
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -521,7 +524,7 @@ block|}
 block|}
 DECL|method|getSkipSendToOriginalEndpoint ()
 specifier|public
-name|Boolean
+name|String
 name|getSkipSendToOriginalEndpoint
 parameter_list|()
 block|{
@@ -530,12 +533,12 @@ name|skipSendToOriginalEndpoint
 return|;
 block|}
 comment|/**      * If set to true then the message is not sent to the original endpoint. By      * default (false) the message is both intercepted and then sent to the      * original endpoint.      */
-DECL|method|setSkipSendToOriginalEndpoint (Boolean skipSendToOriginalEndpoint)
+DECL|method|setSkipSendToOriginalEndpoint (String skipSendToOriginalEndpoint)
 specifier|public
 name|void
 name|setSkipSendToOriginalEndpoint
 parameter_list|(
-name|Boolean
+name|String
 name|skipSendToOriginalEndpoint
 parameter_list|)
 block|{

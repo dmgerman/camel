@@ -310,7 +310,7 @@ literal|"Sets the logging level to use for log messages when retries have been e
 argument_list|)
 DECL|field|retriesExhaustedLogLevel
 specifier|private
-name|LoggingLevel
+name|String
 name|retriesExhaustedLogLevel
 decl_stmt|;
 annotation|@
@@ -328,7 +328,7 @@ literal|"Sets the logging level to use for log messages when retries are attempt
 argument_list|)
 DECL|field|retryAttemptedLogLevel
 specifier|private
-name|LoggingLevel
+name|String
 name|retryAttemptedLogLevel
 decl_stmt|;
 annotation|@
@@ -680,7 +680,12 @@ name|answer
 operator|.
 name|setRetriesExhaustedLogLevel
 argument_list|(
+name|LoggingLevel
+operator|.
+name|valueOf
+argument_list|(
 name|retriesExhaustedLogLevel
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -695,7 +700,12 @@ name|answer
 operator|.
 name|setRetryAttemptedLogLevel
 argument_list|(
+name|LoggingLevel
+operator|.
+name|valueOf
+argument_list|(
 name|retryAttemptedLogLevel
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1347,7 +1357,7 @@ expr_stmt|;
 block|}
 DECL|method|getRetriesExhaustedLogLevel ()
 specifier|public
-name|LoggingLevel
+name|String
 name|getRetriesExhaustedLogLevel
 parameter_list|()
 block|{
@@ -1355,12 +1365,12 @@ return|return
 name|retriesExhaustedLogLevel
 return|;
 block|}
-DECL|method|setRetriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
+DECL|method|setRetriesExhaustedLogLevel (String retriesExhaustedLogLevel)
 specifier|public
 name|void
 name|setRetriesExhaustedLogLevel
 parameter_list|(
-name|LoggingLevel
+name|String
 name|retriesExhaustedLogLevel
 parameter_list|)
 block|{
@@ -1373,7 +1383,7 @@ expr_stmt|;
 block|}
 DECL|method|getRetryAttemptedLogLevel ()
 specifier|public
-name|LoggingLevel
+name|String
 name|getRetryAttemptedLogLevel
 parameter_list|()
 block|{
@@ -1381,12 +1391,12 @@ return|return
 name|retryAttemptedLogLevel
 return|;
 block|}
-DECL|method|setRetryAttemptedLogLevel (LoggingLevel retryAttemptedLogLevel)
+DECL|method|setRetryAttemptedLogLevel (String retryAttemptedLogLevel)
 specifier|public
 name|void
 name|setRetryAttemptedLogLevel
 parameter_list|(
-name|LoggingLevel
+name|String
 name|retryAttemptedLogLevel
 parameter_list|)
 block|{

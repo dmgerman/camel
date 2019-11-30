@@ -208,18 +208,23 @@ name|this
 return|;
 block|}
 comment|/**      * Whether to use a HystrixCircuitBreaker or not. If false no      * circuit-breaker logic will be used and all requests permitted.      *<p>      * This is similar in effect to circuitBreakerForceClosed() except that      * continues tracking metrics and knowing whether it should be open/closed,      * this property results in not even instantiating a circuit-breaker.      */
-DECL|method|circuitBreakerEnabled (Boolean circuitBreakerEnabled)
+DECL|method|circuitBreakerEnabled (boolean circuitBreakerEnabled)
 specifier|public
 name|HystrixConfigurationDefinition
 name|circuitBreakerEnabled
 parameter_list|(
-name|Boolean
+name|boolean
 name|circuitBreakerEnabled
 parameter_list|)
 block|{
 name|setCircuitBreakerEnabled
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|circuitBreakerEnabled
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -227,18 +232,23 @@ name|this
 return|;
 block|}
 comment|/**      * Error percentage threshold (as whole number such as 50) at which point      * the circuit breaker will trip open and reject requests.      *<p>      * It will stay tripped for the duration defined in      * circuitBreakerSleepWindowInMilliseconds;      *<p>      * The error percentage this is compared against comes from      * HystrixCommandMetrics.getHealthCounts().      */
-DECL|method|circuitBreakerErrorThresholdPercentage (Integer circuitBreakerErrorThresholdPercentage)
+DECL|method|circuitBreakerErrorThresholdPercentage (int circuitBreakerErrorThresholdPercentage)
 specifier|public
 name|HystrixConfigurationDefinition
 name|circuitBreakerErrorThresholdPercentage
 parameter_list|(
-name|Integer
+name|int
 name|circuitBreakerErrorThresholdPercentage
 parameter_list|)
 block|{
 name|setCircuitBreakerErrorThresholdPercentage
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|circuitBreakerErrorThresholdPercentage
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -246,18 +256,23 @@ name|this
 return|;
 block|}
 comment|/**      * If true the HystrixCircuitBreaker.allowRequest() will always return true      * to allow requests regardless of the error percentage from      * HystrixCommandMetrics.getHealthCounts().      *<p>      * The circuitBreakerForceOpen() property takes precedence so if it set to      * true this property does nothing.      */
-DECL|method|circuitBreakerForceClosed (Boolean circuitBreakerForceClosed)
+DECL|method|circuitBreakerForceClosed (boolean circuitBreakerForceClosed)
 specifier|public
 name|HystrixConfigurationDefinition
 name|circuitBreakerForceClosed
 parameter_list|(
-name|Boolean
+name|boolean
 name|circuitBreakerForceClosed
 parameter_list|)
 block|{
 name|setCircuitBreakerForceClosed
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|circuitBreakerForceClosed
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -276,7 +291,12 @@ parameter_list|)
 block|{
 name|setCircuitBreakerForceOpen
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|circuitBreakerForceOpen
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -284,18 +304,23 @@ name|this
 return|;
 block|}
 comment|/**      * Minimum number of requests in the      * metricsRollingStatisticalWindowInMilliseconds() that must exist before      * the HystrixCircuitBreaker will trip.      *<p>      * If below this number the circuit will not trip regardless of error      * percentage.      */
-DECL|method|circuitBreakerRequestVolumeThreshold (Integer circuitBreakerRequestVolumeThreshold)
+DECL|method|circuitBreakerRequestVolumeThreshold (int circuitBreakerRequestVolumeThreshold)
 specifier|public
 name|HystrixConfigurationDefinition
 name|circuitBreakerRequestVolumeThreshold
 parameter_list|(
-name|Integer
+name|int
 name|circuitBreakerRequestVolumeThreshold
 parameter_list|)
 block|{
 name|setCircuitBreakerRequestVolumeThreshold
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|circuitBreakerRequestVolumeThreshold
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -303,18 +328,23 @@ name|this
 return|;
 block|}
 comment|/**      * The time in milliseconds after a HystrixCircuitBreaker trips open that it      * should wait before trying requests again.      */
-DECL|method|circuitBreakerSleepWindowInMilliseconds (Integer circuitBreakerSleepWindowInMilliseconds)
+DECL|method|circuitBreakerSleepWindowInMilliseconds (int circuitBreakerSleepWindowInMilliseconds)
 specifier|public
 name|HystrixConfigurationDefinition
 name|circuitBreakerSleepWindowInMilliseconds
 parameter_list|(
-name|Integer
+name|int
 name|circuitBreakerSleepWindowInMilliseconds
 parameter_list|)
 block|{
 name|setCircuitBreakerSleepWindowInMilliseconds
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|circuitBreakerSleepWindowInMilliseconds
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -322,18 +352,23 @@ name|this
 return|;
 block|}
 comment|/**      * Number of concurrent requests permitted to HystrixCommand.run(). Requests      * beyond the concurrent limit will be rejected.      *<p>      * Applicable only when executionIsolationStrategy is SEMAPHORE.      */
-DECL|method|executionIsolationSemaphoreMaxConcurrentRequests (Integer executionIsolationSemaphoreMaxConcurrentRequests)
+DECL|method|executionIsolationSemaphoreMaxConcurrentRequests (int executionIsolationSemaphoreMaxConcurrentRequests)
 specifier|public
 name|HystrixConfigurationDefinition
 name|executionIsolationSemaphoreMaxConcurrentRequests
 parameter_list|(
-name|Integer
+name|int
 name|executionIsolationSemaphoreMaxConcurrentRequests
 parameter_list|)
 block|{
 name|setExecutionIsolationSemaphoreMaxConcurrentRequests
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|executionIsolationSemaphoreMaxConcurrentRequests
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -360,18 +395,23 @@ name|this
 return|;
 block|}
 comment|/**      * Whether the execution thread should attempt an interrupt (using Future      * cancel) when a thread times out.      *<p>      * Applicable only when executionIsolationStrategy() is set to THREAD.      */
-DECL|method|executionIsolationThreadInterruptOnTimeout (Boolean executionIsolationThreadInterruptOnTimeout)
+DECL|method|executionIsolationThreadInterruptOnTimeout (boolean executionIsolationThreadInterruptOnTimeout)
 specifier|public
 name|HystrixConfigurationDefinition
 name|executionIsolationThreadInterruptOnTimeout
 parameter_list|(
-name|Boolean
+name|boolean
 name|executionIsolationThreadInterruptOnTimeout
 parameter_list|)
 block|{
 name|setExecutionIsolationThreadInterruptOnTimeout
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|executionIsolationThreadInterruptOnTimeout
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -379,18 +419,23 @@ name|this
 return|;
 block|}
 comment|/**      * Time in milliseconds at which point the command will timeout and halt      * execution.      *<p>      * If executionIsolationThreadInterruptOnTimeout is true and the command is      * thread-isolated, the executing thread will be interrupted. If the command      * is semaphore-isolated and a HystrixObservableCommand, that command will      * get unsubscribed.      */
-DECL|method|executionTimeoutInMilliseconds (Integer executionTimeoutInMilliseconds)
+DECL|method|executionTimeoutInMilliseconds (int executionTimeoutInMilliseconds)
 specifier|public
 name|HystrixConfigurationDefinition
 name|executionTimeoutInMilliseconds
 parameter_list|(
-name|Integer
+name|int
 name|executionTimeoutInMilliseconds
 parameter_list|)
 block|{
 name|setExecutionTimeoutInMilliseconds
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|executionTimeoutInMilliseconds
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -398,18 +443,23 @@ name|this
 return|;
 block|}
 comment|/**      * Whether the timeout mechanism is enabled for this command      */
-DECL|method|executionTimeoutEnabled (Boolean executionTimeoutEnabled)
+DECL|method|executionTimeoutEnabled (boolean executionTimeoutEnabled)
 specifier|public
 name|HystrixConfigurationDefinition
 name|executionTimeoutEnabled
 parameter_list|(
-name|Boolean
+name|boolean
 name|executionTimeoutEnabled
 parameter_list|)
 block|{
 name|setExecutionTimeoutEnabled
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|executionTimeoutEnabled
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -417,18 +467,23 @@ name|this
 return|;
 block|}
 comment|/**      * Number of concurrent requests permitted to HystrixCommand.getFallback().      * Requests beyond the concurrent limit will fail-fast and not attempt      * retrieving a fallback.      */
-DECL|method|fallbackIsolationSemaphoreMaxConcurrentRequests (Integer fallbackIsolationSemaphoreMaxConcurrentRequests)
+DECL|method|fallbackIsolationSemaphoreMaxConcurrentRequests (int fallbackIsolationSemaphoreMaxConcurrentRequests)
 specifier|public
 name|HystrixConfigurationDefinition
 name|fallbackIsolationSemaphoreMaxConcurrentRequests
 parameter_list|(
-name|Integer
+name|int
 name|fallbackIsolationSemaphoreMaxConcurrentRequests
 parameter_list|)
 block|{
 name|setFallbackIsolationSemaphoreMaxConcurrentRequests
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|fallbackIsolationSemaphoreMaxConcurrentRequests
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -436,18 +491,23 @@ name|this
 return|;
 block|}
 comment|/**      * Whether HystrixCommand.getFallback() should be attempted when failure      * occurs.      */
-DECL|method|fallbackEnabled (Boolean fallbackEnabled)
+DECL|method|fallbackEnabled (boolean fallbackEnabled)
 specifier|public
 name|HystrixConfigurationDefinition
 name|fallbackEnabled
 parameter_list|(
-name|Boolean
+name|boolean
 name|fallbackEnabled
 parameter_list|)
 block|{
 name|setFallbackEnabled
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|fallbackEnabled
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -455,18 +515,23 @@ name|this
 return|;
 block|}
 comment|/**      * Time in milliseconds to wait between allowing health snapshots to be      * taken that calculate success and error percentages and affect      * HystrixCircuitBreaker.isOpen() status.      *<p>      * On high-volume circuits the continual calculation of error percentage can      * become CPU intensive thus this controls how often it is calculated.      */
-DECL|method|metricsHealthSnapshotIntervalInMilliseconds (Integer metricsHealthSnapshotIntervalInMilliseconds)
+DECL|method|metricsHealthSnapshotIntervalInMilliseconds (int metricsHealthSnapshotIntervalInMilliseconds)
 specifier|public
 name|HystrixConfigurationDefinition
 name|metricsHealthSnapshotIntervalInMilliseconds
 parameter_list|(
-name|Integer
+name|int
 name|metricsHealthSnapshotIntervalInMilliseconds
 parameter_list|)
 block|{
 name|setMetricsHealthSnapshotIntervalInMilliseconds
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|metricsHealthSnapshotIntervalInMilliseconds
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -474,18 +539,23 @@ name|this
 return|;
 block|}
 comment|/**      * Maximum number of values stored in each bucket of the rolling percentile.      * This is passed into HystrixRollingPercentile inside      * HystrixCommandMetrics.      */
-DECL|method|metricsRollingPercentileBucketSize (Integer metricsRollingPercentileBucketSize)
+DECL|method|metricsRollingPercentileBucketSize (int metricsRollingPercentileBucketSize)
 specifier|public
 name|HystrixConfigurationDefinition
 name|metricsRollingPercentileBucketSize
 parameter_list|(
-name|Integer
+name|int
 name|metricsRollingPercentileBucketSize
 parameter_list|)
 block|{
 name|setMetricsRollingPercentileBucketSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|metricsRollingPercentileBucketSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -493,18 +563,23 @@ name|this
 return|;
 block|}
 comment|/**      * Whether percentile metrics should be captured using      * HystrixRollingPercentile inside HystrixCommandMetrics.      */
-DECL|method|metricsRollingPercentileEnabled (Boolean metricsRollingPercentileEnabled)
+DECL|method|metricsRollingPercentileEnabled (boolean metricsRollingPercentileEnabled)
 specifier|public
 name|HystrixConfigurationDefinition
 name|metricsRollingPercentileEnabled
 parameter_list|(
-name|Boolean
+name|boolean
 name|metricsRollingPercentileEnabled
 parameter_list|)
 block|{
 name|setMetricsRollingPercentileEnabled
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|metricsRollingPercentileEnabled
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -512,18 +587,23 @@ name|this
 return|;
 block|}
 comment|/**      * Duration of percentile rolling window in milliseconds. This is passed      * into HystrixRollingPercentile inside HystrixCommandMetrics.      */
-DECL|method|metricsRollingPercentileWindowInMilliseconds (Integer metricsRollingPercentileWindowInMilliseconds)
+DECL|method|metricsRollingPercentileWindowInMilliseconds (int metricsRollingPercentileWindowInMilliseconds)
 specifier|public
 name|HystrixConfigurationDefinition
 name|metricsRollingPercentileWindowInMilliseconds
 parameter_list|(
-name|Integer
+name|int
 name|metricsRollingPercentileWindowInMilliseconds
 parameter_list|)
 block|{
 name|setMetricsRollingPercentileWindowInMilliseconds
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|metricsRollingPercentileWindowInMilliseconds
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -531,18 +611,23 @@ name|this
 return|;
 block|}
 comment|/**      * Number of buckets the rolling percentile window is broken into. This is      * passed into HystrixRollingPercentile inside HystrixCommandMetrics.      */
-DECL|method|metricsRollingPercentileWindowBuckets (Integer metricsRollingPercentileWindowBuckets)
+DECL|method|metricsRollingPercentileWindowBuckets (int metricsRollingPercentileWindowBuckets)
 specifier|public
 name|HystrixConfigurationDefinition
 name|metricsRollingPercentileWindowBuckets
 parameter_list|(
-name|Integer
+name|int
 name|metricsRollingPercentileWindowBuckets
 parameter_list|)
 block|{
 name|setMetricsRollingPercentileWindowBuckets
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|metricsRollingPercentileWindowBuckets
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -550,18 +635,23 @@ name|this
 return|;
 block|}
 comment|/**      * This property sets the duration of the statistical rolling window, in      * milliseconds. This is how long metrics are kept for the thread pool. The      * window is divided into buckets and ârollsâ by those increments.      */
-DECL|method|metricsRollingStatisticalWindowInMilliseconds (Integer metricsRollingStatisticalWindowInMilliseconds)
+DECL|method|metricsRollingStatisticalWindowInMilliseconds (int metricsRollingStatisticalWindowInMilliseconds)
 specifier|public
 name|HystrixConfigurationDefinition
 name|metricsRollingStatisticalWindowInMilliseconds
 parameter_list|(
-name|Integer
+name|int
 name|metricsRollingStatisticalWindowInMilliseconds
 parameter_list|)
 block|{
 name|setMetricsRollingStatisticalWindowInMilliseconds
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|metricsRollingStatisticalWindowInMilliseconds
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -569,18 +659,23 @@ name|this
 return|;
 block|}
 comment|/**      * Number of buckets the rolling statistical window is broken into. This is      * passed into HystrixRollingNumber inside HystrixCommandMetrics.      */
-DECL|method|metricsRollingStatisticalWindowBuckets (Integer metricsRollingStatisticalWindowBuckets)
+DECL|method|metricsRollingStatisticalWindowBuckets (int metricsRollingStatisticalWindowBuckets)
 specifier|public
 name|HystrixConfigurationDefinition
 name|metricsRollingStatisticalWindowBuckets
 parameter_list|(
-name|Integer
+name|int
 name|metricsRollingStatisticalWindowBuckets
 parameter_list|)
 block|{
 name|setMetricsRollingStatisticalWindowBuckets
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|metricsRollingStatisticalWindowBuckets
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -588,18 +683,23 @@ name|this
 return|;
 block|}
 comment|/**      * Whether HystrixCommand execution and events should be logged to      * HystrixRequestLog.      */
-DECL|method|requestLogEnabled (Boolean requestLogEnabled)
+DECL|method|requestLogEnabled (boolean requestLogEnabled)
 specifier|public
 name|HystrixConfigurationDefinition
 name|requestLogEnabled
 parameter_list|(
-name|Boolean
+name|boolean
 name|requestLogEnabled
 parameter_list|)
 block|{
 name|setRequestLogEnabled
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|requestLogEnabled
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -607,18 +707,23 @@ name|this
 return|;
 block|}
 comment|/**      * Core thread-pool size.      */
-DECL|method|corePoolSize (Integer corePoolSize)
+DECL|method|corePoolSize (int corePoolSize)
 specifier|public
 name|HystrixConfigurationDefinition
 name|corePoolSize
 parameter_list|(
-name|Integer
+name|int
 name|corePoolSize
 parameter_list|)
 block|{
 name|setCorePoolSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|corePoolSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -626,18 +731,23 @@ name|this
 return|;
 block|}
 comment|/**      * Keep-alive time in minutes.      */
-DECL|method|keepAliveTime (Integer keepAliveTime)
+DECL|method|keepAliveTime (int keepAliveTime)
 specifier|public
 name|HystrixConfigurationDefinition
 name|keepAliveTime
 parameter_list|(
-name|Integer
+name|int
 name|keepAliveTime
 parameter_list|)
 block|{
 name|setKeepAliveTime
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|keepAliveTime
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -645,18 +755,23 @@ name|this
 return|;
 block|}
 comment|/**      * Max queue size. This should only affect the instantiation of the      * thread-pool - it is not eligible to change a queue size on the fly.      */
-DECL|method|maxQueueSize (Integer maxQueueSize)
+DECL|method|maxQueueSize (int maxQueueSize)
 specifier|public
 name|HystrixConfigurationDefinition
 name|maxQueueSize
 parameter_list|(
-name|Integer
+name|int
 name|maxQueueSize
 parameter_list|)
 block|{
 name|setMaxQueueSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|maxQueueSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -664,18 +779,23 @@ name|this
 return|;
 block|}
 comment|/**      * Maximum thread-pool size that gets passed to      * {@link ThreadPoolExecutor#setMaximumPoolSize(int)}. This is the maximum      * amount of concurrency that can be supported without starting to reject      * HystrixCommands. Please note that this setting only takes effect if you      * also set allowMaximumSizeToDivergeFromCoreSize      */
-DECL|method|maximumSize (Integer maximumSize)
+DECL|method|maximumSize (int maximumSize)
 specifier|public
 name|HystrixConfigurationDefinition
 name|maximumSize
 parameter_list|(
-name|Integer
+name|int
 name|maximumSize
 parameter_list|)
 block|{
 name|setMaximumSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|maximumSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -683,18 +803,23 @@ name|this
 return|;
 block|}
 comment|/**      * Queue size rejection threshold is an artificial max size at which      * rejections will occur even if maxQueueSize has not been reached. This is      * done because the maxQueueSize of a blocking queue can not be dynamically      * changed and we want to support dynamically changing the queue size that      * affects rejections.      *<p>      * This is used by HystrixCommand when queuing a thread for execution.      */
-DECL|method|queueSizeRejectionThreshold (Integer queueSizeRejectionThreshold)
+DECL|method|queueSizeRejectionThreshold (int queueSizeRejectionThreshold)
 specifier|public
 name|HystrixConfigurationDefinition
 name|queueSizeRejectionThreshold
 parameter_list|(
-name|Integer
+name|int
 name|queueSizeRejectionThreshold
 parameter_list|)
 block|{
 name|setQueueSizeRejectionThreshold
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|queueSizeRejectionThreshold
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -702,18 +827,23 @@ name|this
 return|;
 block|}
 comment|/**      * Duration of statistical rolling window in milliseconds. This is passed      * into HystrixRollingNumber inside each HystrixThreadPoolMetrics instance.      */
-DECL|method|threadPoolRollingNumberStatisticalWindowInMilliseconds (Integer threadPoolRollingNumberStatisticalWindowInMilliseconds)
+DECL|method|threadPoolRollingNumberStatisticalWindowInMilliseconds (int threadPoolRollingNumberStatisticalWindowInMilliseconds)
 specifier|public
 name|HystrixConfigurationDefinition
 name|threadPoolRollingNumberStatisticalWindowInMilliseconds
 parameter_list|(
-name|Integer
+name|int
 name|threadPoolRollingNumberStatisticalWindowInMilliseconds
 parameter_list|)
 block|{
 name|setThreadPoolRollingNumberStatisticalWindowInMilliseconds
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|threadPoolRollingNumberStatisticalWindowInMilliseconds
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -721,18 +851,23 @@ name|this
 return|;
 block|}
 comment|/**      * Number of buckets the rolling statistical window is broken into. This is      * passed into HystrixRollingNumber inside each HystrixThreadPoolMetrics      * instance.      */
-DECL|method|threadPoolRollingNumberStatisticalWindowBuckets (Integer threadPoolRollingNumberStatisticalWindowBuckets)
+DECL|method|threadPoolRollingNumberStatisticalWindowBuckets (int threadPoolRollingNumberStatisticalWindowBuckets)
 specifier|public
 name|HystrixConfigurationDefinition
 name|threadPoolRollingNumberStatisticalWindowBuckets
 parameter_list|(
-name|Integer
+name|int
 name|threadPoolRollingNumberStatisticalWindowBuckets
 parameter_list|)
 block|{
 name|setThreadPoolRollingNumberStatisticalWindowBuckets
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|threadPoolRollingNumberStatisticalWindowBuckets
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -740,18 +875,23 @@ name|this
 return|;
 block|}
 comment|/**      * Allows the configuration for maximumSize to take effect. That value can      * then be equal to, or higher, than coreSize      */
-DECL|method|allowMaximumSizeToDivergeFromCoreSize (Boolean allowMaximumSizeToDivergeFromCoreSize)
+DECL|method|allowMaximumSizeToDivergeFromCoreSize (boolean allowMaximumSizeToDivergeFromCoreSize)
 specifier|public
 name|HystrixConfigurationDefinition
 name|allowMaximumSizeToDivergeFromCoreSize
 parameter_list|(
-name|Boolean
+name|boolean
 name|allowMaximumSizeToDivergeFromCoreSize
 parameter_list|)
 block|{
 name|setAllowMaximumSizeToDivergeFromCoreSize
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|allowMaximumSizeToDivergeFromCoreSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

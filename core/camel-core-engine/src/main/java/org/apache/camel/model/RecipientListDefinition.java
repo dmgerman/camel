@@ -271,7 +271,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|parallelProcessing
 specifier|private
-name|Boolean
+name|String
 name|parallelProcessing
 decl_stmt|;
 annotation|@
@@ -292,7 +292,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|strategyMethodAllowNull
 specifier|private
-name|Boolean
+name|String
 name|strategyMethodAllowNull
 decl_stmt|;
 annotation|@
@@ -306,21 +306,21 @@ annotation|@
 name|XmlAttribute
 DECL|field|stopOnException
 specifier|private
-name|Boolean
+name|String
 name|stopOnException
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|ignoreInvalidEndpoints
 specifier|private
-name|Boolean
+name|String
 name|ignoreInvalidEndpoints
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|streaming
 specifier|private
-name|Boolean
+name|String
 name|streaming
 decl_stmt|;
 annotation|@
@@ -334,7 +334,7 @@ literal|"0"
 argument_list|)
 DECL|field|timeout
 specifier|private
-name|Long
+name|String
 name|timeout
 decl_stmt|;
 annotation|@
@@ -355,28 +355,28 @@ annotation|@
 name|XmlAttribute
 DECL|field|shareUnitOfWork
 specifier|private
-name|Boolean
+name|String
 name|shareUnitOfWork
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|cacheSize
 specifier|private
-name|Integer
+name|String
 name|cacheSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|parallelAggregate
 specifier|private
-name|Boolean
+name|String
 name|parallelAggregate
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|stopOnAggregateException
 specifier|private
-name|Boolean
+name|String
 name|stopOnAggregateException
 decl_stmt|;
 DECL|method|RecipientListDefinition ()
@@ -612,7 +612,12 @@ parameter_list|()
 block|{
 name|setStrategyMethodAllowNull
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -631,7 +636,12 @@ parameter_list|()
 block|{
 name|setIgnoreInvalidEndpoints
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -650,7 +660,12 @@ parameter_list|()
 block|{
 name|setParallelProcessing
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -672,7 +687,12 @@ parameter_list|)
 block|{
 name|setParallelProcessing
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|parallelProcessing
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -691,7 +711,12 @@ parameter_list|()
 block|{
 name|setParallelAggregate
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -710,7 +735,12 @@ parameter_list|()
 block|{
 name|setStopOnAggregateException
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -729,7 +759,12 @@ parameter_list|()
 block|{
 name|setStreaming
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -748,7 +783,12 @@ parameter_list|()
 block|{
 name|setStopOnException
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -928,7 +968,12 @@ parameter_list|)
 block|{
 name|setTimeout
 argument_list|(
+name|Long
+operator|.
+name|toString
+argument_list|(
 name|timeout
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -947,7 +992,12 @@ parameter_list|()
 block|{
 name|setShareUnitOfWork
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -969,7 +1019,12 @@ parameter_list|)
 block|{
 name|setCacheSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|cacheSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1027,7 +1082,7 @@ expr_stmt|;
 block|}
 DECL|method|getParallelProcessing ()
 specifier|public
-name|Boolean
+name|String
 name|getParallelProcessing
 parameter_list|()
 block|{
@@ -1035,12 +1090,12 @@ return|return
 name|parallelProcessing
 return|;
 block|}
-DECL|method|setParallelProcessing (Boolean parallelProcessing)
+DECL|method|setParallelProcessing (String parallelProcessing)
 specifier|public
 name|void
 name|setParallelProcessing
 parameter_list|(
-name|Boolean
+name|String
 name|parallelProcessing
 parameter_list|)
 block|{
@@ -1107,7 +1162,7 @@ expr_stmt|;
 block|}
 DECL|method|getStrategyMethodAllowNull ()
 specifier|public
-name|Boolean
+name|String
 name|getStrategyMethodAllowNull
 parameter_list|()
 block|{
@@ -1116,12 +1171,12 @@ name|strategyMethodAllowNull
 return|;
 block|}
 comment|/**      * If this option is false then the aggregate method is not used if there      * was no data to enrich. If this option is true then null values is used as      * the oldExchange (when no data to enrich), when using POJOs as the      * AggregationStrategy      */
-DECL|method|setStrategyMethodAllowNull (Boolean strategyMethodAllowNull)
+DECL|method|setStrategyMethodAllowNull (String strategyMethodAllowNull)
 specifier|public
 name|void
 name|setStrategyMethodAllowNull
 parameter_list|(
-name|Boolean
+name|String
 name|strategyMethodAllowNull
 parameter_list|)
 block|{
@@ -1164,7 +1219,7 @@ expr_stmt|;
 block|}
 DECL|method|getIgnoreInvalidEndpoints ()
 specifier|public
-name|Boolean
+name|String
 name|getIgnoreInvalidEndpoints
 parameter_list|()
 block|{
@@ -1172,12 +1227,12 @@ return|return
 name|ignoreInvalidEndpoints
 return|;
 block|}
-DECL|method|setIgnoreInvalidEndpoints (Boolean ignoreInvalidEndpoints)
+DECL|method|setIgnoreInvalidEndpoints (String ignoreInvalidEndpoints)
 specifier|public
 name|void
 name|setIgnoreInvalidEndpoints
 parameter_list|(
-name|Boolean
+name|String
 name|ignoreInvalidEndpoints
 parameter_list|)
 block|{
@@ -1190,7 +1245,7 @@ expr_stmt|;
 block|}
 DECL|method|getStopOnException ()
 specifier|public
-name|Boolean
+name|String
 name|getStopOnException
 parameter_list|()
 block|{
@@ -1198,12 +1253,12 @@ return|return
 name|stopOnException
 return|;
 block|}
-DECL|method|setStopOnException (Boolean stopOnException)
+DECL|method|setStopOnException (String stopOnException)
 specifier|public
 name|void
 name|setStopOnException
 parameter_list|(
-name|Boolean
+name|String
 name|stopOnException
 parameter_list|)
 block|{
@@ -1273,7 +1328,7 @@ expr_stmt|;
 block|}
 DECL|method|getStreaming ()
 specifier|public
-name|Boolean
+name|String
 name|getStreaming
 parameter_list|()
 block|{
@@ -1281,12 +1336,12 @@ return|return
 name|streaming
 return|;
 block|}
-DECL|method|setStreaming (Boolean streaming)
+DECL|method|setStreaming (String streaming)
 specifier|public
 name|void
 name|setStreaming
 parameter_list|(
-name|Boolean
+name|String
 name|streaming
 parameter_list|)
 block|{
@@ -1299,7 +1354,7 @@ expr_stmt|;
 block|}
 DECL|method|getTimeout ()
 specifier|public
-name|Long
+name|String
 name|getTimeout
 parameter_list|()
 block|{
@@ -1307,12 +1362,12 @@ return|return
 name|timeout
 return|;
 block|}
-DECL|method|setTimeout (Long timeout)
+DECL|method|setTimeout (String timeout)
 specifier|public
 name|void
 name|setTimeout
 parameter_list|(
-name|Long
+name|String
 name|timeout
 parameter_list|)
 block|{
@@ -1377,7 +1432,7 @@ expr_stmt|;
 block|}
 DECL|method|getShareUnitOfWork ()
 specifier|public
-name|Boolean
+name|String
 name|getShareUnitOfWork
 parameter_list|()
 block|{
@@ -1385,12 +1440,12 @@ return|return
 name|shareUnitOfWork
 return|;
 block|}
-DECL|method|setShareUnitOfWork (Boolean shareUnitOfWork)
+DECL|method|setShareUnitOfWork (String shareUnitOfWork)
 specifier|public
 name|void
 name|setShareUnitOfWork
 parameter_list|(
-name|Boolean
+name|String
 name|shareUnitOfWork
 parameter_list|)
 block|{
@@ -1403,7 +1458,7 @@ expr_stmt|;
 block|}
 DECL|method|getCacheSize ()
 specifier|public
-name|Integer
+name|String
 name|getCacheSize
 parameter_list|()
 block|{
@@ -1411,12 +1466,12 @@ return|return
 name|cacheSize
 return|;
 block|}
-DECL|method|setCacheSize (Integer cacheSize)
+DECL|method|setCacheSize (String cacheSize)
 specifier|public
 name|void
 name|setCacheSize
 parameter_list|(
-name|Integer
+name|String
 name|cacheSize
 parameter_list|)
 block|{
@@ -1429,7 +1484,7 @@ expr_stmt|;
 block|}
 DECL|method|getParallelAggregate ()
 specifier|public
-name|Boolean
+name|String
 name|getParallelAggregate
 parameter_list|()
 block|{
@@ -1437,12 +1492,12 @@ return|return
 name|parallelAggregate
 return|;
 block|}
-DECL|method|setParallelAggregate (Boolean parallelAggregate)
+DECL|method|setParallelAggregate (String parallelAggregate)
 specifier|public
 name|void
 name|setParallelAggregate
 parameter_list|(
-name|Boolean
+name|String
 name|parallelAggregate
 parameter_list|)
 block|{
@@ -1455,7 +1510,7 @@ expr_stmt|;
 block|}
 DECL|method|getStopOnAggregateException ()
 specifier|public
-name|Boolean
+name|String
 name|getStopOnAggregateException
 parameter_list|()
 block|{
@@ -1463,12 +1518,12 @@ return|return
 name|stopOnAggregateException
 return|;
 block|}
-DECL|method|setStopOnAggregateException (Boolean stopOnAggregateException)
+DECL|method|setStopOnAggregateException (String stopOnAggregateException)
 specifier|public
 name|void
 name|setStopOnAggregateException
 parameter_list|(
-name|Boolean
+name|String
 name|stopOnAggregateException
 parameter_list|)
 block|{

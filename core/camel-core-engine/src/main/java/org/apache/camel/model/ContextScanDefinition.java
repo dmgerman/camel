@@ -155,7 +155,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|includeNonSingletons
 specifier|private
-name|Boolean
+name|String
 name|includeNonSingletons
 decl_stmt|;
 annotation|@
@@ -205,7 +205,7 @@ parameter_list|()
 block|{     }
 DECL|method|getIncludeNonSingletons ()
 specifier|public
-name|Boolean
+name|String
 name|getIncludeNonSingletons
 parameter_list|()
 block|{
@@ -214,12 +214,12 @@ name|includeNonSingletons
 return|;
 block|}
 comment|/**      * Whether to include non-singleton beans (prototypes)      *<p/>      * By default only singleton beans is included in the context scan      */
-DECL|method|setIncludeNonSingletons (Boolean includeNonSingletons)
+DECL|method|setIncludeNonSingletons (String includeNonSingletons)
 specifier|public
 name|void
 name|setIncludeNonSingletons
 parameter_list|(
-name|Boolean
+name|String
 name|includeNonSingletons
 parameter_list|)
 block|{

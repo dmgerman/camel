@@ -166,9 +166,20 @@ name|xmlMapper
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|prettyPrint
 specifier|private
-name|Boolean
+name|String
 name|prettyPrint
 decl_stmt|;
 annotation|@
@@ -207,9 +218,20 @@ name|include
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|allowJmsType
 specifier|private
-name|Boolean
+name|String
 name|allowJmsType
 decl_stmt|;
 annotation|@
@@ -231,16 +253,38 @@ name|collectionType
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|useList
 specifier|private
-name|Boolean
+name|String
 name|useList
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|enableJaxbAnnotationModule
 specifier|private
-name|Boolean
+name|String
 name|enableJaxbAnnotationModule
 decl_stmt|;
 annotation|@
@@ -273,9 +317,20 @@ name|disableFeatures
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|allowUnmarshallType
 specifier|private
-name|Boolean
+name|String
 name|allowUnmarshallType
 decl_stmt|;
 DECL|method|JacksonXMLDataFormat ()
@@ -318,7 +373,7 @@ expr_stmt|;
 block|}
 DECL|method|getPrettyPrint ()
 specifier|public
-name|Boolean
+name|String
 name|getPrettyPrint
 parameter_list|()
 block|{
@@ -327,12 +382,12 @@ name|prettyPrint
 return|;
 block|}
 comment|/**      * To enable pretty printing output nicely formatted.      *<p/>      * Is by default false.      */
-DECL|method|setPrettyPrint (Boolean prettyPrint)
+DECL|method|setPrettyPrint (String prettyPrint)
 specifier|public
 name|void
 name|setPrettyPrint
 parameter_list|(
-name|Boolean
+name|String
 name|prettyPrint
 parameter_list|)
 block|{
@@ -465,7 +520,7 @@ expr_stmt|;
 block|}
 DECL|method|getAllowJmsType ()
 specifier|public
-name|Boolean
+name|String
 name|getAllowJmsType
 parameter_list|()
 block|{
@@ -474,12 +529,12 @@ name|allowJmsType
 return|;
 block|}
 comment|/**      * Used for JMS users to allow the JMSType header from the JMS spec to      * specify a FQN classname to use to unmarshal to.      */
-DECL|method|setAllowJmsType (Boolean allowJmsType)
+DECL|method|setAllowJmsType (String allowJmsType)
 specifier|public
 name|void
 name|setAllowJmsType
 parameter_list|(
-name|Boolean
+name|String
 name|allowJmsType
 parameter_list|)
 block|{
@@ -551,7 +606,7 @@ expr_stmt|;
 block|}
 DECL|method|getUseList ()
 specifier|public
-name|Boolean
+name|String
 name|getUseList
 parameter_list|()
 block|{
@@ -560,12 +615,12 @@ name|useList
 return|;
 block|}
 comment|/**      * To unarmshal to a List of Map or a List of Pojo.      */
-DECL|method|setUseList (Boolean useList)
+DECL|method|setUseList (String useList)
 specifier|public
 name|void
 name|setUseList
 parameter_list|(
-name|Boolean
+name|String
 name|useList
 parameter_list|)
 block|{
@@ -578,7 +633,7 @@ expr_stmt|;
 block|}
 DECL|method|getEnableJaxbAnnotationModule ()
 specifier|public
-name|Boolean
+name|String
 name|getEnableJaxbAnnotationModule
 parameter_list|()
 block|{
@@ -587,12 +642,12 @@ name|enableJaxbAnnotationModule
 return|;
 block|}
 comment|/**      * Whether to enable the JAXB annotations module when using jackson. When      * enabled then JAXB annotations can be used by Jackson.      */
-DECL|method|setEnableJaxbAnnotationModule (Boolean enableJaxbAnnotationModule)
+DECL|method|setEnableJaxbAnnotationModule (String enableJaxbAnnotationModule)
 specifier|public
 name|void
 name|setEnableJaxbAnnotationModule
 parameter_list|(
-name|Boolean
+name|String
 name|enableJaxbAnnotationModule
 parameter_list|)
 block|{
@@ -713,7 +768,7 @@ expr_stmt|;
 block|}
 DECL|method|getAllowUnmarshallType ()
 specifier|public
-name|Boolean
+name|String
 name|getAllowUnmarshallType
 parameter_list|()
 block|{
@@ -722,12 +777,12 @@ name|allowUnmarshallType
 return|;
 block|}
 comment|/**      * If enabled then Jackson is allowed to attempt to use the      * CamelJacksonUnmarshalType header during the unmarshalling.      *<p/>      * This should only be enabled when desired to be used.      */
-DECL|method|setAllowUnmarshallType (Boolean allowUnmarshallType)
+DECL|method|setAllowUnmarshallType (String allowUnmarshallType)
 specifier|public
 name|void
 name|setAllowUnmarshallType
 parameter_list|(
-name|Boolean
+name|String
 name|allowUnmarshallType
 parameter_list|)
 block|{

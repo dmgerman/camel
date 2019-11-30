@@ -76,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlSchemaType
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -145,16 +159,30 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Integer"
+argument_list|)
 DECL|field|width
 specifier|private
-name|Integer
+name|String
 name|width
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Integer"
+argument_list|)
 DECL|field|height
 specifier|private
-name|Integer
+name|String
 name|height
 decl_stmt|;
 annotation|@
@@ -184,7 +212,7 @@ expr_stmt|;
 block|}
 DECL|method|getWidth ()
 specifier|public
-name|Integer
+name|String
 name|getWidth
 parameter_list|()
 block|{
@@ -193,12 +221,12 @@ name|width
 return|;
 block|}
 comment|/**      * Width of the barcode      */
-DECL|method|setWidth (Integer width)
+DECL|method|setWidth (String width)
 specifier|public
 name|void
 name|setWidth
 parameter_list|(
-name|Integer
+name|String
 name|width
 parameter_list|)
 block|{
@@ -211,7 +239,7 @@ expr_stmt|;
 block|}
 DECL|method|getHeight ()
 specifier|public
-name|Integer
+name|String
 name|getHeight
 parameter_list|()
 block|{
@@ -220,12 +248,12 @@ name|height
 return|;
 block|}
 comment|/**      * Height of the barcode      */
-DECL|method|setHeight (Integer height)
+DECL|method|setHeight (String height)
 specifier|public
 name|void
 name|setHeight
 parameter_list|(
-name|Integer
+name|String
 name|height
 parameter_list|)
 block|{

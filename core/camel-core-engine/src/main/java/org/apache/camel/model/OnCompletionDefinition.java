@@ -247,14 +247,14 @@ annotation|@
 name|XmlAttribute
 DECL|field|onCompleteOnly
 specifier|private
-name|Boolean
+name|String
 name|onCompleteOnly
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|onFailureOnly
 specifier|private
-name|Boolean
+name|String
 name|onFailureOnly
 decl_stmt|;
 annotation|@
@@ -275,7 +275,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|parallelProcessing
 specifier|private
-name|Boolean
+name|String
 name|parallelProcessing
 decl_stmt|;
 annotation|@
@@ -292,10 +292,10 @@ name|name
 operator|=
 literal|"useOriginalMessage"
 argument_list|)
-DECL|field|useOriginalMessagePolicy
+DECL|field|useOriginalMessage
 specifier|private
-name|Boolean
-name|useOriginalMessagePolicy
+name|String
+name|useOriginalMessage
 decl_stmt|;
 annotation|@
 name|XmlElementRef
@@ -526,13 +526,17 @@ block|{
 name|boolean
 name|isOnFailureOnly
 init|=
-name|getOnFailureOnly
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|getOnFailureOnly
-argument_list|()
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+name|onFailureOnly
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -556,14 +560,20 @@ name|setOnCompleteOnly
 argument_list|(
 name|Boolean
 operator|.
-name|TRUE
+name|toString
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|setOnFailureOnly
 argument_list|(
 name|Boolean
 operator|.
-name|FALSE
+name|toString
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -580,13 +590,17 @@ block|{
 name|boolean
 name|isOnCompleteOnly
 init|=
-name|getOnCompleteOnly
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|getOnCompleteOnly
-argument_list|()
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+name|onCompleteOnly
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -610,14 +624,20 @@ name|setOnCompleteOnly
 argument_list|(
 name|Boolean
 operator|.
-name|FALSE
+name|toString
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|setOnFailureOnly
 argument_list|(
 name|Boolean
 operator|.
-name|TRUE
+name|toString
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -656,11 +676,14 @@ name|OnCompletionDefinition
 name|useOriginalBody
 parameter_list|()
 block|{
-name|setUseOriginalMessagePolicy
+name|setUseOriginalMessage
 argument_list|(
 name|Boolean
 operator|.
-name|TRUE
+name|toString
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -718,7 +741,12 @@ parameter_list|()
 block|{
 name|setParallelProcessing
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -737,7 +765,12 @@ parameter_list|)
 block|{
 name|setParallelProcessing
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|parallelProcessing
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -813,7 +846,7 @@ expr_stmt|;
 block|}
 DECL|method|getOnCompleteOnly ()
 specifier|public
-name|Boolean
+name|String
 name|getOnCompleteOnly
 parameter_list|()
 block|{
@@ -821,12 +854,12 @@ return|return
 name|onCompleteOnly
 return|;
 block|}
-DECL|method|setOnCompleteOnly (Boolean onCompleteOnly)
+DECL|method|setOnCompleteOnly (String onCompleteOnly)
 specifier|public
 name|void
 name|setOnCompleteOnly
 parameter_list|(
-name|Boolean
+name|String
 name|onCompleteOnly
 parameter_list|)
 block|{
@@ -839,7 +872,7 @@ expr_stmt|;
 block|}
 DECL|method|getOnFailureOnly ()
 specifier|public
-name|Boolean
+name|String
 name|getOnFailureOnly
 parameter_list|()
 block|{
@@ -847,12 +880,12 @@ return|return
 name|onFailureOnly
 return|;
 block|}
-DECL|method|setOnFailureOnly (Boolean onFailureOnly)
+DECL|method|setOnFailureOnly (String onFailureOnly)
 specifier|public
 name|void
 name|setOnFailureOnly
 parameter_list|(
-name|Boolean
+name|String
 name|onFailureOnly
 parameter_list|)
 block|{
@@ -949,36 +982,36 @@ operator|=
 name|executorServiceRef
 expr_stmt|;
 block|}
-DECL|method|getUseOriginalMessagePolicy ()
+DECL|method|getUseOriginalMessage ()
 specifier|public
-name|Boolean
-name|getUseOriginalMessagePolicy
+name|String
+name|getUseOriginalMessage
 parameter_list|()
 block|{
 return|return
-name|useOriginalMessagePolicy
+name|useOriginalMessage
 return|;
 block|}
 comment|/**      * Will use the original input message body when an      * {@link org.apache.camel.Exchange} for this on completion.      *<p/>      * By default this feature is off.      */
-DECL|method|setUseOriginalMessagePolicy (Boolean useOriginalMessagePolicy)
+DECL|method|setUseOriginalMessage (String useOriginalMessage)
 specifier|public
 name|void
-name|setUseOriginalMessagePolicy
+name|setUseOriginalMessage
 parameter_list|(
-name|Boolean
-name|useOriginalMessagePolicy
+name|String
+name|useOriginalMessage
 parameter_list|)
 block|{
 name|this
 operator|.
-name|useOriginalMessagePolicy
+name|useOriginalMessage
 operator|=
-name|useOriginalMessagePolicy
+name|useOriginalMessage
 expr_stmt|;
 block|}
 DECL|method|getParallelProcessing ()
 specifier|public
-name|Boolean
+name|String
 name|getParallelProcessing
 parameter_list|()
 block|{
@@ -986,12 +1019,12 @@ return|return
 name|parallelProcessing
 return|;
 block|}
-DECL|method|setParallelProcessing (Boolean parallelProcessing)
+DECL|method|setParallelProcessing (String parallelProcessing)
 specifier|public
 name|void
 name|setParallelProcessing
 parameter_list|(
-name|Boolean
+name|String
 name|parallelProcessing
 parameter_list|)
 block|{

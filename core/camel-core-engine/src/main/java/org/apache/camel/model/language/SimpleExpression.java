@@ -400,8 +400,13 @@ argument_list|()
 operator|==
 literal|null
 operator|||
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|getTrim
 argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

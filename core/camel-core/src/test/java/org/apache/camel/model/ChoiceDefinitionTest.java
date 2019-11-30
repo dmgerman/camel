@@ -183,6 +183,16 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"choice[when[{simple{${body}} contains Camel}],when[{simple{${body}} contains Donkey}],otherwise[]]"
+argument_list|,
+name|choice
+operator|.
+name|getLabel
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test

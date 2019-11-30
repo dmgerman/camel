@@ -148,7 +148,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|length
 specifier|private
-name|Integer
+name|String
 name|length
 decl_stmt|;
 DECL|method|getName ()
@@ -180,7 +180,7 @@ expr_stmt|;
 block|}
 DECL|method|getLength ()
 specifier|public
-name|Integer
+name|String
 name|getLength
 parameter_list|()
 block|{
@@ -189,12 +189,12 @@ name|length
 return|;
 block|}
 comment|/**      * Header length      */
-DECL|method|setLength (Integer length)
+DECL|method|setLength (String length)
 specifier|public
 name|void
 name|setLength
 parameter_list|(
-name|Integer
+name|String
 name|length
 parameter_list|)
 block|{

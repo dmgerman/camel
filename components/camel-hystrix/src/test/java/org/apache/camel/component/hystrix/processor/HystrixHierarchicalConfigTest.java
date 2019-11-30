@@ -179,7 +179,7 @@ argument_list|)
 expr_stmt|;
 name|def
 operator|.
-name|setCorePoolSize
+name|corePoolSize
 argument_list|(
 literal|10
 argument_list|)
@@ -200,7 +200,7 @@ argument_list|)
 expr_stmt|;
 name|ref
 operator|.
-name|setCorePoolSize
+name|corePoolSize
 argument_list|(
 literal|5
 argument_list|)
@@ -299,7 +299,7 @@ name|assertEquals
 argument_list|(
 name|Integer
 operator|.
-name|valueOf
+name|toString
 argument_list|(
 literal|5
 argument_list|)
@@ -352,7 +352,7 @@ argument_list|)
 expr_stmt|;
 name|def
 operator|.
-name|setCorePoolSize
+name|corePoolSize
 argument_list|(
 literal|10
 argument_list|)
@@ -373,7 +373,7 @@ argument_list|)
 expr_stmt|;
 name|ref
 operator|.
-name|setCorePoolSize
+name|corePoolSize
 argument_list|(
 literal|5
 argument_list|)
@@ -482,7 +482,7 @@ name|assertEquals
 argument_list|(
 name|Integer
 operator|.
-name|valueOf
+name|toString
 argument_list|(
 literal|5
 argument_list|)
@@ -545,7 +545,7 @@ argument_list|)
 expr_stmt|;
 name|def
 operator|.
-name|setCorePoolSize
+name|corePoolSize
 argument_list|(
 literal|10
 argument_list|)
@@ -566,7 +566,7 @@ argument_list|)
 expr_stmt|;
 name|ref
 operator|.
-name|setCorePoolSize
+name|corePoolSize
 argument_list|(
 literal|5
 argument_list|)
@@ -595,7 +595,7 @@ argument_list|)
 expr_stmt|;
 name|defReg
 operator|.
-name|setCorePoolSize
+name|corePoolSize
 argument_list|(
 literal|20
 argument_list|)
@@ -708,7 +708,7 @@ name|assertEquals
 argument_list|(
 name|Integer
 operator|.
-name|valueOf
+name|toString
 argument_list|(
 literal|5
 argument_list|)

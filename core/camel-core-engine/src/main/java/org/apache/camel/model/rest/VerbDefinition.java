@@ -340,28 +340,28 @@ literal|"auto"
 argument_list|)
 DECL|field|bindingMode
 specifier|private
-name|RestBindingMode
+name|String
 name|bindingMode
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|skipBindingOnErrorCode
 specifier|private
-name|Boolean
+name|String
 name|skipBindingOnErrorCode
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|clientRequestValidation
 specifier|private
-name|Boolean
+name|String
 name|clientRequestValidation
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|enableCORS
 specifier|private
-name|Boolean
+name|String
 name|enableCORS
 decl_stmt|;
 annotation|@
@@ -489,7 +489,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|apiDocs
 specifier|private
-name|Boolean
+name|String
 name|apiDocs
 decl_stmt|;
 annotation|@
@@ -750,7 +750,7 @@ expr_stmt|;
 block|}
 DECL|method|getBindingMode ()
 specifier|public
-name|RestBindingMode
+name|String
 name|getBindingMode
 parameter_list|()
 block|{
@@ -759,12 +759,12 @@ name|bindingMode
 return|;
 block|}
 comment|/**      * Sets the binding mode to use. This option will override what may be      * configured on a parent level      *<p/>      * The default value is auto      */
-DECL|method|setBindingMode (RestBindingMode bindingMode)
+DECL|method|setBindingMode (String bindingMode)
 specifier|public
 name|void
 name|setBindingMode
 parameter_list|(
-name|RestBindingMode
+name|String
 name|bindingMode
 parameter_list|)
 block|{
@@ -777,7 +777,7 @@ expr_stmt|;
 block|}
 DECL|method|getSkipBindingOnErrorCode ()
 specifier|public
-name|Boolean
+name|String
 name|getSkipBindingOnErrorCode
 parameter_list|()
 block|{
@@ -786,12 +786,12 @@ name|skipBindingOnErrorCode
 return|;
 block|}
 comment|/**      * Whether to skip binding on output if there is a custom HTTP error code      * header. This allows to build custom error messages that do not bind to      * json / xml etc, as success messages otherwise will do. This option will      * override what may be configured on a parent level      */
-DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
+DECL|method|setSkipBindingOnErrorCode (String skipBindingOnErrorCode)
 specifier|public
 name|void
 name|setSkipBindingOnErrorCode
 parameter_list|(
-name|Boolean
+name|String
 name|skipBindingOnErrorCode
 parameter_list|)
 block|{
@@ -804,7 +804,7 @@ expr_stmt|;
 block|}
 DECL|method|getClientRequestValidation ()
 specifier|public
-name|Boolean
+name|String
 name|getClientRequestValidation
 parameter_list|()
 block|{
@@ -813,12 +813,12 @@ name|clientRequestValidation
 return|;
 block|}
 comment|/**      * Whether to enable validation of the client request to check whether the      * Content-Type and Accept headers from the client is supported by the      * Rest-DSL configuration of its consumes/produces settings.      *<p/>      * This can be turned on, to enable this check. In case of validation error,      * then HTTP Status codes 415 or 406 is returned.      *<p/>      * The default value is false.      */
-DECL|method|setClientRequestValidation (Boolean clientRequestValidation)
+DECL|method|setClientRequestValidation (String clientRequestValidation)
 specifier|public
 name|void
 name|setClientRequestValidation
 parameter_list|(
-name|Boolean
+name|String
 name|clientRequestValidation
 parameter_list|)
 block|{
@@ -831,7 +831,7 @@ expr_stmt|;
 block|}
 DECL|method|getEnableCORS ()
 specifier|public
-name|Boolean
+name|String
 name|getEnableCORS
 parameter_list|()
 block|{
@@ -840,12 +840,12 @@ name|enableCORS
 return|;
 block|}
 comment|/**      * Whether to enable CORS headers in the HTTP response. This option will      * override what may be configured on a parent level      *<p/>      * The default value is false.      */
-DECL|method|setEnableCORS (Boolean enableCORS)
+DECL|method|setEnableCORS (String enableCORS)
 specifier|public
 name|void
 name|setEnableCORS
 parameter_list|(
-name|Boolean
+name|String
 name|enableCORS
 parameter_list|)
 block|{
@@ -939,7 +939,7 @@ expr_stmt|;
 block|}
 DECL|method|getApiDocs ()
 specifier|public
-name|Boolean
+name|String
 name|getApiDocs
 parameter_list|()
 block|{
@@ -948,12 +948,12 @@ name|apiDocs
 return|;
 block|}
 comment|/**      * Whether to include or exclude the VerbDefinition in API documentation.      *<p/>      * The default value is true.      */
-DECL|method|setApiDocs (Boolean apiDocs)
+DECL|method|setApiDocs (String apiDocs)
 specifier|public
 name|void
 name|setApiDocs
 parameter_list|(
-name|Boolean
+name|String
 name|apiDocs
 parameter_list|)
 block|{

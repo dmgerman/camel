@@ -126,14 +126,14 @@ annotation|@
 name|XmlAttribute
 DECL|field|markRollbackOnly
 specifier|private
-name|Boolean
+name|String
 name|markRollbackOnly
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|markRollbackOnlyLast
 specifier|private
-name|Boolean
+name|String
 name|markRollbackOnlyLast
 decl_stmt|;
 annotation|@
@@ -246,7 +246,7 @@ expr_stmt|;
 block|}
 DECL|method|getMarkRollbackOnly ()
 specifier|public
-name|Boolean
+name|String
 name|getMarkRollbackOnly
 parameter_list|()
 block|{
@@ -255,12 +255,12 @@ name|markRollbackOnly
 return|;
 block|}
 comment|/**      * Mark the transaction for rollback only (cannot be overruled to commit)      */
-DECL|method|setMarkRollbackOnly (Boolean markRollbackOnly)
+DECL|method|setMarkRollbackOnly (String markRollbackOnly)
 specifier|public
 name|void
 name|setMarkRollbackOnly
 parameter_list|(
-name|Boolean
+name|String
 name|markRollbackOnly
 parameter_list|)
 block|{
@@ -273,7 +273,7 @@ expr_stmt|;
 block|}
 DECL|method|getMarkRollbackOnlyLast ()
 specifier|public
-name|Boolean
+name|String
 name|getMarkRollbackOnlyLast
 parameter_list|()
 block|{
@@ -282,12 +282,12 @@ name|markRollbackOnlyLast
 return|;
 block|}
 comment|/**      * Mark only last sub transaction for rollback only.      *<p/>      * When using sub transactions (if the transaction manager support this)      */
-DECL|method|setMarkRollbackOnlyLast (Boolean markRollbackOnlyLast)
+DECL|method|setMarkRollbackOnlyLast (String markRollbackOnlyLast)
 specifier|public
 name|void
 name|setMarkRollbackOnlyLast
 parameter_list|(
-name|Boolean
+name|String
 name|markRollbackOnlyLast
 parameter_list|)
 block|{

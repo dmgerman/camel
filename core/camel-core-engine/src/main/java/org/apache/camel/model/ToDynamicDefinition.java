@@ -187,21 +187,21 @@ annotation|@
 name|XmlAttribute
 DECL|field|pattern
 specifier|private
-name|ExchangePattern
+name|String
 name|pattern
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|cacheSize
 specifier|private
-name|Integer
+name|String
 name|cacheSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|ignoreInvalidEndpoint
 specifier|private
-name|Boolean
+name|String
 name|ignoreInvalidEndpoint
 decl_stmt|;
 annotation|@
@@ -215,7 +215,7 @@ literal|"true"
 argument_list|)
 DECL|field|allowOptimisedComponents
 specifier|private
-name|Boolean
+name|String
 name|allowOptimisedComponents
 decl_stmt|;
 DECL|method|ToDynamicDefinition ()
@@ -294,6 +294,9 @@ block|{
 name|setPattern
 argument_list|(
 name|pattern
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -312,7 +315,12 @@ parameter_list|)
 block|{
 name|setCacheSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|cacheSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -328,7 +336,12 @@ parameter_list|()
 block|{
 name|setIgnoreInvalidEndpoint
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -347,7 +360,12 @@ parameter_list|)
 block|{
 name|setAllowOptimisedComponents
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|allowOptimisedComponents
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -411,7 +429,7 @@ expr_stmt|;
 block|}
 DECL|method|getPattern ()
 specifier|public
-name|ExchangePattern
+name|String
 name|getPattern
 parameter_list|()
 block|{
@@ -419,12 +437,12 @@ return|return
 name|pattern
 return|;
 block|}
-DECL|method|setPattern (ExchangePattern pattern)
+DECL|method|setPattern (String pattern)
 specifier|public
 name|void
 name|setPattern
 parameter_list|(
-name|ExchangePattern
+name|String
 name|pattern
 parameter_list|)
 block|{
@@ -437,7 +455,7 @@ expr_stmt|;
 block|}
 DECL|method|getCacheSize ()
 specifier|public
-name|Integer
+name|String
 name|getCacheSize
 parameter_list|()
 block|{
@@ -445,12 +463,12 @@ return|return
 name|cacheSize
 return|;
 block|}
-DECL|method|setCacheSize (Integer cacheSize)
+DECL|method|setCacheSize (String cacheSize)
 specifier|public
 name|void
 name|setCacheSize
 parameter_list|(
-name|Integer
+name|String
 name|cacheSize
 parameter_list|)
 block|{
@@ -463,7 +481,7 @@ expr_stmt|;
 block|}
 DECL|method|getIgnoreInvalidEndpoint ()
 specifier|public
-name|Boolean
+name|String
 name|getIgnoreInvalidEndpoint
 parameter_list|()
 block|{
@@ -471,12 +489,12 @@ return|return
 name|ignoreInvalidEndpoint
 return|;
 block|}
-DECL|method|setIgnoreInvalidEndpoint (Boolean ignoreInvalidEndpoint)
+DECL|method|setIgnoreInvalidEndpoint (String ignoreInvalidEndpoint)
 specifier|public
 name|void
 name|setIgnoreInvalidEndpoint
 parameter_list|(
-name|Boolean
+name|String
 name|ignoreInvalidEndpoint
 parameter_list|)
 block|{
@@ -489,7 +507,7 @@ expr_stmt|;
 block|}
 DECL|method|getAllowOptimisedComponents ()
 specifier|public
-name|Boolean
+name|String
 name|getAllowOptimisedComponents
 parameter_list|()
 block|{
@@ -497,12 +515,12 @@ return|return
 name|allowOptimisedComponents
 return|;
 block|}
-DECL|method|setAllowOptimisedComponents (Boolean allowOptimisedComponents)
+DECL|method|setAllowOptimisedComponents (String allowOptimisedComponents)
 specifier|public
 name|void
 name|setAllowOptimisedComponents
 parameter_list|(
-name|Boolean
+name|String
 name|allowOptimisedComponents
 parameter_list|)
 block|{

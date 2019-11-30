@@ -238,7 +238,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|rejectedPolicy
 specifier|private
-name|ThreadPoolRejectedPolicy
+name|String
 name|rejectedPolicy
 decl_stmt|;
 DECL|method|ThreadPoolProfileDefinition ()
@@ -285,9 +285,12 @@ block|{
 return|return
 name|poolSize
 argument_list|(
-literal|""
-operator|+
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|poolSize
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -321,9 +324,12 @@ block|{
 return|return
 name|maxPoolSize
 argument_list|(
-literal|""
-operator|+
-name|maxQueueSize
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|maxPoolSize
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -338,8 +344,6 @@ parameter_list|)
 block|{
 name|setMaxPoolSize
 argument_list|(
-literal|""
-operator|+
 name|maxPoolSize
 argument_list|)
 expr_stmt|;
@@ -359,9 +363,12 @@ block|{
 return|return
 name|keepAliveTime
 argument_list|(
-literal|""
-operator|+
+name|Long
+operator|.
+name|toString
+argument_list|(
 name|keepAliveTime
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -376,8 +383,6 @@ parameter_list|)
 block|{
 name|setKeepAliveTime
 argument_list|(
-literal|""
-operator|+
 name|keepAliveTime
 argument_list|)
 expr_stmt|;
@@ -415,9 +420,12 @@ block|{
 return|return
 name|maxQueueSize
 argument_list|(
-literal|""
-operator|+
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|maxQueueSize
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -432,8 +440,6 @@ parameter_list|)
 block|{
 name|setMaxQueueSize
 argument_list|(
-literal|""
-operator|+
 name|maxQueueSize
 argument_list|)
 expr_stmt|;
@@ -447,6 +453,27 @@ name|ThreadPoolProfileDefinition
 name|rejectedPolicy
 parameter_list|(
 name|ThreadPoolRejectedPolicy
+name|rejectedPolicy
+parameter_list|)
+block|{
+name|setRejectedPolicy
+argument_list|(
+name|rejectedPolicy
+operator|.
+name|name
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|rejectedPolicy (String rejectedPolicy)
+specifier|public
+name|ThreadPoolProfileDefinition
+name|rejectedPolicy
+parameter_list|(
+name|String
 name|rejectedPolicy
 parameter_list|)
 block|{
@@ -684,7 +711,7 @@ expr_stmt|;
 block|}
 DECL|method|getRejectedPolicy ()
 specifier|public
-name|ThreadPoolRejectedPolicy
+name|String
 name|getRejectedPolicy
 parameter_list|()
 block|{
@@ -692,37 +719,13 @@ return|return
 name|rejectedPolicy
 return|;
 block|}
-DECL|method|getRejectedExecutionHandler ()
-specifier|public
-name|RejectedExecutionHandler
-name|getRejectedExecutionHandler
-parameter_list|()
-block|{
-if|if
-condition|(
-name|rejectedPolicy
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|rejectedPolicy
-operator|.
-name|asRejectedExecutionHandler
-argument_list|()
-return|;
-block|}
-return|return
-literal|null
-return|;
-block|}
 comment|/**      * Sets the handler for tasks which cannot be executed by the thread pool.      */
-DECL|method|setRejectedPolicy (ThreadPoolRejectedPolicy rejectedPolicy)
+DECL|method|setRejectedPolicy (String rejectedPolicy)
 specifier|public
 name|void
 name|setRejectedPolicy
 parameter_list|(
-name|ThreadPoolRejectedPolicy
+name|String
 name|rejectedPolicy
 parameter_list|)
 block|{

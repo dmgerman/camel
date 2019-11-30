@@ -280,7 +280,7 @@ argument_list|)
 expr_stmt|;
 name|cachingConf
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 literal|50
 argument_list|)

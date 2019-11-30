@@ -162,28 +162,28 @@ annotation|@
 name|XmlAttribute
 DECL|field|deadLetterHandleNewException
 specifier|private
-name|Boolean
+name|String
 name|deadLetterHandleNewException
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|rollbackLoggingLevel
 specifier|private
-name|LoggingLevel
+name|String
 name|rollbackLoggingLevel
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|useOriginalMessage
 specifier|private
-name|Boolean
+name|String
 name|useOriginalMessage
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|useOriginalBody
 specifier|private
-name|Boolean
+name|String
 name|useOriginalBody
 decl_stmt|;
 annotation|@
@@ -303,7 +303,7 @@ expr_stmt|;
 block|}
 DECL|method|getDeadLetterHandleNewException ()
 specifier|public
-name|Boolean
+name|String
 name|getDeadLetterHandleNewException
 parameter_list|()
 block|{
@@ -311,12 +311,12 @@ return|return
 name|deadLetterHandleNewException
 return|;
 block|}
-DECL|method|setDeadLetterHandleNewException (Boolean deadLetterHandleNewException)
+DECL|method|setDeadLetterHandleNewException (String deadLetterHandleNewException)
 specifier|public
 name|void
 name|setDeadLetterHandleNewException
 parameter_list|(
-name|Boolean
+name|String
 name|deadLetterHandleNewException
 parameter_list|)
 block|{
@@ -329,7 +329,7 @@ expr_stmt|;
 block|}
 DECL|method|getRollbackLoggingLevel ()
 specifier|public
-name|LoggingLevel
+name|String
 name|getRollbackLoggingLevel
 parameter_list|()
 block|{
@@ -337,12 +337,12 @@ return|return
 name|rollbackLoggingLevel
 return|;
 block|}
-DECL|method|setRollbackLoggingLevel (LoggingLevel rollbackLoggingLevel)
+DECL|method|setRollbackLoggingLevel (String rollbackLoggingLevel)
 specifier|public
 name|void
 name|setRollbackLoggingLevel
 parameter_list|(
-name|LoggingLevel
+name|String
 name|rollbackLoggingLevel
 parameter_list|)
 block|{
@@ -355,7 +355,7 @@ expr_stmt|;
 block|}
 DECL|method|getUseOriginalMessage ()
 specifier|public
-name|Boolean
+name|String
 name|getUseOriginalMessage
 parameter_list|()
 block|{
@@ -363,12 +363,12 @@ return|return
 name|useOriginalMessage
 return|;
 block|}
-DECL|method|setUseOriginalMessage (Boolean useOriginalMessage)
+DECL|method|setUseOriginalMessage (String useOriginalMessage)
 specifier|public
 name|void
 name|setUseOriginalMessage
 parameter_list|(
-name|Boolean
+name|String
 name|useOriginalMessage
 parameter_list|)
 block|{
@@ -381,7 +381,7 @@ expr_stmt|;
 block|}
 DECL|method|getUseOriginalBody ()
 specifier|public
-name|Boolean
+name|String
 name|getUseOriginalBody
 parameter_list|()
 block|{
@@ -389,12 +389,12 @@ return|return
 name|useOriginalBody
 return|;
 block|}
-DECL|method|setUseOriginalBody (Boolean useOriginalBody)
+DECL|method|setUseOriginalBody (String useOriginalBody)
 specifier|public
 name|void
 name|setUseOriginalBody
 parameter_list|(
-name|Boolean
+name|String
 name|useOriginalBody
 parameter_list|)
 block|{

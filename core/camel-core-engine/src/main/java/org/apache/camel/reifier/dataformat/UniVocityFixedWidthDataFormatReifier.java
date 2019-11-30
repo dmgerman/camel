@@ -74,6 +74,20 @@ name|DataFormat
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|CamelContextHelper
+import|;
+end_import
+
 begin_class
 DECL|class|UniVocityFixedWidthDataFormatReifier
 specifier|public
@@ -165,7 +179,7 @@ name|i
 operator|++
 control|)
 block|{
-name|Integer
+name|String
 name|length
 init|=
 name|definition
@@ -201,7 +215,14 @@ index|[
 name|i
 index|]
 operator|=
+name|CamelContextHelper
+operator|.
+name|parseInteger
+argument_list|(
+name|camelContext
+argument_list|,
 name|length
+argument_list|)
 expr_stmt|;
 block|}
 name|setProperty

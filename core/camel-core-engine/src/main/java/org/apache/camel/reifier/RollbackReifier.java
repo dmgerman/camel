@@ -136,10 +136,15 @@ argument_list|()
 operator|!=
 literal|null
 operator|&&
+name|parseBoolean
+argument_list|(
+name|routeContext
+argument_list|,
 name|definition
 operator|.
 name|getMarkRollbackOnly
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|boolean
 name|isMarkRollbackOnlyLast
@@ -151,10 +156,15 @@ argument_list|()
 operator|!=
 literal|null
 operator|&&
+name|parseBoolean
+argument_list|(
+name|routeContext
+argument_list|,
 name|definition
 operator|.
 name|getMarkRollbackOnlyLast
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// validate that only either mark rollbacks is chosen and not both
 if|if

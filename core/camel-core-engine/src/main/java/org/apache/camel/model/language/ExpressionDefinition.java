@@ -132,6 +132,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlSchemaType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlTransient
 import|;
 end_import
@@ -489,10 +503,14 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
 argument_list|)
 DECL|field|trim
 specifier|private
-name|Boolean
+name|String
 name|trim
 decl_stmt|;
 annotation|@
@@ -1049,8 +1067,13 @@ argument_list|()
 operator|==
 literal|null
 operator|||
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|getTrim
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// trim if configured to trim
 if|if
@@ -1246,8 +1269,13 @@ argument_list|()
 operator|==
 literal|null
 operator|||
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|getTrim
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// trim if configured to trim
 if|if
@@ -1430,7 +1458,7 @@ return|;
 block|}
 DECL|method|getTrim ()
 specifier|public
-name|Boolean
+name|String
 name|getTrim
 parameter_list|()
 block|{
@@ -1439,12 +1467,12 @@ name|trim
 return|;
 block|}
 comment|/**      * Whether to trim the value to remove leading and trailing whitespaces and      * line breaks      */
-DECL|method|setTrim (Boolean trim)
+DECL|method|setTrim (String trim)
 specifier|public
 name|void
 name|setTrim
 parameter_list|(
-name|Boolean
+name|String
 name|trim
 parameter_list|)
 block|{

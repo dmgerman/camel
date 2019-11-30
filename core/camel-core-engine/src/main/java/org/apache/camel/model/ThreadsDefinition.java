@@ -215,49 +215,42 @@ annotation|@
 name|XmlAttribute
 DECL|field|poolSize
 specifier|private
-name|Integer
+name|String
 name|poolSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|maxPoolSize
 specifier|private
-name|Integer
+name|String
 name|maxPoolSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|keepAliveTime
 specifier|private
-name|Long
+name|String
 name|keepAliveTime
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|XmlJavaTypeAdapter
-argument_list|(
-name|TimeUnitAdapter
-operator|.
-name|class
-argument_list|)
 DECL|field|timeUnit
 specifier|private
-name|TimeUnit
+name|String
 name|timeUnit
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|maxQueueSize
 specifier|private
-name|Integer
+name|String
 name|maxQueueSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|allowCoreThreadTimeOut
 specifier|private
-name|Boolean
+name|String
 name|allowCoreThreadTimeOut
 decl_stmt|;
 annotation|@
@@ -292,7 +285,7 @@ literal|"true"
 argument_list|)
 DECL|field|callerRunsWhenRejected
 specifier|private
-name|Boolean
+name|String
 name|callerRunsWhenRejected
 decl_stmt|;
 DECL|method|ThreadsDefinition ()
@@ -402,7 +395,12 @@ parameter_list|)
 block|{
 name|setPoolSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|poolSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -421,7 +419,12 @@ parameter_list|)
 block|{
 name|setMaxPoolSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|maxPoolSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -440,7 +443,12 @@ parameter_list|)
 block|{
 name|setKeepAliveTime
 argument_list|(
+name|Long
+operator|.
+name|toString
+argument_list|(
 name|keepAliveTime
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -460,6 +468,9 @@ block|{
 name|setTimeUnit
 argument_list|(
 name|keepAliveTimeUnits
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -478,7 +489,12 @@ parameter_list|)
 block|{
 name|setMaxQueueSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|maxQueueSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -535,7 +551,12 @@ parameter_list|)
 block|{
 name|setCallerRunsWhenRejected
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|callerRunsWhenRejected
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -554,7 +575,12 @@ parameter_list|)
 block|{
 name|setAllowCoreThreadTimeOut
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|allowCoreThreadTimeOut
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -623,7 +649,7 @@ expr_stmt|;
 block|}
 DECL|method|getPoolSize ()
 specifier|public
-name|Integer
+name|String
 name|getPoolSize
 parameter_list|()
 block|{
@@ -631,12 +657,12 @@ return|return
 name|poolSize
 return|;
 block|}
-DECL|method|setPoolSize (Integer poolSize)
+DECL|method|setPoolSize (String poolSize)
 specifier|public
 name|void
 name|setPoolSize
 parameter_list|(
-name|Integer
+name|String
 name|poolSize
 parameter_list|)
 block|{
@@ -649,7 +675,7 @@ expr_stmt|;
 block|}
 DECL|method|getMaxPoolSize ()
 specifier|public
-name|Integer
+name|String
 name|getMaxPoolSize
 parameter_list|()
 block|{
@@ -657,12 +683,12 @@ return|return
 name|maxPoolSize
 return|;
 block|}
-DECL|method|setMaxPoolSize (Integer maxPoolSize)
+DECL|method|setMaxPoolSize (String maxPoolSize)
 specifier|public
 name|void
 name|setMaxPoolSize
 parameter_list|(
-name|Integer
+name|String
 name|maxPoolSize
 parameter_list|)
 block|{
@@ -675,7 +701,7 @@ expr_stmt|;
 block|}
 DECL|method|getKeepAliveTime ()
 specifier|public
-name|Long
+name|String
 name|getKeepAliveTime
 parameter_list|()
 block|{
@@ -683,12 +709,12 @@ return|return
 name|keepAliveTime
 return|;
 block|}
-DECL|method|setKeepAliveTime (Long keepAliveTime)
+DECL|method|setKeepAliveTime (String keepAliveTime)
 specifier|public
 name|void
 name|setKeepAliveTime
 parameter_list|(
-name|Long
+name|String
 name|keepAliveTime
 parameter_list|)
 block|{
@@ -701,7 +727,7 @@ expr_stmt|;
 block|}
 DECL|method|getTimeUnit ()
 specifier|public
-name|TimeUnit
+name|String
 name|getTimeUnit
 parameter_list|()
 block|{
@@ -709,12 +735,12 @@ return|return
 name|timeUnit
 return|;
 block|}
-DECL|method|setTimeUnit (TimeUnit timeUnit)
+DECL|method|setTimeUnit (String timeUnit)
 specifier|public
 name|void
 name|setTimeUnit
 parameter_list|(
-name|TimeUnit
+name|String
 name|timeUnit
 parameter_list|)
 block|{
@@ -727,7 +753,7 @@ expr_stmt|;
 block|}
 DECL|method|getMaxQueueSize ()
 specifier|public
-name|Integer
+name|String
 name|getMaxQueueSize
 parameter_list|()
 block|{
@@ -735,12 +761,12 @@ return|return
 name|maxQueueSize
 return|;
 block|}
-DECL|method|setMaxQueueSize (Integer maxQueueSize)
+DECL|method|setMaxQueueSize (String maxQueueSize)
 specifier|public
 name|void
 name|setMaxQueueSize
 parameter_list|(
-name|Integer
+name|String
 name|maxQueueSize
 parameter_list|)
 block|{
@@ -805,7 +831,7 @@ expr_stmt|;
 block|}
 DECL|method|getCallerRunsWhenRejected ()
 specifier|public
-name|Boolean
+name|String
 name|getCallerRunsWhenRejected
 parameter_list|()
 block|{
@@ -813,12 +839,12 @@ return|return
 name|callerRunsWhenRejected
 return|;
 block|}
-DECL|method|setCallerRunsWhenRejected (Boolean callerRunsWhenRejected)
+DECL|method|setCallerRunsWhenRejected (String callerRunsWhenRejected)
 specifier|public
 name|void
 name|setCallerRunsWhenRejected
 parameter_list|(
-name|Boolean
+name|String
 name|callerRunsWhenRejected
 parameter_list|)
 block|{
@@ -831,7 +857,7 @@ expr_stmt|;
 block|}
 DECL|method|getAllowCoreThreadTimeOut ()
 specifier|public
-name|Boolean
+name|String
 name|getAllowCoreThreadTimeOut
 parameter_list|()
 block|{
@@ -839,12 +865,12 @@ return|return
 name|allowCoreThreadTimeOut
 return|;
 block|}
-DECL|method|setAllowCoreThreadTimeOut (Boolean allowCoreThreadTimeOut)
+DECL|method|setAllowCoreThreadTimeOut (String allowCoreThreadTimeOut)
 specifier|public
 name|void
 name|setAllowCoreThreadTimeOut
 parameter_list|(
-name|Boolean
+name|String
 name|allowCoreThreadTimeOut
 parameter_list|)
 block|{

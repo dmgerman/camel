@@ -296,15 +296,20 @@ if|if
 condition|(
 name|definition
 operator|.
-name|getUseOriginalMessagePolicy
+name|getUseOriginalMessage
 argument_list|()
 operator|!=
 literal|null
 operator|&&
+name|parseBoolean
+argument_list|(
+name|routeContext
+argument_list|,
 name|definition
 operator|.
-name|getUseOriginalMessagePolicy
+name|getUseOriginalMessage
 argument_list|()
+argument_list|)
 condition|)
 block|{
 comment|// ensure allow original is turned on
@@ -450,15 +455,20 @@ if|if
 condition|(
 name|definition
 operator|.
-name|getUseOriginalMessagePolicy
+name|getUseOriginalMessage
 argument_list|()
 operator|!=
 literal|null
 operator|&&
+name|parseBoolean
+argument_list|(
+name|routeContext
+argument_list|,
 name|definition
 operator|.
-name|getUseOriginalMessagePolicy
+name|getUseOriginalMessage
 argument_list|()
+argument_list|)
 condition|)
 block|{
 comment|// ensure allow original is turned on

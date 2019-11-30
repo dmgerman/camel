@@ -189,14 +189,14 @@ annotation|@
 name|XmlAttribute
 DECL|field|retriesExhaustedLogLevel
 specifier|private
-name|LoggingLevel
+name|String
 name|retriesExhaustedLogLevel
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|retryAttemptedLogLevel
 specifier|private
-name|LoggingLevel
+name|String
 name|retryAttemptedLogLevel
 decl_stmt|;
 annotation|@
@@ -531,6 +531,26 @@ name|LoggingLevel
 name|retriesExhaustedLogLevel
 parameter_list|)
 block|{
+return|return
+name|retriesExhaustedLogLevel
+argument_list|(
+name|retriesExhaustedLogLevel
+operator|.
+name|name
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Sets the logging level to use when retries has exhausted      *      * @param retriesExhaustedLogLevel the logging level      * @return the builder      */
+DECL|method|retriesExhaustedLogLevel (String retriesExhaustedLogLevel)
+specifier|public
+name|RedeliveryPolicyDefinition
+name|retriesExhaustedLogLevel
+parameter_list|(
+name|String
+name|retriesExhaustedLogLevel
+parameter_list|)
+block|{
 name|setRetriesExhaustedLogLevel
 argument_list|(
 name|retriesExhaustedLogLevel
@@ -547,6 +567,26 @@ name|RedeliveryPolicyDefinition
 name|retryAttemptedLogLevel
 parameter_list|(
 name|LoggingLevel
+name|retryAttemptedLogLevel
+parameter_list|)
+block|{
+return|return
+name|retryAttemptedLogLevel
+argument_list|(
+name|retryAttemptedLogLevel
+operator|.
+name|name
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Sets the logging level to use for logging retry attempts      *      * @param retryAttemptedLogLevel the logging level      * @return the builder      */
+DECL|method|retryAttemptedLogLevel (String retryAttemptedLogLevel)
+specifier|public
+name|RedeliveryPolicyDefinition
+name|retryAttemptedLogLevel
+parameter_list|(
+name|String
 name|retryAttemptedLogLevel
 parameter_list|)
 block|{
@@ -1315,7 +1355,7 @@ expr_stmt|;
 block|}
 DECL|method|getRetriesExhaustedLogLevel ()
 specifier|public
-name|LoggingLevel
+name|String
 name|getRetriesExhaustedLogLevel
 parameter_list|()
 block|{
@@ -1323,12 +1363,12 @@ return|return
 name|retriesExhaustedLogLevel
 return|;
 block|}
-DECL|method|setRetriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
+DECL|method|setRetriesExhaustedLogLevel (String retriesExhaustedLogLevel)
 specifier|public
 name|void
 name|setRetriesExhaustedLogLevel
 parameter_list|(
-name|LoggingLevel
+name|String
 name|retriesExhaustedLogLevel
 parameter_list|)
 block|{
@@ -1341,7 +1381,7 @@ expr_stmt|;
 block|}
 DECL|method|getRetryAttemptedLogLevel ()
 specifier|public
-name|LoggingLevel
+name|String
 name|getRetryAttemptedLogLevel
 parameter_list|()
 block|{
@@ -1349,12 +1389,12 @@ return|return
 name|retryAttemptedLogLevel
 return|;
 block|}
-DECL|method|setRetryAttemptedLogLevel (LoggingLevel retryAttemptedLogLevel)
+DECL|method|setRetryAttemptedLogLevel (String retryAttemptedLogLevel)
 specifier|public
 name|void
 name|setRetryAttemptedLogLevel
 parameter_list|(
-name|LoggingLevel
+name|String
 name|retryAttemptedLogLevel
 parameter_list|)
 block|{

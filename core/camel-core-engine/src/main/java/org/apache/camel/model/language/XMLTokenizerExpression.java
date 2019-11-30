@@ -76,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlSchemaType
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -181,9 +195,16 @@ name|mode
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Integer"
+argument_list|)
 DECL|field|group
 specifier|private
-name|Integer
+name|String
 name|group
 decl_stmt|;
 DECL|method|XMLTokenizerExpression ()
@@ -273,7 +294,7 @@ expr_stmt|;
 block|}
 DECL|method|getGroup ()
 specifier|public
-name|Integer
+name|String
 name|getGroup
 parameter_list|()
 block|{
@@ -282,12 +303,12 @@ name|group
 return|;
 block|}
 comment|/**      * To group N parts together      */
-DECL|method|setGroup (Integer group)
+DECL|method|setGroup (String group)
 specifier|public
 name|void
 name|setGroup
 parameter_list|(
-name|Integer
+name|String
 name|group
 parameter_list|)
 block|{

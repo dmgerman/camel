@@ -76,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlSchemaType
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -230,23 +244,44 @@ name|headerName
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|regex
 specifier|private
-name|Boolean
+name|String
 name|regex
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|xml
 specifier|private
-name|Boolean
+name|String
 name|xml
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|includeTokens
 specifier|private
-name|Boolean
+name|String
 name|includeTokens
 decl_stmt|;
 annotation|@
@@ -265,9 +300,16 @@ name|groupDelimiter
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|skipFirst
 specifier|private
-name|Boolean
+name|String
 name|skipFirst
 decl_stmt|;
 DECL|method|TokenizerExpression ()
@@ -384,12 +426,12 @@ name|headerName
 expr_stmt|;
 block|}
 comment|/**      * If the token is a regular expression pattern.      *<p/>      * The default value is false      */
-DECL|method|setRegex (boolean regex)
+DECL|method|setRegex (String regex)
 specifier|public
 name|void
 name|setRegex
 parameter_list|(
-name|boolean
+name|String
 name|regex
 parameter_list|)
 block|{
@@ -402,7 +444,7 @@ expr_stmt|;
 block|}
 DECL|method|getRegex ()
 specifier|public
-name|Boolean
+name|String
 name|getRegex
 parameter_list|()
 block|{
@@ -439,7 +481,7 @@ expr_stmt|;
 block|}
 DECL|method|getXml ()
 specifier|public
-name|Boolean
+name|String
 name|getXml
 parameter_list|()
 block|{
@@ -448,12 +490,12 @@ name|xml
 return|;
 block|}
 comment|/**      * Whether the input is XML messages. This option must be set to true if      * working with XML payloads.      */
-DECL|method|setXml (Boolean xml)
+DECL|method|setXml (String xml)
 specifier|public
 name|void
 name|setXml
 parameter_list|(
-name|Boolean
+name|String
 name|xml
 parameter_list|)
 block|{
@@ -466,7 +508,7 @@ expr_stmt|;
 block|}
 DECL|method|getIncludeTokens ()
 specifier|public
-name|Boolean
+name|String
 name|getIncludeTokens
 parameter_list|()
 block|{
@@ -475,12 +517,12 @@ name|includeTokens
 return|;
 block|}
 comment|/**      * Whether to include the tokens in the parts when using pairs      *<p/>      * The default value is false      */
-DECL|method|setIncludeTokens (Boolean includeTokens)
+DECL|method|setIncludeTokens (String includeTokens)
 specifier|public
 name|void
 name|setIncludeTokens
 parameter_list|(
-name|Boolean
+name|String
 name|includeTokens
 parameter_list|)
 block|{
@@ -547,7 +589,7 @@ expr_stmt|;
 block|}
 DECL|method|getSkipFirst ()
 specifier|public
-name|Boolean
+name|String
 name|getSkipFirst
 parameter_list|()
 block|{
@@ -556,12 +598,12 @@ name|skipFirst
 return|;
 block|}
 comment|/**      * To skip the very first element      */
-DECL|method|setSkipFirst (Boolean skipFirst)
+DECL|method|setSkipFirst (String skipFirst)
 specifier|public
 name|void
 name|setSkipFirst
 parameter_list|(
-name|Boolean
+name|String
 name|skipFirst
 parameter_list|)
 block|{
@@ -660,7 +702,12 @@ name|language
 operator|.
 name|setRegex
 argument_list|(
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|regex
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -675,7 +722,12 @@ name|language
 operator|.
 name|setXml
 argument_list|(
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|xml
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -690,7 +742,12 @@ name|language
 operator|.
 name|setIncludeTokens
 argument_list|(
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|includeTokens
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -728,7 +785,12 @@ name|language
 operator|.
 name|setSkipFirst
 argument_list|(
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
 name|skipFirst
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

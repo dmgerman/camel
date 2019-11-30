@@ -121,7 +121,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|maximumRetries
 specifier|private
-name|Integer
+name|String
 name|maximumRetries
 decl_stmt|;
 annotation|@
@@ -135,7 +135,7 @@ literal|"50"
 argument_list|)
 DECL|field|retryDelay
 specifier|private
-name|Long
+name|String
 name|retryDelay
 decl_stmt|;
 annotation|@
@@ -149,7 +149,7 @@ literal|"1000"
 argument_list|)
 DECL|field|maximumRetryDelay
 specifier|private
-name|Long
+name|String
 name|maximumRetryDelay
 decl_stmt|;
 annotation|@
@@ -163,14 +163,14 @@ literal|"true"
 argument_list|)
 DECL|field|exponentialBackOff
 specifier|private
-name|Boolean
+name|String
 name|exponentialBackOff
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|randomBackOff
 specifier|private
-name|Boolean
+name|String
 name|randomBackOff
 decl_stmt|;
 DECL|method|OptimisticLockRetryPolicyDefinition ()
@@ -188,6 +188,27 @@ name|int
 name|maximumRetries
 parameter_list|)
 block|{
+return|return
+name|maximumRetries
+argument_list|(
+name|String
+operator|.
+name|valueOf
+argument_list|(
+name|maximumRetries
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|maximumRetries (String maximumRetries)
+specifier|public
+name|OptimisticLockRetryPolicyDefinition
+name|maximumRetries
+parameter_list|(
+name|String
+name|maximumRetries
+parameter_list|)
+block|{
 name|setMaximumRetries
 argument_list|(
 name|maximumRetries
@@ -199,7 +220,7 @@ return|;
 block|}
 DECL|method|getMaximumRetries ()
 specifier|public
-name|Integer
+name|String
 name|getMaximumRetries
 parameter_list|()
 block|{
@@ -207,12 +228,12 @@ return|return
 name|maximumRetries
 return|;
 block|}
-DECL|method|setMaximumRetries (Integer maximumRetries)
+DECL|method|setMaximumRetries (String maximumRetries)
 specifier|public
 name|void
 name|setMaximumRetries
 parameter_list|(
-name|Integer
+name|String
 name|maximumRetries
 parameter_list|)
 block|{
@@ -233,6 +254,28 @@ name|long
 name|retryDelay
 parameter_list|)
 block|{
+return|return
+name|retryDelay
+argument_list|(
+name|Long
+operator|.
+name|toString
+argument_list|(
+name|retryDelay
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Sets the delay in millis between retries      */
+DECL|method|retryDelay (String retryDelay)
+specifier|public
+name|OptimisticLockRetryPolicyDefinition
+name|retryDelay
+parameter_list|(
+name|String
+name|retryDelay
+parameter_list|)
+block|{
 name|setRetryDelay
 argument_list|(
 name|retryDelay
@@ -244,7 +287,7 @@ return|;
 block|}
 DECL|method|getRetryDelay ()
 specifier|public
-name|Long
+name|String
 name|getRetryDelay
 parameter_list|()
 block|{
@@ -252,12 +295,12 @@ return|return
 name|retryDelay
 return|;
 block|}
-DECL|method|setRetryDelay (Long retryDelay)
+DECL|method|setRetryDelay (String retryDelay)
 specifier|public
 name|void
 name|setRetryDelay
 parameter_list|(
-name|Long
+name|String
 name|retryDelay
 parameter_list|)
 block|{
@@ -278,6 +321,28 @@ name|long
 name|maximumRetryDelay
 parameter_list|)
 block|{
+return|return
+name|maximumRetryDelay
+argument_list|(
+name|Long
+operator|.
+name|toString
+argument_list|(
+name|maximumRetryDelay
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Sets the upper value of retry in millis between retries, when using      * exponential or random backoff      */
+DECL|method|maximumRetryDelay (String maximumRetryDelay)
+specifier|public
+name|OptimisticLockRetryPolicyDefinition
+name|maximumRetryDelay
+parameter_list|(
+name|String
+name|maximumRetryDelay
+parameter_list|)
+block|{
 name|setMaximumRetryDelay
 argument_list|(
 name|maximumRetryDelay
@@ -289,7 +354,7 @@ return|;
 block|}
 DECL|method|getMaximumRetryDelay ()
 specifier|public
-name|Long
+name|String
 name|getMaximumRetryDelay
 parameter_list|()
 block|{
@@ -297,12 +362,12 @@ return|return
 name|maximumRetryDelay
 return|;
 block|}
-DECL|method|setMaximumRetryDelay (Long maximumRetryDelay)
+DECL|method|setMaximumRetryDelay (String maximumRetryDelay)
 specifier|public
 name|void
 name|setMaximumRetryDelay
 parameter_list|(
-name|Long
+name|String
 name|maximumRetryDelay
 parameter_list|)
 block|{
@@ -336,6 +401,27 @@ name|boolean
 name|exponentialBackOff
 parameter_list|)
 block|{
+return|return
+name|exponentialBackOff
+argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+name|exponentialBackOff
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|exponentialBackOff (String exponentialBackOff)
+specifier|public
+name|OptimisticLockRetryPolicyDefinition
+name|exponentialBackOff
+parameter_list|(
+name|String
+name|exponentialBackOff
+parameter_list|)
+block|{
 name|setExponentialBackOff
 argument_list|(
 name|exponentialBackOff
@@ -347,7 +433,7 @@ return|;
 block|}
 DECL|method|getExponentialBackOff ()
 specifier|public
-name|Boolean
+name|String
 name|getExponentialBackOff
 parameter_list|()
 block|{
@@ -355,12 +441,12 @@ return|return
 name|exponentialBackOff
 return|;
 block|}
-DECL|method|setExponentialBackOff (Boolean exponentialBackOff)
+DECL|method|setExponentialBackOff (String exponentialBackOff)
 specifier|public
 name|void
 name|setExponentialBackOff
 parameter_list|(
-name|Boolean
+name|String
 name|exponentialBackOff
 parameter_list|)
 block|{
@@ -394,6 +480,27 @@ name|boolean
 name|randomBackOff
 parameter_list|)
 block|{
+return|return
+name|randomBackOff
+argument_list|(
+name|String
+operator|.
+name|valueOf
+argument_list|(
+name|randomBackOff
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|randomBackOff (String randomBackOff)
+specifier|public
+name|OptimisticLockRetryPolicyDefinition
+name|randomBackOff
+parameter_list|(
+name|String
+name|randomBackOff
+parameter_list|)
+block|{
 name|setRandomBackOff
 argument_list|(
 name|randomBackOff
@@ -405,7 +512,7 @@ return|;
 block|}
 DECL|method|getRandomBackOff ()
 specifier|public
-name|Boolean
+name|String
 name|getRandomBackOff
 parameter_list|()
 block|{
@@ -413,12 +520,12 @@ return|return
 name|randomBackOff
 return|;
 block|}
-DECL|method|setRandomBackOff (Boolean randomBackOff)
+DECL|method|setRandomBackOff (String randomBackOff)
 specifier|public
 name|void
 name|setRandomBackOff
 parameter_list|(
-name|Boolean
+name|String
 name|randomBackOff
 parameter_list|)
 block|{

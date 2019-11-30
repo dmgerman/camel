@@ -297,10 +297,15 @@ init|=
 operator|new
 name|ToDefinition
 argument_list|(
+name|parseString
+argument_list|(
+name|routeContext
+argument_list|,
 name|definition
 operator|.
 name|getAfterUri
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// at first use custom factory
@@ -382,10 +387,15 @@ specifier|final
 name|String
 name|matchURI
 init|=
+name|parseString
+argument_list|(
+name|routeContext
+argument_list|,
 name|definition
 operator|.
 name|getUri
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// register endpoint callback so we can proxy the endpoint
 name|routeContext
@@ -462,10 +472,15 @@ argument_list|()
 operator|!=
 literal|null
 operator|&&
+name|parseBoolean
+argument_list|(
+name|routeContext
+argument_list|,
 name|definition
 operator|.
 name|getSkipSendToOriginalEndpoint
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|DefaultInterceptSendToEndpoint
 name|proxy

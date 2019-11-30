@@ -76,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlSchemaType
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -145,9 +159,16 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|usingIterator
 specifier|private
-name|Boolean
+name|String
 name|usingIterator
 decl_stmt|;
 annotation|@
@@ -182,6 +203,15 @@ expr_stmt|;
 name|setUsingIterator
 argument_list|(
 name|usingIterator
+operator|!=
+literal|null
+condition|?
+name|usingIterator
+operator|.
+name|toString
+argument_list|()
+else|:
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -200,7 +230,10 @@ name|setUsingIterator
 argument_list|(
 name|Boolean
 operator|.
-name|TRUE
+name|toString
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|setClazzName
@@ -211,7 +244,7 @@ expr_stmt|;
 block|}
 DECL|method|getUsingIterator ()
 specifier|public
-name|Boolean
+name|String
 name|getUsingIterator
 parameter_list|()
 block|{
@@ -220,12 +253,12 @@ name|usingIterator
 return|;
 block|}
 comment|/**      * If the asn1 file has more then one entry, the setting this option to      * true, allows to work with the splitter EIP, to split the data using an      * iterator in a streaming mode.      */
-DECL|method|setUsingIterator (Boolean usingIterator)
+DECL|method|setUsingIterator (String usingIterator)
 specifier|public
 name|void
 name|setUsingIterator
 parameter_list|(
-name|Boolean
+name|String
 name|usingIterator
 parameter_list|)
 block|{

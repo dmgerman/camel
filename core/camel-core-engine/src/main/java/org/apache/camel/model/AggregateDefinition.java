@@ -503,16 +503,30 @@ name|optimisticLockRetryPolicy
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|parallelProcessing
 specifier|private
-name|Boolean
+name|String
 name|parallelProcessing
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|optimisticLocking
 specifier|private
-name|Boolean
+name|String
 name|optimisticLocking
 decl_stmt|;
 annotation|@
@@ -552,30 +566,58 @@ name|strategyMethodName
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|strategyMethodAllowNull
 specifier|private
-name|Boolean
+name|String
 name|strategyMethodAllowNull
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Integer"
+argument_list|)
 DECL|field|completionSize
 specifier|private
-name|Integer
+name|String
 name|completionSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Long"
+argument_list|)
 DECL|field|completionInterval
 specifier|private
-name|Long
+name|String
 name|completionInterval
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Long"
+argument_list|)
 DECL|field|completionTimeout
 specifier|private
-name|Long
+name|String
 name|completionTimeout
 decl_stmt|;
 annotation|@
@@ -586,75 +628,147 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"1000"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.Long"
 argument_list|)
 DECL|field|completionTimeoutCheckerInterval
 specifier|private
-name|Long
+name|String
 name|completionTimeoutCheckerInterval
 init|=
+name|Long
+operator|.
+name|toString
+argument_list|(
 literal|1000L
+argument_list|)
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|completionFromBatchConsumer
 specifier|private
-name|Boolean
+name|String
 name|completionFromBatchConsumer
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|completionOnNewCorrelationGroup
 specifier|private
-name|Boolean
+name|String
 name|completionOnNewCorrelationGroup
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|eagerCheckCompletion
 specifier|private
-name|Boolean
+name|String
 name|eagerCheckCompletion
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|ignoreInvalidCorrelationKeys
 specifier|private
-name|Boolean
+name|String
 name|ignoreInvalidCorrelationKeys
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Integer"
+argument_list|)
 DECL|field|closeCorrelationKeyOnCompletion
 specifier|private
-name|Integer
+name|String
 name|closeCorrelationKeyOnCompletion
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|discardOnCompletionTimeout
 specifier|private
-name|Boolean
+name|String
 name|discardOnCompletionTimeout
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|discardOnAggregationFailure
 specifier|private
-name|Boolean
+name|String
 name|discardOnAggregationFailure
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|forceCompletionOnStop
 specifier|private
-name|Boolean
+name|String
 name|forceCompletionOnStop
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.Boolean"
+argument_list|)
 DECL|field|completeAllOnStop
 specifier|private
-name|Boolean
+name|String
 name|completeAllOnStop
 decl_stmt|;
 annotation|@
@@ -1091,7 +1205,7 @@ expr_stmt|;
 block|}
 DECL|method|getStrategyMethodAllowNull ()
 specifier|public
-name|Boolean
+name|String
 name|getStrategyMethodAllowNull
 parameter_list|()
 block|{
@@ -1127,12 +1241,12 @@ name|strategyMethodName
 expr_stmt|;
 block|}
 comment|/**      * If this option is false then the aggregate method is not used for the      * very first aggregation. If this option is true then null values is used      * as the oldExchange (at the very first aggregation), when using POJOs as      * the AggregationStrategy.      */
-DECL|method|setStrategyMethodAllowNull (Boolean strategyMethodAllowNull)
+DECL|method|setStrategyMethodAllowNull (String strategyMethodAllowNull)
 specifier|public
 name|void
 name|setStrategyMethodAllowNull
 parameter_list|(
-name|Boolean
+name|String
 name|strategyMethodAllowNull
 parameter_list|)
 block|{
@@ -1172,7 +1286,7 @@ return|;
 block|}
 DECL|method|getCompletionSize ()
 specifier|public
-name|Integer
+name|String
 name|getCompletionSize
 parameter_list|()
 block|{
@@ -1180,12 +1294,12 @@ return|return
 name|completionSize
 return|;
 block|}
-DECL|method|setCompletionSize (Integer completionSize)
+DECL|method|setCompletionSize (String completionSize)
 specifier|public
 name|void
 name|setCompletionSize
 parameter_list|(
-name|Integer
+name|String
 name|completionSize
 parameter_list|)
 block|{
@@ -1250,7 +1364,7 @@ expr_stmt|;
 block|}
 DECL|method|getCompletionInterval ()
 specifier|public
-name|Long
+name|String
 name|getCompletionInterval
 parameter_list|()
 block|{
@@ -1258,12 +1372,12 @@ return|return
 name|completionInterval
 return|;
 block|}
-DECL|method|setCompletionInterval (Long completionInterval)
+DECL|method|setCompletionInterval (String completionInterval)
 specifier|public
 name|void
 name|setCompletionInterval
 parameter_list|(
-name|Long
+name|String
 name|completionInterval
 parameter_list|)
 block|{
@@ -1276,7 +1390,7 @@ expr_stmt|;
 block|}
 DECL|method|getCompletionTimeout ()
 specifier|public
-name|Long
+name|String
 name|getCompletionTimeout
 parameter_list|()
 block|{
@@ -1284,12 +1398,12 @@ return|return
 name|completionTimeout
 return|;
 block|}
-DECL|method|setCompletionTimeout (Long completionTimeout)
+DECL|method|setCompletionTimeout (String completionTimeout)
 specifier|public
 name|void
 name|setCompletionTimeout
 parameter_list|(
-name|Long
+name|String
 name|completionTimeout
 parameter_list|)
 block|{
@@ -1302,7 +1416,7 @@ expr_stmt|;
 block|}
 DECL|method|getCompletionTimeoutCheckerInterval ()
 specifier|public
-name|Long
+name|String
 name|getCompletionTimeoutCheckerInterval
 parameter_list|()
 block|{
@@ -1310,12 +1424,12 @@ return|return
 name|completionTimeoutCheckerInterval
 return|;
 block|}
-DECL|method|setCompletionTimeoutCheckerInterval (Long completionTimeoutCheckerInterval)
+DECL|method|setCompletionTimeoutCheckerInterval (String completionTimeoutCheckerInterval)
 specifier|public
 name|void
 name|setCompletionTimeoutCheckerInterval
 parameter_list|(
-name|Long
+name|String
 name|completionTimeoutCheckerInterval
 parameter_list|)
 block|{
@@ -1408,7 +1522,7 @@ expr_stmt|;
 block|}
 DECL|method|getCompletionFromBatchConsumer ()
 specifier|public
-name|Boolean
+name|String
 name|getCompletionFromBatchConsumer
 parameter_list|()
 block|{
@@ -1416,12 +1530,12 @@ return|return
 name|completionFromBatchConsumer
 return|;
 block|}
-DECL|method|setCompletionFromBatchConsumer (Boolean completionFromBatchConsumer)
+DECL|method|setCompletionFromBatchConsumer (String completionFromBatchConsumer)
 specifier|public
 name|void
 name|setCompletionFromBatchConsumer
 parameter_list|(
-name|Boolean
+name|String
 name|completionFromBatchConsumer
 parameter_list|)
 block|{
@@ -1434,7 +1548,7 @@ expr_stmt|;
 block|}
 DECL|method|getCompletionOnNewCorrelationGroup ()
 specifier|public
-name|Boolean
+name|String
 name|getCompletionOnNewCorrelationGroup
 parameter_list|()
 block|{
@@ -1442,12 +1556,12 @@ return|return
 name|completionOnNewCorrelationGroup
 return|;
 block|}
-DECL|method|setCompletionOnNewCorrelationGroup (Boolean completionOnNewCorrelationGroup)
+DECL|method|setCompletionOnNewCorrelationGroup (String completionOnNewCorrelationGroup)
 specifier|public
 name|void
 name|setCompletionOnNewCorrelationGroup
 parameter_list|(
-name|Boolean
+name|String
 name|completionOnNewCorrelationGroup
 parameter_list|)
 block|{
@@ -1490,7 +1604,7 @@ expr_stmt|;
 block|}
 DECL|method|getOptimisticLocking ()
 specifier|public
-name|Boolean
+name|String
 name|getOptimisticLocking
 parameter_list|()
 block|{
@@ -1498,12 +1612,12 @@ return|return
 name|optimisticLocking
 return|;
 block|}
-DECL|method|setOptimisticLocking (boolean optimisticLocking)
+DECL|method|setOptimisticLocking (String optimisticLocking)
 specifier|public
 name|void
 name|setOptimisticLocking
 parameter_list|(
-name|boolean
+name|String
 name|optimisticLocking
 parameter_list|)
 block|{
@@ -1516,7 +1630,7 @@ expr_stmt|;
 block|}
 DECL|method|getParallelProcessing ()
 specifier|public
-name|Boolean
+name|String
 name|getParallelProcessing
 parameter_list|()
 block|{
@@ -1524,12 +1638,12 @@ return|return
 name|parallelProcessing
 return|;
 block|}
-DECL|method|setParallelProcessing (boolean parallelProcessing)
+DECL|method|setParallelProcessing (String parallelProcessing)
 specifier|public
 name|void
 name|setParallelProcessing
 parameter_list|(
-name|boolean
+name|String
 name|parallelProcessing
 parameter_list|)
 block|{
@@ -1572,7 +1686,7 @@ expr_stmt|;
 block|}
 DECL|method|getEagerCheckCompletion ()
 specifier|public
-name|Boolean
+name|String
 name|getEagerCheckCompletion
 parameter_list|()
 block|{
@@ -1580,12 +1694,12 @@ return|return
 name|eagerCheckCompletion
 return|;
 block|}
-DECL|method|setEagerCheckCompletion (Boolean eagerCheckCompletion)
+DECL|method|setEagerCheckCompletion (String eagerCheckCompletion)
 specifier|public
 name|void
 name|setEagerCheckCompletion
 parameter_list|(
-name|Boolean
+name|String
 name|eagerCheckCompletion
 parameter_list|)
 block|{
@@ -1598,7 +1712,7 @@ expr_stmt|;
 block|}
 DECL|method|getIgnoreInvalidCorrelationKeys ()
 specifier|public
-name|Boolean
+name|String
 name|getIgnoreInvalidCorrelationKeys
 parameter_list|()
 block|{
@@ -1606,12 +1720,12 @@ return|return
 name|ignoreInvalidCorrelationKeys
 return|;
 block|}
-DECL|method|setIgnoreInvalidCorrelationKeys (Boolean ignoreInvalidCorrelationKeys)
+DECL|method|setIgnoreInvalidCorrelationKeys (String ignoreInvalidCorrelationKeys)
 specifier|public
 name|void
 name|setIgnoreInvalidCorrelationKeys
 parameter_list|(
-name|Boolean
+name|String
 name|ignoreInvalidCorrelationKeys
 parameter_list|)
 block|{
@@ -1624,7 +1738,7 @@ expr_stmt|;
 block|}
 DECL|method|getCloseCorrelationKeyOnCompletion ()
 specifier|public
-name|Integer
+name|String
 name|getCloseCorrelationKeyOnCompletion
 parameter_list|()
 block|{
@@ -1632,12 +1746,12 @@ return|return
 name|closeCorrelationKeyOnCompletion
 return|;
 block|}
-DECL|method|setCloseCorrelationKeyOnCompletion (Integer closeCorrelationKeyOnCompletion)
+DECL|method|setCloseCorrelationKeyOnCompletion (String closeCorrelationKeyOnCompletion)
 specifier|public
 name|void
 name|setCloseCorrelationKeyOnCompletion
 parameter_list|(
-name|Integer
+name|String
 name|closeCorrelationKeyOnCompletion
 parameter_list|)
 block|{
@@ -1702,7 +1816,7 @@ expr_stmt|;
 block|}
 DECL|method|getDiscardOnCompletionTimeout ()
 specifier|public
-name|Boolean
+name|String
 name|getDiscardOnCompletionTimeout
 parameter_list|()
 block|{
@@ -1710,12 +1824,12 @@ return|return
 name|discardOnCompletionTimeout
 return|;
 block|}
-DECL|method|setDiscardOnCompletionTimeout (Boolean discardOnCompletionTimeout)
+DECL|method|setDiscardOnCompletionTimeout (String discardOnCompletionTimeout)
 specifier|public
 name|void
 name|setDiscardOnCompletionTimeout
 parameter_list|(
-name|Boolean
+name|String
 name|discardOnCompletionTimeout
 parameter_list|)
 block|{
@@ -1728,7 +1842,7 @@ expr_stmt|;
 block|}
 DECL|method|getDiscardOnAggregationFailure ()
 specifier|public
-name|Boolean
+name|String
 name|getDiscardOnAggregationFailure
 parameter_list|()
 block|{
@@ -1736,12 +1850,12 @@ return|return
 name|discardOnAggregationFailure
 return|;
 block|}
-DECL|method|setDiscardOnAggregationFailure (Boolean discardOnAggregationFailure)
+DECL|method|setDiscardOnAggregationFailure (String discardOnAggregationFailure)
 specifier|public
 name|void
 name|setDiscardOnAggregationFailure
 parameter_list|(
-name|Boolean
+name|String
 name|discardOnAggregationFailure
 parameter_list|)
 block|{
@@ -1806,7 +1920,7 @@ return|;
 block|}
 DECL|method|getForceCompletionOnStop ()
 specifier|public
-name|Boolean
+name|String
 name|getForceCompletionOnStop
 parameter_list|()
 block|{
@@ -1814,12 +1928,12 @@ return|return
 name|forceCompletionOnStop
 return|;
 block|}
-DECL|method|setForceCompletionOnStop (Boolean forceCompletionOnStop)
+DECL|method|setForceCompletionOnStop (String forceCompletionOnStop)
 specifier|public
 name|void
 name|setForceCompletionOnStop
 parameter_list|(
-name|Boolean
+name|String
 name|forceCompletionOnStop
 parameter_list|)
 block|{
@@ -1832,7 +1946,7 @@ expr_stmt|;
 block|}
 DECL|method|getCompleteAllOnStop ()
 specifier|public
-name|Boolean
+name|String
 name|getCompleteAllOnStop
 parameter_list|()
 block|{
@@ -1840,12 +1954,12 @@ return|return
 name|completeAllOnStop
 return|;
 block|}
-DECL|method|setCompleteAllOnStop (Boolean completeAllOnStop)
+DECL|method|setCompleteAllOnStop (String completeAllOnStop)
 specifier|public
 name|void
 name|setCompleteAllOnStop
 parameter_list|(
-name|Boolean
+name|String
 name|completeAllOnStop
 parameter_list|)
 block|{
@@ -1920,7 +2034,12 @@ parameter_list|()
 block|{
 name|setEagerCheckCompletion
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1936,7 +2055,12 @@ parameter_list|()
 block|{
 name|setIgnoreInvalidCorrelationKeys
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1955,7 +2079,12 @@ parameter_list|)
 block|{
 name|setCloseCorrelationKeyOnCompletion
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|capacity
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1971,7 +2100,12 @@ parameter_list|()
 block|{
 name|setDiscardOnCompletionTimeout
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1987,7 +2121,12 @@ parameter_list|()
 block|{
 name|setDiscardOnAggregationFailure
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2003,7 +2142,12 @@ parameter_list|()
 block|{
 name|setCompletionFromBatchConsumer
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2019,7 +2163,31 @@ parameter_list|()
 block|{
 name|setCompletionOnNewCorrelationGroup
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Number of messages aggregated before the aggregation is complete. This      * option can be set as either a fixed value or using an Expression which      * allows you to evaluate a size dynamically - will use Integer as result.      * If both are set Camel will fallback to use the fixed value if the      * Expression result was null or 0.      *      * @param completionSize the completion size, must be a an expression evaluating to positive number      * @return builder      */
+DECL|method|completionSize (String completionSize)
+specifier|public
+name|AggregateDefinition
+name|completionSize
+parameter_list|(
+name|String
+name|completionSize
+parameter_list|)
+block|{
+name|setCompletionSize
+argument_list|(
+name|completionSize
 argument_list|)
 expr_stmt|;
 return|return
@@ -2038,7 +2206,12 @@ parameter_list|)
 block|{
 name|setCompletionSize
 argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|completionSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2080,7 +2253,12 @@ parameter_list|)
 block|{
 name|setCompletionInterval
 argument_list|(
+name|Long
+operator|.
+name|toString
+argument_list|(
 name|completionInterval
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2099,7 +2277,12 @@ parameter_list|)
 block|{
 name|setCompletionTimeout
 argument_list|(
+name|Long
+operator|.
+name|toString
+argument_list|(
 name|completionTimeout
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2141,7 +2324,12 @@ parameter_list|)
 block|{
 name|setCompletionTimeoutCheckerInterval
 argument_list|(
+name|Long
+operator|.
+name|toString
+argument_list|(
 name|completionTimeoutCheckerInterval
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2307,7 +2495,12 @@ parameter_list|()
 block|{
 name|setStrategyMethodAllowNull
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2484,7 +2677,12 @@ parameter_list|()
 block|{
 name|setForceCompletionOnStop
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2500,7 +2698,12 @@ parameter_list|()
 block|{
 name|setCompleteAllOnStop
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2516,7 +2719,12 @@ parameter_list|()
 block|{
 name|setParallelProcessing
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2535,7 +2743,12 @@ parameter_list|)
 block|{
 name|setParallelProcessing
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|parallelProcessing
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2551,7 +2764,12 @@ parameter_list|()
 block|{
 name|setOptimisticLocking
 argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

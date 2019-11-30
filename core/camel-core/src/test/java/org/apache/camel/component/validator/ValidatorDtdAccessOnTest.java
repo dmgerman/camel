@@ -141,7 +141,7 @@ name|finallyEndpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Tests that external DTD call is executed for StreamSourceby expecting an      * UnkonwHostException.      */
+comment|/**      * Tests that external DTD call is executed for StreamSourceby expecting an      * UnknownHostException.      */
 annotation|@
 name|Test
 DECL|method|testInvalidMessageWithExternalDTDStreamSource ()

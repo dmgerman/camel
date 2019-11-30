@@ -210,7 +210,7 @@ annotation|@
 name|Override
 DECL|method|getPattern ()
 specifier|public
-name|ExchangePattern
+name|String
 name|getPattern
 parameter_list|()
 block|{
@@ -218,6 +218,9 @@ return|return
 name|ExchangePattern
 operator|.
 name|InOut
+operator|.
+name|name
+argument_list|()
 return|;
 block|}
 block|}
