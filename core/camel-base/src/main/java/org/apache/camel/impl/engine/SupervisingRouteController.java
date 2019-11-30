@@ -238,18 +238,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|NamedNode
 import|;
 end_import
@@ -299,20 +287,6 @@ operator|.
 name|camel
 operator|.
 name|StartupListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|meta
-operator|.
-name|Experimental
 import|;
 end_import
 
@@ -438,6 +412,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|RoutePolicySupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -513,12 +501,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple implementation of the {@link RouteController} that delays the startup  * of the routes after the camel context startup and retries to start failing routes.  *  * NOTE: this is experimental/unstable.  */
+comment|/**  * A supervising capable {@link RouteController} that delays the startup  * of the routes after the camel context startup and takes control of starting the routes in a safe manner.  * This controller is able to retry starting failing routes, and have various options to configure  * settings for backoff between restarting routes.  */
 end_comment
 
 begin_class
-annotation|@
-name|Experimental
 DECL|class|SupervisingRouteController
 specifier|public
 class|class
@@ -2722,6 +2708,7 @@ comment|//
 comment|// *********************************
 DECL|class|RouteHolder
 specifier|private
+specifier|static
 class|class
 name|RouteHolder
 implements|implements
@@ -2835,7 +2822,6 @@ argument_list|)
 return|;
 block|}
 DECL|method|getInitializationOrder ()
-specifier|public
 name|int
 name|getInitializationOrder
 parameter_list|()
@@ -3054,8 +3040,8 @@ DECL|class|ManagedRoutePolicy
 specifier|private
 class|class
 name|ManagedRoutePolicy
-implements|implements
-name|RoutePolicy
+extends|extends
+name|RoutePolicySupport
 block|{
 DECL|method|startRoute (RouteHolder holder)
 specifier|private
@@ -3384,82 +3370,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|onStart (Route route)
-specifier|public
-name|void
-name|onStart
-parameter_list|(
-name|Route
-name|route
-parameter_list|)
-block|{         }
-annotation|@
-name|Override
-DECL|method|onStop (Route route)
-specifier|public
-name|void
-name|onStop
-parameter_list|(
-name|Route
-name|route
-parameter_list|)
-block|{         }
-annotation|@
-name|Override
-DECL|method|onSuspend (Route route)
-specifier|public
-name|void
-name|onSuspend
-parameter_list|(
-name|Route
-name|route
-parameter_list|)
-block|{         }
-annotation|@
-name|Override
-DECL|method|onResume (Route route)
-specifier|public
-name|void
-name|onResume
-parameter_list|(
-name|Route
-name|route
-parameter_list|)
-block|{         }
-annotation|@
-name|Override
-DECL|method|onExchangeBegin (Route route, Exchange exchange)
-specifier|public
-name|void
-name|onExchangeBegin
-parameter_list|(
-name|Route
-name|route
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-comment|// NO-OP
-block|}
-annotation|@
-name|Override
-DECL|method|onExchangeDone (Route route, Exchange exchange)
-specifier|public
-name|void
-name|onExchangeDone
-parameter_list|(
-name|Route
-name|route
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-comment|// NO-OP
-block|}
 block|}
 DECL|class|CamelContextStartupListener
 specifier|private
@@ -3614,8 +3524,6 @@ block|}
 comment|// *********************************
 comment|// Filter
 comment|// *********************************
-annotation|@
-name|Experimental
 DECL|class|FilterResult
 specifier|public
 specifier|static
@@ -3724,8 +3632,6 @@ name|reason
 return|;
 block|}
 block|}
-annotation|@
-name|Experimental
 DECL|interface|Filter
 specifier|public
 interface|interface

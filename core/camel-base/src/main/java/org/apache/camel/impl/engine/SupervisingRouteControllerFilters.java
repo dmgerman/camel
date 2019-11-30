@@ -70,6 +70,10 @@ name|Route
 import|;
 end_import
 
+begin_comment
+comment|/**  * A {@link SupervisingRouteController.Filter} which blacklists routes.  */
+end_comment
+
 begin_class
 DECL|class|SupervisingRouteControllerFilters
 specifier|public
