@@ -834,6 +834,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Whether a thread that sends messages to a full SEDA queue will be          * discarded. By default, an exception will be thrown stating that the          * queue is full. By enabling this option, the calling thread will give          * up sending and continue, meaning that the message was not sent to the          * SEDA queue.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|discardWhenFull ( boolean discardWhenFull)
+specifier|default
+name|SedaEndpointProducerBuilder
+name|discardWhenFull
+parameter_list|(
+name|boolean
+name|discardWhenFull
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"discardWhenFull"
+argument_list|,
+name|discardWhenFull
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether a thread that sends messages to a full SEDA queue will be          * discarded. By default, an exception will be thrown stating that the          * queue is full. By enabling this option, the calling thread will give          * up sending and continue, meaning that the message was not sent to the          * SEDA queue.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|discardWhenFull ( String discardWhenFull)
+specifier|default
+name|SedaEndpointProducerBuilder
+name|discardWhenFull
+parameter_list|(
+name|String
+name|discardWhenFull
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"discardWhenFull"
+argument_list|,
+name|discardWhenFull
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Whether the producer should fail by throwing an exception, when          * sending to a queue with no active consumers. Only one of the options          * discardIfNoConsumers and failIfNoConsumers can be enabled at the same          * time.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|failIfNoConsumers ( boolean failIfNoConsumers)
 specifier|default

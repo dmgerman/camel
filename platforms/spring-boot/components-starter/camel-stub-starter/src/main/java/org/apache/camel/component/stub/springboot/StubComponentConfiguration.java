@@ -122,6 +122,14 @@ name|defaultBlockWhenFull
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Whether a thread that sends messages to a full SEDA queue will be      * discarded. By default, an exception will be thrown stating that the queue      * is full. By enabling this option, the calling thread will give up sending      * and continue, meaning that the message was not sent to the SEDA queue.      */
+DECL|field|defaultDiscardWhenFull
+specifier|private
+name|Boolean
+name|defaultDiscardWhenFull
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether a thread that sends messages to a full SEDA queue will block      * until the queue's capacity is no longer exhausted. By default, an      * exception will be thrown stating that the queue is full. By enabling this      * option, where a configured timeout can be added to the block case.      * Utilizing the .offer(timeout) method of the underlining java queue      */
 DECL|field|defaultOfferTimeout
 specifier|private
@@ -254,6 +262,32 @@ operator|.
 name|defaultBlockWhenFull
 operator|=
 name|defaultBlockWhenFull
+expr_stmt|;
+block|}
+DECL|method|getDefaultDiscardWhenFull ()
+specifier|public
+name|Boolean
+name|getDefaultDiscardWhenFull
+parameter_list|()
+block|{
+return|return
+name|defaultDiscardWhenFull
+return|;
+block|}
+DECL|method|setDefaultDiscardWhenFull (Boolean defaultDiscardWhenFull)
+specifier|public
+name|void
+name|setDefaultDiscardWhenFull
+parameter_list|(
+name|Boolean
+name|defaultDiscardWhenFull
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultDiscardWhenFull
+operator|=
+name|defaultDiscardWhenFull
 expr_stmt|;
 block|}
 DECL|method|getDefaultOfferTimeout ()

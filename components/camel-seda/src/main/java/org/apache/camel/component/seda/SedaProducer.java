@@ -176,13 +176,19 @@ specifier|final
 name|boolean
 name|blockWhenFull
 decl_stmt|;
+DECL|field|discardWhenFull
+specifier|private
+specifier|final
+name|boolean
+name|discardWhenFull
+decl_stmt|;
 DECL|field|offerTimeout
 specifier|private
 specifier|final
 name|long
 name|offerTimeout
 decl_stmt|;
-DECL|method|SedaProducer (SedaEndpoint endpoint, WaitForTaskToComplete waitForTaskToComplete, long timeout, boolean blockWhenFull, long offerTimeout)
+DECL|method|SedaProducer (SedaEndpoint endpoint, WaitForTaskToComplete waitForTaskToComplete, long timeout, boolean blockWhenFull, boolean discardWhenFull, long offerTimeout)
 specifier|public
 name|SedaProducer
 parameter_list|(
@@ -197,6 +203,9 @@ name|timeout
 parameter_list|,
 name|boolean
 name|blockWhenFull
+parameter_list|,
+name|boolean
+name|discardWhenFull
 parameter_list|,
 name|long
 name|offerTimeout
@@ -230,6 +239,12 @@ operator|.
 name|blockWhenFull
 operator|=
 name|blockWhenFull
+expr_stmt|;
+name|this
+operator|.
+name|discardWhenFull
+operator|=
+name|discardWhenFull
 expr_stmt|;
 name|this
 operator|.
@@ -817,9 +832,6 @@ parameter_list|)
 throws|throws
 name|SedaConsumerNotAvailableException
 block|{
-name|boolean
-name|offerTime
-decl_stmt|;
 name|BlockingQueue
 argument_list|<
 name|Exchange
@@ -957,6 +969,69 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|discardWhenFull
+condition|)
+block|{
+try|try
+block|{
+name|boolean
+name|added
+init|=
+name|queue
+operator|.
+name|offer
+argument_list|(
+name|target
+argument_list|,
+literal|0
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|added
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Discarding Exchange as queue is full: {}"
+argument_list|,
+name|target
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Offer interrupted, are we stopping? {}"
+argument_list|,
+name|isStopping
+argument_list|()
+operator|||
+name|isStopped
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
 name|blockWhenFull
 operator|&&
 name|offerTimeout
@@ -1008,8 +1083,9 @@ condition|)
 block|{
 try|try
 block|{
-name|offerTime
-operator|=
+name|boolean
+name|added
+init|=
 name|queue
 operator|.
 name|offer
@@ -1022,11 +1098,11 @@ name|TimeUnit
 operator|.
 name|MILLISECONDS
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 operator|!
-name|offerTime
+name|added
 condition|)
 block|{
 throw|throw
@@ -1035,11 +1111,11 @@ name|IllegalStateException
 argument_list|(
 literal|"Fails to insert element into queue, "
 operator|+
-literal|"after timeout of"
+literal|"after timeout of "
 operator|+
 name|offerTimeout
 operator|+
-literal|"milliseconds"
+literal|" milliseconds"
 argument_list|)
 throw|;
 block|}

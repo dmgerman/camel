@@ -296,6 +296,9 @@ argument_list|,
 name|isBlockWhenFull
 argument_list|()
 argument_list|,
+name|isDiscardWhenFull
+argument_list|()
+argument_list|,
 name|getOfferTimeout
 argument_list|()
 argument_list|)

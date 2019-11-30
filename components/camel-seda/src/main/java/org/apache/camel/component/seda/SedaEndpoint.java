@@ -684,6 +684,18 @@ name|label
 operator|=
 literal|"producer"
 argument_list|)
+DECL|field|discardWhenFull
+specifier|private
+name|boolean
+name|discardWhenFull
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|failIfNoConsumers
 specifier|private
 name|boolean
@@ -926,6 +938,9 @@ name|getTimeout
 argument_list|()
 argument_list|,
 name|isBlockWhenFull
+argument_list|()
+argument_list|,
+name|isDiscardWhenFull
 argument_list|()
 argument_list|,
 name|getOfferTimeout
@@ -1619,6 +1634,40 @@ return|return
 name|blockWhenFull
 return|;
 block|}
+comment|/**      * Whether a thread that sends messages to a full SEDA queue will be discarded.      * By default, an exception will be thrown stating that the queue is full.      * By enabling this option, the calling thread will give up sending and continue,      * meaning that the message was not sent to the SEDA queue.      */
+DECL|method|setDiscardWhenFull (boolean discardWhenFull)
+specifier|public
+name|void
+name|setDiscardWhenFull
+parameter_list|(
+name|boolean
+name|discardWhenFull
+parameter_list|)
+block|{
+name|this
+operator|.
+name|discardWhenFull
+operator|=
+name|discardWhenFull
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether the caller will discard sending to a full queue"
+argument_list|)
+DECL|method|isDiscardWhenFull ()
+specifier|public
+name|boolean
+name|isDiscardWhenFull
+parameter_list|()
+block|{
+return|return
+name|discardWhenFull
+return|;
+block|}
 comment|/**      * Number of concurrent threads processing exchanges.      */
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
@@ -2134,6 +2183,23 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|discardWhenFull
+operator|&&
+name|blockWhenFull
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot enable both discardWhenFull=true and blockWhenFull=true."
+operator|+
+literal|" You can only either discard or block when full."
+argument_list|)
+throw|;
+block|}
 comment|// force creating queue when starting
 if|if
 condition|(

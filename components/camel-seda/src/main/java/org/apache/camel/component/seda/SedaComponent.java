@@ -272,6 +272,18 @@ name|label
 operator|=
 literal|"producer"
 argument_list|)
+DECL|field|defaultDiscardWhenFull
+specifier|private
+name|boolean
+name|defaultDiscardWhenFull
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|defaultOfferTimeout
 specifier|private
 name|long
@@ -406,6 +418,33 @@ operator|.
 name|defaultBlockWhenFull
 operator|=
 name|defaultBlockWhenFull
+expr_stmt|;
+block|}
+comment|/**      * Whether a thread that sends messages to a full SEDA queue will be discarded.      * By default, an exception will be thrown stating that the queue is full.      * By enabling this option, the calling thread will give up sending and continue,      * meaning that the message was not sent to the SEDA queue.      */
+DECL|method|isDefaultDiscardWhenFull ()
+specifier|public
+name|boolean
+name|isDefaultDiscardWhenFull
+parameter_list|()
+block|{
+return|return
+name|defaultDiscardWhenFull
+return|;
+block|}
+DECL|method|setDefaultDiscardWhenFull (boolean defaultDiscardWhenFull)
+specifier|public
+name|void
+name|setDefaultDiscardWhenFull
+parameter_list|(
+name|boolean
+name|defaultDiscardWhenFull
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultDiscardWhenFull
+operator|=
+name|defaultDiscardWhenFull
 expr_stmt|;
 block|}
 DECL|method|getDefaultOfferTimeout ()
@@ -997,6 +1036,23 @@ argument_list|,
 name|defaultBlockWhenFull
 argument_list|)
 decl_stmt|;
+comment|// if discardWhenFull is set on endpoint, defaultBlockWhenFull is ignored.
+name|boolean
+name|discardWhenFull
+init|=
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"discardWhenFull"
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|,
+name|defaultDiscardWhenFull
+argument_list|)
+decl_stmt|;
 comment|// if offerTimeout is set on endpoint, defaultOfferTimeout is ignored.
 name|long
 name|offerTimeout
@@ -1026,6 +1082,13 @@ operator|.
 name|setBlockWhenFull
 argument_list|(
 name|blockWhenFull
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setDiscardWhenFull
+argument_list|(
+name|discardWhenFull
 argument_list|)
 expr_stmt|;
 name|answer

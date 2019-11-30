@@ -122,7 +122,7 @@ name|StubProducer
 extends|extends
 name|SedaProducer
 block|{
-DECL|method|StubProducer (SedaEndpoint endpoint, WaitForTaskToComplete waitForTaskToComplete, long timeout, boolean blockWhenFull, long offerTimeout)
+DECL|method|StubProducer (SedaEndpoint endpoint, WaitForTaskToComplete waitForTaskToComplete, long timeout, boolean blockWhenFull, boolean discardWhenFull, long offerTimeout)
 specifier|public
 name|StubProducer
 parameter_list|(
@@ -138,6 +138,9 @@ parameter_list|,
 name|boolean
 name|blockWhenFull
 parameter_list|,
+name|boolean
+name|discardWhenFull
+parameter_list|,
 name|long
 name|offerTimeout
 parameter_list|)
@@ -151,6 +154,8 @@ argument_list|,
 name|timeout
 argument_list|,
 name|blockWhenFull
+argument_list|,
+name|discardWhenFull
 argument_list|,
 name|offerTimeout
 argument_list|)
