@@ -140,7 +140,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -150,7 +154,79 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -162,6 +238,22 @@ name|FtpConsumerWithCharsetTest
 extends|extends
 name|FtpServerTestSupport
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|FtpConsumerWithCharsetTest
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|payload
 specifier|private
 specifier|final
@@ -188,7 +280,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -224,7 +316,7 @@ argument_list|(
 literal|"utf-8"
 argument_list|)
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -244,7 +336,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -272,7 +364,7 @@ range|:
 name|iso
 control|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -290,7 +382,7 @@ range|:
 name|utf
 control|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -317,12 +409,12 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The uploaded file should exists"
-argument_list|,
 name|file
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"The uploaded file should exists"
 argument_list|)
 expr_stmt|;
 comment|// Lets also test byte wise
@@ -362,14 +454,14 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should read data: "
-operator|+
-name|len
-argument_list|,
 name|len
 operator|!=
 operator|-
 literal|1
+argument_list|,
+literal|"Should read data: "
+operator|+
+name|len
 argument_list|)
 expr_stmt|;
 name|byte

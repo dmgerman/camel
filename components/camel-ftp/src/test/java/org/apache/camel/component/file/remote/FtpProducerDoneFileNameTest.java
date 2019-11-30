@@ -72,7 +72,77 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|fail
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit5
+operator|.
+name|TestSupport
+operator|.
+name|assertIsInstanceOf
 import|;
 end_import
 
@@ -140,14 +210,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"File should exists"
-argument_list|,
 literal|true
 argument_list|,
 name|file
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"File should exists"
 argument_list|)
 expr_stmt|;
 name|File
@@ -163,14 +233,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Done file should exists"
-argument_list|,
 literal|true
 argument_list|,
 name|done
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"Done file should exists"
 argument_list|)
 expr_stmt|;
 block|}
@@ -215,14 +285,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"File should exists"
-argument_list|,
 literal|true
 argument_list|,
 name|file
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"File should exists"
 argument_list|)
 expr_stmt|;
 name|File
@@ -238,14 +308,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Done file should exists"
-argument_list|,
 literal|true
 argument_list|,
 name|done
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"Done file should exists"
 argument_list|)
 expr_stmt|;
 block|}
@@ -290,14 +360,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"File should exists"
-argument_list|,
 literal|true
 argument_list|,
 name|file
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"File should exists"
 argument_list|)
 expr_stmt|;
 name|File
@@ -313,14 +383,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Done file should exists"
-argument_list|,
 literal|true
 argument_list|,
 name|done
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"Done file should exists"
 argument_list|)
 expr_stmt|;
 block|}
@@ -365,14 +435,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"File should exists"
-argument_list|,
 literal|true
 argument_list|,
 name|file
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"File should exists"
 argument_list|)
 expr_stmt|;
 name|File
@@ -388,14 +458,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Done file should exists"
-argument_list|,
 literal|true
 argument_list|,
 name|done
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"Done file should exists"
 argument_list|)
 expr_stmt|;
 block|}
@@ -462,16 +532,16 @@ name|cause
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|cause
-operator|.
-name|getMessage
-argument_list|()
 operator|.
 name|endsWith
 argument_list|(
 literal|"Cannot resolve reminder: ${file:parent}/foo"
 argument_list|)
+argument_list|,
+name|cause
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -539,16 +609,16 @@ name|cause
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|cause
-operator|.
-name|getMessage
-argument_list|()
 operator|.
 name|startsWith
 argument_list|(
 literal|"doneFileName must be specified and not empty"
 argument_list|)
+argument_list|,
+name|cause
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

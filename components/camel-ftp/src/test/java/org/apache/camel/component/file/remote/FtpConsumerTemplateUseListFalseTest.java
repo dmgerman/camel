@@ -62,7 +62,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -72,7 +76,43 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNull
 import|;
 end_import
 
@@ -108,7 +148,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -183,9 +223,9 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-literal|"The file should no longer exist"
-argument_list|,
 name|data
+argument_list|,
+literal|"The file should no longer exist"
 argument_list|)
 expr_stmt|;
 comment|// and try a non existing file name
@@ -209,9 +249,9 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-literal|"The file should no longer exist"
-argument_list|,
 name|data
+argument_list|,
+literal|"The file should no longer exist"
 argument_list|)
 expr_stmt|;
 block|}

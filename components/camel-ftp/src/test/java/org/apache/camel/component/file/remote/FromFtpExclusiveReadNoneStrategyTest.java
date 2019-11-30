@@ -112,7 +112,43 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|condition
+operator|.
+name|DisabledOnOs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|condition
+operator|.
+name|OS
 import|;
 end_import
 
@@ -133,6 +169,58 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit5
+operator|.
+name|TestSupport
+operator|.
+name|createDirectory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit5
+operator|.
+name|TestSupport
+operator|.
+name|deleteDirectory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertFalse
 import|;
 end_import
 
@@ -181,6 +269,14 @@ operator|+
 literal|"&readLock=none&delay=500"
 return|;
 block|}
+comment|// Cannot test on windows due file system works differently with file locks
+annotation|@
+name|DisabledOnOs
+argument_list|(
+name|OS
+operator|.
+name|WINDOWS
+argument_list|)
 annotation|@
 name|Test
 DECL|method|testPollFileWhileSlowFileIsBeingWrittenUsingNonExclusiveRead ()
@@ -191,17 +287,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// cannot test on windows due file system works differently with file locks
-if|if
-condition|(
-name|isPlatform
-argument_list|(
-literal|"windows"
-argument_list|)
-condition|)
-block|{
-return|return;
-block|}
 name|context
 operator|.
 name|addRoutes
@@ -329,14 +414,14 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"Should not wait and read the entire file"
-argument_list|,
 name|body
 operator|.
 name|endsWith
 argument_list|(
 literal|"Bye World"
 argument_list|)
+argument_list|,
+literal|"Should not wait and read the entire file"
 argument_list|)
 expr_stmt|;
 block|}

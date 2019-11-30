@@ -90,7 +90,77 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit5
+operator|.
+name|TestSupport
+operator|.
+name|createDirectory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -325,14 +395,14 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"File should exist "
-operator|+
-name|file
-argument_list|,
 name|file
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"File should exist "
+operator|+
+name|file
 argument_list|)
 expr_stmt|;
 block|}
@@ -519,14 +589,14 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"File should exist "
-operator|+
-name|fileA
-argument_list|,
 name|fileA
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"File should exist "
+operator|+
+name|fileA
 argument_list|)
 expr_stmt|;
 name|File
@@ -542,14 +612,14 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"File should exist "
-operator|+
-name|fileB
-argument_list|,
 name|fileB
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"File should exist "
+operator|+
+name|fileB
 argument_list|)
 expr_stmt|;
 block|}
@@ -774,14 +844,14 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"File should exist "
-operator|+
-name|fileA
-argument_list|,
 name|fileA
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"File should exist "
+operator|+
+name|fileA
 argument_list|)
 expr_stmt|;
 name|File
@@ -797,14 +867,14 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"File should exist "
-operator|+
-name|fileB
-argument_list|,
 name|fileB
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"File should exist "
+operator|+
+name|fileB
 argument_list|)
 expr_stmt|;
 name|File
@@ -820,14 +890,14 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"File should exist "
-operator|+
-name|fileC
-argument_list|,
 name|fileC
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"File should exist "
+operator|+
+name|fileC
 argument_list|)
 expr_stmt|;
 block|}

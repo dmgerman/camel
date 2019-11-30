@@ -100,7 +100,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -110,7 +114,43 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|condition
+operator|.
+name|DisabledOnOs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|condition
+operator|.
+name|OS
 import|;
 end_import
 
@@ -159,7 +199,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -177,6 +217,14 @@ name|prepareFtpServer
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Skip testing on AIX as it have an issue with this test with the file filter
+annotation|@
+name|DisabledOnOs
+argument_list|(
+name|OS
+operator|.
+name|AIX
+argument_list|)
 annotation|@
 name|Test
 DECL|method|testFtpFilter ()
@@ -187,18 +235,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|isPlatform
-argument_list|(
-literal|"aix"
-argument_list|)
-condition|)
-block|{
-comment|// skip testing on AIX as it have an issue with this test with the
-comment|// file filter
-return|return;
-block|}
 name|MockEndpoint
 name|mock
 init|=

@@ -90,7 +90,47 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertFalse
 import|;
 end_import
 
@@ -102,6 +142,22 @@ name|FtpPollEnrichConsumeWithDisconnectAndDeleteTest
 extends|extends
 name|FtpServerTestSupport
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|FtpPollEnrichConsumeWithDisconnectAndDeleteTest
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testFtpSimpleConsume ()
@@ -248,7 +304,7 @@ condition|(
 name|fileExists
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -266,9 +322,9 @@ block|}
 block|}
 name|assertFalse
 argument_list|(
-literal|"The file should have been deleted"
-argument_list|,
 name|fileExists
+argument_list|,
+literal|"The file should have been deleted"
 argument_list|)
 expr_stmt|;
 block|}

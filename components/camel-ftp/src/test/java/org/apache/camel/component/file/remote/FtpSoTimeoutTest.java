@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -90,7 +102,7 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|junit5
 operator|.
 name|CamelTestSupport
 import|;
@@ -118,7 +130,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|After
+name|jupiter
+operator|.
+name|api
+operator|.
+name|AfterEach
 import|;
 end_import
 
@@ -128,7 +144,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -137,8 +157,42 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Timeout
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertThrows
 import|;
 end_import
 
@@ -163,7 +217,7 @@ comment|// --- Set up
 annotation|@
 name|Override
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -191,7 +245,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|After
+name|AfterEach
 DECL|method|tearDown ()
 specifier|public
 name|void
@@ -328,16 +382,18 @@ block|}
 comment|// --- Tests
 annotation|@
 name|Test
+annotation|@
+name|Timeout
 argument_list|(
-name|timeout
+name|value
 operator|=
-literal|10000
+literal|10
 argument_list|,
-name|expected
+name|unit
 operator|=
-name|CamelExecutionException
+name|TimeUnit
 operator|.
-name|class
+name|SECONDS
 argument_list|)
 DECL|method|testWithDefaultTimeout ()
 specifier|public
@@ -346,6 +402,15 @@ name|testWithDefaultTimeout
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+name|assertThrows
+argument_list|(
+name|CamelExecutionException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 comment|// send exchange to the route using the custom FTPClient (with a default timeout)
 comment|// the soTimeout triggers in time and test is successful
@@ -359,18 +424,23 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Test
+annotation|@
+name|Timeout
 argument_list|(
-name|timeout
+name|value
 operator|=
-literal|10000
+literal|10
 argument_list|,
-name|expected
+name|unit
 operator|=
-name|CamelExecutionException
+name|TimeUnit
 operator|.
-name|class
+name|SECONDS
 argument_list|)
 DECL|method|testWithoutDefaultTimeout ()
 specifier|public
@@ -379,6 +449,15 @@ name|testWithoutDefaultTimeout
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+name|assertThrows
+argument_list|(
+name|CamelExecutionException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 comment|// send exchange to the route using the default FTPClient (without a default timeout)
 comment|// the soTimeout never triggers and test fails after its own timeout
@@ -389,6 +468,9 @@ argument_list|(
 literal|"direct:without"
 argument_list|,
 literal|""
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}

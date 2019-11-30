@@ -138,7 +138,43 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -255,8 +291,6 @@ control|)
 block|{
 name|assertTrue
 argument_list|(
-literal|"Socket should be connected"
-argument_list|,
 name|socketStats
 operator|.
 name|getValue
@@ -264,12 +298,12 @@ argument_list|()
 index|[
 literal|0
 index|]
+argument_list|,
+literal|"Socket should be connected"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Socket should be closed"
-argument_list|,
 name|socketStats
 operator|.
 name|getValue
@@ -285,6 +319,8 @@ argument_list|()
 index|[
 literal|1
 index|]
+argument_list|,
+literal|"Socket should be closed"
 argument_list|)
 expr_stmt|;
 block|}

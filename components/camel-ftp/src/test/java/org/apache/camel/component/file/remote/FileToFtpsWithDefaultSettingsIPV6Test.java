@@ -56,7 +56,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Disabled
 import|;
 end_import
 
@@ -65,6 +69,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;
@@ -76,7 +84,7 @@ end_comment
 
 begin_class
 annotation|@
-name|Ignore
+name|Disabled
 DECL|class|FileToFtpsWithDefaultSettingsIPV6Test
 specifier|public
 class|class

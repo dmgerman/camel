@@ -104,7 +104,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -114,7 +118,43 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNull
 import|;
 end_import
 
@@ -148,7 +188,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -352,8 +392,6 @@ name|Exception
 block|{
 name|assertNull
 argument_list|(
-literal|"Should not download the file"
-argument_list|,
 name|exchange
 operator|.
 name|getIn
@@ -361,6 +399,8 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
+argument_list|,
+literal|"Should not download the file"
 argument_list|)
 expr_stmt|;
 name|assertEquals

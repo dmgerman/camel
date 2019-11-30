@@ -76,6 +76,10 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
 import|;
 end_import
@@ -97,6 +101,40 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit5
+operator|.
+name|TestSupport
+operator|.
+name|createDirectory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
 import|;
 end_import
 
@@ -215,13 +253,13 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"There should be 20 lines in the file"
-argument_list|,
 literal|20
 argument_list|,
 name|lines
 operator|.
 name|length
+argument_list|,
+literal|"There should be 20 lines in the file"
 argument_list|)
 expr_stmt|;
 for|for

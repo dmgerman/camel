@@ -172,7 +172,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|BeforeClass
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeAll
 import|;
 end_import
 
@@ -181,6 +185,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;
@@ -201,7 +209,7 @@ name|KeyPair
 name|keyPair
 decl_stmt|;
 annotation|@
-name|BeforeClass
+name|BeforeAll
 DECL|method|createKeys ()
 specifier|public
 specifier|static

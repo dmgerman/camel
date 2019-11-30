@@ -114,7 +114,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -124,7 +128,27 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -160,7 +184,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -308,12 +332,12 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The file should exists"
-argument_list|,
 name|file
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"The file should exists"
 argument_list|)
 expr_stmt|;
 block|}
@@ -375,12 +399,12 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The file should have been moved"
-argument_list|,
 name|file
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"The file should have been moved"
 argument_list|)
 expr_stmt|;
 block|}

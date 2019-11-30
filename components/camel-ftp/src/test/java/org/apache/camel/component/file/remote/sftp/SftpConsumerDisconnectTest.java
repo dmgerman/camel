@@ -116,7 +116,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Disabled
 import|;
 end_import
 
@@ -126,13 +130,33 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertFalse
 import|;
 end_import
 
 begin_class
 annotation|@
-name|Ignore
+name|Disabled
 DECL|class|SftpConsumerDisconnectTest
 specifier|public
 class|class
@@ -285,14 +309,14 @@ argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(
-literal|"File should have been deleted: "
-operator|+
-name|deletedFile
-argument_list|,
 name|deletedFile
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"File should have been deleted: "
+operator|+
+name|deletedFile
 argument_list|)
 expr_stmt|;
 block|}

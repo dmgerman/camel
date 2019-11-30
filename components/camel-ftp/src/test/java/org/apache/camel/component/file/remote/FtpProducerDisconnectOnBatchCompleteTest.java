@@ -66,7 +66,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -75,6 +79,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;
@@ -98,6 +106,38 @@ name|simple
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
+import|;
+end_import
+
 begin_class
 DECL|class|FtpProducerDisconnectOnBatchCompleteTest
 specifier|public
@@ -109,7 +149,7 @@ block|{
 annotation|@
 name|Override
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -215,8 +255,6 @@ argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The FTPClient should be already disconnected"
-argument_list|,
 name|endpoint
 operator|.
 name|getFtpClient
@@ -224,16 +262,18 @@ argument_list|()
 operator|.
 name|isConnected
 argument_list|()
+argument_list|,
+literal|"The FTPClient should be already disconnected"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The FtpEndpoint should be configured to disconnect"
-argument_list|,
 name|endpoint
 operator|.
 name|isDisconnectOnBatchComplete
 argument_list|()
+argument_list|,
+literal|"The FtpEndpoint should be configured to disconnect"
 argument_list|)
 expr_stmt|;
 block|}

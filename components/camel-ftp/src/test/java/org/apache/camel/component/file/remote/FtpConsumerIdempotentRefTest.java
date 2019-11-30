@@ -82,7 +82,43 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -223,9 +259,9 @@ argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"MyIdempotentRepository should have been invoked"
-argument_list|,
 name|invoked
+argument_list|,
+literal|"MyIdempotentRepository should have been invoked"
 argument_list|)
 expr_stmt|;
 block|}

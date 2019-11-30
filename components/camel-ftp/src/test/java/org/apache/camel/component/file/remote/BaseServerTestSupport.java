@@ -44,7 +44,7 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|junit5
 operator|.
 name|CamelTestSupport
 import|;
@@ -56,7 +56,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -68,6 +72,18 @@ name|BaseServerTestSupport
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|LS
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|LS
+init|=
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+decl_stmt|;
 DECL|field|port
 specifier|protected
 name|int
@@ -79,7 +95,7 @@ name|boolean
 name|portInitialized
 decl_stmt|;
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|initPort ()
 specifier|public
 name|void

@@ -76,6 +76,10 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
 import|;
 end_import
@@ -93,6 +97,22 @@ operator|.
 name|ExchangeHelper
 operator|.
 name|copyResultsPreservePattern
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
 import|;
 end_import
 
@@ -204,9 +224,9 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Should store caught exception"
-argument_list|,
 name|caught
+argument_list|,
+literal|"Should store caught exception"
 argument_list|)
 expr_stmt|;
 block|}

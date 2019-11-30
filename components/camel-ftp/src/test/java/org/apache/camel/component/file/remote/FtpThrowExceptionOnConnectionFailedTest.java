@@ -88,7 +88,59 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|fail
 import|;
 end_import
 
@@ -161,12 +213,12 @@ argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The file should NOT exists"
-argument_list|,
 name|file
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"The file should NOT exists"
 argument_list|)
 expr_stmt|;
 block|}

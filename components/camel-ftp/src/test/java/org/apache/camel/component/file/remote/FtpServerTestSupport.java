@@ -180,7 +180,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|After
+name|jupiter
+operator|.
+name|api
+operator|.
+name|AfterEach
 import|;
 end_import
 
@@ -190,7 +194,31 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -209,6 +237,40 @@ operator|.
 name|SimpleLanguage
 operator|.
 name|simple
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit5
+operator|.
+name|TestSupport
+operator|.
+name|deleteDirectory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -256,6 +318,22 @@ name|DEFAULT_LISTENER
 init|=
 literal|"default"
 decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|FtpServerTestSupport
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|ftpServer
 specifier|protected
 name|FtpServer
@@ -269,7 +347,7 @@ decl_stmt|;
 annotation|@
 name|Override
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -386,7 +464,7 @@ operator|.
 name|getMessage
 argument_list|()
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -410,7 +488,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|After
+name|AfterEach
 DECL|method|tearDown ()
 specifier|public
 name|void
@@ -483,15 +561,15 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Port number is not initialized in an expected range: "
-operator|+
-name|getPort
-argument_list|()
-argument_list|,
 name|getPort
 argument_list|()
 operator|>
 literal|0
+argument_list|,
+literal|"Port number is not initialized in an expected range: "
+operator|+
+name|getPort
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|NativeFileSystemFactory

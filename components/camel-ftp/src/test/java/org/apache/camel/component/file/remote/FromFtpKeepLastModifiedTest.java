@@ -78,7 +78,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -88,7 +92,43 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotSame
 import|;
 end_import
 
@@ -122,7 +162,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -288,11 +328,11 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Timestamp should have been kept"
-argument_list|,
 name|t1
 argument_list|,
 name|t2
+argument_list|,
+literal|"Timestamp should have been kept"
 argument_list|)
 expr_stmt|;
 block|}
@@ -433,11 +473,11 @@ argument_list|()
 decl_stmt|;
 name|assertNotSame
 argument_list|(
-literal|"Timestamp should NOT have been kept"
-argument_list|,
 name|t1
 argument_list|,
 name|t2
+argument_list|,
+literal|"Timestamp should NOT have been kept"
 argument_list|)
 expr_stmt|;
 block|}
@@ -578,11 +618,11 @@ argument_list|()
 decl_stmt|;
 name|assertNotSame
 argument_list|(
-literal|"Timestamp should NOT have been kept"
-argument_list|,
 name|t1
 argument_list|,
 name|t2
+argument_list|,
+literal|"Timestamp should NOT have been kept"
 argument_list|)
 expr_stmt|;
 block|}

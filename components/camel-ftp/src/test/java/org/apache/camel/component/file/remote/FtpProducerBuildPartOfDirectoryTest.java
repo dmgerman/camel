@@ -50,7 +50,43 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -114,18 +150,16 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The uploaded file should exists"
-argument_list|,
 name|file
 operator|.
 name|exists
 argument_list|()
+argument_list|,
+literal|"The uploaded file should exists"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Bye World"
-argument_list|,
 name|IOConverter
 operator|.
 name|toString
@@ -134,6 +168,8 @@ name|file
 argument_list|,
 literal|null
 argument_list|)
+argument_list|,
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 block|}
