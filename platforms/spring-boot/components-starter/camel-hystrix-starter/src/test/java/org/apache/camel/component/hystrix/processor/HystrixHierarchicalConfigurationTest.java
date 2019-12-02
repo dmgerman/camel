@@ -352,11 +352,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-operator|new
-name|Integer
-argument_list|(
-literal|5
-argument_list|)
+literal|"5"
 argument_list|,
 name|config
 operator|.
