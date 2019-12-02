@@ -777,6 +777,13 @@ specifier|protected
 name|String
 name|propertyPlaceholderLocations
 decl_stmt|;
+DECL|field|defaultPropertyPlaceholderLocation
+specifier|protected
+name|String
+name|defaultPropertyPlaceholderLocation
+init|=
+literal|"classpath:application.properties;optional=true"
+decl_stmt|;
 DECL|field|initialProperties
 specifier|protected
 name|Properties
@@ -1607,6 +1614,33 @@ operator|.
 name|propertyPlaceholderLocations
 operator|=
 name|location
+expr_stmt|;
+block|}
+DECL|method|getDefaultPropertyPlaceholderLocation ()
+specifier|public
+name|String
+name|getDefaultPropertyPlaceholderLocation
+parameter_list|()
+block|{
+return|return
+name|defaultPropertyPlaceholderLocation
+return|;
+block|}
+comment|/**      * Set the default location for application properties if no locations have been set.      * If the value is set to "false" or empty, the default location is not taken into account.      *<p/>      * Default value is "classpath:application.properties;optional=true".      */
+DECL|method|setDefaultPropertyPlaceholderLocation (String defaultPropertyPlaceholderLocation)
+specifier|public
+name|void
+name|setDefaultPropertyPlaceholderLocation
+parameter_list|(
+name|String
+name|defaultPropertyPlaceholderLocation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultPropertyPlaceholderLocation
+operator|=
+name|defaultPropertyPlaceholderLocation
 expr_stmt|;
 block|}
 annotation|@
@@ -2558,10 +2592,29 @@ name|propertyPlaceholderLocations
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|defaultPropertyPlaceholderLocation
+argument_list|)
+operator|&&
+operator|!
+name|ObjectHelper
+operator|.
+name|equal
+argument_list|(
+literal|"false"
+argument_list|,
+name|defaultPropertyPlaceholderLocation
+argument_list|)
+condition|)
 block|{
-comment|// lets default to application.properties and ignore if its missing
-comment|// if there are no existing locations configured
+comment|// lets default to defaultPropertyPlaceholderLocation if
+comment|// there are no existing locations configured
 name|PropertiesComponent
 name|pc
 init|=
@@ -2585,7 +2638,7 @@ name|pc
 operator|.
 name|addLocation
 argument_list|(
-literal|"classpath:application.properties;optional=true"
+name|defaultPropertyPlaceholderLocation
 argument_list|)
 expr_stmt|;
 block|}
@@ -2623,7 +2676,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using properties from classpath:application.properties"
+literal|"Using properties from {}"
+argument_list|,
+name|defaultPropertyPlaceholderLocation
 argument_list|)
 expr_stmt|;
 block|}
