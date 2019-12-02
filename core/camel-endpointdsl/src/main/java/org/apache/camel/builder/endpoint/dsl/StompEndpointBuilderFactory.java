@@ -192,7 +192,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The STOMP Version.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The stomp version (1.1, or 1.2).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|version (String version)
 specifier|default
 name|StompEndpointConsumerBuilder
@@ -635,7 +635,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The STOMP Version.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The stomp version (1.1, or 1.2).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|version (String version)
 specifier|default
 name|StompEndpointProducerBuilder
@@ -996,7 +996,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The STOMP Version.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The stomp version (1.1, or 1.2).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|version (String version)
 specifier|default
 name|StompEndpointBuilder

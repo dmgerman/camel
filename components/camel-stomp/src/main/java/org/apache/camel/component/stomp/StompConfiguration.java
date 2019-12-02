@@ -359,7 +359,7 @@ return|return
 name|version
 return|;
 block|}
-comment|/**      * The STOMP Version      */
+comment|/**      * The stomp version (1.1, or 1.2)      */
 DECL|method|setVersion (String version)
 specifier|public
 name|void

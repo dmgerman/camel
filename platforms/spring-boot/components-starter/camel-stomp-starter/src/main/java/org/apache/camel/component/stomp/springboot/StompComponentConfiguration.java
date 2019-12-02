@@ -495,7 +495,7 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
-comment|/**          * The STOMP Version          */
+comment|/**          * The stomp version (1.1, or 1.2)          */
 DECL|field|version
 specifier|private
 name|String
