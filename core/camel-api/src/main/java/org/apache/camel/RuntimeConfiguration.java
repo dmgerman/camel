@@ -69,7 +69,7 @@ name|String
 name|tracePattern
 parameter_list|)
 function_decl|;
-comment|/**      * Sets whether backlog tracing is enabled or not (default is disabled).      *      * @param backlogTrace whether to enable backlog tracing.      * @see #setTracing(Boolean)      */
+comment|/**      * Sets whether backlog tracing is enabled or not (default is disabled).      *      * To use backlog tracing then this must be enabled on startup to be installed in the CamelContext.      *      * @param backlogTrace whether to enable backlog tracing.      * @see #setTracing(Boolean)      */
 DECL|method|setBacklogTracing (Boolean backlogTrace)
 name|void
 name|setBacklogTracing
@@ -78,13 +78,13 @@ name|Boolean
 name|backlogTrace
 parameter_list|)
 function_decl|;
-comment|/**      * Returns whether backlog tracing enabled      *      * @return<tt>true</tt> if backlog tracing is enabled      */
+comment|/**      * Returns whether backlog tracing is enabled.      *      * @return<tt>true</tt> if backlog tracing is enabled      */
 DECL|method|isBacklogTracing ()
 name|Boolean
 name|isBacklogTracing
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether debugging is enabled or not (default is disabled).      *      * @param debugging whether to enable debugging.      */
+comment|/**      * Sets whether debugging (will use backlog if no custom debugger has been configured)      * is enabled or not (default is disabled).      *      * To use debugging then this must be enabled on startup to be installed in the CamelContext.      *      * @param debugging whether to enable debugging.      */
 DECL|method|setDebugging (Boolean debugging)
 name|void
 name|setDebugging
@@ -93,7 +93,7 @@ name|Boolean
 name|debugging
 parameter_list|)
 function_decl|;
-comment|/**      * Returns whether debugging enabled      *      * @return<tt>true</tt> if debugging is enabled      */
+comment|/**      * Returns whether debugging is enabled.      *      * @return<tt>true</tt> if debugging is enabled      */
 DECL|method|isDebugging ()
 name|Boolean
 name|isDebugging

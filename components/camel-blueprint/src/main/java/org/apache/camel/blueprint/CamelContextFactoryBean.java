@@ -924,6 +924,13 @@ name|tracePattern
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|debug
+specifier|private
+name|String
+name|debug
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|messageHistory
 specifier|private
 name|String
@@ -3280,6 +3287,35 @@ operator|.
 name|tracePattern
 operator|=
 name|tracePattern
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDebug ()
+specifier|public
+name|String
+name|getDebug
+parameter_list|()
+block|{
+return|return
+name|debug
+return|;
+block|}
+comment|/**      * Sets whether debugging is enabled or not.      */
+DECL|method|setDebug (String debug)
+specifier|public
+name|void
+name|setDebug
+parameter_list|(
+name|String
+name|debug
+parameter_list|)
+block|{
+name|this
+operator|.
+name|debug
+operator|=
+name|debug
 expr_stmt|;
 block|}
 annotation|@
