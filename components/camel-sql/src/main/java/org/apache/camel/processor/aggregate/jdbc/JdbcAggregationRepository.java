@@ -752,7 +752,6 @@ block|}
 comment|/**      * Sets the DataSource to use for accessing the database      */
 DECL|method|setDataSource (DataSource dataSource)
 specifier|public
-specifier|final
 name|void
 name|setDataSource
 parameter_list|(
