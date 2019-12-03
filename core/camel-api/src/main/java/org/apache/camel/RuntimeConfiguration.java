@@ -84,7 +84,7 @@ name|Boolean
 name|isBacklogTracing
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether debugging is enabled or not (default is enabled).      *      * @param debugging whether to enable debugging.      */
+comment|/**      * Sets whether debugging is enabled or not (default is disabled).      *      * @param debugging whether to enable debugging.      */
 DECL|method|setDebugging (Boolean debugging)
 name|void
 name|setDebugging
@@ -93,7 +93,7 @@ name|Boolean
 name|debugging
 parameter_list|)
 function_decl|;
-comment|/**      * Returns whether debugging enabled      *      * @return<tt>true</tt> if tracing is enabled      */
+comment|/**      * Returns whether debugging enabled      *      * @return<tt>true</tt> if debugging is enabled      */
 DECL|method|isDebugging ()
 name|Boolean
 name|isDebugging
