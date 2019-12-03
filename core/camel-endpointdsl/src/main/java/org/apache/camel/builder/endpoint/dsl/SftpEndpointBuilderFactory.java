@@ -3955,7 +3955,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set the serverAliveCountMax of the sftp session.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Sets the number of keep-alive messages which may be sent without          * receiving any messages back from the server. If this threshold is          * reached while keep-alive messages are being sent, the connection will          * be disconnected. The default value is one.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|serverAliveCountMax ( int serverAliveCountMax)
 specifier|default
 name|AdvancedSftpEndpointConsumerBuilder
@@ -3976,7 +3976,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set the serverAliveCountMax of the sftp session.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Sets the number of keep-alive messages which may be sent without          * receiving any messages back from the server. If this threshold is          * reached while keep-alive messages are being sent, the connection will          * be disconnected. The default value is one.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|serverAliveCountMax ( String serverAliveCountMax)
 specifier|default
 name|AdvancedSftpEndpointConsumerBuilder
@@ -3997,7 +3997,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set the serverAliveInterval of the sftp session.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Sets the interval (millis) to send a keep-alive message. If zero is          * specified, any keep-alive message must not be sent. The default          * interval is zero.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|serverAliveInterval ( int serverAliveInterval)
 specifier|default
 name|AdvancedSftpEndpointConsumerBuilder
@@ -4018,7 +4018,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set the serverAliveInterval of the sftp session.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Sets the interval (millis) to send a keep-alive message. If zero is          * specified, any keep-alive message must not be sent. The default          * interval is zero.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|serverAliveInterval ( String serverAliveInterval)
 specifier|default
 name|AdvancedSftpEndpointConsumerBuilder
@@ -5828,7 +5828,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set the serverAliveCountMax of the sftp session.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Sets the number of keep-alive messages which may be sent without          * receiving any messages back from the server. If this threshold is          * reached while keep-alive messages are being sent, the connection will          * be disconnected. The default value is one.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|serverAliveCountMax ( int serverAliveCountMax)
 specifier|default
 name|AdvancedSftpEndpointProducerBuilder
@@ -5849,7 +5849,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set the serverAliveCountMax of the sftp session.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Sets the number of keep-alive messages which may be sent without          * receiving any messages back from the server. If this threshold is          * reached while keep-alive messages are being sent, the connection will          * be disconnected. The default value is one.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|serverAliveCountMax ( String serverAliveCountMax)
 specifier|default
 name|AdvancedSftpEndpointProducerBuilder
@@ -5870,7 +5870,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set the serverAliveInterval of the sftp session.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Sets the interval (millis) to send a keep-alive message. If zero is          * specified, any keep-alive message must not be sent. The default          * interval is zero.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|serverAliveInterval ( int serverAliveInterval)
 specifier|default
 name|AdvancedSftpEndpointProducerBuilder
@@ -5891,7 +5891,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set the serverAliveInterval of the sftp session.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Sets the interval (millis) to send a keep-alive message. If zero is          * specified, any keep-alive message must not be sent. The default          * interval is zero.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|serverAliveInterval ( String serverAliveInterval)
 specifier|default
 name|AdvancedSftpEndpointProducerBuilder
@@ -7159,7 +7159,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set the serverAliveCountMax of the sftp session.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Sets the number of keep-alive messages which may be sent without          * receiving any messages back from the server. If this threshold is          * reached while keep-alive messages are being sent, the connection will          * be disconnected. The default value is one.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|serverAliveCountMax ( int serverAliveCountMax)
 specifier|default
 name|AdvancedSftpEndpointBuilder
@@ -7180,7 +7180,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set the serverAliveCountMax of the sftp session.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Sets the number of keep-alive messages which may be sent without          * receiving any messages back from the server. If this threshold is          * reached while keep-alive messages are being sent, the connection will          * be disconnected. The default value is one.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|serverAliveCountMax ( String serverAliveCountMax)
 specifier|default
 name|AdvancedSftpEndpointBuilder
@@ -7201,7 +7201,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set the serverAliveInterval of the sftp session.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Sets the interval (millis) to send a keep-alive message. If zero is          * specified, any keep-alive message must not be sent. The default          * interval is zero.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|serverAliveInterval ( int serverAliveInterval)
 specifier|default
 name|AdvancedSftpEndpointBuilder
@@ -7222,7 +7222,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set the serverAliveInterval of the sftp session.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Sets the interval (millis) to send a keep-alive message. If zero is          * specified, any keep-alive message must not be sent. The default          * interval is zero.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|serverAliveInterval ( String serverAliveInterval)
 specifier|default
 name|AdvancedSftpEndpointBuilder

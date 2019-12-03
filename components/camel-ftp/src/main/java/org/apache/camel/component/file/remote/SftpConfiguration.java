@@ -736,7 +736,7 @@ operator|=
 name|strictHostKeyChecking
 expr_stmt|;
 block|}
-comment|/**      * Allows you to set the serverAliveInterval of the sftp session      */
+comment|/**      * Sets the interval (millis) to send a keep-alive message.  If zero is      * specified, any keep-alive message must not be sent. The default interval is zero.      */
 DECL|method|setServerAliveInterval (int serverAliveInterval)
 specifier|public
 name|void
@@ -763,7 +763,7 @@ return|return
 name|serverAliveInterval
 return|;
 block|}
-comment|/**      * Allows you to set the serverAliveCountMax of the sftp session      */
+comment|/**      * Sets the number of keep-alive messages which may be sent without      * receiving any messages back from the server. If this threshold is      * reached while keep-alive messages are being sent, the connection will      * be disconnected. The default value is one.      */
 DECL|method|setServerAliveCountMax (int serverAliveCountMax)
 specifier|public
 name|void
