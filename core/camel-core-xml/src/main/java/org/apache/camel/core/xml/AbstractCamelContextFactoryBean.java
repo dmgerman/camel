@@ -5394,6 +5394,13 @@ name|String
 name|getTracePattern
 parameter_list|()
 function_decl|;
+DECL|method|getBacklogTrace ()
+specifier|public
+specifier|abstract
+name|String
+name|getBacklogTrace
+parameter_list|()
+function_decl|;
 DECL|method|getMessageHistory ()
 specifier|public
 specifier|abstract
@@ -5798,6 +5805,30 @@ argument_list|(
 name|context
 argument_list|,
 name|getTracePattern
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getBacklogTrace
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|context
+operator|.
+name|setBacklogTracing
+argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|context
+argument_list|,
+name|getBacklogTrace
 argument_list|()
 argument_list|)
 argument_list|)

@@ -744,6 +744,13 @@ name|trace
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|backlogTrace
+specifier|private
+name|String
+name|backlogTrace
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|tracePattern
 specifier|private
 name|String
@@ -2632,6 +2639,35 @@ operator|.
 name|trace
 operator|=
 name|trace
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getBacklogTrace ()
+specifier|public
+name|String
+name|getBacklogTrace
+parameter_list|()
+block|{
+return|return
+name|backlogTrace
+return|;
+block|}
+comment|/**      * Sets whether backlog tracing is enabled or not.      */
+DECL|method|setBacklogTrace (String backlogTrace)
+specifier|public
+name|void
+name|setBacklogTrace
+parameter_list|(
+name|String
+name|backlogTrace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|backlogTrace
+operator|=
+name|backlogTrace
 expr_stmt|;
 block|}
 annotation|@
