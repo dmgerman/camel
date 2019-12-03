@@ -257,6 +257,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
+DECL|method|sslContextParameters ( Object sslContextParameters)
+specifier|default
+name|RestSwaggerEndpointBuilder
+name|sslContextParameters
+parameter_list|(
+name|Object
+name|sslContextParameters
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sslContextParameters"
+argument_list|,
+name|sslContextParameters
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
+DECL|method|sslContextParameters ( String sslContextParameters)
+specifier|default
+name|RestSwaggerEndpointBuilder
+name|sslContextParameters
+parameter_list|(
+name|String
+name|sslContextParameters
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sslContextParameters"
+argument_list|,
+name|sslContextParameters
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the REST Swagger component.      */
 DECL|interface|AdvancedRestSwaggerEndpointBuilder
