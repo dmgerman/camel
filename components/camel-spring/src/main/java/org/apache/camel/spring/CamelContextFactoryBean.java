@@ -3524,7 +3524,7 @@ return|return
 name|trace
 return|;
 block|}
-comment|/**      * Sets whether tracing is enabled or not.      */
+comment|/**      * Sets whether tracing is enabled or not.      *      * To use tracing then this must be enabled on startup to be installed in the CamelContext.      */
 DECL|method|setTrace (String trace)
 specifier|public
 name|void
@@ -3553,7 +3553,7 @@ return|return
 name|backlogTrace
 return|;
 block|}
-comment|/**      * Sets whether backlog tracing is enabled or not.      */
+comment|/**      * Sets whether backlog tracing is enabled or not.      *      * To use backlog tracing then this must be enabled on startup to be installed in the CamelContext.      */
 DECL|method|setBacklogTrace (String backlogTrace)
 specifier|public
 name|void
@@ -3582,7 +3582,7 @@ return|return
 name|debug
 return|;
 block|}
-comment|/**      * Sets whether debugging is enabled or not.      */
+comment|/**      * Sets whether debugging is enabled or not.      *      * To use debugging then this must be enabled on startup to be installed in the CamelContext.      */
 DECL|method|setDebug (String debug)
 specifier|public
 name|void

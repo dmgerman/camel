@@ -48,7 +48,7 @@ name|Boolean
 name|tracing
 parameter_list|)
 function_decl|;
-comment|/**      * Returns whether tracing enabled      *      * @return<tt>true</tt> if tracing is enabled      */
+comment|/**      * Returns whether tracing enabled      *      * To use tracing then this must be enabled on startup to be installed in the CamelContext.      *      * @return<tt>true</tt> if tracing is enabled      */
 DECL|method|isTracing ()
 name|Boolean
 name|isTracing
