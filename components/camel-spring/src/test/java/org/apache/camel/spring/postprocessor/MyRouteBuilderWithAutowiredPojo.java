@@ -50,9 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|builder
 operator|.
-name|SpringRouteBuilder
+name|RouteBuilder
 import|;
 end_import
 
@@ -78,7 +78,7 @@ specifier|public
 class|class
 name|MyRouteBuilderWithAutowiredPojo
 extends|extends
-name|SpringRouteBuilder
+name|RouteBuilder
 block|{
 annotation|@
 name|Autowired

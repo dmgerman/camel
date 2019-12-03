@@ -64,9 +64,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|builder
 operator|.
-name|FooBar
+name|RouteBuilder
 import|;
 end_import
 
@@ -78,9 +78,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|impl
 operator|.
-name|SpringRouteBuilder
+name|FooBar
 import|;
 end_import
 
@@ -90,7 +90,7 @@ specifier|public
 class|class
 name|SpringBeanInjectRoute
 extends|extends
-name|SpringRouteBuilder
+name|RouteBuilder
 block|{
 annotation|@
 name|BeanInject

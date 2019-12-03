@@ -86,7 +86,9 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|SpringRouteBuilder
+name|spi
+operator|.
+name|SpringTransactionPolicy
 import|;
 end_import
 
@@ -102,7 +104,7 @@ name|spring
 operator|.
 name|spi
 operator|.
-name|SpringTransactionPolicy
+name|TransactionErrorHandlerBuilder
 import|;
 end_import
 
@@ -260,7 +262,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|SpringRouteBuilder
+name|RouteBuilder
 argument_list|()
 block|{
 specifier|public
@@ -285,7 +287,12 @@ comment|// use required as transaction policy
 name|SpringTransactionPolicy
 name|required
 init|=
-name|lookup
+name|context
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookupByNameAndType
 argument_list|(
 literal|"PROPAGATION_REQUIRED"
 argument_list|,
@@ -296,12 +303,23 @@ argument_list|)
 decl_stmt|;
 comment|// configure to use transaction error handler and pass on the required as it will fetch
 comment|// the transaction manager from it that it needs
-name|errorHandler
-argument_list|(
-name|transactionErrorHandler
+name|TransactionErrorHandlerBuilder
+name|teh
+init|=
+operator|new
+name|TransactionErrorHandlerBuilder
+argument_list|()
+decl_stmt|;
+name|teh
+operator|.
+name|setSpringTransactionPolicy
 argument_list|(
 name|required
 argument_list|)
+expr_stmt|;
+name|errorHandler
+argument_list|(
+name|teh
 argument_list|)
 expr_stmt|;
 comment|// on exception is also supported

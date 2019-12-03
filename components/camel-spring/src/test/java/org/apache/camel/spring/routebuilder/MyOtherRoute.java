@@ -50,9 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|builder
 operator|.
-name|SpringRouteBuilder
+name|RouteBuilder
 import|;
 end_import
 
@@ -62,7 +62,7 @@ specifier|public
 class|class
 name|MyOtherRoute
 extends|extends
-name|SpringRouteBuilder
+name|RouteBuilder
 implements|implements
 name|CamelContextAware
 block|{

@@ -125,10 +125,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An extension of the {@link RouteBuilder} to provide some additional helper  * methods  */
+comment|/**  * An extension of the {@link RouteBuilder} to provide some additional helper  * methods  *  * @deprecated use plain {@link RouteBuilder}  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|SpringRouteBuilder
 specifier|public
 specifier|abstract

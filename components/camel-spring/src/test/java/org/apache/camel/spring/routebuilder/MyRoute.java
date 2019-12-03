@@ -38,9 +38,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|builder
 operator|.
-name|SpringRouteBuilder
+name|RouteBuilder
 import|;
 end_import
 
@@ -50,7 +50,7 @@ specifier|public
 class|class
 name|MyRoute
 extends|extends
-name|SpringRouteBuilder
+name|RouteBuilder
 block|{
 DECL|field|ctx
 specifier|private

@@ -26,9 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|builder
 operator|.
-name|SpringRouteBuilder
+name|RouteBuilder
 import|;
 end_import
 
@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|MyDependsOnRouteBuilder
 extends|extends
-name|SpringRouteBuilder
+name|RouteBuilder
 block|{
 DECL|field|time
 specifier|private
@@ -68,7 +68,13 @@ expr_stmt|;
 name|MyDependsOnBean
 name|bean
 init|=
-name|lookup
+name|getContext
+argument_list|()
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookupByNameAndType
 argument_list|(
 literal|"myDependsOnBean"
 argument_list|,
