@@ -2397,6 +2397,8 @@ argument_list|,
 name|RestSwaggerComponent
 operator|.
 name|DEFAULT_SPECIFICATION_URI
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 operator|.
@@ -2590,6 +2592,8 @@ name|create
 argument_list|(
 literal|"non-existant.json"
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
