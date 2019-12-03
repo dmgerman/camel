@@ -3323,7 +3323,7 @@ block|}
 name|ConnectionFactory
 name|factory
 init|=
-name|getTemplateConnectionFactory
+name|getOrCreateTemplateConnectionFactory
 argument_list|()
 decl_stmt|;
 name|JmsTemplate
@@ -3835,6 +3835,16 @@ name|ConnectionFactory
 name|getListenerConnectionFactory
 parameter_list|()
 block|{
+return|return
+name|listenerConnectionFactory
+return|;
+block|}
+DECL|method|getOrCreateListenerConnectionFactory ()
+specifier|public
+name|ConnectionFactory
+name|getOrCreateListenerConnectionFactory
+parameter_list|()
+block|{
 if|if
 condition|(
 name|listenerConnectionFactory
@@ -3873,6 +3883,16 @@ DECL|method|getTemplateConnectionFactory ()
 specifier|public
 name|ConnectionFactory
 name|getTemplateConnectionFactory
+parameter_list|()
+block|{
+return|return
+name|templateConnectionFactory
+return|;
+block|}
+DECL|method|getOrCreateTemplateConnectionFactory ()
+specifier|public
+name|ConnectionFactory
+name|getOrCreateTemplateConnectionFactory
 parameter_list|()
 block|{
 if|if
@@ -4460,6 +4480,16 @@ DECL|method|getTransactionManager ()
 specifier|public
 name|PlatformTransactionManager
 name|getTransactionManager
+parameter_list|()
+block|{
+return|return
+name|transactionManager
+return|;
+block|}
+DECL|method|getOrCreateTransactionManager ()
+specifier|public
+name|PlatformTransactionManager
+name|getOrCreateTransactionManager
 parameter_list|()
 block|{
 if|if
@@ -5346,7 +5376,23 @@ name|container
 operator|.
 name|setConnectionFactory
 argument_list|(
-name|getListenerConnectionFactory
+name|getOrCreateListenerConnectionFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|container
+operator|.
+name|setConnectionFactory
+argument_list|(
+name|getOrCreateListenerConnectionFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|container
+operator|.
+name|setConnectionFactory
+argument_list|(
+name|getOrCreateListenerConnectionFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5935,7 +5981,7 @@ block|}
 name|PlatformTransactionManager
 name|tm
 init|=
-name|getTransactionManager
+name|getOrCreateTransactionManager
 argument_list|()
 decl_stmt|;
 if|if

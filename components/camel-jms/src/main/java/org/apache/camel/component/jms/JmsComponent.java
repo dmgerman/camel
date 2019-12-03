@@ -3705,7 +3705,7 @@ literal|null
 operator|&&
 name|configuration
 operator|.
-name|getTransactionManager
+name|getOrCreateTransactionManager
 argument_list|()
 operator|==
 literal|null
