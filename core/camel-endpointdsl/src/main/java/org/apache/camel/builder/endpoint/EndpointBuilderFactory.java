@@ -597,6 +597,8 @@ name|RestApiEndpointBuilderFactory
 extends|,
 name|RestEndpointBuilderFactory
 extends|,
+name|RestOpenApiEndpointBuilderFactory
+extends|,
 name|RestSwaggerEndpointBuilderFactory
 extends|,
 name|RobotFrameworkEndpointBuilderFactory
