@@ -647,7 +647,7 @@ return|return
 name|prepareStatementStrategy
 return|;
 block|}
-comment|/**      * Allows to plugin to use a custom org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to control preparation of the query and prepared statement.      */
+comment|/**      * Allows the plugin to use a custom org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to control preparation of the query and prepared statement.      */
 DECL|method|setPrepareStatementStrategy (JdbcPrepareStatementStrategy prepareStatementStrategy)
 specifier|public
 name|void

@@ -672,7 +672,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to          * control preparation of the query and prepared statement.          *           * The option is a:          *<code>org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy</code> type.          *           * Group: advanced          */
+comment|/**          * Allows the plugin to use a custom          * org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to          * control preparation of the query and prepared statement.          *           * The option is a:          *<code>org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy</code> type.          *           * Group: advanced          */
 DECL|method|prepareStatementStrategy ( Object prepareStatementStrategy)
 specifier|default
 name|AdvancedJdbcEndpointBuilder
@@ -693,7 +693,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to          * control preparation of the query and prepared statement.          *           * The option will be converted to a          *<code>org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy</code> type.          *           * Group: advanced          */
+comment|/**          * Allows the plugin to use a custom          * org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to          * control preparation of the query and prepared statement.          *           * The option will be converted to a          *<code>org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy</code> type.          *           * Group: advanced          */
 DECL|method|prepareStatementStrategy ( String prepareStatementStrategy)
 specifier|default
 name|AdvancedJdbcEndpointBuilder
