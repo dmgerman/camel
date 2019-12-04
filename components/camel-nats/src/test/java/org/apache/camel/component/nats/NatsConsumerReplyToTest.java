@@ -71,10 +71,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|NatsConsumerTest
+DECL|class|NatsConsumerReplyToTest
 specifier|public
 class|class
-name|NatsConsumerTest
+name|NatsConsumerReplyToTest
 extends|extends
 name|NatsTestSupport
 block|{
@@ -90,10 +90,10 @@ name|mockResultEndpoint
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testConsumer ()
+DECL|method|testReplyTo ()
 specifier|public
 name|void
-name|testConsumer
+name|testReplyTo
 parameter_list|()
 throws|throws
 name|Exception
@@ -102,7 +102,7 @@ name|mockResultEndpoint
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World"
+literal|"World"
 argument_list|)
 expr_stmt|;
 name|mockResultEndpoint
@@ -122,13 +122,42 @@ name|sendBody
 argument_list|(
 literal|"direct:send"
 argument_list|,
-literal|"Hello World"
+literal|"World"
 argument_list|)
 expr_stmt|;
 name|mockResultEndpoint
 operator|.
 name|assertIsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// grab reply message from the reply queue
+name|String
+name|out
+init|=
+name|consumer
+operator|.
+name|receiveBody
+argument_list|(
+literal|"nats://"
+operator|+
+name|getNatsUrl
+argument_list|()
+operator|+
+literal|"?topic=myReplyQueue"
+argument_list|,
+literal|5000
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye World"
+argument_list|,
+name|out
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -167,7 +196,7 @@ operator|+
 name|getNatsUrl
 argument_list|()
 operator|+
-literal|"?topic=test&flushConnection=true"
+literal|"?topic=test&replySubject=myReplyQueue&flushConnection=true"
 argument_list|)
 expr_stmt|;
 name|from
@@ -183,6 +212,21 @@ operator|.
 name|to
 argument_list|(
 name|mockResultEndpoint
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
+name|setBody
+argument_list|()
+operator|.
+name|simple
+argument_list|(
+literal|"Bye ${body}"
 argument_list|)
 expr_stmt|;
 block|}

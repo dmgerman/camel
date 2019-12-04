@@ -871,6 +871,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Can be used to turn off sending back reply message in the consumer.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|replyToDisabled ( boolean replyToDisabled)
+specifier|default
+name|NatsEndpointConsumerBuilder
+name|replyToDisabled
+parameter_list|(
+name|boolean
+name|replyToDisabled
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"replyToDisabled"
+argument_list|,
+name|replyToDisabled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Can be used to turn off sending back reply message in the consumer.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|replyToDisabled ( String replyToDisabled)
+specifier|default
+name|NatsEndpointConsumerBuilder
+name|replyToDisabled
+parameter_list|(
+name|String
+name|replyToDisabled
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"replyToDisabled"
+argument_list|,
+name|replyToDisabled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Set secure option indicating TLS is required.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (boolean secure)
 specifier|default

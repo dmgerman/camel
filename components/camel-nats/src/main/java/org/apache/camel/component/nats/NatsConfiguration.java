@@ -364,6 +364,18 @@ name|label
 operator|=
 literal|"consumer"
 argument_list|)
+DECL|field|replyToDisabled
+specifier|private
+name|boolean
+name|replyToDisabled
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|maxMessages
 specifier|private
 name|String
@@ -875,6 +887,33 @@ operator|.
 name|queueName
 operator|=
 name|queueName
+expr_stmt|;
+block|}
+DECL|method|isReplyToDisabled ()
+specifier|public
+name|boolean
+name|isReplyToDisabled
+parameter_list|()
+block|{
+return|return
+name|replyToDisabled
+return|;
+block|}
+comment|/**      * Can be used to turn off sending back reply message in the consumer.      */
+DECL|method|setReplyToDisabled (boolean replyToDisabled)
+specifier|public
+name|void
+name|setReplyToDisabled
+parameter_list|(
+name|boolean
+name|replyToDisabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToDisabled
+operator|=
+name|replyToDisabled
 expr_stmt|;
 block|}
 comment|/**      * Stop receiving messages from a topic we are subscribing to after      * maxMessages      */
