@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The aws-kms is used for managing Amazon Translate  */
+comment|/**  * The aws-translate component is used for managing Amazon Translate  */
 end_comment
 
 begin_class
