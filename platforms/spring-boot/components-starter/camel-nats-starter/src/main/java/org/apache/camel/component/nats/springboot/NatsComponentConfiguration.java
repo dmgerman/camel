@@ -92,6 +92,12 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
+comment|/**      * URLs to one or more NAT servers. Use comma to separate URLs when      * specifying multiple servers.      */
+DECL|field|servers
+specifier|private
+name|String
+name|servers
+decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters.      */
 DECL|field|useGlobalSslContextParameters
 specifier|private
@@ -124,6 +130,32 @@ name|bridgeErrorHandler
 init|=
 literal|false
 decl_stmt|;
+DECL|method|getServers ()
+specifier|public
+name|String
+name|getServers
+parameter_list|()
+block|{
+return|return
+name|servers
+return|;
+block|}
+DECL|method|setServers (String servers)
+specifier|public
+name|void
+name|setServers
+parameter_list|(
+name|String
+name|servers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|servers
+operator|=
+name|servers
+expr_stmt|;
+block|}
 DECL|method|getUseGlobalSslContextParameters ()
 specifier|public
 name|Boolean

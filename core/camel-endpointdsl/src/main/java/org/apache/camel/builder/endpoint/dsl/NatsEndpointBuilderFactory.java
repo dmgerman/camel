@@ -136,48 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option is a:<code>io.nats.client.Connection</code> type.          *           * Group: common          */
-DECL|method|connection (Object connection)
-specifier|default
-name|NatsEndpointConsumerBuilder
-name|connection
-parameter_list|(
-name|Object
-name|connection
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"connection"
-argument_list|,
-name|connection
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option will be converted to a          *<code>io.nats.client.Connection</code> type.          *           * Group: common          */
-DECL|method|connection (String connection)
-specifier|default
-name|NatsEndpointConsumerBuilder
-name|connection
-parameter_list|(
-name|String
-name|connection
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"connection"
-argument_list|,
-name|connection
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Timeout for connection attempts. (in milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectionTimeout ( int connectionTimeout)
 specifier|default
@@ -220,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if we want to flush connection or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+comment|/**          * Define if we want to flush connection when stopping or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|flushConnection ( boolean flushConnection)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -241,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if we want to flush connection or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
+comment|/**          * Define if we want to flush connection when stopping or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|flushConnection ( String flushConnection)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -682,21 +640,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
-DECL|method|topic (String topic)
+comment|/**          * URLs to one or more NAT servers. Use comma to separate URLs when          * specifying multiple servers.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|servers (String servers)
 specifier|default
 name|NatsEndpointConsumerBuilder
-name|topic
+name|servers
 parameter_list|(
 name|String
-name|topic
+name|servers
 parameter_list|)
 block|{
 name|doSetProperty
 argument_list|(
-literal|"topic"
+literal|"servers"
 argument_list|,
-name|topic
+name|servers
 argument_list|)
 expr_stmt|;
 return|return
@@ -808,7 +766,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Consumer pool size.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
+comment|/**          * Consumer thread pool size (default is 10).          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|poolSize (int poolSize)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -829,7 +787,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Consumer pool size.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
+comment|/**          * Consumer thread pool size (default is 10).          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|poolSize (String poolSize)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -1145,6 +1103,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option is a:<code>io.nats.client.Connection</code> type.          *           * Group: advanced          */
+DECL|method|connection (Object connection)
+specifier|default
+name|AdvancedNatsEndpointConsumerBuilder
+name|connection
+parameter_list|(
+name|Object
+name|connection
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connection"
+argument_list|,
+name|connection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option will be converted to a          *<code>io.nats.client.Connection</code> type.          *           * Group: advanced          */
+DECL|method|connection (String connection)
+specifier|default
+name|AdvancedNatsEndpointConsumerBuilder
+name|connection
+parameter_list|(
+name|String
+name|connection
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connection"
+argument_list|,
+name|connection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
@@ -1209,48 +1209,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option is a:<code>io.nats.client.Connection</code> type.          *           * Group: common          */
-DECL|method|connection (Object connection)
-specifier|default
-name|NatsEndpointProducerBuilder
-name|connection
-parameter_list|(
-name|Object
-name|connection
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"connection"
-argument_list|,
-name|connection
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option will be converted to a          *<code>io.nats.client.Connection</code> type.          *           * Group: common          */
-DECL|method|connection (String connection)
-specifier|default
-name|NatsEndpointProducerBuilder
-name|connection
-parameter_list|(
-name|String
-name|connection
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"connection"
-argument_list|,
-name|connection
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Timeout for connection attempts. (in milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectionTimeout ( int connectionTimeout)
 specifier|default
@@ -1293,7 +1251,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if we want to flush connection or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+comment|/**          * Define if we want to flush connection when stopping or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|flushConnection ( boolean flushConnection)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1314,7 +1272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if we want to flush connection or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
+comment|/**          * Define if we want to flush connection when stopping or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|flushConnection ( String flushConnection)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1755,21 +1713,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
-DECL|method|topic (String topic)
+comment|/**          * URLs to one or more NAT servers. Use comma to separate URLs when          * specifying multiple servers.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|servers (String servers)
 specifier|default
 name|NatsEndpointProducerBuilder
-name|topic
+name|servers
 parameter_list|(
 name|String
-name|topic
+name|servers
 parameter_list|)
 block|{
 name|doSetProperty
 argument_list|(
-literal|"topic"
+literal|"servers"
 argument_list|,
-name|topic
+name|servers
 argument_list|)
 expr_stmt|;
 return|return
@@ -2029,6 +1987,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option is a:<code>io.nats.client.Connection</code> type.          *           * Group: advanced          */
+DECL|method|connection (Object connection)
+specifier|default
+name|AdvancedNatsEndpointProducerBuilder
+name|connection
+parameter_list|(
+name|Object
+name|connection
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connection"
+argument_list|,
+name|connection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option will be converted to a          *<code>io.nats.client.Connection</code> type.          *           * Group: advanced          */
+DECL|method|connection (String connection)
+specifier|default
+name|AdvancedNatsEndpointProducerBuilder
+name|connection
+parameter_list|(
+name|String
+name|connection
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connection"
+argument_list|,
+name|connection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
@@ -2095,48 +2095,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option is a:<code>io.nats.client.Connection</code> type.          *           * Group: common          */
-DECL|method|connection (Object connection)
-specifier|default
-name|NatsEndpointBuilder
-name|connection
-parameter_list|(
-name|Object
-name|connection
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"connection"
-argument_list|,
-name|connection
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option will be converted to a          *<code>io.nats.client.Connection</code> type.          *           * Group: common          */
-DECL|method|connection (String connection)
-specifier|default
-name|NatsEndpointBuilder
-name|connection
-parameter_list|(
-name|String
-name|connection
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"connection"
-argument_list|,
-name|connection
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Timeout for connection attempts. (in milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectionTimeout (int connectionTimeout)
 specifier|default
@@ -2179,7 +2137,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if we want to flush connection or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+comment|/**          * Define if we want to flush connection when stopping or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|flushConnection (boolean flushConnection)
 specifier|default
 name|NatsEndpointBuilder
@@ -2200,7 +2158,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if we want to flush connection or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
+comment|/**          * Define if we want to flush connection when stopping or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|flushConnection (String flushConnection)
 specifier|default
 name|NatsEndpointBuilder
@@ -2641,21 +2599,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
-DECL|method|topic (String topic)
+comment|/**          * URLs to one or more NAT servers. Use comma to separate URLs when          * specifying multiple servers.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|servers (String servers)
 specifier|default
 name|NatsEndpointBuilder
-name|topic
+name|servers
 parameter_list|(
 name|String
-name|topic
+name|servers
 parameter_list|)
 block|{
 name|doSetProperty
 argument_list|(
-literal|"topic"
+literal|"servers"
 argument_list|,
-name|topic
+name|servers
 argument_list|)
 expr_stmt|;
 return|return
@@ -2854,6 +2812,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option is a:<code>io.nats.client.Connection</code> type.          *           * Group: advanced          */
+DECL|method|connection (Object connection)
+specifier|default
+name|AdvancedNatsEndpointBuilder
+name|connection
+parameter_list|(
+name|Object
+name|connection
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connection"
+argument_list|,
+name|connection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option will be converted to a          *<code>io.nats.client.Connection</code> type.          *           * Group: advanced          */
+DECL|method|connection (String connection)
+specifier|default
+name|AdvancedNatsEndpointBuilder
+name|connection
+parameter_list|(
+name|String
+name|connection
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connection"
+argument_list|,
+name|connection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
@@ -2897,7 +2897,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Nats (camel-nats)      * The nats component allows you produce and consume messages from NATS.      *       * Category: messaging      * Since: 2.17      * Maven coordinates: org.apache.camel:camel-nats      *       * Syntax:<code>nats:servers</code>      *       * Path parameter: servers (required)      * URLs to one or more NAT servers. Use comma to separate URLs when      * specifying multiple servers.      */
+comment|/**      * Nats (camel-nats)      * The nats component allows you produce and consume messages from NATS.      *       * Category: messaging      * Since: 2.17      * Maven coordinates: org.apache.camel:camel-nats      *       * Syntax:<code>nats:topic</code>      *       * Path parameter: topic (required)      * The name of topic we want to use      */
 DECL|method|nats (String path)
 specifier|default
 name|NatsEndpointBuilder

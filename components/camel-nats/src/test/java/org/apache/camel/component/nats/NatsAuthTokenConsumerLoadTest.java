@@ -180,7 +180,7 @@ name|server
 argument_list|(
 literal|"nats://"
 operator|+
-name|getNatsUrl
+name|getNatsBrokerUrl
 argument_list|()
 argument_list|)
 operator|.
@@ -261,12 +261,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"nats://"
-operator|+
-name|getNatsUrl
-argument_list|()
-operator|+
-literal|"?topic=test"
+literal|"nats:test"
 argument_list|)
 operator|.
 name|to

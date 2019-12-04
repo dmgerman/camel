@@ -274,7 +274,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"nats://localhost:4222?topic=test&sslContextParameters=#ssl&secure=true"
+literal|"nats:topic=test?servers=localhost:4222&sslContextParameters=#ssl&secure=true"
 argument_list|)
 expr_stmt|;
 block|}

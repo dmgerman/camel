@@ -101,12 +101,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"nats://"
-operator|+
-name|getNatsUrl
-argument_list|()
-operator|+
-literal|"?topic=test"
+literal|"nats:test"
 argument_list|)
 expr_stmt|;
 block|}

@@ -165,20 +165,6 @@ name|required
 operator|=
 literal|true
 argument_list|)
-DECL|field|servers
-specifier|private
-name|String
-name|servers
-decl_stmt|;
-annotation|@
-name|UriParam
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|)
 DECL|field|topic
 specifier|private
 name|String
@@ -186,6 +172,23 @@ name|topic
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
+DECL|field|servers
+specifier|private
+name|String
+name|servers
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|connection
 specifier|private
 name|Connection
@@ -194,6 +197,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -207,6 +214,29 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"2000"
+argument_list|)
+DECL|field|reconnectTimeWait
+specifier|private
+name|int
+name|reconnectTimeWait
+init|=
+literal|2000
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|pedantic
 specifier|private
 name|boolean
@@ -218,20 +248,6 @@ DECL|field|verbose
 specifier|private
 name|boolean
 name|verbose
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"2000"
-argument_list|)
-DECL|field|reconnectTimeWait
-specifier|private
-name|int
-name|reconnectTimeWait
-init|=
-literal|2000
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -943,7 +959,7 @@ operator|=
 name|maxMessages
 expr_stmt|;
 block|}
-comment|/**      * Consumer pool size      */
+comment|/**      * Consumer thread pool size (default is 10)      */
 DECL|method|getPoolSize ()
 specifier|public
 name|int
@@ -980,7 +996,7 @@ return|return
 name|flushConnection
 return|;
 block|}
-comment|/**      * Define if we want to flush connection or not      */
+comment|/**      * Define if we want to flush connection when stopping or not      */
 DECL|method|setFlushConnection (boolean flushConnection)
 specifier|public
 name|void
