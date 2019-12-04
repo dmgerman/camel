@@ -527,16 +527,17 @@ name|StaticService
 implements|,
 name|CamelContextAware
 block|{
-DECL|field|decorators
+DECL|field|DECORATORS
 specifier|private
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String
 argument_list|,
 name|SpanDecorator
 argument_list|>
-name|decorators
+name|DECORATORS
 init|=
 operator|new
 name|HashMap
@@ -610,7 +611,7 @@ block|{
 name|SpanDecorator
 name|existing
 init|=
-name|decorators
+name|DECORATORS
 operator|.
 name|get
 argument_list|(
@@ -641,7 +642,7 @@ name|d
 argument_list|)
 condition|)
 block|{
-name|decorators
+name|DECORATORS
 operator|.
 name|put
 argument_list|(
@@ -663,6 +664,29 @@ specifier|public
 name|OpenTracingTracer
 parameter_list|()
 block|{     }
+comment|/**      * To add a custom decorator that does not come out of the box with camel-opentracing.      */
+DECL|method|addDecorator (SpanDecorator decorator)
+specifier|public
+name|void
+name|addDecorator
+parameter_list|(
+name|SpanDecorator
+name|decorator
+parameter_list|)
+block|{
+name|DECORATORS
+operator|.
+name|put
+argument_list|(
+name|decorator
+operator|.
+name|getComponent
+argument_list|()
+argument_list|,
+name|decorator
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, NamedNode route)
@@ -717,8 +741,7 @@ condition|)
 block|{
 try|try
 block|{
-comment|// start this service eager so we init before Camel is starting
-comment|// up
+comment|// start this service eager so we init before Camel is starting up
 name|camelContext
 operator|.
 name|addService
@@ -1130,7 +1153,7 @@ index|]
 decl_stmt|;
 name|sd
 operator|=
-name|decorators
+name|DECORATORS
 operator|.
 name|get
 argument_list|(
@@ -1180,7 +1203,7 @@ decl_stmt|;
 comment|// lookup via FQN
 name|sd
 operator|=
-name|decorators
+name|DECORATORS
 operator|.
 name|values
 argument_list|()
