@@ -46,24 +46,6 @@ name|assertThat
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|rest
-operator|.
-name|openapi
-operator|.
-name|RestOpenApiHelper
-import|;
-end_import
-
 begin_class
 DECL|class|RestOpenApiHelperTest
 specifier|public
