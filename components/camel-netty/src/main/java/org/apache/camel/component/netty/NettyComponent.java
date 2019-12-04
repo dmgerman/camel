@@ -50,27 +50,13 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|netty
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|DefaultEventExecutorGroup
+name|NettyRuntime
 import|;
 end_import
 
@@ -85,6 +71,20 @@ operator|.
 name|concurrent
 operator|.
 name|EventExecutorGroup
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|util
+operator|.
+name|internal
+operator|.
+name|SystemPropertyUtil
 import|;
 end_import
 
@@ -224,22 +224,6 @@ name|SSLContextParameters
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CamelThreadFactory
-import|;
-end_import
-
 begin_class
 annotation|@
 name|Component
@@ -272,25 +256,19 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"advanced"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"16"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|maximumPoolSize
 specifier|private
 name|int
 name|maximumPoolSize
-init|=
-literal|16
 decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"advanced"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|executorService
 specifier|private
@@ -356,7 +334,7 @@ return|return
 name|maximumPoolSize
 return|;
 block|}
-comment|/**      * The thread pool size for the EventExecutorGroup if its in use.      *<p/>      * The default value is 16.      */
+comment|/**      * Sets a maximum thread pool size for the netty consumer ordered thread pool.      * The default size is 2 x cpu core + 1. Setting this value to eg 10 will then use 10 threads      * unless 2 x cpu core + 1 is a higher value, which then will override and be used. For example      * if there are 8 cores, then the consumer thread pool will be 17.      *      * This thread pool is used to route messages received from Netty by Camel.      * We use a separate thread pool to ensure ordering of messages and also in case some messages      * will block, then nettys worker threads (event loop) wont be affected.      */
 DECL|method|setMaximumPoolSize (int maximumPoolSize)
 specifier|public
 name|void
@@ -781,10 +759,62 @@ operator|==
 literal|null
 condition|)
 block|{
+name|int
+name|netty
+init|=
+name|SystemPropertyUtil
+operator|.
+name|getInt
+argument_list|(
+literal|"io.netty.eventLoopThreads"
+argument_list|,
+name|NettyRuntime
+operator|.
+name|availableProcessors
+argument_list|()
+operator|*
+literal|2
+argument_list|)
+decl_stmt|;
+comment|// we want one more thread than netty uses for its event loop
+comment|// and if there is a custom size for maximum pool size then use it, unless netty event loops has more threads
+comment|// and therefore we use math.max to find the highest value
+name|int
+name|threads
+init|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|maximumPoolSize
+argument_list|,
+name|netty
+operator|+
+literal|1
+argument_list|)
+decl_stmt|;
 name|executorService
 operator|=
-name|createExecutorService
+name|NettyHelper
+operator|.
+name|createExecutorGroup
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|,
+literal|"NettyConsumerExecutorGroup"
+argument_list|,
+name|threads
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Creating shared NettyConsumerExecutorGroup with {} threads"
+argument_list|,
+name|threads
+argument_list|)
 expr_stmt|;
 block|}
 name|super
@@ -792,51 +822,6 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|createExecutorService ()
-specifier|protected
-name|EventExecutorGroup
-name|createExecutorService
-parameter_list|()
-block|{
-comment|// Provide the executor service for the application
-comment|// and use a Camel thread factory so we have consistent thread namings
-comment|// we should use a shared thread pool as recommended by Netty
-name|String
-name|pattern
-init|=
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-operator|.
-name|getThreadNamePattern
-argument_list|()
-decl_stmt|;
-name|ThreadFactory
-name|factory
-init|=
-operator|new
-name|CamelThreadFactory
-argument_list|(
-name|pattern
-argument_list|,
-literal|"NettyEventExecutorGroup"
-argument_list|,
-literal|true
-argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|DefaultEventExecutorGroup
-argument_list|(
-name|getMaximumPoolSize
-argument_list|()
-argument_list|,
-name|factory
-argument_list|)
-return|;
 block|}
 annotation|@
 name|Override
