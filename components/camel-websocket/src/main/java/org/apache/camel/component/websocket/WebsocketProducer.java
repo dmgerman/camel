@@ -741,16 +741,12 @@ name|timeout
 condition|)
 block|{
 comment|// remove all that are done/cancelled
-for|for
-control|(
-name|Future
-name|future
-range|:
 name|futures
-control|)
-block|{
-if|if
-condition|(
+operator|.
+name|removeIf
+argument_list|(
+name|future
+lambda|->
 name|future
 operator|.
 name|isDone
@@ -760,16 +756,8 @@ name|future
 operator|.
 name|isCancelled
 argument_list|()
-condition|)
-block|{
-name|futures
-operator|.
-name|remove
-argument_list|(
-name|future
 argument_list|)
 expr_stmt|;
-block|}
 comment|// if there are still more then we need to wait a little bit before checking again, to avoid burning cpu cycles in the while loop
 if|if
 condition|(
@@ -826,7 +814,6 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
