@@ -89,7 +89,7 @@ specifier|final
 name|String
 name|CONTAINER_IMAGE
 init|=
-literal|"nats:2.1.0"
+literal|"nats:2.1.2"
 decl_stmt|;
 DECL|field|CONTAINER_NAME
 specifier|public
