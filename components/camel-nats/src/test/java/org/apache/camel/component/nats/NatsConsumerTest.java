@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -106,15 +96,24 @@ name|void
 name|testConsumer
 parameter_list|()
 throws|throws
-name|InterruptedException
-throws|,
-name|IOException
+name|Exception
 block|{
 name|mockResultEndpoint
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|1
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|mockResultEndpoint
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+name|NatsConstants
+operator|.
+name|NATS_SUBJECT
+argument_list|,
+literal|"test"
 argument_list|)
 expr_stmt|;
 name|template
@@ -123,7 +122,7 @@ name|requestBody
 argument_list|(
 literal|"direct:send"
 argument_list|,
-literal|"test"
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|mockResultEndpoint
