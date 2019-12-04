@@ -406,7 +406,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Camel Main Osgi RouteBuilder ServiceTracker Tracker Open"
+literal|"Camel Core OSGi Activator RouteBuilder ServiceTracker Tracker Open"
 argument_list|)
 expr_stmt|;
 block|}
@@ -457,7 +457,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Camel Routes from RouteBuilder Class {} Added to Camel Main"
+literal|"Camel Routes from RouteBuilder Class {} Added to Camel Core OSGi Activator Context"
 argument_list|,
 name|builder
 operator|.
@@ -624,7 +624,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Camel Routes from RouteBuilder Class {} Removed to Camel Main"
+literal|"Camel Routes from RouteBuilder Class {} Removed from Camel Core OSGi Activator Context"
 argument_list|,
 name|service
 operator|.
