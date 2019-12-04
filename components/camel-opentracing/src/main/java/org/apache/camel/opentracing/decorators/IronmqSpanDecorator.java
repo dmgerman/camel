@@ -61,6 +61,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getComponentClassName ()
+specifier|public
+name|String
+name|getComponentClassName
+parameter_list|()
+block|{
+return|return
+literal|"org.apache.camel.component.ironmq.IronMQComponent"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getMessageId (Exchange exchange)
 specifier|protected
 name|String

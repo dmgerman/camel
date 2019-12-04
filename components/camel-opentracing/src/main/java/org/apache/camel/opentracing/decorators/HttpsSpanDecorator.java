@@ -19,12 +19,12 @@ package|;
 end_package
 
 begin_class
-DECL|class|AhcSpanDecorator
+DECL|class|HttpsSpanDecorator
 specifier|public
 class|class
-name|AhcSpanDecorator
+name|HttpsSpanDecorator
 extends|extends
-name|AbstractHttpSpanDecorator
+name|HttpSpanDecorator
 block|{
 annotation|@
 name|Override
@@ -35,19 +35,7 @@ name|getComponent
 parameter_list|()
 block|{
 return|return
-literal|"ahc"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getComponentClassName ()
-specifier|public
-name|String
-name|getComponentClassName
-parameter_list|()
-block|{
-return|return
-literal|"org.apache.camel.component.ahc.AhcComponent"
+literal|"https"
 return|;
 block|}
 block|}

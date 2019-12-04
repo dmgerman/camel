@@ -19,12 +19,12 @@ package|;
 end_package
 
 begin_class
-DECL|class|AhcSpanDecorator
+DECL|class|Sjms2SpanDecorator
 specifier|public
 class|class
-name|AhcSpanDecorator
+name|Sjms2SpanDecorator
 extends|extends
-name|AbstractHttpSpanDecorator
+name|AbstractMessagingSpanDecorator
 block|{
 annotation|@
 name|Override
@@ -35,7 +35,7 @@ name|getComponent
 parameter_list|()
 block|{
 return|return
-literal|"ahc"
+literal|"sjms2"
 return|;
 block|}
 annotation|@
@@ -47,7 +47,7 @@ name|getComponentClassName
 parameter_list|()
 block|{
 return|return
-literal|"org.apache.camel.component.ahc.AhcComponent"
+literal|"org.apache.camel.component.sjms2.Sjms2Component"
 return|;
 block|}
 block|}

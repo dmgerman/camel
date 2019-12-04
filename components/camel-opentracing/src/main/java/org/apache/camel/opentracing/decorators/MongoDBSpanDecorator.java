@@ -96,6 +96,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getComponentClassName ()
+specifier|public
+name|String
+name|getComponentClassName
+parameter_list|()
+block|{
+return|return
+literal|"org.apache.camel.component.mongodb.MongoDbComponent"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getOperationName (Exchange exchange, Endpoint endpoint)
 specifier|public
 name|String

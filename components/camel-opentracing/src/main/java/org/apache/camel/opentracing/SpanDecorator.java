@@ -124,6 +124,17 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getComponentClassName
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 decl_stmt|;
 comment|/**      * This method indicates whether the component associated with the SpanDecorator      * should result in a new span being created.      *      * @return Whether a new span should be created      */
@@ -132,10 +143,16 @@ name|boolean
 name|newSpan
 parameter_list|()
 function_decl|;
-comment|/**      * The camel component associated with the decorator.      *      * @return The camel component name      */
+comment|/**      * The camel component name associated with the decorator.      *      * @return The camel component name      */
 DECL|method|getComponent ()
 name|String
 name|getComponent
+parameter_list|()
+function_decl|;
+comment|/**      * The camel component FQN classname associated with the decorator.      *      * @return The camel component FQN classname      */
+DECL|method|getComponentClassName ()
+name|String
+name|getComponentClassName
 parameter_list|()
 function_decl|;
 comment|/**      * This method returns the operation name to use with the Span representing      * this exchange and endpoint.      *      * @param exchange The exchange      * @param endpoint The endpoint      * @return The operation name      */

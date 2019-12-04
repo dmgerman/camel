@@ -40,6 +40,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getComponentClassName ()
+specifier|public
+name|String
+name|getComponentClassName
+parameter_list|()
+block|{
+return|return
+literal|"org.apache.camel.component.log.LogComponent"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|newSpan ()
 specifier|public
 name|boolean

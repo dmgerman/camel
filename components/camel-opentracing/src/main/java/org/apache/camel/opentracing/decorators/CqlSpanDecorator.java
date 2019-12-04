@@ -124,6 +124,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getComponentClassName ()
+specifier|public
+name|String
+name|getComponentClassName
+parameter_list|()
+block|{
+return|return
+literal|"org.apache.camel.component.cassandra.CassandraComponent"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|pre (Span span, Exchange exchange, Endpoint endpoint)
 specifier|public
 name|void

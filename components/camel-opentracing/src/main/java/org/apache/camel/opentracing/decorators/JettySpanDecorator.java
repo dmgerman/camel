@@ -38,6 +38,18 @@ return|return
 literal|"jetty"
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getComponentClassName ()
+specifier|public
+name|String
+name|getComponentClassName
+parameter_list|()
+block|{
+return|return
+literal|"org.apache.camel.component.jetty9.JettyHttpComponent9"
+return|;
+block|}
 block|}
 end_class
 
