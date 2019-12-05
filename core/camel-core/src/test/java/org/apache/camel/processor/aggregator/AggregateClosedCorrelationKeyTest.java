@@ -451,6 +451,13 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
 comment|// 2 of them should now be closed
 name|int
 name|closed
