@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The camel {@link Endpoint} to access<a href="http://www.hazelcast.com/">Hazelcast</a> distributed set.  */
+comment|/**  * The hazelcast-set component is used to access<a href="http://www.hazelcast.com/">Hazelcast</a> distributed set.  */
 end_comment
 
 begin_class
