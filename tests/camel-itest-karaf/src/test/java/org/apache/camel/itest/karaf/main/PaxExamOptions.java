@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.core.osgi.main.it
+DECL|package|org.apache.camel.itest.karaf.main
 package|package
 name|org
 operator|.
@@ -12,13 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|core
+name|itest
 operator|.
-name|osgi
+name|karaf
 operator|.
 name|main
-operator|.
-name|it
 package|;
 end_package
 
