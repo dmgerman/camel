@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes Service Accounts component provides a producer to execute  * service operations and a consumer to consume service events.  */
+comment|/**  * The Kubernetes Services component provides a producer to execute  * service operations and a consumer to consume service events.  */
 end_comment
 
 begin_class
