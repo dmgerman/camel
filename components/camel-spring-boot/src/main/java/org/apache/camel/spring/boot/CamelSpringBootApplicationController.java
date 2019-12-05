@@ -236,6 +236,17 @@ annotation|@
 name|Override
 specifier|protected
 name|void
+name|initCamelContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// spring boot has already initialized camel context so we should not do it again
+block|}
+annotation|@
+name|Override
+specifier|protected
+name|void
 name|doStop
 parameter_list|()
 throws|throws
