@@ -193,13 +193,6 @@ argument_list|(
 name|servers
 argument_list|)
 expr_stmt|;
-name|setProperties
-argument_list|(
-name|config
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|config
@@ -220,7 +213,7 @@ argument_list|)
 expr_stmt|;
 block|}
 name|NatsEndpoint
-name|endpoint
+name|answer
 init|=
 operator|new
 name|NatsEndpoint
@@ -232,8 +225,15 @@ argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
+name|setProperties
+argument_list|(
+name|answer
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 return|return
-name|endpoint
+name|answer
 return|;
 block|}
 comment|/**      * URLs to one or more NAT servers. Use comma to separate URLs when      * specifying multiple servers.      */
