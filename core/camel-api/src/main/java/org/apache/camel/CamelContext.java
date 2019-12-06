@@ -20,37 +20,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
+name|*
 import|;
 end_import
 
@@ -679,6 +649,12 @@ comment|/**      * Gets the uptime in milli seconds      *      * @return the up
 DECL|method|getUptimeMillis ()
 name|long
 name|getUptimeMillis
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the date and time Camel was started up.      */
+DECL|method|getStartDate ()
+name|Date
+name|getStartDate
 parameter_list|()
 function_decl|;
 comment|// Service Methods
