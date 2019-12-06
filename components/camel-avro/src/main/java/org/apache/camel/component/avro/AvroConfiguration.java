@@ -30,16 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -287,24 +277,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|parseURI (URI uri, Map<String, Object> parameters, AvroComponent component)
+DECL|method|parseURI (URI uri)
 specifier|public
 name|void
 name|parseURI
 parameter_list|(
 name|URI
 name|uri
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|parameters
-parameter_list|,
-name|AvroComponent
-name|component
 parameter_list|)
 throws|throws
 name|Exception
