@@ -146,7 +146,7 @@ name|apt
 operator|.
 name|model
 operator|.
-name|ComponentOption
+name|PropertyOption
 import|;
 end_import
 
@@ -168,24 +168,16 @@ name|dumpExceptionToErrorFile
 import|;
 end_import
 
-begin_comment
-comment|// TODO: ComponentPropertyConfigurerGenerator and EndpointPropertyConfigurerGenerator can be merged to one
-end_comment
-
-begin_comment
-comment|// TODO: Add support for ignore case
-end_comment
-
 begin_class
-DECL|class|ComponentPropertyConfigurerGenerator
+DECL|class|PropertyConfigurerGenerator
 specifier|public
 specifier|final
 class|class
-name|ComponentPropertyConfigurerGenerator
+name|PropertyConfigurerGenerator
 block|{
-DECL|method|ComponentPropertyConfigurerGenerator ()
+DECL|method|PropertyConfigurerGenerator ()
 specifier|private
-name|ComponentPropertyConfigurerGenerator
+name|PropertyConfigurerGenerator
 parameter_list|()
 block|{     }
 DECL|method|generateExtendConfigurer (ProcessingEnvironment processingEnv, TypeElement parent, String pn, String cn, String fqn)
@@ -406,7 +398,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|generatePropertyConfigurer (ProcessingEnvironment processingEnv, TypeElement parent, String pn, String cn, String fqn, String en, Set<ComponentOption> options)
+DECL|method|generatePropertyConfigurer (ProcessingEnvironment processingEnv, TypeElement parent, String pn, String cn, String fqn, String en, Set<PropertyOption> options)
 specifier|public
 specifier|static
 name|void
@@ -432,7 +424,7 @@ name|en
 parameter_list|,
 name|Set
 argument_list|<
-name|ComponentOption
+name|PropertyOption
 argument_list|>
 name|options
 parameter_list|)
@@ -605,7 +597,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"    public boolean configure(CamelContext camelContext, Object component, String name, Object value, boolean ignoreCase) {\n"
+literal|"    public boolean configure(CamelContext camelContext, Object target, String name, Object value, boolean ignoreCase) {\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -619,7 +611,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"            return doConfigureIgnoreCase(camelContext, component, name, value);\n"
+literal|"            return doConfigureIgnoreCase(camelContext, target, name, value);\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -633,7 +625,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"            return doConfigure(camelContext, component, name, value);\n"
+literal|"            return doConfigure(camelContext, target, name, value);\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -661,7 +653,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"    private static boolean doConfigure(CamelContext camelContext, Object component, String name, Object value) {\n"
+literal|"    private static boolean doConfigure(CamelContext camelContext, Object target, String name, Object value) {\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -673,7 +665,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|ComponentOption
+name|PropertyOption
 name|option
 range|:
 name|options
@@ -780,7 +772,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"    private static boolean doConfigureIgnoreCase(CamelContext camelContext, Object component, String name, Object value) {\n"
+literal|"    private static boolean doConfigureIgnoreCase(CamelContext camelContext, Object target, String name, Object value) {\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -792,7 +784,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|ComponentOption
+name|PropertyOption
 name|option
 range|:
 name|options
@@ -1061,13 +1053,13 @@ operator|+
 name|getOrSet
 expr_stmt|;
 block|}
-comment|// ((LogEndpoint) endpoint).setGroupSize(property(camelContext, java.lang.Integer.class, value))
+comment|// ((LogComponent) target).setGroupSize(property(camelContext, java.lang.Integer.class, value))
 return|return
 name|String
 operator|.
 name|format
 argument_list|(
-literal|"((%s) component).%s(property(camelContext, %s.class, value))"
+literal|"((%s) target).%s(property(camelContext, %s.class, value))"
 argument_list|,
 name|en
 argument_list|,

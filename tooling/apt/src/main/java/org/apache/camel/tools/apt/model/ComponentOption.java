@@ -56,6 +56,8 @@ specifier|public
 specifier|final
 class|class
 name|ComponentOption
+implements|implements
+name|PropertyOption
 block|{
 DECL|field|name
 specifier|private

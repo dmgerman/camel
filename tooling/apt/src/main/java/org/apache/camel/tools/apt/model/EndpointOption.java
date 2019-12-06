@@ -56,6 +56,8 @@ specifier|public
 specifier|final
 class|class
 name|EndpointOption
+implements|implements
+name|PropertyOption
 block|{
 DECL|field|name
 specifier|private
