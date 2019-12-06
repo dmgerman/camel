@@ -1209,6 +1209,13 @@ argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
+name|setProperties
+argument_list|(
+name|answer
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 comment|// must use a copy of the binding on the endpoint to avoid sharing same
 comment|// instance that can cause side-effects
 if|if
