@@ -1132,13 +1132,6 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-name|setProperties
-argument_list|(
-name|config
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 comment|// set default ssl config
 if|if
 condition|(
