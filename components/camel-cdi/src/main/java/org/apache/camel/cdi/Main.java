@@ -514,6 +514,18 @@ name|warnIfNoCamelFound
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|initCamelContext ()
+specifier|protected
+name|void
+name|initCamelContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// camel-cdi has already initialized and start CamelContext so we should not do this again
+block|}
 DECL|method|warnIfNoCamelFound ()
 specifier|private
 name|void
