@@ -532,6 +532,25 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Validate endpoint parameters
+if|if
+condition|(
+name|configuration
+operator|.
+name|getTargetModel
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The targetModel parameter is required for dozer endpoints"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|mapper
