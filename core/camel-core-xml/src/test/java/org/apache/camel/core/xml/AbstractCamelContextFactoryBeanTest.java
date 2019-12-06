@@ -604,7 +604,11 @@ name|asList
 argument_list|(
 literal|"{{getStreamCache}}"
 argument_list|,
+literal|"{{getDebug}}"
+argument_list|,
 literal|"{{getTrace}}"
+argument_list|,
+literal|"{{getBacklogTrace}}"
 argument_list|,
 literal|"{{getMessageHistory}}"
 argument_list|,
