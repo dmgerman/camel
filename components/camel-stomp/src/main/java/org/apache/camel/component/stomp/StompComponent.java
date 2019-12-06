@@ -272,14 +272,6 @@ operator|.
 name|copy
 argument_list|()
 decl_stmt|;
-comment|// allow to configure configuration from uri parameters
-name|setProperties
-argument_list|(
-name|config
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 name|StompEndpoint
 name|endpoint
 init|=
