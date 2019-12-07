@@ -375,7 +375,7 @@ name|type
 init|=
 name|GMetricType
 operator|.
-name|STRING
+name|string
 decl_stmt|;
 comment|/**          * The slope          */
 DECL|field|slope

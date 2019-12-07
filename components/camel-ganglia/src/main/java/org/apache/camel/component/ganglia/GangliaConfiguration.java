@@ -298,6 +298,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"MULTICAST"
+argument_list|,
+name|enums
+operator|=
+literal|"MULTICAST,UNICAST"
 argument_list|)
 DECL|field|mode
 specifier|private
@@ -383,7 +387,11 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"STRING"
+literal|"string"
+argument_list|,
+name|enums
+operator|=
+literal|"string,int8,uint8,int16,uint16,int32,uint32,float,double"
 argument_list|)
 DECL|field|type
 specifier|private
@@ -398,6 +406,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"BOTH"
+argument_list|,
+name|enums
+operator|=
+literal|"ZERO,POSITIVE,NEGATIVE,BOTH"
 argument_list|)
 DECL|field|slope
 specifier|private
