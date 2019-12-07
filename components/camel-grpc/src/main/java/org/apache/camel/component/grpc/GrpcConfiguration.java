@@ -1184,24 +1184,13 @@ return|return
 name|maxConcurrentCallsPerConnection
 return|;
 block|}
-DECL|method|parseURI (URI uri, Map<String, Object> parameters, GrpcComponent component)
+DECL|method|parseURI (URI uri)
 specifier|public
 name|void
 name|parseURI
 parameter_list|(
 name|URI
 name|uri
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|parameters
-parameter_list|,
-name|GrpcComponent
-name|component
 parameter_list|)
 block|{
 name|setHost

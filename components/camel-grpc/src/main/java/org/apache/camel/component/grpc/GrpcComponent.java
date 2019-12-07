@@ -135,15 +135,6 @@ argument_list|(
 name|config
 argument_list|,
 name|uri
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-name|setProperties
-argument_list|(
-name|config
-argument_list|,
-name|parameters
 argument_list|)
 expr_stmt|;
 name|Endpoint
@@ -159,12 +150,19 @@ argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;
 block|}
 comment|/**      * Parses the configuration      *       * @return the parsed and valid configuration to use      */
-DECL|method|parseConfiguration (GrpcConfiguration configuration, String remaining, Map<String, Object> parameters)
+DECL|method|parseConfiguration (GrpcConfiguration configuration, String remaining)
 specifier|protected
 name|GrpcConfiguration
 name|parseConfiguration
@@ -174,14 +172,6 @@ name|configuration
 parameter_list|,
 name|String
 name|remaining
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|parameters
 parameter_list|)
 throws|throws
 name|Exception
@@ -195,10 +185,6 @@ name|URI
 argument_list|(
 name|remaining
 argument_list|)
-argument_list|,
-name|parameters
-argument_list|,
-name|this
 argument_list|)
 expr_stmt|;
 return|return
