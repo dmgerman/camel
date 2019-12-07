@@ -801,14 +801,6 @@ operator|.
 name|copy
 argument_list|()
 decl_stmt|;
-comment|//TODO: we need to remove the usage of setProperties for populating the copy of the configuration
-name|setProperties
-argument_list|(
-name|config
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 name|SparkEndpoint
 name|answer
 init|=
