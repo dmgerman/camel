@@ -338,9 +338,19 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|Endpoint
+name|endpoint
+init|=
+name|createEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|config
+argument_list|)
+decl_stmt|;
 name|setProperties
 argument_list|(
-name|config
+name|endpoint
 argument_list|,
 name|parameters
 argument_list|)
@@ -365,12 +375,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|createEndpoint
-argument_list|(
-name|uri
-argument_list|,
-name|config
-argument_list|)
+name|endpoint
 return|;
 block|}
 DECL|method|createEndpoint (MinaConfiguration config)
