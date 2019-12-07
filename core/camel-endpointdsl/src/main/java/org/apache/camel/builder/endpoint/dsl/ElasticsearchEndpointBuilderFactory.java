@@ -194,6 +194,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Enable automatically discover nodes from a running Elasticsearch          * cluster.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|enableSniffer (boolean enableSniffer)
+specifier|default
+name|ElasticsearchEndpointBuilder
+name|enableSniffer
+parameter_list|(
+name|boolean
+name|enableSniffer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"enableSniffer"
+argument_list|,
+name|enableSniffer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Enable automatically discover nodes from a running Elasticsearch          * cluster.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|enableSniffer (String enableSniffer)
+specifier|default
+name|ElasticsearchEndpointBuilder
+name|enableSniffer
+parameter_list|(
+name|String
+name|enableSniffer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"enableSniffer"
+argument_list|,
+name|enableSniffer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Enable SSL.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|enableSSL (boolean enableSSL)
 specifier|default
@@ -440,6 +482,90 @@ argument_list|(
 literal|"scrollKeepAliveMs"
 argument_list|,
 name|scrollKeepAliveMs
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The delay of a sniff execution scheduled after a failure (in          * milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
+DECL|method|sniffAfterFailureDelay ( int sniffAfterFailureDelay)
+specifier|default
+name|ElasticsearchEndpointBuilder
+name|sniffAfterFailureDelay
+parameter_list|(
+name|int
+name|sniffAfterFailureDelay
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sniffAfterFailureDelay"
+argument_list|,
+name|sniffAfterFailureDelay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The delay of a sniff execution scheduled after a failure (in          * milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
+DECL|method|sniffAfterFailureDelay ( String sniffAfterFailureDelay)
+specifier|default
+name|ElasticsearchEndpointBuilder
+name|sniffAfterFailureDelay
+parameter_list|(
+name|String
+name|sniffAfterFailureDelay
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sniffAfterFailureDelay"
+argument_list|,
+name|sniffAfterFailureDelay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The interval between consecutive ordinary sniff executions in          * milliseconds. Will be honoured when sniffOnFailure is disabled or          * when there are no failures between consecutive sniff executions.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
+DECL|method|snifferInterval (int snifferInterval)
+specifier|default
+name|ElasticsearchEndpointBuilder
+name|snifferInterval
+parameter_list|(
+name|int
+name|snifferInterval
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"snifferInterval"
+argument_list|,
+name|snifferInterval
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The interval between consecutive ordinary sniff executions in          * milliseconds. Will be honoured when sniffOnFailure is disabled or          * when there are no failures between consecutive sniff executions.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
+DECL|method|snifferInterval ( String snifferInterval)
+specifier|default
+name|ElasticsearchEndpointBuilder
+name|snifferInterval
+parameter_list|(
+name|String
+name|snifferInterval
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"snifferInterval"
+argument_list|,
+name|snifferInterval
 argument_list|)
 expr_stmt|;
 return|return
