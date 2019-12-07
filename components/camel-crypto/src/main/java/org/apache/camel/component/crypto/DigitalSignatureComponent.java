@@ -154,6 +154,10 @@ DECL|field|configuration
 specifier|private
 name|DigitalSignatureConfiguration
 name|configuration
+init|=
+operator|new
+name|DigitalSignatureConfiguration
+argument_list|()
 decl_stmt|;
 DECL|method|DigitalSignatureComponent ()
 specifier|public
@@ -217,13 +221,6 @@ operator|.
 name|copy
 argument_list|()
 decl_stmt|;
-name|setProperties
-argument_list|(
-name|config
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 name|config
 operator|.
 name|setCamelContext
@@ -272,7 +269,9 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-return|return
+name|Endpoint
+name|endpoint
+init|=
 operator|new
 name|DigitalSignatureEndpoint
 argument_list|(
@@ -282,6 +281,16 @@ name|this
 argument_list|,
 name|config
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 DECL|method|getConfiguration ()
@@ -290,20 +299,6 @@ name|DigitalSignatureConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
-if|if
-condition|(
-name|configuration
-operator|==
-literal|null
-condition|)
-block|{
-name|configuration
-operator|=
-operator|new
-name|DigitalSignatureConfiguration
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|configuration
 return|;
