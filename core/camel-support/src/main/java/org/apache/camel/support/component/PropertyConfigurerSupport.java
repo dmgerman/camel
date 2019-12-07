@@ -30,6 +30,18 @@ name|CamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class used by the camel-apt compiler plugin when it generates source code for fast  * property configurations via {@link org.apache.camel.spi.PropertyConfigurer}.  */
 end_comment
@@ -146,6 +158,22 @@ name|value
 operator|=
 name|obj
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// no bean found so throw an exception
+throw|throw
+operator|new
+name|NoSuchBeanException
+argument_list|(
+name|ref
+argument_list|,
+name|type
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
