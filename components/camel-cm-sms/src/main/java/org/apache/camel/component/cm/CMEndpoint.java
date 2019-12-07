@@ -207,6 +207,10 @@ DECL|field|configuration
 specifier|private
 name|CMConfiguration
 name|configuration
+init|=
+operator|new
+name|CMConfiguration
+argument_list|()
 decl_stmt|;
 DECL|method|CMEndpoint (final String uri, final CMComponent component)
 specifier|public
