@@ -205,7 +205,7 @@ specifier|public
 name|GoraComponent
 parameter_list|()
 block|{     }
-comment|/**      *      * Initialize class and create DataStore instance      *      * @param config component configuration      * @throws IOException      */
+comment|/**      * Initialize class and create DataStore instance      *      * @param config component configuration      * @throws IOException      */
 DECL|method|init (final GoraConfiguration config)
 specifier|private
 name|void
@@ -290,7 +290,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-specifier|final
 name|GoraConfiguration
 name|config
 init|=
@@ -298,13 +297,6 @@ operator|new
 name|GoraConfiguration
 argument_list|()
 decl_stmt|;
-name|setProperties
-argument_list|(
-name|config
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 name|config
 operator|.
 name|setName
@@ -312,12 +304,9 @@ argument_list|(
 name|remaining
 argument_list|)
 expr_stmt|;
-name|init
-argument_list|(
-name|config
-argument_list|)
-expr_stmt|;
-return|return
+name|GoraEndpoint
+name|endpoint
+init|=
 operator|new
 name|GoraEndpoint
 argument_list|(
@@ -329,6 +318,21 @@ name|config
 argument_list|,
 name|dataStore
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+name|init
+argument_list|(
+name|config
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 comment|/**      * Get DataStore      */
