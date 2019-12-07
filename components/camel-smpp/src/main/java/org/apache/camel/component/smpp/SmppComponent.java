@@ -236,13 +236,6 @@ name|uri
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|setProperties
-argument_list|(
-name|config
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 name|SmppEndpoint
 name|answer
 init|=
