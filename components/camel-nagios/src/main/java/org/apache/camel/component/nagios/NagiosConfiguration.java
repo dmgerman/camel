@@ -225,20 +225,6 @@ name|String
 name|password
 decl_stmt|;
 annotation|@
-name|Deprecated
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"security"
-argument_list|)
-DECL|field|encryptionMethod
-specifier|private
-name|NagiosEncryptionMethod
-name|encryptionMethod
-decl_stmt|;
-annotation|@
 name|UriParam
 argument_list|(
 name|label
@@ -596,35 +582,6 @@ operator|=
 name|password
 expr_stmt|;
 block|}
-DECL|method|getEncryptionMethod ()
-specifier|public
-name|NagiosEncryptionMethod
-name|getEncryptionMethod
-parameter_list|()
-block|{
-return|return
-name|encryptionMethod
-return|;
-block|}
-comment|/**      * To specify an encryption method.      * @deprecated use the {@link #encryption} query parameter instead.      */
-annotation|@
-name|Deprecated
-DECL|method|setEncryptionMethod (NagiosEncryptionMethod encryptionMethod)
-specifier|public
-name|void
-name|setEncryptionMethod
-parameter_list|(
-name|NagiosEncryptionMethod
-name|encryptionMethod
-parameter_list|)
-block|{
-name|this
-operator|.
-name|encryptionMethod
-operator|=
-name|encryptionMethod
-expr_stmt|;
-block|}
 DECL|method|getEncryption ()
 specifier|public
 name|Encryption
@@ -651,42 +608,6 @@ name|encryption
 operator|=
 name|encryption
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"NagiosConfiguration[host="
-operator|+
-name|host
-operator|+
-literal|":"
-operator|+
-name|port
-operator|+
-literal|", connectionTimeout="
-operator|+
-name|connectionTimeout
-operator|+
-literal|", timeout="
-operator|+
-name|timeout
-operator|+
-literal|", encryptionMethod="
-operator|+
-name|encryptionMethod
-operator|+
-literal|", encryption="
-operator|+
-name|encryption
-operator|+
-literal|"]"
-return|;
 block|}
 block|}
 end_class

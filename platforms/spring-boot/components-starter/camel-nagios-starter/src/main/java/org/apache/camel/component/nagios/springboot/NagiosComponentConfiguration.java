@@ -64,22 +64,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|nagios
-operator|.
-name|NagiosEncryptionMethod
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -101,22 +85,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|DeprecatedConfigurationProperty
 import|;
 end_import
 
@@ -352,14 +320,6 @@ name|String
 name|password
 decl_stmt|;
 comment|/**          * To specify an encryption method.          */
-annotation|@
-name|Deprecated
-DECL|field|encryptionMethod
-specifier|private
-name|NagiosEncryptionMethod
-name|encryptionMethod
-decl_stmt|;
-comment|/**          * To specify an encryption method.          */
 DECL|field|encryption
 specifier|private
 name|Encryption
@@ -519,38 +479,6 @@ operator|.
 name|password
 operator|=
 name|password
-expr_stmt|;
-block|}
-annotation|@
-name|Deprecated
-annotation|@
-name|DeprecatedConfigurationProperty
-DECL|method|getEncryptionMethod ()
-specifier|public
-name|NagiosEncryptionMethod
-name|getEncryptionMethod
-parameter_list|()
-block|{
-return|return
-name|encryptionMethod
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setEncryptionMethod (NagiosEncryptionMethod encryptionMethod)
-specifier|public
-name|void
-name|setEncryptionMethod
-parameter_list|(
-name|NagiosEncryptionMethod
-name|encryptionMethod
-parameter_list|)
-block|{
-name|this
-operator|.
-name|encryptionMethod
-operator|=
-name|encryptionMethod
 expr_stmt|;
 block|}
 DECL|method|getEncryption ()

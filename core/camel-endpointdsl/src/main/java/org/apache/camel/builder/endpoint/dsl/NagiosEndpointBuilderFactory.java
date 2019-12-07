@@ -320,52 +320,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To specify an encryption method.          *           * The option is a:          *<code>org.apache.camel.component.nagios.NagiosEncryptionMethod</code>          * type.          *           * Group: security          */
-annotation|@
-name|Deprecated
-DECL|method|encryptionMethod ( NagiosEncryptionMethod encryptionMethod)
-specifier|default
-name|NagiosEndpointBuilder
-name|encryptionMethod
-parameter_list|(
-name|NagiosEncryptionMethod
-name|encryptionMethod
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"encryptionMethod"
-argument_list|,
-name|encryptionMethod
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To specify an encryption method.          *           * The option will be converted to a          *<code>org.apache.camel.component.nagios.NagiosEncryptionMethod</code>          * type.          *           * Group: security          */
-annotation|@
-name|Deprecated
-DECL|method|encryptionMethod (String encryptionMethod)
-specifier|default
-name|NagiosEndpointBuilder
-name|encryptionMethod
-parameter_list|(
-name|String
-name|encryptionMethod
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"encryptionMethod"
-argument_list|,
-name|encryptionMethod
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Password to be authenticated when sending checks to Nagios.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
@@ -519,20 +473,6 @@ name|RIJNDAEL256
 block|,
 DECL|enumConstant|BLOWFISH
 name|BLOWFISH
-block|;     }
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.nagios.NagiosEncryptionMethod</code>      * enum.      */
-DECL|enum|NagiosEncryptionMethod
-enum|enum
-name|NagiosEncryptionMethod
-block|{
-DECL|enumConstant|No
-name|No
-block|,
-DECL|enumConstant|Xor
-name|Xor
-block|,
-DECL|enumConstant|TripleDes
-name|TripleDes
 block|;     }
 comment|/**      * Nagios (camel-nagios)      * To send passive checks to Nagios using JSendNSCA.      *       * Category: monitoring      * Since: 2.3      * Maven coordinates: org.apache.camel:camel-nagios      *       * Syntax:<code>nagios:host:port</code>      *       * Path parameter: host (required)      * This is the address of the Nagios host where checks should be send.      *       * Path parameter: port (required)      * The port number of the host.      */
 DECL|method|nagios (String path)
