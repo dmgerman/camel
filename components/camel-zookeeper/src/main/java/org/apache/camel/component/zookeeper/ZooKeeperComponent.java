@@ -144,6 +144,10 @@ DECL|field|configuration
 specifier|private
 name|ZooKeeperConfiguration
 name|configuration
+init|=
+operator|new
+name|ZooKeeperConfiguration
+argument_list|()
 decl_stmt|;
 DECL|method|ZooKeeperComponent ()
 specifier|public
@@ -221,14 +225,9 @@ argument_list|,
 name|config
 argument_list|)
 expr_stmt|;
-name|setProperties
-argument_list|(
-name|config
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
+name|Endpoint
+name|endpoint
+init|=
 operator|new
 name|ZooKeeperEndpoint
 argument_list|(
@@ -238,6 +237,16 @@ name|this
 argument_list|,
 name|config
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 DECL|method|extractConfigFromUri (String remaining, ZooKeeperConfiguration config)
@@ -313,20 +322,6 @@ name|ZooKeeperConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
-if|if
-condition|(
-name|configuration
-operator|==
-literal|null
-condition|)
-block|{
-name|configuration
-operator|=
-operator|new
-name|ZooKeeperConfiguration
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|configuration
 return|;
