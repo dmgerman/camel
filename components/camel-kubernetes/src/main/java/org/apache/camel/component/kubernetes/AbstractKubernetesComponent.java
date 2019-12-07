@@ -108,13 +108,6 @@ operator|new
 name|KubernetesConfiguration
 argument_list|()
 decl_stmt|;
-name|setProperties
-argument_list|(
-name|config
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 name|config
 operator|.
 name|setMasterUrl
@@ -143,7 +136,9 @@ literal|"Master URL must be specified"
 argument_list|)
 throw|;
 block|}
-return|return
+name|Endpoint
+name|endpoint
+init|=
 name|doCreateEndpoint
 argument_list|(
 name|uri
@@ -152,6 +147,16 @@ name|remaining
 argument_list|,
 name|config
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 DECL|method|doCreateEndpoint (String uri, String remaining, KubernetesConfiguration config)
