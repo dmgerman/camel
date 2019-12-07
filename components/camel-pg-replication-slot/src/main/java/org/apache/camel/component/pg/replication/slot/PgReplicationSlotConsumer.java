@@ -766,6 +766,14 @@ parameter_list|)
 block|{
 try|try
 block|{
+comment|// Reset the `payload` buffer first because it's already processed, and in case of losing the connection
+comment|// while updating the status, the next poll will try to reconnect again instead of processing the stale payload.
+name|this
+operator|.
+name|payload
+operator|=
+literal|null
+expr_stmt|;
 name|PGReplicationStream
 name|stream
 init|=
@@ -805,12 +813,6 @@ name|stream
 operator|.
 name|forceUpdateStatus
 argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|payload
-operator|=
-literal|null
 expr_stmt|;
 block|}
 catch|catch
