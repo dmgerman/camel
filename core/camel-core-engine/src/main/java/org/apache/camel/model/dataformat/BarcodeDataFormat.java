@@ -76,20 +76,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlSchemaType
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
