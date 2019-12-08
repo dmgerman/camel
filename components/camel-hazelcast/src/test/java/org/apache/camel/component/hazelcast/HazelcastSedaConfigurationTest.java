@@ -555,7 +555,7 @@ parameter_list|)
 block|{
 name|assertIsInstanceOf
 argument_list|(
-name|PropertyBindingException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|,
