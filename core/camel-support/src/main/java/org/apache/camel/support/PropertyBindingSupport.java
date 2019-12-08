@@ -2039,6 +2039,8 @@ condition|(
 name|valid
 condition|)
 block|{
+try|try
+block|{
 comment|// GeneratedPropertyConfigurer works by invoking the methods directly but it does
 comment|// not resolve property placeholders eventually defined in the value before invoking
 comment|// the setter.
@@ -2062,8 +2064,6 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
 name|value
 operator|=
 name|resolveValue
@@ -2083,23 +2083,6 @@ argument_list|,
 name|allowPrivateSetter
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|PropertyBindingException
-argument_list|(
-name|target
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 name|boolean
 name|hit
 init|=
@@ -2134,6 +2117,27 @@ name|rc
 operator|=
 literal|true
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|PropertyBindingException
+argument_list|(
+name|target
+argument_list|,
+name|key
+argument_list|,
+name|value
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
