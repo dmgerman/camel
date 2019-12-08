@@ -380,7 +380,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|FailedToStartRouteException
+name|FailedToCreateRouteException
 operator|.
 name|class
 argument_list|)

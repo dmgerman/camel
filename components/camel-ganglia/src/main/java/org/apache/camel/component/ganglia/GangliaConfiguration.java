@@ -387,11 +387,11 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"string"
+literal|"STRING"
 argument_list|,
 name|enums
 operator|=
-literal|"string,int8,uint8,int16,uint16,int32,uint32,float,double"
+literal|"STRING,INT8,UINT8,INT16,UINT16,INT32,UINT32,FLOAT,DOUBLE"
 argument_list|)
 DECL|field|type
 specifier|private
