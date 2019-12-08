@@ -170,13 +170,6 @@ operator|new
 name|HazelcastSedaConfiguration
 argument_list|()
 decl_stmt|;
-name|setProperties
-argument_list|(
-name|config
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 name|config
 operator|.
 name|setQueueName
@@ -199,6 +192,13 @@ argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
+name|setProperties
+argument_list|(
+name|answer
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;
