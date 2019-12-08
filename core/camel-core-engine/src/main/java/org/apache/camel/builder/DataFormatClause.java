@@ -2547,7 +2547,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format using the XStream json library      */
+comment|/**      * Uses the JSON data format using the Jackson library      */
 DECL|method|json ()
 specifier|public
 name|T
@@ -2563,7 +2563,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format using the XStream json library turning pretty      * printing on or off      *      * @param prettyPrint turn pretty printing on or off      */
+comment|/**      * Uses the JSON data format using the Jackson library turning pretty      * printing on or off      *      * @param prettyPrint turn pretty printing on or off      */
 DECL|method|json (boolean prettyPrint)
 specifier|public
 name|T
