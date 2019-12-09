@@ -431,7 +431,7 @@ argument_list|)
 operator|.
 name|resolve
 argument_list|(
-literal|"camel-core-osgi-activator.jar"
+literal|"camel-osgi-activator.jar"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -466,7 +466,7 @@ init|=
 literal|false
 decl_stmt|;
 name|boolean
-name|hasCamelCoreOsgiActivator
+name|hasCamelOsgiActivator
 init|=
 literal|false
 decl_stmt|;
@@ -547,7 +547,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-literal|"org.apache.camel.camel-core-osgi-activator"
+literal|"org.apache.camel.camel-osgi-activator"
 operator|.
 name|equals
 argument_list|(
@@ -558,13 +558,13 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|hasCamelCoreOsgiActivator
+name|hasCamelOsgiActivator
 operator|=
 literal|true
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Camel Core OSGi Activator not activated"
+literal|"Camel OSGi Activator not activated"
 argument_list|,
 name|Bundle
 operator|.
@@ -594,9 +594,9 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Camel Core OSGi Activator bundle not found"
+literal|"Camel OSGi Activator bundle not found"
 argument_list|,
-name|hasCamelCoreOsgiActivator
+name|hasCamelOsgiActivator
 argument_list|)
 expr_stmt|;
 block|}
