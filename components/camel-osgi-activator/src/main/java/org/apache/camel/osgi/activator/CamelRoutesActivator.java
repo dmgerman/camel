@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.core.osgi.main.internal
+DECL|package|org.apache.camel.osgi.activator
 package|package
 name|org
 operator|.
@@ -12,13 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|core
-operator|.
 name|osgi
 operator|.
-name|main
-operator|.
-name|internal
+name|activator
 package|;
 end_package
 
@@ -209,10 +205,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|Activator
+DECL|class|CamelRoutesActivator
 specifier|public
 class|class
-name|Activator
+name|CamelRoutesActivator
 implements|implements
 name|BundleActivator
 implements|,
@@ -234,7 +230,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|Activator
+name|CamelRoutesActivator
 operator|.
 name|class
 argument_list|)
@@ -406,7 +402,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Camel Core OSGi Activator RouteBuilder ServiceTracker Tracker Open"
+literal|"Camel OSGi Activator RouteBuilder ServiceTracker Tracker Open"
 argument_list|)
 expr_stmt|;
 block|}
@@ -457,7 +453,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Camel Routes from RouteBuilder Class {} Added to Camel Core OSGi Activator Context"
+literal|"Camel Routes from RouteBuilder Class {} Added to Camel OSGi Activator Context"
 argument_list|,
 name|builder
 operator|.
@@ -480,7 +476,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error Adding Camel Route Builder"
+literal|"Error Adding Camel RouteBuilder"
 argument_list|,
 name|e
 argument_list|)
@@ -624,7 +620,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Camel Routes from RouteBuilder Class {} Removed from Camel Core OSGi Activator Context"
+literal|"Camel Routes from RouteBuilder Class {} Removed from Camel OSGi Activator Context"
 argument_list|,
 name|service
 operator|.

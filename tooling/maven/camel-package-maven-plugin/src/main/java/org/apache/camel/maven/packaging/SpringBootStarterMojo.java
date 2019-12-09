@@ -603,6 +603,8 @@ literal|"camel-blueprint"
 block|,
 literal|"camel-core-osgi"
 block|,
+literal|"camel-osgi-activator"
+block|,
 literal|"camel-eventadmin"
 block|,
 literal|"camel-paxlogging"

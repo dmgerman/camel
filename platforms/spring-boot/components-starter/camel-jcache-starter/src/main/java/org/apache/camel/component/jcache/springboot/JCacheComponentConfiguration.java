@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -104,11 +114,17 @@ specifier|private
 name|String
 name|cacheConfiguration
 decl_stmt|;
-comment|/**      * The Properties for the javax.cache.spi.CachingProvider to create the      * CacheManager. The option is a java.util.Properties type.      */
+comment|/**      * Properties to configure jcache      */
 DECL|field|cacheConfigurationProperties
 specifier|private
-name|String
+name|Map
 name|cacheConfigurationProperties
+decl_stmt|;
+comment|/**      * References to an existing Properties or Map to lookup in the registry to      * use for configuring jcache.      */
+DECL|field|cacheConfigurationPropertiesRef
+specifier|private
+name|String
+name|cacheConfigurationPropertiesRef
 decl_stmt|;
 comment|/**      * An implementation specific URI for the CacheManager      */
 DECL|field|configurationUri
@@ -194,7 +210,7 @@ expr_stmt|;
 block|}
 DECL|method|getCacheConfigurationProperties ()
 specifier|public
-name|String
+name|Map
 name|getCacheConfigurationProperties
 parameter_list|()
 block|{
@@ -202,12 +218,12 @@ return|return
 name|cacheConfigurationProperties
 return|;
 block|}
-DECL|method|setCacheConfigurationProperties ( String cacheConfigurationProperties)
+DECL|method|setCacheConfigurationProperties (Map cacheConfigurationProperties)
 specifier|public
 name|void
 name|setCacheConfigurationProperties
 parameter_list|(
-name|String
+name|Map
 name|cacheConfigurationProperties
 parameter_list|)
 block|{
@@ -216,6 +232,32 @@ operator|.
 name|cacheConfigurationProperties
 operator|=
 name|cacheConfigurationProperties
+expr_stmt|;
+block|}
+DECL|method|getCacheConfigurationPropertiesRef ()
+specifier|public
+name|String
+name|getCacheConfigurationPropertiesRef
+parameter_list|()
+block|{
+return|return
+name|cacheConfigurationPropertiesRef
+return|;
+block|}
+DECL|method|setCacheConfigurationPropertiesRef ( String cacheConfigurationPropertiesRef)
+specifier|public
+name|void
+name|setCacheConfigurationPropertiesRef
+parameter_list|(
+name|String
+name|cacheConfigurationPropertiesRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheConfigurationPropertiesRef
+operator|=
+name|cacheConfigurationPropertiesRef
 expr_stmt|;
 block|}
 DECL|method|getConfigurationUri ()

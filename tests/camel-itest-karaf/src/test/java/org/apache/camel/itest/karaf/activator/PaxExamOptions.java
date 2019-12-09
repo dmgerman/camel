@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.itest.karaf.main
+DECL|package|org.apache.camel.itest.karaf.activator
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|itest
 operator|.
 name|karaf
 operator|.
-name|main
+name|activator
 package|;
 end_package
 
