@@ -194,15 +194,6 @@ argument_list|>
 implements|implements
 name|StaticService
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|1L
-decl_stmt|;
 DECL|field|context
 specifier|protected
 specifier|final

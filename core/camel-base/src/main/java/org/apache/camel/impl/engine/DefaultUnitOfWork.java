@@ -362,11 +362,6 @@ comment|//   to its name. Maybe this implementation should be named ExchangeCont
 comment|//   introduce a simpler UnitOfWork concept. This would also allow us to refactor the
 comment|//   SubUnitOfWork into a general parent/child unit of work concept. However this
 comment|//   requires API changes and thus is best kept for Camel 3.0
-DECL|field|parent
-specifier|private
-name|UnitOfWork
-name|parent
-decl_stmt|;
 DECL|field|id
 specifier|private
 name|String
@@ -819,14 +814,7 @@ parameter_list|(
 name|UnitOfWork
 name|parentUnitOfWork
 parameter_list|)
-block|{
-name|this
-operator|.
-name|parent
-operator|=
-name|parentUnitOfWork
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createChildUnitOfWork (Exchange childExchange)
@@ -912,10 +900,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 name|originalInMessage
-operator|=
-literal|null
-expr_stmt|;
-name|parent
 operator|=
 literal|null
 expr_stmt|;

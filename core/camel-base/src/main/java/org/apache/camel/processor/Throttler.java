@@ -1311,16 +1311,6 @@ operator|=
 name|key
 expr_stmt|;
 block|}
-DECL|method|getKey ()
-specifier|public
-name|String
-name|getKey
-parameter_list|()
-block|{
-return|return
-name|key
-return|;
-block|}
 DECL|method|getThrottleRate ()
 specifier|public
 name|int

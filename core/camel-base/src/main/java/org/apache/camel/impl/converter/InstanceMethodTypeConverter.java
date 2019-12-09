@@ -141,12 +141,6 @@ specifier|final
 name|boolean
 name|useExchange
 decl_stmt|;
-DECL|field|registry
-specifier|private
-specifier|final
-name|TypeConverterRegistry
-name|registry
-decl_stmt|;
 DECL|field|allowNull
 specifier|private
 specifier|final
@@ -195,12 +189,6 @@ name|getParameterCount
 argument_list|()
 operator|==
 literal|2
-expr_stmt|;
-name|this
-operator|.
-name|registry
-operator|=
-name|registry
 expr_stmt|;
 name|this
 operator|.
