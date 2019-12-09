@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -122,10 +132,16 @@ name|enableJmx
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Properties to configure the Quartz scheduler. The option is a      * java.util.Properties type.      */
-DECL|field|properties
+comment|/**      * References to an existing Properties or Map to lookup in the registry to      * use for configuring quartz.      */
+DECL|field|propertiesRef
 specifier|private
 name|String
+name|propertiesRef
+decl_stmt|;
+comment|/**      * Properties to configure the Quartz scheduler.      */
+DECL|field|properties
+specifier|private
+name|Map
 name|properties
 decl_stmt|;
 comment|/**      * File name of the properties to load from the classpath      */
@@ -290,9 +306,35 @@ operator|=
 name|enableJmx
 expr_stmt|;
 block|}
-DECL|method|getProperties ()
+DECL|method|getPropertiesRef ()
 specifier|public
 name|String
+name|getPropertiesRef
+parameter_list|()
+block|{
+return|return
+name|propertiesRef
+return|;
+block|}
+DECL|method|setPropertiesRef (String propertiesRef)
+specifier|public
+name|void
+name|setPropertiesRef
+parameter_list|(
+name|String
+name|propertiesRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|propertiesRef
+operator|=
+name|propertiesRef
+expr_stmt|;
+block|}
+DECL|method|getProperties ()
+specifier|public
+name|Map
 name|getProperties
 parameter_list|()
 block|{
@@ -300,12 +342,12 @@ return|return
 name|properties
 return|;
 block|}
-DECL|method|setProperties (String properties)
+DECL|method|setProperties (Map properties)
 specifier|public
 name|void
 name|setProperties
 parameter_list|(
-name|String
+name|Map
 name|properties
 parameter_list|)
 block|{
