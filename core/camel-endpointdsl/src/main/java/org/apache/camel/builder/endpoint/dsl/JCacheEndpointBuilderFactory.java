@@ -36,7 +36,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
+name|Map
 import|;
 end_import
 
@@ -198,13 +198,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          *           * The option is a:<code>java.util.Properties</code> type.          *           * Group: common          */
-DECL|method|cacheConfigurationProperties ( Properties cacheConfigurationProperties)
+comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          *           * The option is a:<code>java.util.Map</code> type.          *           * Group: common          */
+DECL|method|cacheConfigurationProperties ( Map cacheConfigurationProperties)
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|cacheConfigurationProperties
 parameter_list|(
-name|Properties
+name|Map
 name|cacheConfigurationProperties
 parameter_list|)
 block|{
@@ -219,7 +219,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          *           * The option will be converted to a<code>java.util.Properties</code>          * type.          *           * Group: common          */
+comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          *           * The option will be converted to a<code>java.util.Map</code> type.          *           * Group: common          */
 DECL|method|cacheConfigurationProperties ( String cacheConfigurationProperties)
 specifier|default
 name|JCacheEndpointConsumerBuilder
@@ -1130,13 +1130,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          *           * The option is a:<code>java.util.Properties</code> type.          *           * Group: common          */
-DECL|method|cacheConfigurationProperties ( Properties cacheConfigurationProperties)
+comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          *           * The option is a:<code>java.util.Map</code> type.          *           * Group: common          */
+DECL|method|cacheConfigurationProperties ( Map cacheConfigurationProperties)
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|cacheConfigurationProperties
 parameter_list|(
-name|Properties
+name|Map
 name|cacheConfigurationProperties
 parameter_list|)
 block|{
@@ -1151,7 +1151,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          *           * The option will be converted to a<code>java.util.Properties</code>          * type.          *           * Group: common          */
+comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          *           * The option will be converted to a<code>java.util.Map</code> type.          *           * Group: common          */
 DECL|method|cacheConfigurationProperties ( String cacheConfigurationProperties)
 specifier|default
 name|JCacheEndpointProducerBuilder
@@ -1827,13 +1827,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          *           * The option is a:<code>java.util.Properties</code> type.          *           * Group: common          */
-DECL|method|cacheConfigurationProperties ( Properties cacheConfigurationProperties)
+comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          *           * The option is a:<code>java.util.Map</code> type.          *           * Group: common          */
+DECL|method|cacheConfigurationProperties ( Map cacheConfigurationProperties)
 specifier|default
 name|JCacheEndpointBuilder
 name|cacheConfigurationProperties
 parameter_list|(
-name|Properties
+name|Map
 name|cacheConfigurationProperties
 parameter_list|)
 block|{
@@ -1848,7 +1848,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          *           * The option will be converted to a<code>java.util.Properties</code>          * type.          *           * Group: common          */
+comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          *           * The option will be converted to a<code>java.util.Map</code> type.          *           * Group: common          */
 DECL|method|cacheConfigurationProperties ( String cacheConfigurationProperties)
 specifier|default
 name|JCacheEndpointBuilder
