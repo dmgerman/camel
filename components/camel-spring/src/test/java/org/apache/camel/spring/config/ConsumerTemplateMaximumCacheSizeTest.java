@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -105,6 +117,18 @@ operator|.
 name|context
 operator|.
 name|ContextConfiguration
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
 import|;
 end_import
 
@@ -237,32 +261,48 @@ operator|.
 name|cleanUp
 argument_list|()
 expr_stmt|;
-comment|// eviction may still run a bit
-name|int
-name|currentCacheSize
-init|=
+name|await
+argument_list|()
+operator|.
+name|atMost
+argument_list|(
+literal|2
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+parameter_list|()
+lambda|->
 name|template
 operator|.
 name|getCurrentCacheSize
 argument_list|()
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Size should be around 50, but was "
-operator|+
-name|currentCacheSize
-argument_list|,
-name|currentCacheSize
-operator|<=
-literal|53
+operator|==
+literal|50
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Size should be 50"
+argument_list|,
+literal|50
+argument_list|,
+name|template
+operator|.
+name|getCurrentCacheSize
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// should be 0
 name|template
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// should be 0
 name|assertEquals
 argument_list|(
 literal|"Size should be 0"
