@@ -104,7 +104,7 @@ name|syntax
 operator|=
 literal|"atomix-multimap:resourceName"
 argument_list|,
-name|consumerOnly
+name|producerOnly
 operator|=
 literal|true
 argument_list|,
