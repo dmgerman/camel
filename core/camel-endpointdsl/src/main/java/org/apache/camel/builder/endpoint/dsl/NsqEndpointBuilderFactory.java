@@ -136,21 +136,21 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
-DECL|method|topic (String topic)
+comment|/**          * The hostnames of one or more nsqlookupd servers (consumer) or nsqd          * servers (producer).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|servers (String servers)
 specifier|default
 name|NsqEndpointConsumerBuilder
-name|topic
+name|servers
 parameter_list|(
 name|String
-name|topic
+name|servers
 parameter_list|)
 block|{
 name|doSetProperty
 argument_list|(
-literal|"topic"
+literal|"servers"
 argument_list|,
-name|topic
+name|servers
 argument_list|)
 expr_stmt|;
 return|return
@@ -789,21 +789,21 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
-DECL|method|topic (String topic)
+comment|/**          * The hostnames of one or more nsqlookupd servers (consumer) or nsqd          * servers (producer).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|servers (String servers)
 specifier|default
 name|NsqEndpointProducerBuilder
-name|topic
+name|servers
 parameter_list|(
 name|String
-name|topic
+name|servers
 parameter_list|)
 block|{
 name|doSetProperty
 argument_list|(
-literal|"topic"
+literal|"servers"
 argument_list|,
-name|topic
+name|servers
 argument_list|)
 expr_stmt|;
 return|return
@@ -1129,21 +1129,21 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
-DECL|method|topic (String topic)
+comment|/**          * The hostnames of one or more nsqlookupd servers (consumer) or nsqd          * servers (producer).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|servers (String servers)
 specifier|default
 name|NsqEndpointBuilder
-name|topic
+name|servers
 parameter_list|(
 name|String
-name|topic
+name|servers
 parameter_list|)
 block|{
 name|doSetProperty
 argument_list|(
-literal|"topic"
+literal|"servers"
 argument_list|,
-name|topic
+name|servers
 argument_list|)
 expr_stmt|;
 return|return
@@ -1364,7 +1364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * NSQ (camel-nsq)      * Represents a nsq endpoint.      *       * Category: messaging      * Since: 2.23      * Maven coordinates: org.apache.camel:camel-nsq      *       * Syntax:<code>nsq:servers</code>      *       * Path parameter: servers (required)      * The hostnames of one or more nsqlookupd servers (consumer) or nsqd      * servers (producer).      */
+comment|/**      * NSQ (camel-nsq)      * Represents a nsq endpoint.      *       * Category: messaging      * Since: 2.23      * Maven coordinates: org.apache.camel:camel-nsq      *       * Syntax:<code>nsq:topic</code>      *       * Path parameter: topic (required)      * The name of topic we want to use      */
 DECL|method|nsq (String path)
 specifier|default
 name|NsqEndpointBuilder

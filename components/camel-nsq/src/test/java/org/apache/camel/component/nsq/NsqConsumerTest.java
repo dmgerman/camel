@@ -449,12 +449,12 @@ name|Exception
 block|{
 name|fromF
 argument_list|(
-literal|"nsq://%s?topic=%s&lookupInterval=2s&autoFinish=false&requeueInterval=1s"
+literal|"nsq://%s?servers=%s&lookupInterval=2s&autoFinish=false&requeueInterval=1s"
+argument_list|,
+name|TOPIC
 argument_list|,
 name|getNsqConsumerUrl
 argument_list|()
-argument_list|,
-name|TOPIC
 argument_list|)
 operator|.
 name|process

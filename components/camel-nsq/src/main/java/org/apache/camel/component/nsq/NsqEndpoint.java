@@ -218,7 +218,7 @@ literal|"NSQ"
 argument_list|,
 name|syntax
 operator|=
-literal|"nsq:servers"
+literal|"nsq:topic"
 argument_list|,
 name|label
 operator|=
@@ -318,7 +318,9 @@ literal|"Missing required endpoint configuration: topic must be defined for NSQ 
 argument_list|)
 throw|;
 block|}
-return|return
+name|Consumer
+name|consumer
+init|=
 operator|new
 name|NsqConsumer
 argument_list|(
@@ -326,6 +328,14 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+return|return
+name|consumer
 return|;
 block|}
 DECL|method|createExecutor ()
@@ -360,6 +370,22 @@ name|getPoolSize
 argument_list|()
 argument_list|)
 return|;
+block|}
+DECL|method|setConfiguration (NsqConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|NsqConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
 specifier|public
