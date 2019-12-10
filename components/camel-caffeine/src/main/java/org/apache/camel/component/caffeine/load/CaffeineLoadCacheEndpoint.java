@@ -243,6 +243,10 @@ argument_list|,
 name|label
 operator|=
 literal|"cache,datagrid,clustering"
+argument_list|,
+name|producerOnly
+operator|=
+literal|true
 argument_list|)
 DECL|class|CaffeineLoadCacheEndpoint
 specifier|public

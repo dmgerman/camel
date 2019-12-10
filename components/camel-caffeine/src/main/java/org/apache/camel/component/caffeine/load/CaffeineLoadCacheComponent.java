@@ -271,14 +271,9 @@ operator|.
 name|copy
 argument_list|()
 decl_stmt|;
-name|setProperties
-argument_list|(
-name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
+name|CaffeineLoadCacheEndpoint
+name|endpoint
+init|=
 operator|new
 name|CaffeineLoadCacheEndpoint
 argument_list|(
@@ -290,6 +285,16 @@ name|remaining
 argument_list|,
 name|configuration
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 comment|// ****************************
