@@ -174,7 +174,7 @@ name|syntax
 operator|=
 literal|"bonita:operation"
 argument_list|,
-name|consumerOnly
+name|producerOnly
 operator|=
 literal|true
 argument_list|,
