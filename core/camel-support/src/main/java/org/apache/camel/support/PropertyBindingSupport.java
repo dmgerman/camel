@@ -56,16 +56,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Comparator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -1939,36 +1929,10 @@ argument_list|,
 literal|"properties"
 argument_list|)
 expr_stmt|;
-specifier|final
-name|String
-name|uOptionPrefix
+name|boolean
+name|rc
 init|=
-name|ignoreCase
-operator|&&
-name|isNotEmpty
-argument_list|(
-name|optionPrefix
-argument_list|)
-condition|?
-name|optionPrefix
-operator|.
-name|toUpperCase
-argument_list|(
-name|Locale
-operator|.
-name|US
-argument_list|)
-else|:
-literal|""
-decl_stmt|;
-specifier|final
-name|int
-name|size
-init|=
-name|properties
-operator|.
-name|size
-argument_list|()
+literal|false
 decl_stmt|;
 if|if
 condition|(
@@ -2046,18 +2010,33 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-comment|// property configurer does not support nested names so skip if the name has a dot
+name|boolean
+name|valid
+init|=
+literal|true
+decl_stmt|;
 if|if
 condition|(
+name|nesting
+condition|)
+block|{
+comment|// property configurer does not support nested names so skip if the name has a dot
+name|valid
+operator|=
 name|key
 operator|.
 name|indexOf
 argument_list|(
 literal|'.'
 argument_list|)
-operator|!=
+operator|==
 operator|-
 literal|1
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|valid
 condition|)
 block|{
 try|try
@@ -2134,6 +2113,10 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
+name|rc
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 catch|catch
@@ -2160,6 +2143,14 @@ block|}
 block|}
 block|}
 comment|// must set reference parameters first before the other bindings
+name|int
+name|size
+init|=
+name|properties
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 name|setReferenceProperties
 argument_list|(
 name|camelContext
@@ -2169,61 +2160,103 @@ argument_list|,
 name|properties
 argument_list|)
 expr_stmt|;
-comment|// sort the keys by nesting level so when moving to the nest level all the
-comment|// propertis of the curent level are bound to the target. This allow the
-comment|// properties binging engine to be indipendent to the order of properrties.
-comment|//
-comment|// As example:
-comment|//
-comment|//     configuration.my-property = myCustomValue
-comment|//     configuration = #class:my.custom.Config
-comment|//
-comment|// 'configuration.my-property' has lower precedence over 'configuration' as
-comment|// it is one level deep and will be set after all the properties of the current
-comment|// level are set which allow `my-property` to be set of the right instance.
+name|rc
+operator||=
 name|properties
 operator|.
-name|keySet
+name|size
 argument_list|()
-operator|.
-name|stream
-argument_list|()
-operator|.
-name|sorted
+operator|!=
+name|size
+expr_stmt|;
+name|String
+name|uOptionPrefix
+init|=
+literal|""
+decl_stmt|;
+if|if
+condition|(
+name|ignoreCase
+operator|&&
+name|isNotEmpty
 argument_list|(
-name|Comparator
-operator|.
-name|comparingInt
-argument_list|(
-name|s
-lambda|->
-name|StringHelper
-operator|.
-name|countChar
-argument_list|(
-name|s
-argument_list|,
-literal|'.'
+name|optionPrefix
 argument_list|)
-argument_list|)
-argument_list|)
-operator|.
-name|forEach
-argument_list|(
-name|key
-lambda|->
+condition|)
 block|{
-name|final
+name|uOptionPrefix
+operator|=
+name|optionPrefix
+operator|.
+name|toUpperCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+expr_stmt|;
+block|}
+for|for
+control|(
+name|Iterator
+argument_list|<
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
+name|iter
+init|=
+name|properties
+operator|.
+name|entrySet
+argument_list|()
+operator|.
+name|iterator
+argument_list|()
+init|;
+name|iter
+operator|.
+name|hasNext
+argument_list|()
+condition|;
+control|)
+block|{
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|entry
+init|=
+name|iter
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+name|String
+name|key
+init|=
+name|entry
+operator|.
+name|getKey
+argument_list|()
+decl_stmt|;
 name|Object
 name|value
-operator|=
-name|properties
+init|=
+name|entry
 operator|.
-name|get
-argument_list|(
-name|key
-argument_list|)
-block|;
+name|getValue
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|isNotEmpty
@@ -2264,10 +2297,10 @@ operator|!
 name|match
 condition|)
 block|{
-return|return;
+continue|continue;
 block|}
-lambda|key
-init|=
+name|key
+operator|=
 name|key
 operator|.
 name|substring
@@ -2277,7 +2310,7 @@ operator|.
 name|length
 argument_list|()
 argument_list|)
-argument_list|;
+expr_stmt|;
 block|}
 name|boolean
 name|bound
@@ -2314,12 +2347,14 @@ operator|&&
 name|removeParameter
 condition|)
 block|{
-name|properties
+name|iter
 operator|.
 name|remove
-argument_list|(
-name|key
-argument_list|)
+argument_list|()
+expr_stmt|;
+name|rc
+operator|=
+literal|true
 expr_stmt|;
 block|}
 if|if
@@ -2343,27 +2378,12 @@ argument_list|)
 throw|;
 block|}
 block|}
-end_class
-
-begin_empty_stmt
-unit|)
-empty_stmt|;
-end_empty_stmt
-
-begin_return
 return|return
-name|properties
-operator|.
-name|size
-argument_list|()
-operator|!=
-name|size
+name|rc
 return|;
-end_return
-
-begin_function
-unit|}      private
+block|}
 DECL|method|bindProperty (CamelContext camelContext, Object target, String name, Object value, boolean ignoreCase, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
+specifier|private
 specifier|static
 name|boolean
 name|bindProperty
@@ -2469,9 +2489,6 @@ return|return
 literal|false
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|resolveValue (CamelContext context, Object target, String name, Object value, boolean ignoreCase, boolean fluentBuilder, boolean allowPrivateSetter)
 specifier|private
 specifier|static
@@ -3073,9 +3090,6 @@ return|return
 name|value
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setProperty (CamelContext context, Object target, String name, Object value, boolean mandatory, boolean ignoreCase, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
 specifier|private
 specifier|static
@@ -3608,9 +3622,6 @@ return|return
 name|hit
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|getOrElseProperty (CamelContext context, Object target, String property, Object defaultValue, boolean ignoreCase)
 specifier|private
 specifier|static
@@ -3846,9 +3857,6 @@ else|:
 name|defaultValue
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|findBestSetterMethod (CamelContext context, Class clazz, String name, boolean fluentBuilder, boolean allowPrivateSetter, boolean ignoreCase)
 specifier|private
 specifier|static
@@ -3984,9 +3992,6 @@ return|return
 literal|null
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|getGetterType (CamelContext context, Object target, String name, boolean ignoreCase)
 specifier|private
 specifier|static
@@ -4112,9 +4117,6 @@ return|return
 literal|null
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|isComplexUserType (Class type)
 specifier|private
 specifier|static
@@ -4149,9 +4151,6 @@ literal|"java."
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setReferenceProperties (CamelContext context, Object target, Map<String, Object> parameters)
 specifier|private
 specifier|static
@@ -4355,13 +4354,7 @@ block|}
 block|}
 block|}
 block|}
-end_function
-
-begin_comment
 comment|/**      * Is the given parameter a reference parameter (starting with a # char)      *      * @param parameter the parameter      * @return<tt>true</tt> if its a reference parameter      */
-end_comment
-
-begin_function
 DECL|method|isReferenceParameter (String parameter)
 specifier|private
 specifier|static
@@ -4388,9 +4381,6 @@ literal|"#"
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|newInstanceConstructorParameters (CamelContext camelContext, Class<?> type, String parameters)
 specifier|private
 specifier|static
@@ -4555,13 +4545,7 @@ return|return
 literal|null
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Finds the best matching constructor for the given parameters.      *<p/>      * This implementation is similar to the logic in camel-bean.      *      * @param constructors the constructors      * @param params       the parameters      * @return the constructor, or null if no matching constructor can be found      */
-end_comment
-
-begin_function
 DECL|method|findMatchingConstructor (Constructor<?>[] constructors, String[] params)
 specifier|private
 specifier|static
@@ -4780,13 +4764,7 @@ else|:
 name|fallbackCandidate
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Determines and maps the given value is valid according to the supported      * values by the bean component.      *<p/>      * This implementation is similar to the logic in camel-bean.      *      * @param value the value      * @return the parameter type the given value is being mapped as, or<tt>null</tt> if not valid.      */
-end_comment
-
-begin_function
 DECL|method|getValidParameterType (String value)
 specifier|private
 specifier|static
@@ -4989,9 +4967,6 @@ return|return
 literal|null
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|isParameterMatchingType (Class<?> parameterType, Class<?> expectedType)
 specifier|private
 specifier|static
@@ -5116,8 +5091,8 @@ name|expectedType
 argument_list|)
 return|;
 block|}
-end_function
+block|}
+end_class
 
-unit|}
 end_unit
 
