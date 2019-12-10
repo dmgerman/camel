@@ -151,13 +151,6 @@ argument_list|(
 name|remaining
 argument_list|)
 expr_stmt|;
-name|setProperties
-argument_list|(
-name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 comment|// [CAMEL-11889] Kie assumes that the TCCL can load its services
 name|ClassLoader
 name|tccl
@@ -219,7 +212,9 @@ name|tccl
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|OptaPlannerEndpoint
+name|answer
+init|=
 operator|new
 name|OptaPlannerEndpoint
 argument_list|(
@@ -229,6 +224,16 @@ name|this
 argument_list|,
 name|configuration
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|answer
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 block|}
