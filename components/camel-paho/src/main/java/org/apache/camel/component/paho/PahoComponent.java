@@ -241,13 +241,6 @@ argument_list|)
 expr_stmt|;
 name|setProperties
 argument_list|(
-name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-name|setProperties
-argument_list|(
 name|answer
 argument_list|,
 name|parameters
