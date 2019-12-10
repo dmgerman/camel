@@ -114,6 +114,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriPath
 import|;
 end_import
@@ -181,8 +195,8 @@ name|ConsulEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-comment|// @UriParam(description = "The consul configuration")
-comment|// @Metadata
+annotation|@
+name|UriParam
 DECL|field|configuration
 specifier|private
 specifier|final

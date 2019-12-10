@@ -332,10 +332,6 @@ name|SSLContextParameters
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents the component that manages {@link ConsulEndpoint}.  */
-end_comment
-
 begin_class
 annotation|@
 name|Component
@@ -484,7 +480,7 @@ name|getSslContextParameters
 argument_list|()
 return|;
 block|}
-comment|/**      * SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters      * instance.      * @param sslContextParameters      */
+comment|/**      * SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters      * instance.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -548,7 +544,7 @@ name|getAclToken
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the ACL token to be used with Consul      * @param aclToken      */
+comment|/**      * Sets the ACL token to be used with Consul      */
 DECL|method|setAclToken (String aclToken)
 specifier|public
 name|void
@@ -579,7 +575,7 @@ name|getUserName
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the username to be used for basic authentication      * @param userName      */
+comment|/**      * Sets the username to be used for basic authentication      */
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -610,7 +606,7 @@ name|getPassword
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the password to be used for basic authentication      * @param password      */
+comment|/**      * Sets the password to be used for basic authentication      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -701,33 +697,11 @@ operator|.
 name|copy
 argument_list|()
 decl_stmt|;
-comment|// using global ssl context parameters if set
-if|if
-condition|(
-name|configuration
-operator|.
-name|getSslContextParameters
-argument_list|()
-operator|==
+name|ConsulEndpoint
+name|endpoint
+init|=
 literal|null
-condition|)
-block|{
-name|configuration
-operator|.
-name|setSslContextParameters
-argument_list|(
-name|retrieveGlobalSslContextParameters
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-name|setProperties
-argument_list|(
-name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 switch|switch
 condition|(
 name|remaining
@@ -736,7 +710,8 @@ block|{
 case|case
 literal|"kv"
 case|:
-return|return
+name|endpoint
+operator|=
 operator|new
 name|ConsulEndpoint
 argument_list|(
@@ -766,11 +741,13 @@ operator|::
 operator|new
 argument_list|)
 argument_list|)
-return|;
+expr_stmt|;
+break|break;
 case|case
 literal|"event"
 case|:
-return|return
+name|endpoint
+operator|=
 operator|new
 name|ConsulEndpoint
 argument_list|(
@@ -800,11 +777,13 @@ operator|::
 operator|new
 argument_list|)
 argument_list|)
-return|;
+expr_stmt|;
+break|break;
 case|case
 literal|"agent"
 case|:
-return|return
+name|endpoint
+operator|=
 operator|new
 name|ConsulEndpoint
 argument_list|(
@@ -830,11 +809,13 @@ operator|.
 name|empty
 argument_list|()
 argument_list|)
-return|;
+expr_stmt|;
+break|break;
 case|case
 literal|"coordinates"
 case|:
-return|return
+name|endpoint
+operator|=
 operator|new
 name|ConsulEndpoint
 argument_list|(
@@ -860,11 +841,13 @@ operator|.
 name|empty
 argument_list|()
 argument_list|)
-return|;
+expr_stmt|;
+break|break;
 case|case
 literal|"health"
 case|:
-return|return
+name|endpoint
+operator|=
 operator|new
 name|ConsulEndpoint
 argument_list|(
@@ -890,11 +873,13 @@ operator|.
 name|empty
 argument_list|()
 argument_list|)
-return|;
+expr_stmt|;
+break|break;
 case|case
 literal|"status"
 case|:
-return|return
+name|endpoint
+operator|=
 operator|new
 name|ConsulEndpoint
 argument_list|(
@@ -920,11 +905,13 @@ operator|.
 name|empty
 argument_list|()
 argument_list|)
-return|;
+expr_stmt|;
+break|break;
 case|case
 literal|"preparedQuery"
 case|:
-return|return
+name|endpoint
+operator|=
 operator|new
 name|ConsulEndpoint
 argument_list|(
@@ -950,11 +937,13 @@ operator|.
 name|empty
 argument_list|()
 argument_list|)
-return|;
+expr_stmt|;
+break|break;
 case|case
 literal|"catalog"
 case|:
-return|return
+name|endpoint
+operator|=
 operator|new
 name|ConsulEndpoint
 argument_list|(
@@ -980,11 +969,13 @@ operator|.
 name|empty
 argument_list|()
 argument_list|)
-return|;
+expr_stmt|;
+break|break;
 case|case
 literal|"session"
 case|:
-return|return
+name|endpoint
+operator|=
 operator|new
 name|ConsulEndpoint
 argument_list|(
@@ -1010,18 +1001,55 @@ operator|.
 name|empty
 argument_list|()
 argument_list|)
-return|;
-default|default:
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|endpoint
+operator|==
+literal|null
+condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unknown apiEndpoint: "
+literal|"Unknown operation "
 operator|+
 name|remaining
 argument_list|)
 throw|;
 block|}
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+comment|// using global ssl context parameters if set
+if|if
+condition|(
+name|configuration
+operator|.
+name|getSslContextParameters
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|configuration
+operator|.
+name|setSslContextParameters
+argument_list|(
+name|retrieveGlobalSslContextParameters
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|endpoint
+return|;
 block|}
 block|}
 end_class

@@ -22,6 +22,36 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|math
+operator|.
+name|BigInteger
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -136,6 +166,303 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * Connect timeout for OkHttpClient.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|connectTimeoutMillis ( Long connectTimeoutMillis)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|connectTimeoutMillis
+parameter_list|(
+name|Long
+name|connectTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connectTimeoutMillis"
+argument_list|,
+name|connectTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Connect timeout for OkHttpClient.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|connectTimeoutMillis ( String connectTimeoutMillis)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|connectTimeoutMillis
+parameter_list|(
+name|String
+name|connectTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connectTimeoutMillis"
+argument_list|,
+name|connectTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Reference to a com.orbitz.consul.Consul in the registry.          *           * The option is a:<code>com.orbitz.consul.Consul</code> type.          *           * Group: common          */
+DECL|method|consulClient (Object consulClient)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|consulClient
+parameter_list|(
+name|Object
+name|consulClient
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"consulClient"
+argument_list|,
+name|consulClient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Reference to a com.orbitz.consul.Consul in the registry.          *           * The option will be converted to a          *<code>com.orbitz.consul.Consul</code> type.          *           * Group: common          */
+DECL|method|consulClient (String consulClient)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|consulClient
+parameter_list|(
+name|String
+name|consulClient
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"consulClient"
+argument_list|,
+name|consulClient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The default key. Can be overridden by CamelConsulKey.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|key (String key)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|key
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"key"
+argument_list|,
+name|key
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure if the AgentClient should attempt a ping before returning          * the Consul instance.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+DECL|method|pingInstance (boolean pingInstance)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|pingInstance
+parameter_list|(
+name|boolean
+name|pingInstance
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"pingInstance"
+argument_list|,
+name|pingInstance
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure if the AgentClient should attempt a ping before returning          * the Consul instance.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
+DECL|method|pingInstance (String pingInstance)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|pingInstance
+parameter_list|(
+name|String
+name|pingInstance
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"pingInstance"
+argument_list|,
+name|pingInstance
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Read timeout for OkHttpClient.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|readTimeoutMillis ( Long readTimeoutMillis)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|readTimeoutMillis
+parameter_list|(
+name|Long
+name|readTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"readTimeoutMillis"
+argument_list|,
+name|readTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Read timeout for OkHttpClient.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|readTimeoutMillis ( String readTimeoutMillis)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|readTimeoutMillis
+parameter_list|(
+name|String
+name|readTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"readTimeoutMillis"
+argument_list|,
+name|readTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set tags. You can separate multiple tags by comma.          *           * The option is a:<code>java.util.Set&lt;java.lang.String&gt;</code>          * type.          *           * Group: common          */
+DECL|method|tags (Set<String> tags)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|tags
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|tags
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"tags"
+argument_list|,
+name|tags
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set tags. You can separate multiple tags by comma.          *           * The option will be converted to a          *<code>java.util.Set&lt;java.lang.String&gt;</code> type.          *           * Group: common          */
+DECL|method|tags (String tags)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|tags
+parameter_list|(
+name|String
+name|tags
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"tags"
+argument_list|,
+name|tags
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The Consul agent URL.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|url (String url)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|url
+parameter_list|(
+name|String
+name|url
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"url"
+argument_list|,
+name|url
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Write timeout for OkHttpClient.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|writeTimeoutMillis ( Long writeTimeoutMillis)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|writeTimeoutMillis
+parameter_list|(
+name|Long
+name|writeTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"writeTimeoutMillis"
+argument_list|,
+name|writeTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Write timeout for OkHttpClient.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|writeTimeoutMillis ( String writeTimeoutMillis)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|writeTimeoutMillis
+parameter_list|(
+name|String
+name|writeTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"writeTimeoutMillis"
+argument_list|,
+name|writeTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -172,6 +499,237 @@ argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
 name|bridgeErrorHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The second to wait for a watch event, default 10 seconds.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: watch          */
+DECL|method|blockSeconds (Integer blockSeconds)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|blockSeconds
+parameter_list|(
+name|Integer
+name|blockSeconds
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"blockSeconds"
+argument_list|,
+name|blockSeconds
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The second to wait for a watch event, default 10 seconds.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: watch          */
+DECL|method|blockSeconds (String blockSeconds)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|blockSeconds
+parameter_list|(
+name|String
+name|blockSeconds
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"blockSeconds"
+argument_list|,
+name|blockSeconds
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The first index for watch for, default 0.          *           * The option is a:<code>java.math.BigInteger</code> type.          *           * Group: watch          */
+DECL|method|firstIndex (BigInteger firstIndex)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|firstIndex
+parameter_list|(
+name|BigInteger
+name|firstIndex
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"firstIndex"
+argument_list|,
+name|firstIndex
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The first index for watch for, default 0.          *           * The option will be converted to a<code>java.math.BigInteger</code>          * type.          *           * Group: watch          */
+DECL|method|firstIndex (String firstIndex)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|firstIndex
+parameter_list|(
+name|String
+name|firstIndex
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"firstIndex"
+argument_list|,
+name|firstIndex
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Recursively watch, default false.          *           * The option is a:<code>boolean</code> type.          *           * Group: watch          */
+DECL|method|recursive (boolean recursive)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|recursive
+parameter_list|(
+name|boolean
+name|recursive
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"recursive"
+argument_list|,
+name|recursive
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Recursively watch, default false.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: watch          */
+DECL|method|recursive (String recursive)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|recursive
+parameter_list|(
+name|String
+name|recursive
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"recursive"
+argument_list|,
+name|recursive
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the ACL token to be used with Consul.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|aclToken (String aclToken)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|aclToken
+parameter_list|(
+name|String
+name|aclToken
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"aclToken"
+argument_list|,
+name|aclToken
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the password to be used for basic authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|password (String password)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|password
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"password"
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * SSL configuration using an          * org.apache.camel.support.jsse.SSLContextParameters instance.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
+DECL|method|sslContextParameters ( Object sslContextParameters)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|sslContextParameters
+parameter_list|(
+name|Object
+name|sslContextParameters
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sslContextParameters"
+argument_list|,
+name|sslContextParameters
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * SSL configuration using an          * org.apache.camel.support.jsse.SSLContextParameters instance.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
+DECL|method|sslContextParameters ( String sslContextParameters)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|sslContextParameters
+parameter_list|(
+name|String
+name|sslContextParameters
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sslContextParameters"
+argument_list|,
+name|sslContextParameters
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the username to be used for basic authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|userName (String userName)
+specifier|default
+name|ConsulEndpointConsumerBuilder
+name|userName
+parameter_list|(
+name|String
+name|userName
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"userName"
+argument_list|,
+name|userName
 argument_list|)
 expr_stmt|;
 return|return
@@ -326,6 +884,135 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * The consistencyMode used for queries, default          * ConsistencyMode.DEFAULT.          *           * The option is a:          *<code>com.orbitz.consul.option.ConsistencyMode</code> type.          *           * Group: advanced          */
+DECL|method|consistencyMode ( ConsistencyMode consistencyMode)
+specifier|default
+name|AdvancedConsulEndpointConsumerBuilder
+name|consistencyMode
+parameter_list|(
+name|ConsistencyMode
+name|consistencyMode
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"consistencyMode"
+argument_list|,
+name|consistencyMode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The consistencyMode used for queries, default          * ConsistencyMode.DEFAULT.          *           * The option will be converted to a          *<code>com.orbitz.consul.option.ConsistencyMode</code> type.          *           * Group: advanced          */
+DECL|method|consistencyMode ( String consistencyMode)
+specifier|default
+name|AdvancedConsulEndpointConsumerBuilder
+name|consistencyMode
+parameter_list|(
+name|String
+name|consistencyMode
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"consistencyMode"
+argument_list|,
+name|consistencyMode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The data center.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|datacenter ( String datacenter)
+specifier|default
+name|AdvancedConsulEndpointConsumerBuilder
+name|datacenter
+parameter_list|(
+name|String
+name|datacenter
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"datacenter"
+argument_list|,
+name|datacenter
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The near node to use for queries.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|nearNode (String nearNode)
+specifier|default
+name|AdvancedConsulEndpointConsumerBuilder
+name|nearNode
+parameter_list|(
+name|String
+name|nearNode
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"nearNode"
+argument_list|,
+name|nearNode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The note meta-data to use for queries.          *           * The option is a:<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          *           * Group: advanced          */
+DECL|method|nodeMeta ( List<String> nodeMeta)
+specifier|default
+name|AdvancedConsulEndpointConsumerBuilder
+name|nodeMeta
+parameter_list|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|nodeMeta
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"nodeMeta"
+argument_list|,
+name|nodeMeta
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The note meta-data to use for queries.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          *           * Group: advanced          */
+DECL|method|nodeMeta (String nodeMeta)
+specifier|default
+name|AdvancedConsulEndpointConsumerBuilder
+name|nodeMeta
+parameter_list|(
+name|String
+name|nodeMeta
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"nodeMeta"
+argument_list|,
+name|nodeMeta
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
@@ -390,6 +1077,324 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * Connect timeout for OkHttpClient.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|connectTimeoutMillis ( Long connectTimeoutMillis)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|connectTimeoutMillis
+parameter_list|(
+name|Long
+name|connectTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connectTimeoutMillis"
+argument_list|,
+name|connectTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Connect timeout for OkHttpClient.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|connectTimeoutMillis ( String connectTimeoutMillis)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|connectTimeoutMillis
+parameter_list|(
+name|String
+name|connectTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connectTimeoutMillis"
+argument_list|,
+name|connectTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Reference to a com.orbitz.consul.Consul in the registry.          *           * The option is a:<code>com.orbitz.consul.Consul</code> type.          *           * Group: common          */
+DECL|method|consulClient (Object consulClient)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|consulClient
+parameter_list|(
+name|Object
+name|consulClient
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"consulClient"
+argument_list|,
+name|consulClient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Reference to a com.orbitz.consul.Consul in the registry.          *           * The option will be converted to a          *<code>com.orbitz.consul.Consul</code> type.          *           * Group: common          */
+DECL|method|consulClient (String consulClient)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|consulClient
+parameter_list|(
+name|String
+name|consulClient
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"consulClient"
+argument_list|,
+name|consulClient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The default key. Can be overridden by CamelConsulKey.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|key (String key)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|key
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"key"
+argument_list|,
+name|key
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure if the AgentClient should attempt a ping before returning          * the Consul instance.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+DECL|method|pingInstance (boolean pingInstance)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|pingInstance
+parameter_list|(
+name|boolean
+name|pingInstance
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"pingInstance"
+argument_list|,
+name|pingInstance
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure if the AgentClient should attempt a ping before returning          * the Consul instance.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
+DECL|method|pingInstance (String pingInstance)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|pingInstance
+parameter_list|(
+name|String
+name|pingInstance
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"pingInstance"
+argument_list|,
+name|pingInstance
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Read timeout for OkHttpClient.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|readTimeoutMillis ( Long readTimeoutMillis)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|readTimeoutMillis
+parameter_list|(
+name|Long
+name|readTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"readTimeoutMillis"
+argument_list|,
+name|readTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Read timeout for OkHttpClient.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|readTimeoutMillis ( String readTimeoutMillis)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|readTimeoutMillis
+parameter_list|(
+name|String
+name|readTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"readTimeoutMillis"
+argument_list|,
+name|readTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set tags. You can separate multiple tags by comma.          *           * The option is a:<code>java.util.Set&lt;java.lang.String&gt;</code>          * type.          *           * Group: common          */
+DECL|method|tags (Set<String> tags)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|tags
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|tags
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"tags"
+argument_list|,
+name|tags
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set tags. You can separate multiple tags by comma.          *           * The option will be converted to a          *<code>java.util.Set&lt;java.lang.String&gt;</code> type.          *           * Group: common          */
+DECL|method|tags (String tags)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|tags
+parameter_list|(
+name|String
+name|tags
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"tags"
+argument_list|,
+name|tags
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The Consul agent URL.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|url (String url)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|url
+parameter_list|(
+name|String
+name|url
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"url"
+argument_list|,
+name|url
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Write timeout for OkHttpClient.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|writeTimeoutMillis ( Long writeTimeoutMillis)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|writeTimeoutMillis
+parameter_list|(
+name|Long
+name|writeTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"writeTimeoutMillis"
+argument_list|,
+name|writeTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Write timeout for OkHttpClient.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|writeTimeoutMillis ( String writeTimeoutMillis)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|writeTimeoutMillis
+parameter_list|(
+name|String
+name|writeTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"writeTimeoutMillis"
+argument_list|,
+name|writeTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The default action. Can be overridden by CamelConsulAction.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+DECL|method|action (String action)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|action
+parameter_list|(
+name|String
+name|action
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"action"
+argument_list|,
+name|action
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
@@ -426,6 +1431,153 @@ argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
 name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Default to transform values retrieved from Consul i.e. on KV endpoint          * to string.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|valueAsString ( boolean valueAsString)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|valueAsString
+parameter_list|(
+name|boolean
+name|valueAsString
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"valueAsString"
+argument_list|,
+name|valueAsString
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Default to transform values retrieved from Consul i.e. on KV endpoint          * to string.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|valueAsString (String valueAsString)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|valueAsString
+parameter_list|(
+name|String
+name|valueAsString
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"valueAsString"
+argument_list|,
+name|valueAsString
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the ACL token to be used with Consul.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|aclToken (String aclToken)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|aclToken
+parameter_list|(
+name|String
+name|aclToken
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"aclToken"
+argument_list|,
+name|aclToken
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the password to be used for basic authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|password (String password)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|password
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"password"
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * SSL configuration using an          * org.apache.camel.support.jsse.SSLContextParameters instance.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
+DECL|method|sslContextParameters ( Object sslContextParameters)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|sslContextParameters
+parameter_list|(
+name|Object
+name|sslContextParameters
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sslContextParameters"
+argument_list|,
+name|sslContextParameters
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * SSL configuration using an          * org.apache.camel.support.jsse.SSLContextParameters instance.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
+DECL|method|sslContextParameters ( String sslContextParameters)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|sslContextParameters
+parameter_list|(
+name|String
+name|sslContextParameters
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sslContextParameters"
+argument_list|,
+name|sslContextParameters
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the username to be used for basic authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|userName (String userName)
+specifier|default
+name|ConsulEndpointProducerBuilder
+name|userName
+parameter_list|(
+name|String
+name|userName
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"userName"
+argument_list|,
+name|userName
 argument_list|)
 expr_stmt|;
 return|return
@@ -490,6 +1642,135 @@ argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
 name|basicPropertyBinding
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The consistencyMode used for queries, default          * ConsistencyMode.DEFAULT.          *           * The option is a:          *<code>com.orbitz.consul.option.ConsistencyMode</code> type.          *           * Group: advanced          */
+DECL|method|consistencyMode ( ConsistencyMode consistencyMode)
+specifier|default
+name|AdvancedConsulEndpointProducerBuilder
+name|consistencyMode
+parameter_list|(
+name|ConsistencyMode
+name|consistencyMode
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"consistencyMode"
+argument_list|,
+name|consistencyMode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The consistencyMode used for queries, default          * ConsistencyMode.DEFAULT.          *           * The option will be converted to a          *<code>com.orbitz.consul.option.ConsistencyMode</code> type.          *           * Group: advanced          */
+DECL|method|consistencyMode ( String consistencyMode)
+specifier|default
+name|AdvancedConsulEndpointProducerBuilder
+name|consistencyMode
+parameter_list|(
+name|String
+name|consistencyMode
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"consistencyMode"
+argument_list|,
+name|consistencyMode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The data center.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|datacenter ( String datacenter)
+specifier|default
+name|AdvancedConsulEndpointProducerBuilder
+name|datacenter
+parameter_list|(
+name|String
+name|datacenter
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"datacenter"
+argument_list|,
+name|datacenter
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The near node to use for queries.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|nearNode (String nearNode)
+specifier|default
+name|AdvancedConsulEndpointProducerBuilder
+name|nearNode
+parameter_list|(
+name|String
+name|nearNode
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"nearNode"
+argument_list|,
+name|nearNode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The note meta-data to use for queries.          *           * The option is a:<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          *           * Group: advanced          */
+DECL|method|nodeMeta ( List<String> nodeMeta)
+specifier|default
+name|AdvancedConsulEndpointProducerBuilder
+name|nodeMeta
+parameter_list|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|nodeMeta
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"nodeMeta"
+argument_list|,
+name|nodeMeta
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The note meta-data to use for queries.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          *           * Group: advanced          */
+DECL|method|nodeMeta (String nodeMeta)
+specifier|default
+name|AdvancedConsulEndpointProducerBuilder
+name|nodeMeta
+parameter_list|(
+name|String
+name|nodeMeta
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"nodeMeta"
+argument_list|,
+name|nodeMeta
 argument_list|)
 expr_stmt|;
 return|return
@@ -562,6 +1843,408 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * Connect timeout for OkHttpClient.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|connectTimeoutMillis ( Long connectTimeoutMillis)
+specifier|default
+name|ConsulEndpointBuilder
+name|connectTimeoutMillis
+parameter_list|(
+name|Long
+name|connectTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connectTimeoutMillis"
+argument_list|,
+name|connectTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Connect timeout for OkHttpClient.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|connectTimeoutMillis ( String connectTimeoutMillis)
+specifier|default
+name|ConsulEndpointBuilder
+name|connectTimeoutMillis
+parameter_list|(
+name|String
+name|connectTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connectTimeoutMillis"
+argument_list|,
+name|connectTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Reference to a com.orbitz.consul.Consul in the registry.          *           * The option is a:<code>com.orbitz.consul.Consul</code> type.          *           * Group: common          */
+DECL|method|consulClient (Object consulClient)
+specifier|default
+name|ConsulEndpointBuilder
+name|consulClient
+parameter_list|(
+name|Object
+name|consulClient
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"consulClient"
+argument_list|,
+name|consulClient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Reference to a com.orbitz.consul.Consul in the registry.          *           * The option will be converted to a          *<code>com.orbitz.consul.Consul</code> type.          *           * Group: common          */
+DECL|method|consulClient (String consulClient)
+specifier|default
+name|ConsulEndpointBuilder
+name|consulClient
+parameter_list|(
+name|String
+name|consulClient
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"consulClient"
+argument_list|,
+name|consulClient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The default key. Can be overridden by CamelConsulKey.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|key (String key)
+specifier|default
+name|ConsulEndpointBuilder
+name|key
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"key"
+argument_list|,
+name|key
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure if the AgentClient should attempt a ping before returning          * the Consul instance.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+DECL|method|pingInstance (boolean pingInstance)
+specifier|default
+name|ConsulEndpointBuilder
+name|pingInstance
+parameter_list|(
+name|boolean
+name|pingInstance
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"pingInstance"
+argument_list|,
+name|pingInstance
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure if the AgentClient should attempt a ping before returning          * the Consul instance.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
+DECL|method|pingInstance (String pingInstance)
+specifier|default
+name|ConsulEndpointBuilder
+name|pingInstance
+parameter_list|(
+name|String
+name|pingInstance
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"pingInstance"
+argument_list|,
+name|pingInstance
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Read timeout for OkHttpClient.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|readTimeoutMillis (Long readTimeoutMillis)
+specifier|default
+name|ConsulEndpointBuilder
+name|readTimeoutMillis
+parameter_list|(
+name|Long
+name|readTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"readTimeoutMillis"
+argument_list|,
+name|readTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Read timeout for OkHttpClient.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|readTimeoutMillis (String readTimeoutMillis)
+specifier|default
+name|ConsulEndpointBuilder
+name|readTimeoutMillis
+parameter_list|(
+name|String
+name|readTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"readTimeoutMillis"
+argument_list|,
+name|readTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set tags. You can separate multiple tags by comma.          *           * The option is a:<code>java.util.Set&lt;java.lang.String&gt;</code>          * type.          *           * Group: common          */
+DECL|method|tags (Set<String> tags)
+specifier|default
+name|ConsulEndpointBuilder
+name|tags
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|tags
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"tags"
+argument_list|,
+name|tags
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set tags. You can separate multiple tags by comma.          *           * The option will be converted to a          *<code>java.util.Set&lt;java.lang.String&gt;</code> type.          *           * Group: common          */
+DECL|method|tags (String tags)
+specifier|default
+name|ConsulEndpointBuilder
+name|tags
+parameter_list|(
+name|String
+name|tags
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"tags"
+argument_list|,
+name|tags
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The Consul agent URL.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|url (String url)
+specifier|default
+name|ConsulEndpointBuilder
+name|url
+parameter_list|(
+name|String
+name|url
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"url"
+argument_list|,
+name|url
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Write timeout for OkHttpClient.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|writeTimeoutMillis (Long writeTimeoutMillis)
+specifier|default
+name|ConsulEndpointBuilder
+name|writeTimeoutMillis
+parameter_list|(
+name|Long
+name|writeTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"writeTimeoutMillis"
+argument_list|,
+name|writeTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Write timeout for OkHttpClient.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
+DECL|method|writeTimeoutMillis ( String writeTimeoutMillis)
+specifier|default
+name|ConsulEndpointBuilder
+name|writeTimeoutMillis
+parameter_list|(
+name|String
+name|writeTimeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"writeTimeoutMillis"
+argument_list|,
+name|writeTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the ACL token to be used with Consul.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|aclToken (String aclToken)
+specifier|default
+name|ConsulEndpointBuilder
+name|aclToken
+parameter_list|(
+name|String
+name|aclToken
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"aclToken"
+argument_list|,
+name|aclToken
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the password to be used for basic authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|password (String password)
+specifier|default
+name|ConsulEndpointBuilder
+name|password
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"password"
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * SSL configuration using an          * org.apache.camel.support.jsse.SSLContextParameters instance.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
+DECL|method|sslContextParameters ( Object sslContextParameters)
+specifier|default
+name|ConsulEndpointBuilder
+name|sslContextParameters
+parameter_list|(
+name|Object
+name|sslContextParameters
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sslContextParameters"
+argument_list|,
+name|sslContextParameters
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * SSL configuration using an          * org.apache.camel.support.jsse.SSLContextParameters instance.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
+DECL|method|sslContextParameters ( String sslContextParameters)
+specifier|default
+name|ConsulEndpointBuilder
+name|sslContextParameters
+parameter_list|(
+name|String
+name|sslContextParameters
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sslContextParameters"
+argument_list|,
+name|sslContextParameters
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the username to be used for basic authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|userName (String userName)
+specifier|default
+name|ConsulEndpointBuilder
+name|userName
+parameter_list|(
+name|String
+name|userName
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"userName"
+argument_list|,
+name|userName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the Consul component.      */
 DECL|interface|AdvancedConsulEndpointBuilder
@@ -628,6 +2311,135 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * The consistencyMode used for queries, default          * ConsistencyMode.DEFAULT.          *           * The option is a:          *<code>com.orbitz.consul.option.ConsistencyMode</code> type.          *           * Group: advanced          */
+DECL|method|consistencyMode ( ConsistencyMode consistencyMode)
+specifier|default
+name|AdvancedConsulEndpointBuilder
+name|consistencyMode
+parameter_list|(
+name|ConsistencyMode
+name|consistencyMode
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"consistencyMode"
+argument_list|,
+name|consistencyMode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The consistencyMode used for queries, default          * ConsistencyMode.DEFAULT.          *           * The option will be converted to a          *<code>com.orbitz.consul.option.ConsistencyMode</code> type.          *           * Group: advanced          */
+DECL|method|consistencyMode ( String consistencyMode)
+specifier|default
+name|AdvancedConsulEndpointBuilder
+name|consistencyMode
+parameter_list|(
+name|String
+name|consistencyMode
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"consistencyMode"
+argument_list|,
+name|consistencyMode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The data center.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|datacenter (String datacenter)
+specifier|default
+name|AdvancedConsulEndpointBuilder
+name|datacenter
+parameter_list|(
+name|String
+name|datacenter
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"datacenter"
+argument_list|,
+name|datacenter
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The near node to use for queries.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|nearNode (String nearNode)
+specifier|default
+name|AdvancedConsulEndpointBuilder
+name|nearNode
+parameter_list|(
+name|String
+name|nearNode
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"nearNode"
+argument_list|,
+name|nearNode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The note meta-data to use for queries.          *           * The option is a:<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          *           * Group: advanced          */
+DECL|method|nodeMeta (List<String> nodeMeta)
+specifier|default
+name|AdvancedConsulEndpointBuilder
+name|nodeMeta
+parameter_list|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|nodeMeta
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"nodeMeta"
+argument_list|,
+name|nodeMeta
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The note meta-data to use for queries.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          *           * Group: advanced          */
+DECL|method|nodeMeta (String nodeMeta)
+specifier|default
+name|AdvancedConsulEndpointBuilder
+name|nodeMeta
+parameter_list|(
+name|String
+name|nodeMeta
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"nodeMeta"
+argument_list|,
+name|nodeMeta
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
@@ -671,6 +2483,20 @@ name|this
 return|;
 block|}
 block|}
+comment|/**      * Proxy enum for<code>com.orbitz.consul.option.ConsistencyMode</code>      * enum.      */
+DECL|enum|ConsistencyMode
+enum|enum
+name|ConsistencyMode
+block|{
+DECL|enumConstant|DEFAULT
+name|DEFAULT
+block|,
+DECL|enumConstant|STALE
+name|STALE
+block|,
+DECL|enumConstant|CONSISTENT
+name|CONSISTENT
+block|;     }
 comment|/**      * Consul (camel-consul)      * The camel consul component allows you to work with Consul, a distributed,      * highly available, datacenter-aware, service discovery and configuration      * system.      *       * Category: api,cloud      * Since: 2.18      * Maven coordinates: org.apache.camel:camel-consul      *       * Syntax:<code>consul:apiEndpoint</code>      *       * Path parameter: apiEndpoint (required)      * The API endpoint      */
 DECL|method|consul (String path)
 specifier|default

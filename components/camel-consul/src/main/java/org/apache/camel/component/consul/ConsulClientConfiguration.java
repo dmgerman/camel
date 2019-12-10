@@ -181,6 +181,7 @@ annotation|@
 name|UriParams
 DECL|class|ConsulClientConfiguration
 specifier|public
+specifier|abstract
 class|class
 name|ConsulClientConfiguration
 implements|implements

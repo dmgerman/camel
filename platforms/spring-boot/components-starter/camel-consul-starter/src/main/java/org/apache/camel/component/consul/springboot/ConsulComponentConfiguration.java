@@ -578,6 +578,8 @@ DECL|field|valueAsString
 specifier|private
 name|Boolean
 name|valueAsString
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * The default key. Can be overridden by CamelConsulKey          */
 DECL|field|key
@@ -628,6 +630,10 @@ DECL|field|consistencyMode
 specifier|private
 name|ConsistencyMode
 name|consistencyMode
+init|=
+name|ConsistencyMode
+operator|.
+name|DEFAULT
 decl_stmt|;
 comment|/**          * Set tags. You can separate multiple tags by comma.          */
 DECL|field|tags
@@ -682,12 +688,16 @@ DECL|field|pingInstance
 specifier|private
 name|Boolean
 name|pingInstance
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * The second to wait for a watch event, default 10 seconds          */
 DECL|field|blockSeconds
 specifier|private
 name|Integer
 name|blockSeconds
+init|=
+literal|10
 decl_stmt|;
 comment|/**          * The first index for watch for, default 0          */
 DECL|field|firstIndex
@@ -700,6 +710,8 @@ DECL|field|recursive
 specifier|private
 name|Boolean
 name|recursive
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getAction ()
 specifier|public
