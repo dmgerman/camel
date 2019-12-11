@@ -827,7 +827,7 @@ argument_list|)
 decl_stmt|;
 name|Assert
 operator|.
-name|assertEquals
+name|assertSame
 argument_list|(
 name|e1
 operator|.
@@ -842,7 +842,7 @@ argument_list|)
 expr_stmt|;
 name|Assert
 operator|.
-name|assertEquals
+name|assertSame
 argument_list|(
 name|e1
 operator|.
@@ -906,7 +906,7 @@ argument_list|()
 expr_stmt|;
 name|Assert
 operator|.
-name|assertEquals
+name|assertSame
 argument_list|(
 name|e1
 operator|.
@@ -921,7 +921,7 @@ argument_list|)
 expr_stmt|;
 name|Assert
 operator|.
-name|assertEquals
+name|assertSame
 argument_list|(
 name|e1
 operator|.

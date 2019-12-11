@@ -380,14 +380,9 @@ operator|.
 name|copy
 argument_list|()
 decl_stmt|;
-name|setProperties
-argument_list|(
-name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
+name|EhcacheEndpoint
+name|endpoint
+init|=
 operator|new
 name|EhcacheEndpoint
 argument_list|(
@@ -397,20 +392,25 @@ name|this
 argument_list|,
 name|remaining
 argument_list|,
-name|createCacheManager
+name|configuration
+argument_list|)
+decl_stmt|;
+name|setProperties
 argument_list|(
-name|configuration
-argument_list|)
+name|endpoint
 argument_list|,
-name|configuration
+name|parameters
 argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 comment|// ****************************
 comment|// Helpers
 comment|// ****************************
 DECL|method|createCacheManager (EhcacheConfiguration configuration)
-specifier|private
+specifier|public
 name|EhcacheManager
 name|createCacheManager
 parameter_list|(

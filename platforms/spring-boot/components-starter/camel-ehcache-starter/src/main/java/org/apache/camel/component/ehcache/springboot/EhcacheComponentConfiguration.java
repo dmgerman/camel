@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
@@ -588,10 +578,10 @@ name|EventFiring
 operator|.
 name|ASYNCHRONOUS
 decl_stmt|;
-comment|/**          * Set the type of events to listen for          */
+comment|/**          * Set the type of events to listen for          * (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple          * entries separated by comma.          */
 DECL|field|eventTypes
 specifier|private
-name|Set
+name|String
 name|eventTypes
 decl_stmt|;
 comment|/**          * The default cache configuration to be used to create caches.          */
@@ -860,7 +850,7 @@ expr_stmt|;
 block|}
 DECL|method|getEventTypes ()
 specifier|public
-name|Set
+name|String
 name|getEventTypes
 parameter_list|()
 block|{
@@ -868,12 +858,12 @@ return|return
 name|eventTypes
 return|;
 block|}
-DECL|method|setEventTypes (Set eventTypes)
+DECL|method|setEventTypes (String eventTypes)
 specifier|public
 name|void
 name|setEventTypes
 parameter_list|(
-name|Set
+name|String
 name|eventTypes
 parameter_list|)
 block|{

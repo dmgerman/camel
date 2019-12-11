@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
@@ -429,31 +419,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the type of events to listen for.          *           * The option is a:          *<code>java.util.Set&lt;org.ehcache.event.EventType&gt;</code> type.          *           * Group: consumer          */
-DECL|method|eventTypes ( Set<EventType> eventTypes)
-specifier|default
-name|EhcacheEndpointConsumerBuilder
-name|eventTypes
-parameter_list|(
-name|Set
-argument_list|<
-name|EventType
-argument_list|>
-name|eventTypes
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"eventTypes"
-argument_list|,
-name|eventTypes
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Set the type of events to listen for.          *           * The option will be converted to a          *<code>java.util.Set&lt;org.ehcache.event.EventType&gt;</code> type.          *           * Group: consumer          */
+comment|/**          * Set the type of events to listen for          * (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple          * entries separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|eventTypes (String eventTypes)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -1738,26 +1704,6 @@ name|UNORDERED
 block|,
 DECL|enumConstant|ORDERED
 name|ORDERED
-block|;     }
-comment|/**      * Proxy enum for<code>org.ehcache.event.EventType</code> enum.      */
-DECL|enum|EventType
-enum|enum
-name|EventType
-block|{
-DECL|enumConstant|EVICTED
-name|EVICTED
-block|,
-DECL|enumConstant|EXPIRED
-name|EXPIRED
-block|,
-DECL|enumConstant|REMOVED
-name|REMOVED
-block|,
-DECL|enumConstant|CREATED
-name|CREATED
-block|,
-DECL|enumConstant|UPDATED
-name|UPDATED
 block|;     }
 comment|/**      * Ehcache (camel-ehcache)      * The ehcache component enables you to perform caching operations using      * Ehcache as cache implementation.      *       * Category: cache,datagrid,clustering      * Since: 2.18      * Maven coordinates: org.apache.camel:camel-ehcache      *       * Syntax:<code>ehcache:cacheName</code>      *       * Path parameter: cacheName (required)      * the cache name      */
 DECL|method|ehcache (String path)
