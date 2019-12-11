@@ -429,17 +429,16 @@ annotation|@
 name|UriParam
 DECL|field|configuration
 specifier|private
-specifier|final
 name|XChangeConfiguration
 name|configuration
 decl_stmt|;
-DECL|field|exchange
+DECL|field|xchange
 specifier|private
-specifier|final
+specifier|transient
 name|XChange
-name|exchange
+name|xchange
 decl_stmt|;
-DECL|method|XChangeEndpoint (String uri, XChangeComponent component, XChangeConfiguration configuration, XChange exchange)
+DECL|method|XChangeEndpoint (String uri, XChangeComponent component, XChangeConfiguration configuration)
 specifier|public
 name|XChangeEndpoint
 parameter_list|(
@@ -451,9 +450,6 @@ name|component
 parameter_list|,
 name|XChangeConfiguration
 name|configuration
-parameter_list|,
-name|XChange
-name|exchange
 parameter_list|)
 block|{
 name|super
@@ -468,12 +464,6 @@ operator|.
 name|configuration
 operator|=
 name|configuration
-expr_stmt|;
-name|this
-operator|.
-name|exchange
-operator|=
-name|exchange
 expr_stmt|;
 block|}
 annotation|@
@@ -608,6 +598,22 @@ return|return
 name|producer
 return|;
 block|}
+DECL|method|setConfiguration (XChangeConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|XChangeConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
 DECL|method|getConfiguration ()
 specifier|public
 name|XChangeConfiguration
@@ -617,6 +623,32 @@ block|{
 return|return
 name|configuration
 return|;
+block|}
+DECL|method|getXchange ()
+specifier|public
+name|XChange
+name|getXchange
+parameter_list|()
+block|{
+return|return
+name|xchange
+return|;
+block|}
+DECL|method|setXchange (XChange xchange)
+specifier|public
+name|void
+name|setXchange
+parameter_list|(
+name|XChange
+name|xchange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xchange
+operator|=
+name|xchange
+expr_stmt|;
 block|}
 DECL|method|getCurrencies ()
 specifier|public
@@ -630,7 +662,7 @@ block|{
 name|ExchangeMetaData
 name|metaData
 init|=
-name|exchange
+name|xchange
 operator|.
 name|getExchangeMetaData
 argument_list|()
@@ -680,7 +712,7 @@ expr_stmt|;
 name|ExchangeMetaData
 name|metaData
 init|=
-name|exchange
+name|xchange
 operator|.
 name|getExchangeMetaData
 argument_list|()
@@ -709,7 +741,7 @@ block|{
 name|ExchangeMetaData
 name|metaData
 init|=
-name|exchange
+name|xchange
 operator|.
 name|getExchangeMetaData
 argument_list|()
@@ -759,7 +791,7 @@ expr_stmt|;
 name|ExchangeMetaData
 name|metaData
 init|=
-name|exchange
+name|xchange
 operator|.
 name|getExchangeMetaData
 argument_list|()
@@ -968,7 +1000,7 @@ block|{
 name|AccountService
 name|accountService
 init|=
-name|exchange
+name|xchange
 operator|.
 name|getAccountService
 argument_list|()
@@ -1053,7 +1085,7 @@ block|{
 name|AccountService
 name|accountService
 init|=
-name|exchange
+name|xchange
 operator|.
 name|getAccountService
 argument_list|()
@@ -1148,7 +1180,7 @@ expr_stmt|;
 name|MarketDataService
 name|marketService
 init|=
-name|exchange
+name|xchange
 operator|.
 name|getMarketDataService
 argument_list|()

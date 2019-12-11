@@ -121,10 +121,10 @@ name|XChangeComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|field|exchange
+DECL|field|xchange
 specifier|private
 name|XChange
-name|exchange
+name|xchange
 decl_stmt|;
 annotation|@
 name|Override
@@ -160,13 +160,6 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|setProperties
-argument_list|(
-name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 comment|// Set the required name of the exchange
 name|configuration
 operator|.
@@ -175,14 +168,6 @@ argument_list|(
 name|remaining
 argument_list|)
 expr_stmt|;
-name|XChange
-name|exchange
-init|=
-name|createXChange
-argument_list|(
-name|configuration
-argument_list|)
-decl_stmt|;
 name|XChangeEndpoint
 name|endpoint
 init|=
@@ -194,10 +179,31 @@ argument_list|,
 name|this
 argument_list|,
 name|configuration
-argument_list|,
-name|exchange
 argument_list|)
 decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+comment|// after configuring endpoint then create xchange
+name|XChange
+name|xchange
+init|=
+name|createXChange
+argument_list|(
+name|configuration
+argument_list|)
+decl_stmt|;
+name|endpoint
+operator|.
+name|setXchange
+argument_list|(
+name|xchange
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;
@@ -209,7 +215,7 @@ name|getXChange
 parameter_list|()
 block|{
 return|return
-name|exchange
+name|xchange
 return|;
 block|}
 DECL|method|createXChange (XChangeConfiguration configuration)
@@ -224,7 +230,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|exchange
+name|xchange
 operator|==
 literal|null
 condition|)
@@ -258,7 +264,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Create the XChange and associated Endpoint
-name|exchange
+name|xchange
 operator|=
 operator|new
 name|XChange
@@ -275,7 +281,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|exchange
+name|xchange
 return|;
 block|}
 block|}

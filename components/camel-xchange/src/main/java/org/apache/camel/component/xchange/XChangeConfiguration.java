@@ -330,7 +330,7 @@ literal|"The currency pair"
 argument_list|)
 DECL|field|currencyPair
 specifier|private
-name|CurrencyPair
+name|String
 name|currencyPair
 decl_stmt|;
 DECL|method|XChangeConfiguration (XChangeComponent component)
@@ -476,9 +476,34 @@ name|curr
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getCurrencyPair ()
+DECL|method|getAsCurrencyPair ()
 specifier|public
 name|CurrencyPair
+name|getAsCurrencyPair
+parameter_list|()
+block|{
+if|if
+condition|(
+name|currencyPair
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|CurrencyPair
+argument_list|(
+name|currencyPair
+argument_list|)
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+DECL|method|getCurrencyPair ()
+specifier|public
+name|String
 name|getCurrencyPair
 parameter_list|()
 block|{
@@ -486,40 +511,20 @@ return|return
 name|currencyPair
 return|;
 block|}
-DECL|method|setCurrencyPair (CurrencyPair currencyPair)
-specifier|public
-name|void
-name|setCurrencyPair
-parameter_list|(
-name|CurrencyPair
-name|currencyPair
-parameter_list|)
-block|{
-name|this
-operator|.
-name|currencyPair
-operator|=
-name|currencyPair
-expr_stmt|;
-block|}
-DECL|method|setCurrencyPair (String pair)
+DECL|method|setCurrencyPair (String currencyPair)
 specifier|public
 name|void
 name|setCurrencyPair
 parameter_list|(
 name|String
-name|pair
+name|currencyPair
 parameter_list|)
 block|{
 name|this
 operator|.
 name|currencyPair
 operator|=
-operator|new
-name|CurrencyPair
-argument_list|(
-name|pair
-argument_list|)
+name|currencyPair
 expr_stmt|;
 block|}
 annotation|@

@@ -397,7 +397,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getCurrencyPair
+name|getAsCurrencyPair
 argument_list|()
 expr_stmt|;
 name|Object

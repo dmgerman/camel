@@ -152,28 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The currency pair.          *           * The option is a:<code>org.knowm.xchange.currency.CurrencyPair</code>          * type.          *           * Group: producer          */
-DECL|method|currencyPair (Object currencyPair)
-specifier|default
-name|XChangeEndpointBuilder
-name|currencyPair
-parameter_list|(
-name|Object
-name|currencyPair
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"currencyPair"
-argument_list|,
-name|currencyPair
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The currency pair.          *           * The option will be converted to a          *<code>org.knowm.xchange.currency.CurrencyPair</code> type.          *           * Group: producer          */
+comment|/**          * The currency pair.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|currencyPair (String currencyPair)
 specifier|default
 name|XChangeEndpointBuilder
