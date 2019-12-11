@@ -284,7 +284,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|DebeziumConsumer
+name|consumer
+init|=
 operator|new
 name|DebeziumConsumer
 argument_list|(
@@ -292,6 +294,14 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+return|return
+name|consumer
 return|;
 block|}
 DECL|method|createExecutor ()

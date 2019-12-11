@@ -210,13 +210,6 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-name|setProperties
-argument_list|(
-name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 comment|// if we have name in path, we override the name in the configuration
 if|if
 condition|(
@@ -237,6 +230,23 @@ name|remaining
 argument_list|)
 expr_stmt|;
 block|}
+name|DebeziumEndpoint
+name|endpoint
+init|=
+name|initializeDebeziumEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|configuration
+argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 comment|// validate configurations
 specifier|final
 name|ConfigurationValidation
@@ -268,12 +278,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|initializeDebeziumEndpoint
-argument_list|(
-name|uri
-argument_list|,
-name|configuration
-argument_list|)
+name|endpoint
 return|;
 block|}
 DECL|method|initializeDebeziumEndpoint (String uri, C configuration)

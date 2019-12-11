@@ -226,6 +226,11 @@ name|DefaultCamelContext
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|debeziumComponent
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 specifier|final
 name|DebeziumEndpoint
 name|debeziumEndpoint
@@ -401,6 +406,11 @@ name|DefaultCamelContext
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|debeziumComponent
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 comment|// set configurations
 name|debeziumComponent
 operator|.
@@ -531,6 +541,11 @@ name|DefaultCamelContext
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|debeziumComponent
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 comment|// set configurations
 name|debeziumComponent
 operator|.
@@ -599,6 +614,11 @@ name|DefaultCamelContext
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|debeziumComponent
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 comment|// set configurations
 name|debeziumComponent
 operator|.
