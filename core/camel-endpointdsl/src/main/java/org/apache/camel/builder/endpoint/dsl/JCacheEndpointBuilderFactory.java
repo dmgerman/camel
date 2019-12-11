@@ -534,31 +534,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Events a consumer should filter. If using filteredEvents option, then          * eventFilters one will be ignored.          *           * The option is a:          *<code>java.util.List&lt;javax.cache.event.EventType&gt;</code> type.          *           * Group: consumer          */
-DECL|method|filteredEvents ( List<EventType> filteredEvents)
-specifier|default
-name|JCacheEndpointConsumerBuilder
-name|filteredEvents
-parameter_list|(
-name|List
-argument_list|<
-name|EventType
-argument_list|>
-name|filteredEvents
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"filteredEvents"
-argument_list|,
-name|filteredEvents
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Events a consumer should filter. If using filteredEvents option, then          * eventFilters one will be ignored.          *           * The option will be converted to a          *<code>java.util.List&lt;javax.cache.event.EventType&gt;</code> type.          *           * Group: consumer          */
+comment|/**          * Events a consumer should filter (multiple events can be separated by          * comma). If using filteredEvents option, then eventFilters one will be          * ignored.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|filteredEvents ( String filteredEvents)
 specifier|default
 name|JCacheEndpointConsumerBuilder
@@ -2398,23 +2374,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for<code>javax.cache.event.EventType</code> enum.      */
-DECL|enum|EventType
-enum|enum
-name|EventType
-block|{
-DECL|enumConstant|CREATED
-name|CREATED
-block|,
-DECL|enumConstant|UPDATED
-name|UPDATED
-block|,
-DECL|enumConstant|REMOVED
-name|REMOVED
-block|,
-DECL|enumConstant|EXPIRED
-name|EXPIRED
-block|;     }
 comment|/**      * JCache (camel-jcache)      * The jcache component enables you to perform caching operations using      * JSR107/JCache as cache implementation.      *       * Category: cache,datagrid,clustering      * Since: 2.17      * Maven coordinates: org.apache.camel:camel-jcache      *       * Syntax:<code>jcache:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
 DECL|method|jcache (String path)
 specifier|default

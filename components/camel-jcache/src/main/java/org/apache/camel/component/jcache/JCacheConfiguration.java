@@ -357,10 +357,7 @@ literal|"CREATED,UPDATED,REMOVED,EXPIRED"
 argument_list|)
 DECL|field|filteredEvents
 specifier|private
-name|List
-argument_list|<
-name|EventType
-argument_list|>
+name|String
 name|filteredEvents
 decl_stmt|;
 annotation|@
@@ -928,38 +925,16 @@ operator|=
 name|managementEnabled
 expr_stmt|;
 block|}
-comment|/**      * Events a consumer should filter. If using filteredEvents option, then eventFilters one will be ignored      */
+comment|/**      * Events a consumer should filter (multiple events can be separated by comma).      * If using filteredEvents option, then eventFilters one will be ignored      */
 DECL|method|getFilteredEvents ()
 specifier|public
-name|List
-argument_list|<
-name|EventType
-argument_list|>
+name|String
 name|getFilteredEvents
 parameter_list|()
 block|{
 return|return
 name|filteredEvents
 return|;
-block|}
-DECL|method|setFilteredEvents (List<EventType> filteredEvents)
-specifier|public
-name|void
-name|setFilteredEvents
-parameter_list|(
-name|List
-argument_list|<
-name|EventType
-argument_list|>
-name|filteredEvents
-parameter_list|)
-block|{
-name|this
-operator|.
-name|filteredEvents
-operator|=
-name|filteredEvents
-expr_stmt|;
 block|}
 DECL|method|setFilteredEvents (String filteredEvents)
 specifier|public
@@ -974,39 +949,8 @@ name|this
 operator|.
 name|filteredEvents
 operator|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
-expr_stmt|;
-for|for
-control|(
-name|String
-name|event
-range|:
 name|filteredEvents
-operator|.
-name|split
-argument_list|(
-literal|","
-argument_list|)
-control|)
-block|{
-name|this
-operator|.
-name|filteredEvents
-operator|.
-name|add
-argument_list|(
-name|EventType
-operator|.
-name|valueOf
-argument_list|(
-name|event
-argument_list|)
-argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * The CacheEntryEventFilter. If using eventFilters option, then filteredEvents one will be ignored      */
 DECL|method|getEventFilters ()
