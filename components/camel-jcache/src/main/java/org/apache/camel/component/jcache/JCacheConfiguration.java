@@ -1034,6 +1034,13 @@ argument_list|>
 name|eventFilters
 parameter_list|)
 block|{
+if|if
+condition|(
+name|eventFilters
+operator|!=
+literal|null
+condition|)
+block|{
 name|this
 operator|.
 name|eventFilters
@@ -1045,6 +1052,7 @@ argument_list|(
 name|eventFilters
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|setEventFilters (String eventFilter)
 specifier|public

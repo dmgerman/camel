@@ -138,10 +138,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents the component that manages {@link JCacheEndpoint}.  */
-end_comment
-
 begin_class
 annotation|@
 name|Component
@@ -269,14 +265,9 @@ argument_list|(
 name|configurationUri
 argument_list|)
 expr_stmt|;
-name|setProperties
-argument_list|(
-name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
+name|JCacheEndpoint
+name|endpoint
+init|=
 operator|new
 name|JCacheEndpoint
 argument_list|(
@@ -286,6 +277,16 @@ name|this
 argument_list|,
 name|configuration
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 DECL|method|loadProperties ()
