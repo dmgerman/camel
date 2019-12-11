@@ -451,7 +451,9 @@ name|getDeploymentId
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
+name|JBPMConsumer
+name|consumer
+init|=
 operator|new
 name|JBPMConsumer
 argument_list|(
@@ -459,6 +461,14 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+return|return
+name|consumer
 return|;
 block|}
 DECL|method|setConfiguration (JBPMConfiguration configuration)
