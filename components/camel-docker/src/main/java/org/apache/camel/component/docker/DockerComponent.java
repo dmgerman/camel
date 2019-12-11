@@ -290,11 +290,12 @@ argument_list|)
 decl_stmt|;
 name|setProperties
 argument_list|(
-name|configuration
+name|endpoint
 argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// and store any left-over parameters on configuration
 name|configuration
 operator|.
 name|setParameters
