@@ -234,7 +234,7 @@ name|getUris
 argument_list|()
 return|;
 block|}
-comment|/**      * To set the URIs the client connects.      * @param uris      */
+comment|/**      * To set the URIs the client connects.      */
 DECL|method|setUris (String uris)
 specifier|public
 name|void
@@ -265,7 +265,7 @@ name|getSslContextParameters
 argument_list|()
 return|;
 block|}
-comment|/**      * To configure security using SSLContextParameters.      * @param sslContextParameters      */
+comment|/**      * To configure security using SSLContextParameters.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -296,7 +296,7 @@ name|getUserName
 argument_list|()
 return|;
 block|}
-comment|/**      * The user name to use for basic authentication.      * @param userName      */
+comment|/**      * The user name to use for basic authentication.      */
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -327,7 +327,7 @@ name|getPassword
 argument_list|()
 return|;
 block|}
-comment|/**      * The password to use for basic authentication.      * @param password      */
+comment|/**      * The password to use for basic authentication.      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -529,15 +529,20 @@ operator|+
 name|path
 expr_stmt|;
 block|}
-switch|switch
+name|Endpoint
+name|endpoint
+decl_stmt|;
+if|if
 condition|(
 name|namespace
+operator|==
+name|EtcdNamespace
+operator|.
+name|stats
 condition|)
 block|{
-case|case
-name|stats
-case|:
-return|return
+name|endpoint
+operator|=
 operator|new
 name|EtcdStatsEndpoint
 argument_list|(
@@ -551,11 +556,20 @@ name|namespace
 argument_list|,
 name|path
 argument_list|)
-return|;
-case|case
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|namespace
+operator|==
+name|EtcdNamespace
+operator|.
 name|watch
-case|:
-return|return
+condition|)
+block|{
+name|endpoint
+operator|=
 operator|new
 name|EtcdWatchEndpoint
 argument_list|(
@@ -569,11 +583,20 @@ name|namespace
 argument_list|,
 name|path
 argument_list|)
-return|;
-case|case
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|namespace
+operator|==
+name|EtcdNamespace
+operator|.
 name|keys
-case|:
-return|return
+condition|)
+block|{
+name|endpoint
+operator|=
 operator|new
 name|EtcdKeysEndpoint
 argument_list|(
@@ -587,8 +610,10 @@ name|namespace
 argument_list|,
 name|path
 argument_list|)
-return|;
-default|default:
+expr_stmt|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|IllegalStateException
@@ -599,6 +624,16 @@ name|remaining
 argument_list|)
 throw|;
 block|}
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
+return|;
 block|}
 throw|throw
 operator|new
@@ -654,13 +689,6 @@ name|setCamelContext
 argument_list|(
 name|getCamelContext
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|setProperties
-argument_list|(
-name|configuration
-argument_list|,
-name|parameters
 argument_list|)
 expr_stmt|;
 if|if
