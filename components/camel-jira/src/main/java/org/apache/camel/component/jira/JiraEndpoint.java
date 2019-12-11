@@ -525,6 +525,7 @@ name|configuration
 decl_stmt|;
 DECL|field|client
 specifier|private
+specifier|transient
 name|JiraRestClient
 name|client
 decl_stmt|;
@@ -857,7 +858,12 @@ parameter_list|(
 name|Processor
 name|processor
 parameter_list|)
+throws|throws
+name|Exception
 block|{
+name|Consumer
+name|consumer
+decl_stmt|;
 if|if
 condition|(
 name|type
@@ -867,7 +873,8 @@ operator|.
 name|NEWCOMMENTS
 condition|)
 block|{
-return|return
+name|consumer
+operator|=
 operator|new
 name|NewCommentsConsumer
 argument_list|(
@@ -875,7 +882,7 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -887,7 +894,8 @@ operator|.
 name|NEWISSUES
 condition|)
 block|{
-return|return
+name|consumer
+operator|=
 operator|new
 name|NewIssuesConsumer
 argument_list|(
@@ -895,8 +903,10 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
-return|;
+expr_stmt|;
 block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -907,16 +917,13 @@ name|type
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
 return|return
-literal|true
+name|consumer
 return|;
 block|}
 DECL|method|getType ()

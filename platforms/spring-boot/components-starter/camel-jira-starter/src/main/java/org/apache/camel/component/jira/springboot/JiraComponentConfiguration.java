@@ -92,7 +92,7 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * The JiraConfiguration parameters      */
+comment|/**      * To use a shared base jira configuration.      */
 DECL|field|configuration
 specifier|private
 name|JiraConfigurationNestedConfiguration

@@ -210,6 +210,11 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
+name|component
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|String
 name|query
 init|=
@@ -279,7 +284,7 @@ name|assertEquals
 argument_list|(
 name|JIRA_URL_VALUE
 argument_list|,
-name|component
+name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
@@ -292,7 +297,7 @@ name|assertEquals
 argument_list|(
 name|USERNAME_VALUE
 argument_list|,
-name|component
+name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
@@ -305,7 +310,7 @@ name|assertEquals
 argument_list|(
 name|PASSWORD_VALUE
 argument_list|,
-name|component
+name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
@@ -334,6 +339,11 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
+name|component
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|String
 name|query
 init|=
@@ -417,7 +427,7 @@ name|assertEquals
 argument_list|(
 name|JIRA_URL_VALUE
 argument_list|,
-name|component
+name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
@@ -430,7 +440,7 @@ name|assertEquals
 argument_list|(
 name|VERIF_CODE_VALUE
 argument_list|,
-name|component
+name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
@@ -443,7 +453,7 @@ name|assertEquals
 argument_list|(
 name|ACCESS_TOKEN_VALUE
 argument_list|,
-name|component
+name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
@@ -456,7 +466,7 @@ name|assertEquals
 argument_list|(
 name|CONS_KEY_VALUE
 argument_list|,
-name|component
+name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
@@ -469,7 +479,7 @@ name|assertEquals
 argument_list|(
 name|PRIV_KEY_VALUE
 argument_list|,
-name|component
+name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()

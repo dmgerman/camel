@@ -96,10 +96,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents the component that manages {@link JiraEndpoint}.  */
-end_comment
-
 begin_class
 annotation|@
 name|Component
@@ -149,12 +145,6 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-name|configuration
-operator|=
-operator|new
-name|JiraConfiguration
-argument_list|()
-expr_stmt|;
 name|registerExtension
 argument_list|(
 operator|new
@@ -187,14 +177,22 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// override configuration from route parameters
-name|setProperties
-argument_list|(
+name|JiraConfiguration
+name|config
+init|=
 name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
+operator|!=
+literal|null
+condition|?
+name|configuration
+operator|.
+name|copy
+argument_list|()
+else|:
+operator|new
+name|JiraConfiguration
+argument_list|()
+decl_stmt|;
 name|JiraEndpoint
 name|endpoint
 init|=
@@ -205,7 +203,7 @@ name|uri
 argument_list|,
 name|this
 argument_list|,
-name|configuration
+name|config
 argument_list|)
 decl_stmt|;
 name|endpoint
@@ -228,11 +226,18 @@ name|remaining
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * The JiraConfiguration parameters      */
+comment|/**      * To use a shared base jira configuration.      */
 DECL|method|getConfiguration ()
 specifier|public
 name|JiraConfiguration
