@@ -371,7 +371,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|MiloServerConsumer
+name|consumer
+init|=
 operator|new
 name|MiloServerConsumer
 argument_list|(
@@ -383,6 +385,14 @@ name|this
 operator|.
 name|item
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+return|return
+name|consumer
 return|;
 block|}
 comment|/**      * ID of the item      *      * @param itemId the new ID of the item      */
