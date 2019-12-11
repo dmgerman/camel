@@ -257,13 +257,6 @@ argument_list|(
 name|providerId
 argument_list|)
 expr_stmt|;
-name|setProperties
-argument_list|(
-name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 name|JcloudsEndpoint
 name|endpoint
 decl_stmt|;
