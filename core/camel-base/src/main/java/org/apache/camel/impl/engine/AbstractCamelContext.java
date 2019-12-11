@@ -3545,11 +3545,11 @@ name|boolean
 name|autoStart
 parameter_list|)
 block|{
+comment|// ensure CamelContext are initialized before we can get a component
 name|init
 argument_list|()
 expr_stmt|;
-comment|// Check if the named component is already being created, that would
-comment|// mean
+comment|// Check if the named component is already being created, that would mean
 comment|// that the initComponent has triggered a new getComponent
 if|if
 condition|(
@@ -3642,10 +3642,8 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-comment|// Start the component after its creation as if it is a component
-comment|// proxy
-comment|// that creates/start a delegated component, we may end up in a
-comment|// deadlock
+comment|// Start the component after its creation as if it is a component proxy
+comment|// that creates/start a delegated component, we may end up in a deadlock
 if|if
 condition|(
 name|component
@@ -3763,12 +3761,10 @@ comment|// Mark the component as being created so we can detect circular
 comment|// requests.
 comment|//
 comment|// In spring apps, the component resolver may trigger a new
-comment|// getComponent
-comment|// because of the underlying bean factory and as the endpoints
-comment|// are
-comment|// registered as singleton, the spring factory creates the bean
-comment|// and then check the type so the getComponent is always
-comment|// triggered.
+comment|// getComponent because of the underlying bean factory and as
+comment|// the endpoints are registered as singleton, the spring factory
+comment|// creates the bean and then check the type so the getComponent
+comment|// is always triggered.
 comment|//
 comment|// Simple circular dependency:
 comment|//
@@ -3828,6 +3824,13 @@ operator|.
 name|setCamelContext
 argument_list|(
 name|this
+argument_list|)
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|initService
+argument_list|(
+name|component
 argument_list|)
 expr_stmt|;
 name|postInitComponent
@@ -4541,6 +4544,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
+comment|// ensure CamelContext are initialized before we can get an endpoint
 name|init
 argument_list|()
 expr_stmt|;
