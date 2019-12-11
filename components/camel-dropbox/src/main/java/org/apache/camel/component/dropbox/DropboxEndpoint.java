@@ -676,6 +676,11 @@ operator|.
 name|POLL_CONSUMER_DELAY
 argument_list|)
 expr_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
 return|return
 name|consumer
 return|;
@@ -714,6 +719,11 @@ argument_list|(
 name|DropboxConstants
 operator|.
 name|POLL_CONSUMER_DELAY
+argument_list|)
+expr_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
 argument_list|)
 expr_stmt|;
 return|return

@@ -443,23 +443,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//pass validation test
-name|DropboxConfigurationValidator
-operator|.
-name|validateCommonProperties
-argument_list|(
-name|configuration
-argument_list|)
-expr_stmt|;
-comment|// and then override from parameters
-name|setProperties
-argument_list|(
-name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
+name|DropboxEndpoint
+name|endpoint
+init|=
 operator|new
 name|DropboxEndpoint
 argument_list|(
@@ -469,6 +455,24 @@ name|this
 argument_list|,
 name|configuration
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+comment|//pass validation test
+name|DropboxConfigurationValidator
+operator|.
+name|validateCommonProperties
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 block|}
