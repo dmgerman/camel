@@ -222,28 +222,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: common          */
-DECL|method|fromBlock (Object fromBlock)
-specifier|default
-name|Web3jEndpointConsumerBuilder
-name|fromBlock
-parameter_list|(
-name|Object
-name|fromBlock
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"fromBlock"
-argument_list|,
-name|fromBlock
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: common          */
+comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|fromBlock (String fromBlock)
 specifier|default
 name|Web3jEndpointConsumerBuilder
@@ -456,28 +435,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: common          */
-DECL|method|toBlock (Object toBlock)
-specifier|default
-name|Web3jEndpointConsumerBuilder
-name|toBlock
-parameter_list|(
-name|Object
-name|toBlock
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"toBlock"
-argument_list|,
-name|toBlock
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: common          */
+comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|toBlock (String toBlock)
 specifier|default
 name|Web3jEndpointConsumerBuilder
@@ -905,28 +863,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: common          */
-DECL|method|fromBlock (Object fromBlock)
-specifier|default
-name|Web3jEndpointProducerBuilder
-name|fromBlock
-parameter_list|(
-name|Object
-name|fromBlock
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"fromBlock"
-argument_list|,
-name|fromBlock
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: common          */
+comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|fromBlock (String fromBlock)
 specifier|default
 name|Web3jEndpointProducerBuilder
@@ -1139,28 +1076,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: common          */
-DECL|method|toBlock (Object toBlock)
-specifier|default
-name|Web3jEndpointProducerBuilder
-name|toBlock
-parameter_list|(
-name|Object
-name|toBlock
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"toBlock"
-argument_list|,
-name|toBlock
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: common          */
+comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|toBlock (String toBlock)
 specifier|default
 name|Web3jEndpointProducerBuilder
@@ -1289,28 +1205,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: producer          */
-DECL|method|atBlock (Object atBlock)
-specifier|default
-name|Web3jEndpointProducerBuilder
-name|atBlock
-parameter_list|(
-name|Object
-name|atBlock
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"atBlock"
-argument_list|,
-name|atBlock
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: producer          */
+comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|atBlock (String atBlock)
 specifier|default
 name|Web3jEndpointProducerBuilder
@@ -2157,28 +2052,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: common          */
-DECL|method|fromBlock (Object fromBlock)
-specifier|default
-name|Web3jEndpointBuilder
-name|fromBlock
-parameter_list|(
-name|Object
-name|fromBlock
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"fromBlock"
-argument_list|,
-name|fromBlock
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: common          */
+comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|fromBlock (String fromBlock)
 specifier|default
 name|Web3jEndpointBuilder
@@ -2391,28 +2265,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: common          */
-DECL|method|toBlock (Object toBlock)
-specifier|default
-name|Web3jEndpointBuilder
-name|toBlock
-parameter_list|(
-name|Object
-name|toBlock
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"toBlock"
-argument_list|,
-name|toBlock
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          *           * Group: common          */
+comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|toBlock (String toBlock)
 specifier|default
 name|Web3jEndpointBuilder

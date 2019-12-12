@@ -100,34 +100,6 @@ name|Web3j
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|web3j
-operator|.
-name|protocol
-operator|.
-name|core
-operator|.
-name|DefaultBlockParameter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|web3j
-operator|.
-name|protocol
-operator|.
-name|core
-operator|.
-name|DefaultBlockParameterName
-import|;
-end_import
-
 begin_class
 annotation|@
 name|UriParams
@@ -175,7 +147,7 @@ literal|"latest"
 argument_list|)
 DECL|field|fromBlock
 specifier|private
-name|DefaultBlockParameter
+name|String
 name|fromBlock
 decl_stmt|;
 annotation|@
@@ -191,7 +163,7 @@ literal|"latest"
 argument_list|)
 DECL|field|toBlock
 specifier|private
-name|DefaultBlockParameter
+name|String
 name|toBlock
 decl_stmt|;
 annotation|@
@@ -207,7 +179,7 @@ literal|"latest"
 argument_list|)
 DECL|field|atBlock
 specifier|private
-name|DefaultBlockParameter
+name|String
 name|atBlock
 decl_stmt|;
 annotation|@
@@ -557,10 +529,6 @@ argument_list|(
 name|label
 operator|=
 literal|"common"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|quorumAPI
 specifier|private
@@ -1292,7 +1260,7 @@ expr_stmt|;
 block|}
 DECL|method|getFromBlock ()
 specifier|public
-name|DefaultBlockParameter
+name|String
 name|getFromBlock
 parameter_list|()
 block|{
@@ -1301,32 +1269,12 @@ name|fromBlock
 return|;
 block|}
 comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
-DECL|method|setFromBlock (String block)
+DECL|method|setFromBlock (String fromBlock)
 specifier|public
 name|void
 name|setFromBlock
 parameter_list|(
 name|String
-name|block
-parameter_list|)
-block|{
-name|this
-operator|.
-name|fromBlock
-operator|=
-name|toDefaultBlockParameter
-argument_list|(
-name|block
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
-DECL|method|setFromBlock (DefaultBlockParameter fromBlock)
-specifier|public
-name|void
-name|setFromBlock
-parameter_list|(
-name|DefaultBlockParameter
 name|fromBlock
 parameter_list|)
 block|{
@@ -1338,122 +1286,25 @@ name|fromBlock
 expr_stmt|;
 block|}
 comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
-DECL|method|setToBlock (DefaultBlockParameter toBlock)
-specifier|public
-name|void
-name|setToBlock
-parameter_list|(
-name|DefaultBlockParameter
-name|toBlock
-parameter_list|)
-block|{
-name|this
-operator|.
-name|toBlock
-operator|=
-name|toBlock
-expr_stmt|;
-block|}
-comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
-DECL|method|setToBlock (String block)
+DECL|method|setToBlock (String toBlock)
 specifier|public
 name|void
 name|setToBlock
 parameter_list|(
 name|String
-name|block
+name|toBlock
 parameter_list|)
 block|{
 name|this
 operator|.
 name|toBlock
 operator|=
-name|toDefaultBlockParameter
-argument_list|(
-name|block
-argument_list|)
+name|toBlock
 expr_stmt|;
-block|}
-DECL|method|toDefaultBlockParameter (String block)
-specifier|private
-name|DefaultBlockParameter
-name|toDefaultBlockParameter
-parameter_list|(
-name|String
-name|block
-parameter_list|)
-block|{
-name|DefaultBlockParameter
-name|defaultBlockParameter
-init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|block
-operator|!=
-literal|null
-condition|)
-block|{
-for|for
-control|(
-name|DefaultBlockParameterName
-name|defaultBlockParameterName
-range|:
-name|DefaultBlockParameterName
-operator|.
-name|values
-argument_list|()
-control|)
-block|{
-if|if
-condition|(
-name|block
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-name|defaultBlockParameterName
-operator|.
-name|getValue
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|defaultBlockParameter
-operator|=
-name|defaultBlockParameterName
-expr_stmt|;
-block|}
-block|}
-if|if
-condition|(
-name|defaultBlockParameter
-operator|==
-literal|null
-condition|)
-block|{
-name|defaultBlockParameter
-operator|=
-name|DefaultBlockParameter
-operator|.
-name|valueOf
-argument_list|(
-operator|new
-name|BigInteger
-argument_list|(
-name|block
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|return
-name|defaultBlockParameter
-return|;
 block|}
 DECL|method|getToBlock ()
 specifier|public
-name|DefaultBlockParameter
+name|String
 name|getToBlock
 parameter_list|()
 block|{
@@ -1463,7 +1314,7 @@ return|;
 block|}
 DECL|method|getAtBlock ()
 specifier|public
-name|DefaultBlockParameter
+name|String
 name|getAtBlock
 parameter_list|()
 block|{
@@ -1472,40 +1323,20 @@ name|atBlock
 return|;
 block|}
 comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
-DECL|method|setAtBlock (DefaultBlockParameter atBlock)
-specifier|public
-name|void
-name|setAtBlock
-parameter_list|(
-name|DefaultBlockParameter
-name|atBlock
-parameter_list|)
-block|{
-name|this
-operator|.
-name|atBlock
-operator|=
-name|atBlock
-expr_stmt|;
-block|}
-comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
-DECL|method|setAtBlock (String block)
+DECL|method|setAtBlock (String atBlock)
 specifier|public
 name|void
 name|setAtBlock
 parameter_list|(
 name|String
-name|block
+name|atBlock
 parameter_list|)
 block|{
 name|this
 operator|.
 name|atBlock
 operator|=
-name|toDefaultBlockParameter
-argument_list|(
-name|block
-argument_list|)
+name|atBlock
 expr_stmt|;
 block|}
 DECL|method|getAddresses ()

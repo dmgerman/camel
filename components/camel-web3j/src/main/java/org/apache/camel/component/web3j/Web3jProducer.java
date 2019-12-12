@@ -1250,6 +1250,24 @@ name|Voter
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|web3j
+operator|.
+name|Web3jHelper
+operator|.
+name|toDefaultBlockParameter
+import|;
+end_import
+
 begin_class
 DECL|class|Web3jProducer
 specifier|public
@@ -2406,7 +2424,7 @@ decl_stmt|;
 name|DefaultBlockParameter
 name|atBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -2420,7 +2438,7 @@ name|configuration
 operator|::
 name|getAtBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -2526,7 +2544,7 @@ decl_stmt|;
 name|DefaultBlockParameter
 name|atBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -2540,7 +2558,7 @@ name|configuration
 operator|::
 name|getAtBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -2668,7 +2686,7 @@ decl_stmt|;
 name|DefaultBlockParameter
 name|atBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -2682,7 +2700,7 @@ name|configuration
 operator|::
 name|getAtBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -2863,7 +2881,7 @@ block|{
 name|DefaultBlockParameter
 name|atBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -2877,7 +2895,7 @@ name|configuration
 operator|::
 name|getAtBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -3056,7 +3074,7 @@ block|{
 name|DefaultBlockParameter
 name|atBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -3070,7 +3088,7 @@ name|configuration
 operator|::
 name|getAtBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -3154,7 +3172,7 @@ block|{
 name|DefaultBlockParameter
 name|atBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -3168,7 +3186,7 @@ name|configuration
 operator|::
 name|getAtBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -3886,7 +3904,7 @@ decl_stmt|;
 name|DefaultBlockParameter
 name|atBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -3900,7 +3918,7 @@ name|configuration
 operator|::
 name|getAtBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -4328,7 +4346,7 @@ block|{
 name|DefaultBlockParameter
 name|atBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -4342,7 +4360,7 @@ name|configuration
 operator|::
 name|getAtBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -4686,7 +4704,7 @@ block|{
 name|DefaultBlockParameter
 name|atBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -4700,7 +4718,7 @@ name|configuration
 operator|::
 name|getAtBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -4936,7 +4954,7 @@ block|{
 name|DefaultBlockParameter
 name|atBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -4950,7 +4968,7 @@ name|configuration
 operator|::
 name|getAtBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -5509,7 +5527,7 @@ block|{
 name|DefaultBlockParameter
 name|fromBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -5523,7 +5541,7 @@ name|configuration
 operator|::
 name|getFromBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -5532,7 +5550,7 @@ decl_stmt|;
 name|DefaultBlockParameter
 name|toBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -5546,7 +5564,7 @@ name|configuration
 operator|::
 name|getToBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -6135,7 +6153,7 @@ block|{
 name|DefaultBlockParameter
 name|fromBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -6149,7 +6167,7 @@ name|configuration
 operator|::
 name|getFromBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -6158,7 +6176,7 @@ decl_stmt|;
 name|DefaultBlockParameter
 name|toBlock
 init|=
-name|toBlockParameter
+name|toDefaultBlockParameter
 argument_list|(
 name|message
 operator|.
@@ -6172,7 +6190,7 @@ name|configuration
 operator|::
 name|getToBlock
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -9378,79 +9396,6 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|method|toBlockParameter (Object o)
-specifier|private
-name|DefaultBlockParameter
-name|toBlockParameter
-parameter_list|(
-name|Object
-name|o
-parameter_list|)
-block|{
-name|DefaultBlockParameter
-name|defaultBlockParameter
-init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|o
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|defaultBlockParameter
-operator|=
-name|DefaultBlockParameter
-operator|.
-name|valueOf
-argument_list|(
-name|o
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-comment|//not one of: "latest", "earliest" or "pending"
-block|}
-if|if
-condition|(
-name|defaultBlockParameter
-operator|==
-literal|null
-condition|)
-block|{
-name|defaultBlockParameter
-operator|=
-name|DefaultBlockParameter
-operator|.
-name|valueOf
-argument_list|(
-operator|new
-name|BigInteger
-argument_list|(
-name|o
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|return
-name|defaultBlockParameter
-return|;
 block|}
 DECL|method|checkForError (Message message, Response response)
 specifier|private
