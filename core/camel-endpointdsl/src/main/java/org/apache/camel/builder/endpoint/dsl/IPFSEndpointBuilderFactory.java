@@ -22,18 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
@@ -164,28 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The ipfs output directory.          *           * The option is a:<code>java.nio.file.Path</code> type.          *           * Group: producer          */
-DECL|method|outdir (Path outdir)
-specifier|default
-name|IPFSEndpointBuilder
-name|outdir
-parameter_list|(
-name|Path
-name|outdir
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"outdir"
-argument_list|,
-name|outdir
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The ipfs output directory.          *           * The option will be converted to a<code>java.nio.file.Path</code>          * type.          *           * Group: producer          */
+comment|/**          * The ipfs output directory.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|outdir (String outdir)
 specifier|default
 name|IPFSEndpointBuilder
@@ -313,7 +280,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * IPFS (camel-ipfs)      * The camel-ipfs component provides access to the Interplanetary File      * System (IPFS).      *       * Category: file,ipfs      * Since: 2.23      * Maven coordinates: org.apache.camel:camel-ipfs      *       * Syntax:<code>ipfs:ipfsHost:ipfsPort/ipfsCmd</code>      *       * Path parameter: ipfsHost      * The ipfs host      *       * Path parameter: ipfsPort      * The ipfs port      *       * Path parameter: ipfsCmd      * The ipfs command      * The value can be one of: add, cat, get, version      */
+comment|/**      * IPFS (camel-ipfs)      * The camel-ipfs component provides access to the Interplanetary File      * System (IPFS).      *       * Category: file,ipfs      * Since: 2.23      * Maven coordinates: org.apache.camel:camel-ipfs      *       * Syntax:<code>ipfs:ipfsHost:ipfsPort/ipfsCmd</code>      *       * Path parameter: ipfsHost (required)      * The ipfs host      *       * Path parameter: ipfsPort (required)      * The ipfs port      *       * Path parameter: ipfsCmd (required)      * The ipfs command      * The value can be one of: add, cat, get, version      */
 DECL|method|ipfs (String path)
 specifier|default
 name|IPFSEndpointBuilder

@@ -95,7 +95,7 @@ name|DefaultComponent
 block|{
 annotation|@
 name|Override
-DECL|method|createEndpoint (String urispec, String remaining, Map<String, Object> params)
+DECL|method|createEndpoint (String urispec, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -112,26 +112,36 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|params
+name|parameters
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// Init the configuration
 name|IPFSConfiguration
 name|config
 init|=
 operator|new
 name|IPFSConfiguration
+argument_list|()
+decl_stmt|;
+name|IPFSEndpoint
+name|endpoint
+init|=
+operator|new
+name|IPFSEndpoint
 argument_list|(
+name|urispec
+argument_list|,
 name|this
+argument_list|,
+name|config
 argument_list|)
 decl_stmt|;
 name|setProperties
 argument_list|(
-name|config
+name|endpoint
 argument_list|,
-name|params
+name|parameters
 argument_list|)
 expr_stmt|;
 comment|// Derive host:port and cmd from the give uri
@@ -236,15 +246,7 @@ name|cmd
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
-name|IPFSEndpoint
-argument_list|(
-name|urispec
-argument_list|,
-name|this
-argument_list|,
-name|config
-argument_list|)
+name|endpoint
 return|;
 block|}
 block|}
