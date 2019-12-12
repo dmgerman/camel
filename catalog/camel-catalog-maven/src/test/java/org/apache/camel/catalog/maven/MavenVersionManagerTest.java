@@ -90,9 +90,7 @@ name|camel
 operator|.
 name|catalog
 operator|.
-name|karaf
-operator|.
-name|KarafRuntimeProvider
+name|DefaultRuntimeProvider
 import|;
 end_import
 
@@ -106,9 +104,9 @@ name|camel
 operator|.
 name|catalog
 operator|.
-name|springboot
+name|karaf
 operator|.
-name|SpringBootRuntimeProvider
+name|KarafRuntimeProvider
 import|;
 end_import
 
@@ -429,7 +427,7 @@ operator|.
 name|setRuntimeProvider
 argument_list|(
 operator|new
-name|SpringBootRuntimeProvider
+name|DefaultRuntimeProvider
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -589,7 +587,7 @@ operator|.
 name|setRuntimeProvider
 argument_list|(
 operator|new
-name|SpringBootRuntimeProvider
+name|DefaultRuntimeProvider
 argument_list|()
 argument_list|)
 expr_stmt|;

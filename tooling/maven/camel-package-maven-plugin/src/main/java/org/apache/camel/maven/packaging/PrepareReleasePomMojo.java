@@ -361,19 +361,6 @@ specifier|protected
 name|File
 name|componentsDir
 decl_stmt|;
-comment|/**      * The directory for spring boot starters      */
-annotation|@
-name|Parameter
-argument_list|(
-name|defaultValue
-operator|=
-literal|"${project.build.directory}/../../../platforms/spring-boot/components-starter"
-argument_list|)
-DECL|field|startersDir
-specifier|protected
-name|File
-name|startersDir
-decl_stmt|;
 comment|/**      * Maven ProjectHelper.      */
 annotation|@
 name|Component
@@ -402,15 +389,6 @@ argument_list|,
 literal|"org.apache.camel"
 argument_list|,
 literal|"camel components"
-argument_list|)
-expr_stmt|;
-name|updatePomAndCommonBin
-argument_list|(
-name|startersDir
-argument_list|,
-literal|"org.apache.camel.springboot"
-argument_list|,
-literal|"camel starters"
 argument_list|)
 expr_stmt|;
 block|}
