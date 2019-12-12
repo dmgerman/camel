@@ -58,18 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -355,35 +343,12 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|useGlobalSslContextParameters
 specifier|private
 name|boolean
 name|useGlobalSslContextParameters
 decl_stmt|;
-DECL|method|SpringWebserviceComponent ()
-specifier|public
-name|SpringWebserviceComponent
-parameter_list|()
-block|{     }
-DECL|method|SpringWebserviceComponent (CamelContext context)
-specifier|public
-name|SpringWebserviceComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 annotation|@
@@ -477,6 +442,7 @@ operator|new
 name|SpringWebserviceConfiguration
 argument_list|()
 decl_stmt|;
+comment|// need to do this first
 name|addConsumerConfiguration
 argument_list|(
 name|remaining
@@ -486,13 +452,27 @@ argument_list|,
 name|configuration
 argument_list|)
 expr_stmt|;
+name|SpringWebserviceEndpoint
+name|endpoint
+init|=
+operator|new
+name|SpringWebserviceEndpoint
+argument_list|(
+name|this
+argument_list|,
+name|uri
+argument_list|,
+name|configuration
+argument_list|)
+decl_stmt|;
 name|setProperties
 argument_list|(
-name|configuration
+name|endpoint
 argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// configure and setup configuration after it has its properties set via the endpoint
 name|configureProducerConfiguration
 argument_list|(
 name|remaining
@@ -525,15 +505,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|new
-name|SpringWebserviceEndpoint
-argument_list|(
-name|this
-argument_list|,
-name|uri
-argument_list|,
-name|configuration
-argument_list|)
+name|endpoint
 return|;
 block|}
 DECL|method|addConsumerConfiguration (String remaining, Map<String, Object> parameters, SpringWebserviceConfiguration configuration)
