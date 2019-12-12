@@ -191,13 +191,6 @@ operator|new
 name|GoogleBigQueryConfiguration
 argument_list|()
 decl_stmt|;
-name|setProperties
-argument_list|(
-name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 name|configuration
 operator|.
 name|parseRemaining
@@ -224,7 +217,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|GoogleBigQueryEndpoint
+name|endpoint
+init|=
 operator|new
 name|GoogleBigQueryEndpoint
 argument_list|(
@@ -234,6 +229,16 @@ name|this
 argument_list|,
 name|configuration
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 DECL|method|getProjectId ()
