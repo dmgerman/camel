@@ -353,7 +353,6 @@ argument_list|)
 decl_stmt|;
 DECL|field|web3j
 specifier|private
-specifier|final
 name|Web3j
 name|web3j
 decl_stmt|;
@@ -414,16 +413,32 @@ name|nodeAddress
 operator|=
 name|remaining
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|this
 operator|.
 name|web3j
 operator|=
 name|buildService
 argument_list|(
-name|remaining
+name|nodeAddress
 argument_list|,
 name|configuration
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
