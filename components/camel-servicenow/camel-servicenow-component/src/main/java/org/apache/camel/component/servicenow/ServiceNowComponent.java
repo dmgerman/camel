@@ -594,7 +594,7 @@ name|getProxyHost
 argument_list|()
 return|;
 block|}
-comment|/**      * The proxy host name      * @param proxyHost      */
+comment|/**      * The proxy host name      */
 annotation|@
 name|Metadata
 argument_list|(
@@ -632,7 +632,7 @@ name|getProxyPort
 argument_list|()
 return|;
 block|}
-comment|/**      * The proxy port number      * @param proxyPort      */
+comment|/**      * The proxy port number      */
 annotation|@
 name|Metadata
 argument_list|(
@@ -670,7 +670,7 @@ name|getProxyUserName
 argument_list|()
 return|;
 block|}
-comment|/**      * Username for proxy authentication      * @param proxyUserName      */
+comment|/**      * Username for proxy authentication      */
 annotation|@
 name|Metadata
 argument_list|(
@@ -712,7 +712,7 @@ name|getProxyPassword
 argument_list|()
 return|;
 block|}
-comment|/**      * Password for proxy authentication      * @param proxyPassword      */
+comment|/**      * Password for proxy authentication      */
 annotation|@
 name|Metadata
 argument_list|(
@@ -1049,13 +1049,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|setProperties
-argument_list|(
-name|configuration
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -1066,8 +1059,7 @@ name|remaining
 argument_list|)
 condition|)
 block|{
-comment|// If an instance is not set on the endpoint uri, use the one set on
-comment|// component.
+comment|// If an instance is not set on the endpoint uri, use the one set on component.
 name|remaining
 operator|=
 name|instanceName
@@ -1084,6 +1076,28 @@ argument_list|(
 name|remaining
 argument_list|)
 decl_stmt|;
+name|ServiceNowEndpoint
+name|endpoint
+init|=
+operator|new
+name|ServiceNowEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|this
+argument_list|,
+name|configuration
+argument_list|,
+name|instanceName
+argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1152,17 +1166,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|new
-name|ServiceNowEndpoint
-argument_list|(
-name|uri
-argument_list|,
-name|this
-argument_list|,
-name|configuration
-argument_list|,
-name|instanceName
-argument_list|)
+name|endpoint
 return|;
 block|}
 block|}
