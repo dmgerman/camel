@@ -96,10 +96,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents the component that manages {@link CordaComponent}.  */
-end_comment
-
 begin_class
 annotation|@
 name|Component
@@ -115,35 +111,11 @@ name|DefaultComponent
 block|{
 annotation|@
 name|Metadata
-argument_list|(
-name|description
-operator|=
-literal|"Default configuration"
-argument_list|)
 DECL|field|configuration
 specifier|private
 name|CordaConfiguration
 name|configuration
 decl_stmt|;
-DECL|method|CordaComponent ()
-specifier|public
-name|CordaComponent
-parameter_list|()
-block|{     }
-DECL|method|CordaComponent (CamelContext camelContext)
-specifier|public
-name|CordaComponent
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|camelContext
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getConfiguration ()
 specifier|public
 name|CordaConfiguration
@@ -154,6 +126,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use a shared configuration.      */
 DECL|method|setConfiguration (CordaConfiguration configuration)
 specifier|public
 name|void
@@ -212,25 +185,40 @@ operator|new
 name|CordaConfiguration
 argument_list|()
 decl_stmt|;
-name|setProperties
-argument_list|(
 name|conf
-argument_list|,
-name|parameters
+operator|.
+name|setNode
+argument_list|(
+name|remaining
 argument_list|)
 expr_stmt|;
-return|return
+name|CordaEndpoint
+name|endpoint
+init|=
 operator|new
 name|CordaEndpoint
 argument_list|(
 name|uri
 argument_list|,
-name|remaining
-argument_list|,
 name|this
 argument_list|,
 name|conf
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+name|conf
+operator|.
+name|configure
+argument_list|()
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 block|}
