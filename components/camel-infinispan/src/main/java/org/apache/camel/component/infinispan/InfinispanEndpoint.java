@@ -324,7 +324,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|InfinispanConsumer
+name|consumer
+init|=
 operator|new
 name|InfinispanConsumer
 argument_list|(
@@ -338,6 +340,14 @@ name|manager
 argument_list|,
 name|configuration
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+return|return
+name|consumer
 return|;
 block|}
 DECL|method|getCacheName ()
