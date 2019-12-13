@@ -114,7 +114,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -124,7 +128,27 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertThrows
 import|;
 end_import
 
@@ -175,7 +199,7 @@ name|MockEndpoint
 name|endpoint
 decl_stmt|;
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|mockAPIs ()
 specifier|public
 name|void
@@ -230,20 +254,20 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|AssertionError
-operator|.
-name|class
-argument_list|)
 DECL|method|testBehaviourWithEmptyUpdates ()
 specifier|public
 name|void
 name|testBehaviourWithEmptyUpdates
 parameter_list|()
-throws|throws
-name|Exception
+block|{
+name|assertThrows
+argument_list|(
+name|AssertionError
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|endpoint
 operator|.
@@ -263,6 +287,9 @@ name|endpoint
 operator|.
 name|assertIsSatisfied
 argument_list|()
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
