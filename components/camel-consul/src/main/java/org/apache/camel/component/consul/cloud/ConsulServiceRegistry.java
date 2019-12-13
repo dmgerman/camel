@@ -1430,7 +1430,7 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//remove the serviceId to the list of known server
+comment|// remove the serviceId to the list of known server
 name|serviceList
 operator|.
 name|remove

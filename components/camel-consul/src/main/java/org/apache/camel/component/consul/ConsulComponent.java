@@ -449,7 +449,7 @@ name|getDatacenter
 argument_list|()
 return|;
 block|}
-comment|/**      * The data center      * @param datacenter      */
+comment|/**      * The data center      *       * @param datacenter      */
 DECL|method|setDatacenter (String datacenter)
 specifier|public
 name|void
@@ -480,7 +480,7 @@ name|getSslContextParameters
 argument_list|()
 return|;
 block|}
-comment|/**      * SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters      * instance.      */
+comment|/**      * SSL configuration using an      * org.apache.camel.support.jsse.SSLContextParameters instance.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -1002,23 +1002,40 @@ name|empty
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
+break|break;
+default|default:
 name|endpoint
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
+operator|=
 operator|new
-name|IllegalArgumentException
+name|ConsulEndpoint
 argument_list|(
-literal|"Unknown operation "
-operator|+
 name|remaining
+argument_list|,
+name|uri
+argument_list|,
+name|this
+argument_list|,
+name|configuration
+argument_list|,
+name|Optional
+operator|.
+name|of
+argument_list|(
+name|ConsulKeyValueProducer
+operator|::
+operator|new
 argument_list|)
-throw|;
+argument_list|,
+name|Optional
+operator|.
+name|of
+argument_list|(
+name|ConsulKeyValueConsumer
+operator|::
+operator|new
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 name|setProperties
 argument_list|(

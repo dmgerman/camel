@@ -686,13 +686,13 @@ comment|//
 comment|// States are:
 comment|//
 comment|// const (
-comment|//     HealthAny is special, and is used as a wild card,
-comment|//     not as a specific state.
-comment|//     HealthAny      = "any"
-comment|//     HealthPassing  = "passing"
-comment|//     HealthWarning  = "warning"
-comment|//     HealthCritical = "critical"
-comment|//     HealthMaint    = "maintenance"
+comment|// HealthAny is special, and is used as a wild card,
+comment|// not as a specific state.
+comment|// HealthAny = "any"
+comment|// HealthPassing = "passing"
+comment|// HealthWarning = "warning"
+comment|// HealthCritical = "critical"
+comment|// HealthMaint = "maintenance"
 comment|// )
 if|if
 condition|(

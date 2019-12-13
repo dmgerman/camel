@@ -161,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The camel consul component allows you to work with<a href="https://www.consul.io/">Consul</a>, a distributed, highly available, datacenter-aware, service discovery and configuration system.  */
+comment|/**  * The camel consul component allows you to work with  *<a href="https://www.consul.io/">Consul</a>, a distributed, highly available,  * datacenter-aware, service discovery and configuration system.  */
 end_comment
 
 begin_class

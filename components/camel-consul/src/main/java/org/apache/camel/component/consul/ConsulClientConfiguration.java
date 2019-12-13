@@ -679,7 +679,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-comment|/**      * SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters      * instance.      */
+comment|/**      * SSL configuration using an      * org.apache.camel.support.jsse.SSLContextParameters instance.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -890,7 +890,7 @@ return|return
 name|pingInstance
 return|;
 block|}
-comment|/**      * Configure if the AgentClient should attempt a ping before returning the Consul instance      */
+comment|/**      * Configure if the AgentClient should attempt a ping before returning the      * Consul instance      */
 DECL|method|setPingInstance (boolean pingInstance)
 specifier|public
 name|void

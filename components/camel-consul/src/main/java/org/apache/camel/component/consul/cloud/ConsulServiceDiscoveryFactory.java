@@ -188,7 +188,7 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @deprecated, @deprecated replaced by {@link #getDatacenter()} ()}      * @return      */
+comment|/**      * @deprecated, @deprecated replaced by {@link #getDatacenter()} ()}      *       * @return      */
 annotation|@
 name|Deprecated
 DECL|method|getDc ()

@@ -831,7 +831,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**          * from spring-cloud-consul (https://github.com/spring-cloud/spring-cloud-consul):          *     spring-cloud-consul-bus/src/main/java/org/springframework/cloud/consul/bus/EventService.java          */
+comment|/**          * from spring-cloud-consul          * (https://github.com/spring-cloud/spring-cloud-consul):          * spring-cloud-consul-bus/src/main/java/org/springframework/cloud/consul/bus/EventService.java          */
 DECL|method|filterEvents (List<Event> toFilter, BigInteger lastIndex)
 specifier|private
 name|List

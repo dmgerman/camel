@@ -1565,7 +1565,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**          * Serializes the given {@code serializable} using Java Serialization          * @param serializable          * @return the serialized object as a byte array          */
+comment|/**          * Serializes the given {@code serializable} using Java Serialization          *           * @param serializable          * @return the serialized object as a byte array          */
 DECL|method|serialize (Serializable serializable)
 specifier|static
 name|byte

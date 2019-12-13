@@ -428,7 +428,8 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// check that service has been de registered on service registry shutdown
+comment|// check that service has been de registered on service registry
+comment|// shutdown
 name|assertEquals
 argument_list|(
 literal|0

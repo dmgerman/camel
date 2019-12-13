@@ -56,7 +56,7 @@ name|ConsulServiceRegistryConfiguration
 extends|extends
 name|ConsulClientConfiguration
 block|{
-comment|/**      * Should we remove all the registered services know by this registry on stop?      */
+comment|/**      * Should we remove all the registered services know by this registry on      * stop?      */
 DECL|field|deregisterServicesOnStop
 specifier|private
 name|boolean
