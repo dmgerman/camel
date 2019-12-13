@@ -38,20 +38,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|FileUtil
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|apicurio
@@ -167,6 +153,20 @@ operator|.
 name|models
 operator|.
 name|Oas30SchemaDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
 import|;
 end_import
 

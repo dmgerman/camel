@@ -153,20 +153,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|invoke
-operator|.
-name|MethodHandles
-operator|.
-name|publicLookup
-import|;
-end_import
-
-begin_import
 import|import
 name|io
 operator|.
@@ -921,6 +907,20 @@ operator|.
 name|util
 operator|.
 name|FileUtil
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|invoke
+operator|.
+name|MethodHandles
+operator|.
+name|publicLookup
 import|;
 end_import
 
