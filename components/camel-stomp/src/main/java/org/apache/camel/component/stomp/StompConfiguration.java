@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Properties
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -176,6 +186,13 @@ DECL|field|version
 specifier|private
 name|String
 name|version
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|customHeaders
+specifier|private
+name|Properties
+name|customHeaders
 decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
@@ -374,6 +391,33 @@ operator|.
 name|version
 operator|=
 name|version
+expr_stmt|;
+block|}
+DECL|method|getCustomHeaders ()
+specifier|public
+name|Properties
+name|getCustomHeaders
+parameter_list|()
+block|{
+return|return
+name|customHeaders
+return|;
+block|}
+comment|/**      * To set custom headers      */
+DECL|method|setCustomHeaders (Properties customHeaders)
+specifier|public
+name|void
+name|setCustomHeaders
+parameter_list|(
+name|Properties
+name|customHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|customHeaders
+operator|=
+name|customHeaders
 expr_stmt|;
 block|}
 block|}
