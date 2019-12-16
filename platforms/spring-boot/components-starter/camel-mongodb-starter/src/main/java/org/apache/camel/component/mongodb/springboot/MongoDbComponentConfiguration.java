@@ -92,7 +92,7 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * Set a client used for connection: all endpoints generated from the      * component will share this connection bean. The option is a      * com.mongodb.MongoClient type.      */
+comment|/**      * Set a client used for connection: all endpoints generated from the      * component will share this connection bean. The option is a      * com.mongodb.client.MongoClient type.      */
 DECL|field|mongoConnection
 specifier|private
 name|String

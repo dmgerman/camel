@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option is a:<code>com.mongodb.MongoClient</code> type.          *           * Group: common          */
+comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option is a:<code>com.mongodb.client.MongoClient</code> type.          *           * Group: common          */
 DECL|method|mongoConnection ( Object mongoConnection)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option will be converted to a          *<code>com.mongodb.MongoClient</code> type.          *           * Group: common          */
+comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option will be converted to a          *<code>com.mongodb.client.MongoClient</code> type.          *           * Group: common          */
 DECL|method|mongoConnection ( String mongoConnection)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -830,6 +830,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Configure how MongoDB clients route read operations to the members of          * a replica set. Possible values are PRIMARY, PRIMARY_PREFERRED,          * SECONDARY, SECONDARY_PREFERRED or NEAREST.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|readPreference ( String readPreference)
+specifier|default
+name|AdvancedMongoDbEndpointConsumerBuilder
+name|readPreference
+parameter_list|(
+name|String
+name|readPreference
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"readPreference"
+argument_list|,
+name|readPreference
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
@@ -866,6 +887,27 @@ argument_list|(
 literal|"synchronous"
 argument_list|,
 name|synchronous
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure the connection bean with the level of acknowledgment          * requested from MongoDB for write operations to a standalone mongod,          * replicaset or cluster. Possible values are ACKNOWLEDGED, W1, W2, W3,          * UNACKNOWLEDGED, JOURNALED or MAJORITY.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|writeConcern ( String writeConcern)
+specifier|default
+name|AdvancedMongoDbEndpointConsumerBuilder
+name|writeConcern
+parameter_list|(
+name|String
+name|writeConcern
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"writeConcern"
+argument_list|,
+name|writeConcern
 argument_list|)
 expr_stmt|;
 return|return
@@ -1041,7 +1083,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option is a:<code>com.mongodb.MongoClient</code> type.          *           * Group: common          */
+comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option is a:<code>com.mongodb.client.MongoClient</code> type.          *           * Group: common          */
 DECL|method|mongoConnection ( Object mongoConnection)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1062,7 +1104,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option will be converted to a          *<code>com.mongodb.MongoClient</code> type.          *           * Group: common          */
+comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option will be converted to a          *<code>com.mongodb.client.MongoClient</code> type.          *           * Group: common          */
 DECL|method|mongoConnection ( String mongoConnection)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1525,6 +1567,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Configure how MongoDB clients route read operations to the members of          * a replica set. Possible values are PRIMARY, PRIMARY_PREFERRED,          * SECONDARY, SECONDARY_PREFERRED or NEAREST.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|readPreference ( String readPreference)
+specifier|default
+name|AdvancedMongoDbEndpointProducerBuilder
+name|readPreference
+parameter_list|(
+name|String
+name|readPreference
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"readPreference"
+argument_list|,
+name|readPreference
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
@@ -1561,6 +1624,27 @@ argument_list|(
 literal|"synchronous"
 argument_list|,
 name|synchronous
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure the connection bean with the level of acknowledgment          * requested from MongoDB for write operations to a standalone mongod,          * replicaset or cluster. Possible values are ACKNOWLEDGED, W1, W2, W3,          * UNACKNOWLEDGED, JOURNALED or MAJORITY.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|writeConcern ( String writeConcern)
+specifier|default
+name|AdvancedMongoDbEndpointProducerBuilder
+name|writeConcern
+parameter_list|(
+name|String
+name|writeConcern
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"writeConcern"
+argument_list|,
+name|writeConcern
 argument_list|)
 expr_stmt|;
 return|return
@@ -1738,7 +1822,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option is a:<code>com.mongodb.MongoClient</code> type.          *           * Group: common          */
+comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option is a:<code>com.mongodb.client.MongoClient</code> type.          *           * Group: common          */
 DECL|method|mongoConnection (Object mongoConnection)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1759,7 +1843,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option will be converted to a          *<code>com.mongodb.MongoClient</code> type.          *           * Group: common          */
+comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option will be converted to a          *<code>com.mongodb.client.MongoClient</code> type.          *           * Group: common          */
 DECL|method|mongoConnection (String mongoConnection)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -2182,6 +2266,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Configure how MongoDB clients route read operations to the members of          * a replica set. Possible values are PRIMARY, PRIMARY_PREFERRED,          * SECONDARY, SECONDARY_PREFERRED or NEAREST.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|readPreference ( String readPreference)
+specifier|default
+name|AdvancedMongoDbEndpointBuilder
+name|readPreference
+parameter_list|(
+name|String
+name|readPreference
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"readPreference"
+argument_list|,
+name|readPreference
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
@@ -2218,6 +2323,27 @@ argument_list|(
 literal|"synchronous"
 argument_list|,
 name|synchronous
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure the connection bean with the level of acknowledgment          * requested from MongoDB for write operations to a standalone mongod,          * replicaset or cluster. Possible values are ACKNOWLEDGED, W1, W2, W3,          * UNACKNOWLEDGED, JOURNALED or MAJORITY.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|writeConcern (String writeConcern)
+specifier|default
+name|AdvancedMongoDbEndpointBuilder
+name|writeConcern
+parameter_list|(
+name|String
+name|writeConcern
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"writeConcern"
+argument_list|,
+name|writeConcern
 argument_list|)
 expr_stmt|;
 return|return
