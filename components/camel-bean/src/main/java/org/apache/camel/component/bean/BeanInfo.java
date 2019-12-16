@@ -638,6 +638,11 @@ specifier|private
 name|boolean
 name|publicConstructors
 decl_stmt|;
+DECL|field|publicNoArgConstructors
+specifier|private
+name|boolean
+name|publicNoArgConstructors
+decl_stmt|;
 static|static
 block|{
 comment|// exclude all java.lang.Object methods as we dont want to invoke them
@@ -951,6 +956,12 @@ operator|=
 name|beanInfo
 operator|.
 name|publicConstructors
+expr_stmt|;
+name|publicNoArgConstructors
+operator|=
+name|beanInfo
+operator|.
+name|publicNoArgConstructors
 expr_stmt|;
 return|return;
 block|}
@@ -1977,6 +1988,23 @@ operator|.
 name|length
 operator|>
 literal|0
+expr_stmt|;
+name|publicNoArgConstructors
+operator|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|hasDefaultPublicNoArgConstructor
+argument_list|(
+name|clazz
+argument_list|)
 expr_stmt|;
 name|MethodsFilter
 name|methods
@@ -6453,6 +6481,17 @@ parameter_list|()
 block|{
 return|return
 name|publicConstructors
+return|;
+block|}
+comment|/**      * Returns whether the bean class has any public no-arg constructors.      */
+DECL|method|hasPublicNoArgConstructors ()
+specifier|public
+name|boolean
+name|hasPublicNoArgConstructors
+parameter_list|()
+block|{
+return|return
+name|publicNoArgConstructors
 return|;
 block|}
 comment|/**      * Gets the list of methods sorted by A..Z method name.      *      * @return the methods.      */
