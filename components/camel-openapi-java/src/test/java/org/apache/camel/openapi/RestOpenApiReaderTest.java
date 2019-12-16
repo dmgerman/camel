@@ -563,17 +563,6 @@ argument_list|(
 name|dump
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"the json is =====>"
-operator|+
-name|json
-argument_list|)
-expr_stmt|;
 name|log
 operator|.
 name|info
@@ -845,17 +834,6 @@ argument_list|(
 name|dump
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"the json is =====>"
-operator|+
-name|json
-argument_list|)
-expr_stmt|;
 name|log
 operator|.
 name|info
