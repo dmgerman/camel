@@ -122,11 +122,6 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Spring-Cloud referenced in Spring-Boot 2.0.0.RELEASE is not GA"
-argument_list|)
 DECL|class|CamelSpringCloudNetflixTest
 specifier|public
 class|class
