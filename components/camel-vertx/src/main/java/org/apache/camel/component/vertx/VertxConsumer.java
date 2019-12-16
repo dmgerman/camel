@@ -120,24 +120,6 @@ name|DefaultConsumer
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|vertx
-operator|.
-name|VertxHelper
-operator|.
-name|getVertxBody
-import|;
-end_import
-
 begin_class
 DECL|class|VertxConsumer
 specifier|public
@@ -313,10 +295,13 @@ block|{
 name|Object
 name|body
 init|=
-name|getVertxBody
-argument_list|(
 name|exchange
-argument_list|)
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

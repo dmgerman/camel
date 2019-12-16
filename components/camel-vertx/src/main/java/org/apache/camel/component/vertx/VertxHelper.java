@@ -71,6 +71,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|VertxHelper
 specifier|public
 specifier|final
