@@ -235,9 +235,9 @@ argument_list|)
 operator|.
 name|onPrepare
 argument_list|(
-name|FixNamePrepare
-operator|::
 operator|new
+name|FixNamePrepare
+argument_list|()
 argument_list|)
 operator|.
 name|to

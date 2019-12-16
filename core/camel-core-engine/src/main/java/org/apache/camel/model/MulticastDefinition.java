@@ -734,33 +734,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses the {@link Processor} when preparing the      * {@link org.apache.camel.Exchange} to be send. This can be used to      * deep-clone messages that should be send, or any custom logic needed      * before the exchange is send.      *      * @param onPrepare the processor      * @return the builder      *      * @deprecated see https://issues.apache.org/jira/browse/CAMEL-14300      */
-annotation|@
-name|Deprecated
-DECL|method|onPrepare (Supplier<Processor> onPrepare)
-specifier|public
-name|MulticastDefinition
-name|onPrepare
-parameter_list|(
-name|Supplier
-argument_list|<
-name|Processor
-argument_list|>
-name|onPrepare
-parameter_list|)
-block|{
-name|setOnPrepare
-argument_list|(
-name|onPrepare
-operator|.
-name|get
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Uses the {@link Processor} when preparing the      * {@link org.apache.camel.Exchange} to be send. This can be used to      * deep-clone messages that should be send, or any custom logic needed      * before the exchange is send.      *      * @param onPrepareRef reference to the processor to lookup in the      *            {@link org.apache.camel.spi.Registry}      * @return the builder      */
 DECL|method|onPrepareRef (String onPrepareRef)
 specifier|public
