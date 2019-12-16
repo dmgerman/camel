@@ -215,7 +215,7 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-literal|1762
+literal|1761
 argument_list|)
 expr_stmt|;
 block|}
