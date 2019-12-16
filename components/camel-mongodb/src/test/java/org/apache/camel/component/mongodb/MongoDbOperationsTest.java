@@ -64,6 +64,18 @@ name|com
 operator|.
 name|mongodb
 operator|.
+name|MongoClientSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
 name|MongoClient
 import|;
 end_import
@@ -1718,7 +1730,7 @@ name|Document
 operator|.
 name|class
 argument_list|,
-name|MongoClient
+name|MongoClientSettings
 operator|.
 name|getDefaultCodecRegistry
 argument_list|()
@@ -1737,7 +1749,7 @@ name|Document
 operator|.
 name|class
 argument_list|,
-name|MongoClient
+name|MongoClientSettings
 operator|.
 name|getDefaultCodecRegistry
 argument_list|()

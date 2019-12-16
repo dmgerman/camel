@@ -1388,7 +1388,7 @@ name|withWriteConcern
 argument_list|(
 name|endpoint
 operator|.
-name|getWriteConcern
+name|getWriteConcernBean
 argument_list|()
 argument_list|)
 return|;
@@ -1480,7 +1480,7 @@ name|withWriteConcern
 argument_list|(
 name|endpoint
 operator|.
-name|getWriteConcern
+name|getWriteConcernBean
 argument_list|()
 argument_list|)
 expr_stmt|;

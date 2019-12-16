@@ -100,6 +100,18 @@ name|com
 operator|.
 name|mongodb
 operator|.
+name|MongoClientURI
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
 name|MongoClient
 import|;
 end_import
@@ -110,7 +122,9 @@ name|com
 operator|.
 name|mongodb
 operator|.
-name|MongoClientURI
+name|client
+operator|.
+name|MongoClients
 import|;
 end_import
 
@@ -368,10 +382,14 @@ init|(
 name|MongoClient
 name|mongoConnection
 init|=
-operator|new
-name|MongoClient
+name|MongoClients
+operator|.
+name|create
 argument_list|(
 name|connectionURI
+operator|.
+name|getURI
+argument_list|()
 argument_list|)
 init|)
 block|{

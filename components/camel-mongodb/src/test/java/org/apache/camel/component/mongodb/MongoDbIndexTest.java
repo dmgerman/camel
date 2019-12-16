@@ -1075,12 +1075,20 @@ argument_list|,
 literal|"There is a record with 'testInsertDynamicityEnabledDBAndCollection' _id in the test collection"
 argument_list|)
 expr_stmt|;
-name|assertFalse
-argument_list|(
+for|for
+control|(
+name|String
+name|db
+range|:
 name|mongo
 operator|.
-name|getUsedDatabases
+name|listDatabaseNames
 argument_list|()
+control|)
+block|{
+name|assertFalse
+argument_list|(
+name|db
 operator|.
 name|contains
 argument_list|(
@@ -1090,6 +1098,7 @@ argument_list|,
 literal|"The otherDB database should not exist"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test

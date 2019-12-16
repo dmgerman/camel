@@ -24,6 +24,8 @@ name|com
 operator|.
 name|mongodb
 operator|.
+name|client
+operator|.
 name|MongoClient
 import|;
 end_import
