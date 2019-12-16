@@ -673,7 +673,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using      * {@link ExchangePattern#InOnly}      *      * @param processor processor preparing the new exchange to send      * @return the builder      * @see #newExchangeHeader(String, org.apache.camel.Expression)      */
+comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using      * {@link ExchangePattern#InOnly}      *      * @param processor processor preparing the new exchange to send      * @return the builder      * @see #newExchangeHeader(String, org.apache.camel.Expression)      *      * @deprecated see https://issues.apache.org/jira/browse/CAMEL-14300      */
+annotation|@
+name|Deprecated
 DECL|method|newExchange (Supplier<Processor> processor)
 specifier|public
 name|WireTapDefinition
@@ -756,7 +758,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses the {@link Processor} when preparing the      * {@link org.apache.camel.Exchange} to be send. This can be used to      * deep-clone messages that should be send, or any custom logic needed      * before the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */
+comment|/**      * Uses the {@link Processor} when preparing the      * {@link org.apache.camel.Exchange} to be send. This can be used to      * deep-clone messages that should be send, or any custom logic needed      * before the exchange is send.      *      * @param onPrepare the processor      * @return the builder      *      * @deprecated see https://issues.apache.org/jira/browse/CAMEL-14300      */
+annotation|@
+name|Deprecated
 DECL|method|onPrepare (Supplier<Processor> onPrepare)
 specifier|public
 name|WireTapDefinition

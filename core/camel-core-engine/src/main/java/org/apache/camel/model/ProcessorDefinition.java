@@ -5989,7 +5989,9 @@ name|asType
 argument_list|()
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message      * Translator EIP:</a> Adds the custom processor to this destination which      * could be a final destination, or could be a transformation in a pipeline      *      * @param processor the custom {@link Processor}      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message      * Translator EIP:</a> Adds the custom processor to this destination which      * could be a final destination, or could be a transformation in a pipeline      *      * @param processor the custom {@link Processor}      * @return the builder      *      * @deprecated see https://issues.apache.org/jira/browse/CAMEL-14300      */
+annotation|@
+name|Deprecated
 DECL|method|process (Supplier<Processor> processor)
 specifier|public
 name|Type
@@ -6636,7 +6638,9 @@ name|asType
 argument_list|()
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message      * Translator EIP:</a> Adds a processor which sets the body on the IN      * message      *      * @param supplier the supplier that provides a value to the IN message body      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message      * Translator EIP:</a> Adds a processor which sets the body on the IN      * message      *      * @param supplier the supplier that provides a value to the IN message body      * @return the builder      *      * @deprecated see https://issues.apache.org/jira/browse/CAMEL-14300      */
+annotation|@
+name|Deprecated
 DECL|method|setBody (Supplier<Result> supplier)
 specifier|public
 parameter_list|<
@@ -7709,7 +7713,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content      * Enricher EIP</a> enriches an exchange with additional data obtained from      * a<code>resourceUri</code> and with an aggregation strategy created using      * a fluent builder.<blockquote>      *       *<pre>      * {@code      * fom("direct:start")      *     .enrichWith("direct:resource")      *         .body(String.class, (o, n) -> n + o);      * }      *</pre>      *       *</blockquote>      *      * @param resourceUri URI of resource endpoint for obtaining additional      *            data.      * @return the builder      * @see org.apache.camel.processor.Enricher      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content      * Enricher EIP</a> enriches an exchange with additional data obtained from      * a<code>resourceUri</code> and with an aggregation strategy created using      * a fluent builder.<blockquote>      *      *<pre>      * {@code      * fom("direct:start")      *     .enrichWith("direct:resource")      *         .body(String.class, (o, n) -> n + o);      * }      *</pre>      *      *</blockquote>      *      * @param resourceUri URI of resource endpoint for obtaining additional      *            data.      * @return the builder      * @see org.apache.camel.processor.Enricher      */
 DECL|method|enrichWith (@sEndpointUri String resourceUri)
 specifier|public
 name|EnrichClause
@@ -7861,7 +7865,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content      * Enricher EIP</a> enriches an exchange with additional data obtained from      * a<code>resourceUri</code> and with an aggregation strategy created using      * a fluent builder.<blockquote>      *       *<pre>      * {@code      * fom("direct:start")      *     .enrichWith("direct:resource")      *         .body(String.class, (o, n) -> n + o);      * }      *</pre>      *       *</blockquote>      *      * @param resourceUri URI of resource endpoint for obtaining additional      *            data.      * @return the builder      * @see org.apache.camel.processor.Enricher      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content      * Enricher EIP</a> enriches an exchange with additional data obtained from      * a<code>resourceUri</code> and with an aggregation strategy created using      * a fluent builder.<blockquote>      *      *<pre>      * {@code      * fom("direct:start")      *     .enrichWith("direct:resource")      *         .body(String.class, (o, n) -> n + o);      * }      *</pre>      *      *</blockquote>      *      * @param resourceUri URI of resource endpoint for obtaining additional      *            data.      * @return the builder      * @see org.apache.camel.processor.Enricher      */
 DECL|method|enrichWith (@sEndpointUri EndpointProducerBuilder resourceUri)
 specifier|public
 name|EnrichClause
