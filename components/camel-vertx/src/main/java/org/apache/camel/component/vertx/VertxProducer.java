@@ -304,7 +304,7 @@ argument_list|)
 expr_stmt|;
 name|eventBus
 operator|.
-name|send
+name|request
 argument_list|(
 name|address
 argument_list|,
