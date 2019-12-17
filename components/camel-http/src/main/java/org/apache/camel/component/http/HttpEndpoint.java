@@ -895,6 +895,22 @@ specifier|private
 name|HostnameVerifier
 name|x509HostnameVerifier
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"To use custom host header for producer."
+argument_list|)
+DECL|field|customHostHeader
+specifier|private
+name|String
+name|customHostHeader
+decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
 name|HttpEndpoint
@@ -2037,6 +2053,33 @@ name|socketTimeout
 operator|=
 name|socketTimeout
 expr_stmt|;
+block|}
+comment|/**      * Defines a custom host header which will be sent when producing http request.      *<p>      * When not set in query will be ignored. When set will override      * host header derived from url.      *</p>      *<p>      * Default: {@code null}      *</p>      */
+DECL|method|setCustomHostHeader (String customHostHeader)
+specifier|public
+name|void
+name|setCustomHostHeader
+parameter_list|(
+name|String
+name|customHostHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|customHostHeader
+operator|=
+name|customHostHeader
+expr_stmt|;
+block|}
+DECL|method|getCustomHostHeader ()
+specifier|public
+name|String
+name|getCustomHostHeader
+parameter_list|()
+block|{
+return|return
+name|customHostHeader
+return|;
 block|}
 annotation|@
 name|ManagedAttribute

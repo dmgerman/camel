@@ -336,7 +336,7 @@ name|class
 argument_list|)
 decl_stmt|;
 name|HttpEndpoint
-name|endpoiont
+name|endpoint
 init|=
 operator|(
 name|HttpEndpoint
@@ -371,7 +371,7 @@ init|=
 operator|new
 name|HttpProducer
 argument_list|(
-name|endpoiont
+name|endpoint
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -440,7 +440,7 @@ name|class
 argument_list|)
 decl_stmt|;
 name|HttpEndpoint
-name|endpoiont
+name|endpoint
 init|=
 operator|(
 name|HttpEndpoint
@@ -475,7 +475,7 @@ init|=
 operator|new
 name|HttpProducer
 argument_list|(
-name|endpoiont
+name|endpoint
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -544,7 +544,7 @@ name|class
 argument_list|)
 decl_stmt|;
 name|HttpEndpoint
-name|endpoiont
+name|endpoint
 init|=
 operator|(
 name|HttpEndpoint
@@ -579,7 +579,7 @@ init|=
 operator|new
 name|HttpProducer
 argument_list|(
-name|endpoiont
+name|endpoint
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -657,7 +657,7 @@ name|class
 argument_list|)
 decl_stmt|;
 name|HttpEndpoint
-name|endpoiont
+name|endpoint
 init|=
 operator|(
 name|HttpEndpoint
@@ -692,7 +692,7 @@ init|=
 operator|new
 name|HttpProducer
 argument_list|(
-name|endpoiont
+name|endpoint
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -770,7 +770,7 @@ name|class
 argument_list|)
 decl_stmt|;
 name|HttpEndpoint
-name|endpoiont
+name|endpoint
 init|=
 operator|(
 name|HttpEndpoint
@@ -805,7 +805,7 @@ init|=
 operator|new
 name|HttpProducer
 argument_list|(
-name|endpoiont
+name|endpoint
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -895,7 +895,7 @@ name|class
 argument_list|)
 decl_stmt|;
 name|HttpEndpoint
-name|endpoiont
+name|endpoint
 init|=
 operator|(
 name|HttpEndpoint
@@ -930,7 +930,7 @@ init|=
 operator|new
 name|HttpProducer
 argument_list|(
-name|endpoiont
+name|endpoint
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -994,7 +994,7 @@ name|class
 argument_list|)
 decl_stmt|;
 name|HttpEndpoint
-name|endpoiont
+name|endpoint
 init|=
 operator|(
 name|HttpEndpoint
@@ -1029,7 +1029,7 @@ init|=
 operator|new
 name|HttpProducer
 argument_list|(
-name|endpoiont
+name|endpoint
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -1107,7 +1107,7 @@ name|class
 argument_list|)
 decl_stmt|;
 name|HttpEndpoint
-name|endpoiont
+name|endpoint
 init|=
 operator|(
 name|HttpEndpoint
@@ -1142,7 +1142,7 @@ init|=
 operator|new
 name|HttpProducer
 argument_list|(
-name|endpoiont
+name|endpoint
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -1237,7 +1237,7 @@ name|class
 argument_list|)
 decl_stmt|;
 name|HttpEndpoint
-name|endpoiont
+name|endpoint
 init|=
 operator|(
 name|HttpEndpoint
@@ -1272,7 +1272,7 @@ init|=
 operator|new
 name|HttpProducer
 argument_list|(
-name|endpoiont
+name|endpoint
 argument_list|)
 decl_stmt|;
 name|Exchange

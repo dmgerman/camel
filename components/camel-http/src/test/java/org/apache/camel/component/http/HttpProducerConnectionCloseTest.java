@@ -353,7 +353,7 @@ literal|1000L
 argument_list|)
 expr_stmt|;
 name|HttpEndpoint
-name|endpoiont
+name|endpoint
 init|=
 operator|(
 name|HttpEndpoint
@@ -388,7 +388,7 @@ init|=
 operator|new
 name|HttpProducer
 argument_list|(
-name|endpoiont
+name|endpoint
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -473,8 +473,6 @@ parameter_list|(
 name|Registry
 name|registry
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|ConnectionCloseHeaderFilter
 name|connectionCloseFilterStrategy
