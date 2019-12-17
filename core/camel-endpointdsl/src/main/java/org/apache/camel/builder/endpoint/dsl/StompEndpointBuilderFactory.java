@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Properties
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -165,6 +175,48 @@ argument_list|(
 literal|"brokerURL"
 argument_list|,
 name|brokerURL
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To set custom headers.          *           * The option is a:<code>java.util.Properties</code> type.          *           * Group: common          */
+DECL|method|customHeaders ( Properties customHeaders)
+specifier|default
+name|StompEndpointConsumerBuilder
+name|customHeaders
+parameter_list|(
+name|Properties
+name|customHeaders
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"customHeaders"
+argument_list|,
+name|customHeaders
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To set custom headers.          *           * The option will be converted to a<code>java.util.Properties</code>          * type.          *           * Group: common          */
+DECL|method|customHeaders (String customHeaders)
+specifier|default
+name|StompEndpointConsumerBuilder
+name|customHeaders
+parameter_list|(
+name|String
+name|customHeaders
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"customHeaders"
+argument_list|,
+name|customHeaders
 argument_list|)
 expr_stmt|;
 return|return
@@ -614,6 +666,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To set custom headers.          *           * The option is a:<code>java.util.Properties</code> type.          *           * Group: common          */
+DECL|method|customHeaders ( Properties customHeaders)
+specifier|default
+name|StompEndpointProducerBuilder
+name|customHeaders
+parameter_list|(
+name|Properties
+name|customHeaders
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"customHeaders"
+argument_list|,
+name|customHeaders
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To set custom headers.          *           * The option will be converted to a<code>java.util.Properties</code>          * type.          *           * Group: common          */
+DECL|method|customHeaders (String customHeaders)
+specifier|default
+name|StompEndpointProducerBuilder
+name|customHeaders
+parameter_list|(
+name|String
+name|customHeaders
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"customHeaders"
+argument_list|,
+name|customHeaders
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The virtual host name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
@@ -969,6 +1063,48 @@ argument_list|(
 literal|"brokerURL"
 argument_list|,
 name|brokerURL
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To set custom headers.          *           * The option is a:<code>java.util.Properties</code> type.          *           * Group: common          */
+DECL|method|customHeaders (Properties customHeaders)
+specifier|default
+name|StompEndpointBuilder
+name|customHeaders
+parameter_list|(
+name|Properties
+name|customHeaders
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"customHeaders"
+argument_list|,
+name|customHeaders
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To set custom headers.          *           * The option will be converted to a<code>java.util.Properties</code>          * type.          *           * Group: common          */
+DECL|method|customHeaders (String customHeaders)
+specifier|default
+name|StompEndpointBuilder
+name|customHeaders
+parameter_list|(
+name|String
+name|customHeaders
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"customHeaders"
+argument_list|,
+name|customHeaders
 argument_list|)
 expr_stmt|;
 return|return
