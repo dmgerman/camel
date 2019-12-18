@@ -56,6 +56,15 @@ name|CassandraAggregationException
 extends|extends
 name|CamelExecutionException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|3847101273513627461L
+decl_stmt|;
 DECL|method|CassandraAggregationException (String message, Exchange exchange, Throwable cause)
 specifier|public
 name|CassandraAggregationException

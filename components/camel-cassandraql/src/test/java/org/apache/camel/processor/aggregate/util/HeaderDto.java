@@ -40,6 +40,16 @@ name|Cloneable
 implements|,
 name|Serializable
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|5004840651888298047L
+decl_stmt|;
 DECL|field|org
 specifier|private
 name|String
