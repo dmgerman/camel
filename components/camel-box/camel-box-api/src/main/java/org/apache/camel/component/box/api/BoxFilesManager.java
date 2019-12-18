@@ -710,6 +710,13 @@ name|existingFile
 init|=
 literal|null
 decl_stmt|;
+if|if
+condition|(
+name|folder
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// returns only the name and type fields of each folder item
 for|for
 control|(
@@ -769,6 +776,7 @@ operator|=
 name|itemInfo
 expr_stmt|;
 break|break;
+block|}
 block|}
 block|}
 name|long

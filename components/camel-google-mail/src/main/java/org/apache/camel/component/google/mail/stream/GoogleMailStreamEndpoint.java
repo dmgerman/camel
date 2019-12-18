@@ -429,6 +429,9 @@ init|=
 literal|null
 decl_stmt|;
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|labelsIds
 init|=
 operator|new

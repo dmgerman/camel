@@ -303,6 +303,9 @@ operator|.
 name|getResponse
 argument_list|()
 operator|.
+name|getType
+argument_list|()
+operator|.
 name|equals
 argument_list|(
 name|Schema

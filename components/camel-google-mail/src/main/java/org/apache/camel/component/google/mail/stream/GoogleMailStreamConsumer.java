@@ -302,9 +302,12 @@ decl_stmt|;
 DECL|field|labelsIds
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|labelsIds
 decl_stmt|;
-DECL|method|GoogleMailStreamConsumer (Endpoint endpoint, Processor processor, String unreadLabelId, List labelsIds)
+DECL|method|GoogleMailStreamConsumer (Endpoint endpoint, Processor processor, String unreadLabelId, List<String> labelsIds)
 specifier|public
 name|GoogleMailStreamConsumer
 parameter_list|(
@@ -318,6 +321,9 @@ name|String
 name|unreadLabelId
 parameter_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|labelsIds
 parameter_list|)
 block|{
@@ -621,8 +627,6 @@ name|Object
 argument_list|>
 name|exchanges
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|int
 name|total
@@ -778,29 +782,14 @@ name|process
 argument_list|(
 name|exchange
 argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
 name|doneSync
-parameter_list|)
-block|{
+lambda|->
 name|LOG
 operator|.
 name|trace
 argument_list|(
 literal|"Processing exchange done"
 argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -978,6 +967,8 @@ argument_list|(
 literal|"Exchange failed, so rolling back mail {} to un {}"
 argument_list|,
 name|exchange
+argument_list|,
+name|unreadLabelId
 argument_list|)
 expr_stmt|;
 name|List

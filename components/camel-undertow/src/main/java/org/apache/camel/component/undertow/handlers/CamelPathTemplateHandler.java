@@ -277,6 +277,7 @@ return|;
 block|}
 DECL|method|getDefault ()
 specifier|public
+specifier|synchronized
 name|CamelMethodHandler
 name|getDefault
 parameter_list|()

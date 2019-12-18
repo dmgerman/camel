@@ -538,6 +538,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
+specifier|synchronized
 name|DataValue
 name|getValue
 parameter_list|()

@@ -215,6 +215,8 @@ operator|.
 name|trace
 argument_list|(
 literal|"Received event: {}"
+argument_list|,
+name|event
 argument_list|)
 expr_stmt|;
 specifier|final

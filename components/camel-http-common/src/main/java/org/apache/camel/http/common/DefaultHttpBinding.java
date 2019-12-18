@@ -3051,10 +3051,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|contentType
-operator|!=
-literal|null
-operator|&&
 name|HttpConstants
 operator|.
 name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
@@ -3284,6 +3280,8 @@ operator|.
 name|debug
 argument_list|(
 literal|"Streaming (direct) response in non-chunked mode with content-length {}"
+argument_list|,
+name|len
 argument_list|)
 expr_stmt|;
 block|}

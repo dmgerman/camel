@@ -2033,6 +2033,8 @@ name|trace
 argument_list|(
 literal|"Setting SO_LINGER to {} on Socket: localAddress={} remoteAddress={}"
 argument_list|,
+name|linger
+argument_list|,
 name|localSocketAddress
 argument_list|,
 name|remoteSocketAddress

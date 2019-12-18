@@ -626,7 +626,7 @@ name|remaining
 operator|+
 literal|" in Registry of type: "
 operator|+
-name|answer
+name|context
 operator|.
 name|getClass
 argument_list|()
