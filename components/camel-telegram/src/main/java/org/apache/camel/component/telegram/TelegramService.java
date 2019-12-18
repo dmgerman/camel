@@ -26,6 +26,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|telegram
@@ -64,24 +88,10 @@ specifier|public
 interface|interface
 name|TelegramService
 block|{
-DECL|method|setHttpProxy (String host, Integer port)
-name|void
-name|setHttpProxy
-parameter_list|(
-name|String
-name|host
-parameter_list|,
-name|Integer
-name|port
-parameter_list|)
-function_decl|;
-DECL|method|getUpdates (String authorizationToken, Long offset, Integer limit, Integer timeoutSeconds)
+DECL|method|getUpdates (Long offset, Integer limit, Integer timeoutSeconds)
 name|UpdateResult
 name|getUpdates
 parameter_list|(
-name|String
-name|authorizationToken
-parameter_list|,
 name|Long
 name|offset
 parameter_list|,
@@ -92,35 +102,32 @@ name|Integer
 name|timeoutSeconds
 parameter_list|)
 function_decl|;
-DECL|method|sendMessage (String authorizationToken, OutgoingMessage message)
-name|Object
+DECL|method|sendMessage (Exchange exchange, AsyncCallback callback, OutgoingMessage message)
+name|void
 name|sendMessage
 parameter_list|(
-name|String
-name|authorizationToken
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|,
 name|OutgoingMessage
 name|message
 parameter_list|)
 function_decl|;
-DECL|method|setWebhook (String authorizationToken, String url)
+DECL|method|setWebhook (String url)
 name|boolean
 name|setWebhook
 parameter_list|(
 name|String
-name|authorizationToken
-parameter_list|,
-name|String
 name|url
 parameter_list|)
 function_decl|;
-DECL|method|removeWebhook (String authorizationToken)
+DECL|method|removeWebhook ()
 name|boolean
 name|removeWebhook
-parameter_list|(
-name|String
-name|authorizationToken
-parameter_list|)
+parameter_list|()
 function_decl|;
 block|}
 end_interface

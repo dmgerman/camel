@@ -249,6 +249,22 @@ name|limit
 init|=
 literal|100
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Can be used to set an alternative base URI, e.g. when you want to test the component against a mock Telegram API"
+argument_list|)
+DECL|field|baseUri
+specifier|private
+name|String
+name|baseUri
+decl_stmt|;
 DECL|method|TelegramConfiguration ()
 specifier|public
 name|TelegramConfiguration
@@ -434,6 +450,33 @@ operator|.
 name|limit
 operator|=
 name|limit
+expr_stmt|;
+block|}
+DECL|method|getBaseUri ()
+specifier|public
+name|String
+name|getBaseUri
+parameter_list|()
+block|{
+return|return
+name|baseUri
+return|;
+block|}
+comment|/**      * Set an alternative base URI, e.g. when you want to test the component against a mock Telegram API.      */
+DECL|method|setBaseUri (String telegramBaseUri)
+specifier|public
+name|void
+name|setBaseUri
+parameter_list|(
+name|String
+name|telegramBaseUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|baseUri
+operator|=
+name|telegramBaseUri
 expr_stmt|;
 block|}
 annotation|@

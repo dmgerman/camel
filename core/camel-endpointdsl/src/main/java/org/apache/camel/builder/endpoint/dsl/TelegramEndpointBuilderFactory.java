@@ -1168,6 +1168,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Set an alternative base URI, e.g. when you want to test the component          * against a mock Telegram API.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|baseUri (String baseUri)
+specifier|default
+name|AdvancedTelegramEndpointConsumerBuilder
+name|baseUri
+parameter_list|(
+name|String
+name|baseUri
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"baseUri"
+argument_list|,
+name|baseUri
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
@@ -1204,6 +1225,90 @@ argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
 name|basicPropertyBinding
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The initial in-memory buffer size used when transferring data between          * Camel and AHC Client.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+DECL|method|bufferSize ( int bufferSize)
+specifier|default
+name|AdvancedTelegramEndpointConsumerBuilder
+name|bufferSize
+parameter_list|(
+name|int
+name|bufferSize
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"bufferSize"
+argument_list|,
+name|bufferSize
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The initial in-memory buffer size used when transferring data between          * Camel and AHC Client.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+DECL|method|bufferSize ( String bufferSize)
+specifier|default
+name|AdvancedTelegramEndpointConsumerBuilder
+name|bufferSize
+parameter_list|(
+name|String
+name|bufferSize
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"bufferSize"
+argument_list|,
+name|bufferSize
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To configure the AsyncHttpClient to use a custom          * com.ning.http.client.AsyncHttpClientConfig instance.          *           * The option is a:          *<code>org.asynchttpclient.AsyncHttpClientConfig</code> type.          *           * Group: advanced          */
+DECL|method|clientConfig ( Object clientConfig)
+specifier|default
+name|AdvancedTelegramEndpointConsumerBuilder
+name|clientConfig
+parameter_list|(
+name|Object
+name|clientConfig
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"clientConfig"
+argument_list|,
+name|clientConfig
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To configure the AsyncHttpClient to use a custom          * com.ning.http.client.AsyncHttpClientConfig instance.          *           * The option will be converted to a          *<code>org.asynchttpclient.AsyncHttpClientConfig</code> type.          *           * Group: advanced          */
+DECL|method|clientConfig ( String clientConfig)
+specifier|default
+name|AdvancedTelegramEndpointConsumerBuilder
+name|clientConfig
+parameter_list|(
+name|String
+name|clientConfig
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"clientConfig"
+argument_list|,
+name|clientConfig
 argument_list|)
 expr_stmt|;
 return|return
@@ -1443,6 +1548,27 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * Set an alternative base URI, e.g. when you want to test the component          * against a mock Telegram API.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|baseUri (String baseUri)
+specifier|default
+name|AdvancedTelegramEndpointProducerBuilder
+name|baseUri
+parameter_list|(
+name|String
+name|baseUri
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"baseUri"
+argument_list|,
+name|baseUri
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
@@ -1479,6 +1605,90 @@ argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
 name|basicPropertyBinding
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The initial in-memory buffer size used when transferring data between          * Camel and AHC Client.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+DECL|method|bufferSize ( int bufferSize)
+specifier|default
+name|AdvancedTelegramEndpointProducerBuilder
+name|bufferSize
+parameter_list|(
+name|int
+name|bufferSize
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"bufferSize"
+argument_list|,
+name|bufferSize
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The initial in-memory buffer size used when transferring data between          * Camel and AHC Client.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+DECL|method|bufferSize ( String bufferSize)
+specifier|default
+name|AdvancedTelegramEndpointProducerBuilder
+name|bufferSize
+parameter_list|(
+name|String
+name|bufferSize
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"bufferSize"
+argument_list|,
+name|bufferSize
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To configure the AsyncHttpClient to use a custom          * com.ning.http.client.AsyncHttpClientConfig instance.          *           * The option is a:          *<code>org.asynchttpclient.AsyncHttpClientConfig</code> type.          *           * Group: advanced          */
+DECL|method|clientConfig ( Object clientConfig)
+specifier|default
+name|AdvancedTelegramEndpointProducerBuilder
+name|clientConfig
+parameter_list|(
+name|Object
+name|clientConfig
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"clientConfig"
+argument_list|,
+name|clientConfig
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To configure the AsyncHttpClient to use a custom          * com.ning.http.client.AsyncHttpClientConfig instance.          *           * The option will be converted to a          *<code>org.asynchttpclient.AsyncHttpClientConfig</code> type.          *           * Group: advanced          */
+DECL|method|clientConfig ( String clientConfig)
+specifier|default
+name|AdvancedTelegramEndpointProducerBuilder
+name|clientConfig
+parameter_list|(
+name|String
+name|clientConfig
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"clientConfig"
+argument_list|,
+name|clientConfig
 argument_list|)
 expr_stmt|;
 return|return
@@ -1659,6 +1869,27 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * Set an alternative base URI, e.g. when you want to test the component          * against a mock Telegram API.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|baseUri (String baseUri)
+specifier|default
+name|AdvancedTelegramEndpointBuilder
+name|baseUri
+parameter_list|(
+name|String
+name|baseUri
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"baseUri"
+argument_list|,
+name|baseUri
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
@@ -1695,6 +1926,90 @@ argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
 name|basicPropertyBinding
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The initial in-memory buffer size used when transferring data between          * Camel and AHC Client.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+DECL|method|bufferSize (int bufferSize)
+specifier|default
+name|AdvancedTelegramEndpointBuilder
+name|bufferSize
+parameter_list|(
+name|int
+name|bufferSize
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"bufferSize"
+argument_list|,
+name|bufferSize
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The initial in-memory buffer size used when transferring data between          * Camel and AHC Client.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+DECL|method|bufferSize (String bufferSize)
+specifier|default
+name|AdvancedTelegramEndpointBuilder
+name|bufferSize
+parameter_list|(
+name|String
+name|bufferSize
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"bufferSize"
+argument_list|,
+name|bufferSize
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To configure the AsyncHttpClient to use a custom          * com.ning.http.client.AsyncHttpClientConfig instance.          *           * The option is a:          *<code>org.asynchttpclient.AsyncHttpClientConfig</code> type.          *           * Group: advanced          */
+DECL|method|clientConfig (Object clientConfig)
+specifier|default
+name|AdvancedTelegramEndpointBuilder
+name|clientConfig
+parameter_list|(
+name|Object
+name|clientConfig
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"clientConfig"
+argument_list|,
+name|clientConfig
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To configure the AsyncHttpClient to use a custom          * com.ning.http.client.AsyncHttpClientConfig instance.          *           * The option will be converted to a          *<code>org.asynchttpclient.AsyncHttpClientConfig</code> type.          *           * Group: advanced          */
+DECL|method|clientConfig (String clientConfig)
+specifier|default
+name|AdvancedTelegramEndpointBuilder
+name|clientConfig
+parameter_list|(
+name|String
+name|clientConfig
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"clientConfig"
+argument_list|,
+name|clientConfig
 argument_list|)
 expr_stmt|;
 return|return

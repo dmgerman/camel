@@ -30,6 +30,20 @@ name|jackson
 operator|.
 name|annotation
 operator|.
+name|JsonInclude
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|annotation
+operator|.
 name|JsonProperty
 import|;
 end_import
@@ -39,6 +53,15 @@ comment|/**  * An outgoing video message.  */
 end_comment
 
 begin_class
+annotation|@
+name|JsonInclude
+argument_list|(
+name|JsonInclude
+operator|.
+name|Include
+operator|.
+name|NON_NULL
+argument_list|)
 DECL|class|OutgoingVideoMessage
 specifier|public
 class|class

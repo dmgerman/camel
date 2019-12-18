@@ -94,6 +94,22 @@ name|JsonDeserialize
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|databind
+operator|.
+name|annotation
+operator|.
+name|JsonSerialize
+import|;
+end_import
+
 begin_comment
 comment|/**  * A message that is exchanged with the Telegram network.  */
 end_comment
@@ -139,6 +155,15 @@ argument_list|(
 name|using
 operator|=
 name|UnixTimestampDeserializer
+operator|.
+name|class
+argument_list|)
+annotation|@
+name|JsonSerialize
+argument_list|(
+name|using
+operator|=
+name|UnixTimestampSerializer
 operator|.
 name|class
 argument_list|)

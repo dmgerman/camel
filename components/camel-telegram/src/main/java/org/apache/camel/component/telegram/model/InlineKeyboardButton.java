@@ -20,7 +20,30 @@ name|model
 package|;
 end_package
 
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|annotation
+operator|.
+name|JsonInclude
+import|;
+end_import
+
 begin_class
+annotation|@
+name|JsonInclude
+argument_list|(
+name|JsonInclude
+operator|.
+name|Include
+operator|.
+name|NON_NULL
+argument_list|)
 DECL|class|InlineKeyboardButton
 specifier|public
 class|class
@@ -35,7 +58,7 @@ DECL|method|InlineKeyboardButton ()
 specifier|public
 name|InlineKeyboardButton
 parameter_list|()
-block|{              }
+block|{      }
 DECL|method|InlineKeyboardButton (String text)
 specifier|public
 name|InlineKeyboardButton

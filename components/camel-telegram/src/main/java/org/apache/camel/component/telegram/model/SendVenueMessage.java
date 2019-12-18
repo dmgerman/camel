@@ -30,11 +30,34 @@ name|jackson
 operator|.
 name|annotation
 operator|.
+name|JsonInclude
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|annotation
+operator|.
 name|JsonProperty
 import|;
 end_import
 
 begin_class
+annotation|@
+name|JsonInclude
+argument_list|(
+name|JsonInclude
+operator|.
+name|Include
+operator|.
+name|NON_NULL
+argument_list|)
 DECL|class|SendVenueMessage
 specifier|public
 class|class
@@ -112,6 +135,11 @@ specifier|private
 name|ReplyKeyboardMarkup
 name|replyKeyboardMarkup
 decl_stmt|;
+DECL|method|SendVenueMessage ()
+specifier|public
+name|SendVenueMessage
+parameter_list|()
+block|{     }
 DECL|method|SendVenueMessage (double latitude, double longitude, String title, String address)
 specifier|public
 name|SendVenueMessage

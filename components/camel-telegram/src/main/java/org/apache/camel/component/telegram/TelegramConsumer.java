@@ -192,12 +192,9 @@ decl_stmt|;
 name|TelegramService
 name|service
 init|=
-name|TelegramServiceProvider
+name|endpoint
 operator|.
-name|get
-argument_list|()
-operator|.
-name|getService
+name|getTelegramService
 argument_list|()
 decl_stmt|;
 name|log
@@ -214,11 +211,6 @@ name|service
 operator|.
 name|getUpdates
 argument_list|(
-name|config
-operator|.
-name|getAuthorizationToken
-argument_list|()
-argument_list|,
 name|offset
 argument_list|,
 name|config

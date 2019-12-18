@@ -20,11 +20,34 @@ name|model
 package|;
 end_package
 
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|annotation
+operator|.
+name|JsonInclude
+import|;
+end_import
+
 begin_comment
 comment|/**  * An outgoing document message.  */
 end_comment
 
 begin_class
+annotation|@
+name|JsonInclude
+argument_list|(
+name|JsonInclude
+operator|.
+name|Include
+operator|.
+name|NON_NULL
+argument_list|)
 DECL|class|OutgoingDocumentMessage
 specifier|public
 class|class
