@@ -293,7 +293,12 @@ name|getEndpointProducerBuilder
 argument_list|()
 operator|.
 name|expr
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 else|else

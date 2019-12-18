@@ -109,6 +109,15 @@ name|Expression
 name|expr
 parameter_list|()
 function_decl|;
+comment|/**      * Builds a dynamic expression of this endpoint url. This API is only intended for      * Camel internally.      */
+DECL|method|expr (CamelContext camelContext)
+name|Expression
+name|expr
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
