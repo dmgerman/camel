@@ -343,7 +343,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of {@link IdempotentRepository} using Cassandra table to store  * message ids.  * Advice: use LeveledCompaction for this table and tune read/write consistency levels.  * Warning: Cassandra is not the best tool for queuing use cases  * See http://www.datastax.com/dev/blog/cassandra-anti-patterns-queues-and-queue-like-datasets  */
+comment|/**  * Implementation of {@link IdempotentRepository} using Cassandra table to store  * message ids. Advice: use LeveledCompaction for this table and tune read/write  * consistency levels. Warning: Cassandra is not the best tool for queuing use  * cases See  * http://www.datastax.com/dev/blog/cassandra-anti-patterns-queues-and-queue-like-datasets  */
 end_comment
 
 begin_class

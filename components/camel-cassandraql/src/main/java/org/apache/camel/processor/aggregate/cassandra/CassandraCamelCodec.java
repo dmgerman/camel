@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marshall/unmarshall Exchange to/from a ByteBuffer.  * Inspired from JdbcCamelCodec.  */
+comment|/**  * Marshall/unmarshall Exchange to/from a ByteBuffer. Inspired from  * JdbcCamelCodec.  */
 end_comment
 
 begin_class
@@ -186,7 +186,8 @@ argument_list|,
 name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
-comment|// add the aggregated size and timeout property as the only properties we want to retain
+comment|// add the aggregated size and timeout property as the only properties
+comment|// we want to retain
 name|DefaultExchangeHolder
 operator|.
 name|addProperty

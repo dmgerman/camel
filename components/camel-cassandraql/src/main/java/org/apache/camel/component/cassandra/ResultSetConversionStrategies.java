@@ -190,7 +190,7 @@ specifier|private
 name|ResultSetConversionStrategies
 parameter_list|()
 block|{     }
-comment|/**      * Retrieve all rows.      * Message body contains a big list of {@link Row}s      */
+comment|/**      * Retrieve all rows. Message body contains a big list of {@link Row}s      */
 DECL|method|all ()
 specifier|public
 specifier|static
@@ -202,7 +202,7 @@ return|return
 name|ALL
 return|;
 block|}
-comment|/**      * Retrieve a single row.      * Message body contains a single {@link Row}      */
+comment|/**      * Retrieve a single row. Message body contains a single {@link Row}      */
 DECL|method|one ()
 specifier|public
 specifier|static
@@ -313,7 +313,7 @@ name|rows
 return|;
 block|}
 block|}
-comment|/**      * Retrieve a limited list of rows.      * Message body contains a list of {@link Row} containing at most rowMax rows.      */
+comment|/**      * Retrieve a limited list of rows. Message body contains a list of      * {@link Row} containing at most rowMax rows.      */
 DECL|method|limit (int rowMax)
 specifier|public
 specifier|static

@@ -1065,7 +1065,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Simulate different CQL statements in the incoming message containing a header with RegularStatement, justifying the cassandracql endpoint not containing a "cql" Uri parameter      */
+comment|/**      * Simulate different CQL statements in the incoming message containing a      * header with RegularStatement, justifying the cassandracql endpoint not      * containing a "cql" Uri parameter      */
 annotation|@
 name|Test
 DECL|method|testEndpointNoCqlParameter ()

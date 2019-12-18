@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Cassandra 2 CQL3 producer.  *<dl>  *<dt>In Message</dt>  *<dd>Bound parameters: Collection of Objects, Array of Objects, Simple Object<dd>  *<dt>Out Message</dt>  *<dd>List of all Rows<dd>  *<dl>  */
+comment|/**  * Cassandra 2 CQL3 producer.  *<dl>  *<dt>In Message</dt>  *<dd>Bound parameters: Collection of Objects, Array of Objects, Simple Object  *<dd>  *<dt>Out Message</dt>  *<dd>List of all Rows  *<dd>  *<dl>  */
 end_comment
 
 begin_class

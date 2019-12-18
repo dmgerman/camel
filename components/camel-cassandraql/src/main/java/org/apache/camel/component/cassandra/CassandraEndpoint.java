@@ -251,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The cql component aims at integrating Cassandra 2.0+ using the CQL3 API (not the Thrift API).  *  * It's based on Cassandra Java Driver provided by DataStax.  */
+comment|/**  * The cql component aims at integrating Cassandra 2.0+ using the CQL3 API (not  * the Thrift API). It's based on Cassandra Java Driver provided by DataStax.  */
 end_comment
 
 begin_class
@@ -945,7 +945,7 @@ return|return
 name|beanRef
 return|;
 block|}
-comment|/**      * Instead of using a hostname:port, refer to an existing configured Session or Cluster from the Camel registry to be used.      */
+comment|/**      * Instead of using a hostname:port, refer to an existing configured Session      * or Cluster from the Camel registry to be used.      */
 DECL|method|setBean (String beanRef)
 specifier|public
 name|void
@@ -1002,7 +1002,7 @@ return|return
 name|hosts
 return|;
 block|}
-comment|/**      * Hostname(s) cassansdra server(s). Multiple hosts can be separated by comma.      */
+comment|/**      * Hostname(s) cassansdra server(s). Multiple hosts can be separated by      * comma.      */
 DECL|method|setHosts (String hosts)
 specifier|public
 name|void
@@ -1083,7 +1083,7 @@ return|return
 name|cql
 return|;
 block|}
-comment|/**      * CQL query to perform. Can be overridden with the message header with key CamelCqlQuery.      */
+comment|/**      * CQL query to perform. Can be overridden with the message header with key      * CamelCqlQuery.      */
 DECL|method|setCql (String cql)
 specifier|public
 name|void
@@ -1289,7 +1289,7 @@ return|return
 name|resultSetConversionStrategy
 return|;
 block|}
-comment|/**      * To use a custom class that implements logic for converting ResultSet into message body ALL, ONE, LIMIT_10, LIMIT_100...      */
+comment|/**      * To use a custom class that implements logic for converting ResultSet into      * message body ALL, ONE, LIMIT_10, LIMIT_100...      */
 DECL|method|setResultSetConversionStrategy (ResultSetConversionStrategy resultSetConversionStrategy)
 specifier|public
 name|void

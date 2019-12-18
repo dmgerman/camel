@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Concrete implementation of {@link  CassandraIdempotentRepository} using 2  * columns as primary key: name (partition key) and key (clustering key).  */
+comment|/**  * Concrete implementation of {@link CassandraIdempotentRepository} using 2  * columns as primary key: name (partition key) and key (clustering key).  */
 end_comment
 
 begin_class

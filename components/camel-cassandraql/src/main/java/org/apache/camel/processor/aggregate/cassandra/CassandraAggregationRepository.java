@@ -449,7 +449,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of {@link AggregationRepository} using Cassandra table to store  * exchanges.  * Advice: use LeveledCompaction for this table and tune read/write consistency levels.  * Warning: Cassandra is not the best tool for queuing use cases  * See: http://www.datastax.com/dev/blog/cassandra-anti-patterns-queues-and-queue-like-datasets  */
+comment|/**  * Implementation of {@link AggregationRepository} using Cassandra table to  * store exchanges. Advice: use LeveledCompaction for this table and tune  * read/write consistency levels. Warning: Cassandra is not the best tool for  * queuing use cases See:  * http://www.datastax.com/dev/blog/cassandra-anti-patterns-queues-and-queue-like-datasets  */
 end_comment
 
 begin_class
@@ -722,7 +722,7 @@ name|exchangeColumn
 argument_list|)
 return|;
 block|}
-comment|//--------------------------------------------------------------------------
+comment|// --------------------------------------------------------------------------
 comment|// Service support
 annotation|@
 name|Override
@@ -1411,7 +1411,11 @@ block|,
 name|exchangeIdColumn
 block|}
 argument_list|,
-comment|// Key + Exchange Id columns
+comment|// Key
+comment|// +
+comment|// Exchange
+comment|// Id
+comment|// columns
 name|pkColumns
 argument_list|,
 name|pkColumns
@@ -1421,7 +1425,10 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-comment|// Where fixed PK columns
+comment|// Where
+comment|// fixed
+comment|// PK
+comment|// columns
 name|select
 operator|=
 name|applyConsistencyLevel
@@ -1622,7 +1629,7 @@ return|return
 name|exchangeIds
 return|;
 block|}
-comment|/**      * Get exchange by exchange ID.      * This is far from optimal.      */
+comment|/**      * Get exchange by exchange ID. This is far from optimal.      */
 annotation|@
 name|Override
 DECL|method|recover (CamelContext camelContext, String exchangeId)
