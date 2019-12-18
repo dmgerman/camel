@@ -428,6 +428,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Defines a custom host header which will be sent when producing http          * request. When not set in query will be ignored. When set will          * override host header derived from url. Default: null.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+DECL|method|customHostHeader (String customHostHeader)
+specifier|default
+name|HttpEndpointBuilder
+name|customHostHeader
+parameter_list|(
+name|String
+name|customHostHeader
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"customHostHeader"
+argument_list|,
+name|customHostHeader
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Configure the HTTP method to use. The HttpMethod header cannot          * override this option if set.          *           * The option is a:          *<code>org.apache.camel.http.common.HttpMethods</code> type.          *           * Group: producer          */
 DECL|method|httpMethod (HttpMethods httpMethod)
 specifier|default
