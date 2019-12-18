@@ -1277,7 +1277,7 @@ block|{
 return|return
 name|Boolean
 operator|.
-name|valueOf
+name|parseBoolean
 argument_list|(
 name|defaultValue
 argument_list|)
@@ -1304,7 +1304,7 @@ block|{
 return|return
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 name|defaultValue
 argument_list|)
@@ -1331,7 +1331,7 @@ block|{
 return|return
 name|Long
 operator|.
-name|valueOf
+name|parseLong
 argument_list|(
 name|defaultValue
 argument_list|)
