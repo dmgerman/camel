@@ -1903,7 +1903,7 @@ name|this
 operator|.
 name|routeBuilders
 operator|=
-name|routeBuilders
+name|routesBuilders
 expr_stmt|;
 block|}
 DECL|method|getConfigurations ()
