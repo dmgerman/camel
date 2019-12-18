@@ -529,6 +529,11 @@ operator|.
 name|getName
 argument_list|()
 operator|.
+name|orElse
+argument_list|(
+literal|""
+argument_list|)
+operator|.
 name|equals
 argument_list|(
 name|getNamespace
@@ -1104,6 +1109,11 @@ operator|.
 name|getSession
 argument_list|(
 name|path
+argument_list|)
+operator|.
+name|orElse
+argument_list|(
+literal|""
 argument_list|)
 argument_list|)
 return|;

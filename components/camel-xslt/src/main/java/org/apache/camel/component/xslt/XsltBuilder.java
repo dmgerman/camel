@@ -503,7 +503,7 @@ name|entityResolver
 decl_stmt|;
 DECL|field|sourceHandlerFactoryLock
 specifier|private
-specifier|volatile
+specifier|final
 name|Object
 name|sourceHandlerFactoryLock
 init|=

@@ -2589,22 +2589,17 @@ name|debug
 argument_list|(
 literal|"Created new UDP client bootstrap connecting to {}:{} with options: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|configuration
 operator|.
 name|getHost
 argument_list|()
-block|,
+argument_list|,
 name|configuration
 operator|.
 name|getPort
 argument_list|()
-block|,
+argument_list|,
 name|connectionlessClientBootstrap
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -3145,15 +3140,13 @@ parameter_list|(
 name|ChannelFuture
 name|channelFuture
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// noop
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"activateObject channel request: {} -> {}"
+literal|"activateObject channel request: {}"
 argument_list|,
 name|channelFuture
 argument_list|)
@@ -3169,15 +3162,13 @@ parameter_list|(
 name|ChannelFuture
 name|channelFuture
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// noop
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"passivateObject channel request: {} -> {}"
+literal|"passivateObject channel request: {}"
 argument_list|,
 name|channelFuture
 argument_list|)

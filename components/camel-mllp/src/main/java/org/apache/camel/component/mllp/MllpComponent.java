@@ -485,7 +485,7 @@ name|answer
 operator|=
 name|Boolean
 operator|.
-name|valueOf
+name|parseBoolean
 argument_list|(
 name|logPhiProperty
 argument_list|)
@@ -579,7 +579,7 @@ name|answer
 operator|=
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 name|logPhiProperty
 argument_list|)
@@ -595,7 +595,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Invalid Interger value '{}' for system property {} - using default value of {}"
+literal|"Invalid Integer value '{}' for system property {} - using default value of {}"
 argument_list|,
 name|logPhiProperty
 argument_list|,
@@ -832,6 +832,10 @@ argument_list|(
 literal|"Unsupported character set name '{}' in system property {} - continuing to use character set {} as default"
 argument_list|,
 name|defaultCharacterSetName
+argument_list|,
+name|MllpComponent
+operator|.
+name|MLLP_DEFAULT_CHARSET_PROPERTY
 argument_list|,
 name|defaultCharset
 argument_list|)

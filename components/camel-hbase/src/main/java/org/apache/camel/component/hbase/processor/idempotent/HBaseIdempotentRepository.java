@@ -363,14 +363,6 @@ parameter_list|)
 block|{
 try|try
 block|{
-synchronized|synchronized
-init|(
-name|tableName
-operator|.
-name|intern
-argument_list|()
-init|)
-block|{
 if|if
 condition|(
 name|contains
@@ -434,7 +426,6 @@ expr_stmt|;
 return|return
 literal|true
 return|;
-block|}
 block|}
 catch|catch
 parameter_list|(

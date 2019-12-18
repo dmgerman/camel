@@ -195,6 +195,9 @@ name|getTypeName
 argument_list|()
 argument_list|)
 operator|.
+name|getElName
+argument_list|()
+operator|.
 name|equals
 argument_list|(
 name|typeInfo

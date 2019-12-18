@@ -327,7 +327,7 @@ argument_list|()
 operator|.
 name|remove
 argument_list|(
-name|this
+name|definition
 argument_list|)
 expr_stmt|;
 comment|// and return no processor to invoke next from me

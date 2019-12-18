@@ -1291,7 +1291,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"process({}) [{}] - resend succeeded - reading acknowledgement from {}"
+literal|"process({}) [{}] - resend succeeded - reading acknowledgement from external system"
 argument_list|,
 name|exchange
 operator|.

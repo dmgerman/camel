@@ -1742,18 +1742,6 @@ operator|.
 name|getAttrType
 argument_list|()
 argument_list|)
-operator|||
-name|CMSAttributeTableGenerator
-operator|.
-name|CONTENT_TYPE
-operator|.
-name|equals
-argument_list|(
-name|attr
-operator|.
-name|getAttrType
-argument_list|()
-argument_list|)
 condition|)
 block|{
 comment|// for these attributes we can print the value because we know

@@ -556,7 +556,7 @@ name|outputs
 operator|.
 name|remove
 argument_list|(
-name|this
+name|definition
 argument_list|)
 expr_stmt|;
 return|return
