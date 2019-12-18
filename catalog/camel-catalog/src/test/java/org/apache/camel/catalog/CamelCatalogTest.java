@@ -1013,6 +1013,30 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|testMain ()
+specifier|public
+name|void
+name|testMain
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|schema
+init|=
+name|catalog
+operator|.
+name|mainJsonSchema
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|schema
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|testAsEndpointUriMapFile ()
 specifier|public
 name|void

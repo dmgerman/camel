@@ -531,6 +531,12 @@ name|String
 name|blueprintSchemaAsXml
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the camel-main json schema      *      * @return the camel-main json schema      */
+DECL|method|mainJsonSchema ()
+name|String
+name|mainJsonSchema
+parameter_list|()
+function_decl|;
 comment|/**      * Parses the endpoint uri and constructs a key/value properties of each option      *      * @param uri  the endpoint uri      * @return properties as key value pairs of each endpoint option      */
 DECL|method|endpointProperties (String uri)
 name|Map
