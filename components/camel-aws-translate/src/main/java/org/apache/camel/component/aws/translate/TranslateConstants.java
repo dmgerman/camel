@@ -42,6 +42,12 @@ name|TARGET_LANGUAGE
 init|=
 literal|"CamelAwsTranslateTargetLanguage"
 decl_stmt|;
+DECL|field|TERMINOLOGY_NAMES
+name|String
+name|TERMINOLOGY_NAMES
+init|=
+literal|"CamelAwsTranslateTerminologyNames"
+decl_stmt|;
 DECL|field|OPERATION
 name|String
 name|OPERATION
