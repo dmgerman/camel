@@ -108,6 +108,10 @@ name|URISupport
 import|;
 end_import
 
+begin_comment
+comment|/**  * Helper class for rest-dsl components.  */
+end_comment
+
 begin_class
 DECL|class|RestComponentHelper
 specifier|public
@@ -120,6 +124,7 @@ specifier|private
 name|RestComponentHelper
 parameter_list|()
 block|{     }
+comment|/**      *       * @param queryMap the map of Endpoint options to apply the HTTP restrict settings to      * @param verb the HTTP verb for the route      * @param cors is cors enabled/disabled      * @return the map of Endpoint Properties with HTTP Restrict Options set      */
 DECL|method|addHttpRestrictParam (Map<String, Object> queryMap, String verb, Boolean cors)
 specifier|public
 specifier|static
@@ -181,6 +186,7 @@ return|return
 name|queryMap
 return|;
 block|}
+comment|/**      *       * Creates an Endpoint Property Map based on properies set in the component's RestConfiguration.      *       * @param componentName the Rest Component name      * @param config the RestConfiguration      * @return the map of Endpoint Properties set in the RestConfiguration      */
 DECL|method|initRestEndpointProperties (String componentName, RestConfiguration config)
 specifier|public
 specifier|static
@@ -269,6 +275,7 @@ return|return
 name|map
 return|;
 block|}
+comment|/**      *       * Sets the Rest consumer host based on RestConfiguration      *       * @param host the existing host configuration      * @param config the RestConfiguration      * @return the host based on RestConfiguration      * @throws UnknownHostException thrown when local host or local ip can't be resolved via network interfaces.      */
 DECL|method|resolveRestHostName (String host, RestConfiguration config)
 specifier|public
 specifier|static
@@ -353,6 +360,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      *       * Creates the Rest consumers url based on component and url options.      *       * @param componentName the name of the rest component      * @param verb the HTTP verb for the route      * @param path the HTTP path of the route      * @param cors is cors enabled/disabled      * @param queryMap the endpoint query options      * @return a string of the component route url      * @throws URISyntaxException - is thrown if uri has invalid syntax.      */
 DECL|method|createRestConsumerUrl (String componentName, String verb, String path, Boolean cors, Map<String, Object> queryMap)
 specifier|public
 specifier|static
@@ -397,7 +405,7 @@ decl_stmt|;
 return|return
 name|applyFormatAndQuery
 argument_list|(
-literal|"%s:/%s?"
+literal|"%s:/%s"
 argument_list|,
 name|query
 argument_list|,
@@ -407,6 +415,7 @@ name|path
 argument_list|)
 return|;
 block|}
+comment|/**      *       * Creates the Rest consumers url based on component and url options.      *       * @param componentName the name of the rest component      * @param verb the HTTP verb for the route      * @param scheme the scheme of the HTTP route http/https      * @param host the host of the HTTP route      * @param port the port the route will be exposed through      * @param path the HTTP path of the route      * @param cors is cors enabled/disabled      * @param queryMap the endpoint query options      * @return a string of the component route url      * @throws URISyntaxException - is thrown if uri has invalid syntax.      */
 DECL|method|createRestConsumerUrl (String componentName, String verb, String scheme, String host, int port, String path, Boolean cors, Map<String, Object> queryMap)
 specifier|public
 specifier|static
@@ -460,7 +469,7 @@ decl_stmt|;
 return|return
 name|applyFormatAndQuery
 argument_list|(
-literal|"%s:%s://%s:%s/%s?"
+literal|"%s:%s://%s:%s/%s"
 argument_list|,
 name|query
 argument_list|,
@@ -508,18 +517,13 @@ argument_list|,
 name|cors
 argument_list|)
 expr_stmt|;
-name|String
-name|query
-init|=
+return|return
 name|URISupport
 operator|.
 name|createQueryString
 argument_list|(
 name|queryMap
 argument_list|)
-decl_stmt|;
-return|return
-name|query
 return|;
 block|}
 DECL|method|applyFormatAndQuery (String format, String query, Object... formatOptions)
@@ -540,9 +544,12 @@ name|formatOptions
 parameter_list|)
 block|{
 comment|// get the endpoint
-name|String
-name|url
+name|StringBuilder
+name|urlBuilder
 init|=
+operator|new
+name|StringBuilder
+argument_list|(
 name|String
 operator|.
 name|format
@@ -550,6 +557,7 @@ argument_list|(
 name|format
 argument_list|,
 name|formatOptions
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -561,15 +569,26 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|url
-operator|=
-name|url
-operator|+
+name|urlBuilder
+operator|.
+name|append
+argument_list|(
+literal|"?"
+argument_list|)
+expr_stmt|;
+name|urlBuilder
+operator|.
+name|append
+argument_list|(
 name|query
+argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|url
+name|urlBuilder
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 block|}
