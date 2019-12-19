@@ -1750,18 +1750,6 @@ name|String
 name|pathAsTag
 parameter_list|)
 block|{
-comment|// used during gathering of apis
-name|List
-argument_list|<
-name|Path
-argument_list|>
-name|paths
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
-decl_stmt|;
 name|String
 name|basePath
 init|=
@@ -1976,13 +1964,6 @@ operator|=
 operator|new
 name|Path
 argument_list|()
-expr_stmt|;
-name|paths
-operator|.
-name|add
-argument_list|(
-name|path
-argument_list|)
 expr_stmt|;
 block|}
 name|path

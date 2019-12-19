@@ -7039,6 +7039,9 @@ argument_list|()
 operator|.
 name|getSimpleName
 argument_list|()
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 return|;
 block|}

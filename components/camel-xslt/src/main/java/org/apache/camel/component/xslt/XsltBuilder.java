@@ -462,6 +462,7 @@ name|transformers
 decl_stmt|;
 DECL|field|sourceHandlerFactory
 specifier|private
+specifier|volatile
 name|SourceHandlerFactory
 name|sourceHandlerFactory
 decl_stmt|;
