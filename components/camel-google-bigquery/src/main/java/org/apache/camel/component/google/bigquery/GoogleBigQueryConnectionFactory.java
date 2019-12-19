@@ -304,13 +304,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|logging
-operator|.
-name|log4j
-operator|.
-name|LogManager
+name|Logger
 import|;
 end_import
 
@@ -318,13 +314,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|logging
-operator|.
-name|log4j
-operator|.
-name|Logger
+name|LoggerFactory
 import|;
 end_import
 
@@ -351,7 +343,7 @@ specifier|final
 name|Logger
 name|logger
 init|=
-name|LogManager
+name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
