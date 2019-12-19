@@ -195,7 +195,7 @@ return|return
 name|pubsubEndpoint
 return|;
 block|}
-comment|/**      * Sets the connection factory to use:      * provides the ability to explicitly manage connection credentials:      * - the path to the key file      * - the Service Account Key / Email pair      */
+comment|/**      * Sets the connection factory to use: provides the ability to explicitly      * manage connection credentials: - the path to the key file - the Service      * Account Key / Email pair      */
 DECL|method|getConnectionFactory ()
 specifier|public
 name|GooglePubsubConnectionFactory

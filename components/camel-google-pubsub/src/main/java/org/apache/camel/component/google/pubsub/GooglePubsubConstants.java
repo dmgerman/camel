@@ -88,7 +88,7 @@ specifier|private
 name|GooglePubsubConstants
 parameter_list|()
 block|{
-comment|//not called
+comment|// not called
 block|}
 block|}
 end_class

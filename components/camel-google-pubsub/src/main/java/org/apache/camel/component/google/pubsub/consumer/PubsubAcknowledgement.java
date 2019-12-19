@@ -137,10 +137,10 @@ specifier|abstract
 class|class
 name|PubsubAcknowledgement
 block|{
-DECL|field|LOG
+DECL|field|log
 specifier|protected
 name|Logger
-name|LOG
+name|log
 decl_stmt|;
 DECL|field|subscriptionFullName
 specifier|private
@@ -218,7 +218,7 @@ name|getName
 argument_list|()
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|=
 name|LoggerFactory
 operator|.
@@ -354,7 +354,7 @@ name|e
 parameter_list|)
 block|{
 comment|// It will timeout automatically on the channel
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

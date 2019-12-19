@@ -513,7 +513,7 @@ expr_stmt|;
 block|}
 comment|// Default pubsub connection.
 comment|// With the publisher endpoints - the main publisher
-comment|// with the consumer endpoints  - the ack client
+comment|// with the consumer endpoints - the ack client
 name|pubsub
 operator|=
 name|getConnectionFactory
@@ -822,7 +822,7 @@ return|return
 name|pubsub
 return|;
 block|}
-comment|/**      * ConnectionFactory to obtain connection to PubSub Service. If non provided the default will be used.      */
+comment|/**      * ConnectionFactory to obtain connection to PubSub Service. If non provided      * the default will be used.      */
 DECL|method|getConnectionFactory ()
 specifier|public
 name|GooglePubsubConnectionFactory

@@ -153,7 +153,8 @@ name|TEST_SUBSCRIPTION_NAME
 init|=
 literal|"test-sub-name"
 decl_stmt|;
-comment|// For testing purposes the URI params need to be aligned in alphabetical order
+comment|// For testing purposes the URI params need to be aligned in alphabetical
+comment|// order
 DECL|field|SUBSCRIPTION_URI
 specifier|private
 specifier|static

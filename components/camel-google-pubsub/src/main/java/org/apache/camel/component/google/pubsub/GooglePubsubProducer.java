@@ -267,7 +267,7 @@ name|loggerId
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The incoming message is expected to be either      * - a List of Exchanges (aggregated)      * - an Exchange      */
+comment|/**      * The incoming message is expected to be either - a List of Exchanges      * (aggregated) - an Exchange      */
 annotation|@
 name|Override
 DECL|method|process (Exchange exchange)

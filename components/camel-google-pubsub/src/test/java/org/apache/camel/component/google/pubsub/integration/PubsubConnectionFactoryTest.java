@@ -102,7 +102,7 @@ name|PubsubConnectionFactoryTest
 extends|extends
 name|PubsubTestSupport
 block|{
-comment|/**      * Testing Credentials File only,      * the explicitly set Service Account and Key are tested everywhere else.      *      * A section of the test is disabled by default as it relies on      *      *  - a valid credentials file      *  - a valid project      *      * and therefore can not be tested with the PubSub Emulator      *      * Defaults Option is not tested.      *      * @throws Exception      */
+comment|/**      * Testing Credentials File only, the explicitly set Service Account and Key      * are tested everywhere else. A section of the test is disabled by default      * as it relies on - a valid credentials file - a valid project and      * therefore can not be tested with the PubSub Emulator Defaults Option is      * not tested.      *      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testCredentialsFile ()
@@ -180,7 +180,7 @@ name|PROJECT_ID
 argument_list|)
 decl_stmt|;
 comment|// [ DEPENDS on actual project being available]
-comment|/*         pubsub.projects()               .topics()               .list(query)               .execute();          */
+comment|/*          * pubsub.projects() .topics() .list(query) .execute();          */
 block|}
 block|}
 end_class
