@@ -114,13 +114,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|logging
-operator|.
-name|log4j
-operator|.
-name|LogManager
+name|Logger
 import|;
 end_import
 
@@ -128,13 +124,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|logging
-operator|.
-name|log4j
-operator|.
-name|Logger
+name|LoggerFactory
 import|;
 end_import
 
@@ -145,10 +137,10 @@ specifier|abstract
 class|class
 name|PubsubAcknowledgement
 block|{
-DECL|field|logger
+DECL|field|LOG
 specifier|protected
 name|Logger
-name|logger
+name|LOG
 decl_stmt|;
 DECL|field|subscriptionFullName
 specifier|private
@@ -226,12 +218,16 @@ name|getName
 argument_list|()
 expr_stmt|;
 block|}
-name|logger
+name|LOG
 operator|=
-name|LogManager
+name|LoggerFactory
 operator|.
-name|getRootLogger
-argument_list|()
+name|getLogger
+argument_list|(
+name|PubsubAcknowledgement
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|acknowledge (List<String> ackIdList)
@@ -358,7 +354,7 @@ name|e
 parameter_list|)
 block|{
 comment|// It will timeout automatically on the channel
-name|logger
+name|LOG
 operator|.
 name|warn
 argument_list|(

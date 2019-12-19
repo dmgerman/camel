@@ -180,13 +180,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|logging
-operator|.
-name|log4j
-operator|.
-name|LogManager
+name|Logger
 import|;
 end_import
 
@@ -194,13 +190,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|logging
-operator|.
-name|log4j
-operator|.
-name|Logger
+name|LoggerFactory
 import|;
 end_import
 
@@ -217,7 +209,7 @@ extends|extends
 name|DefaultProducer
 block|{
 DECL|field|logger
-specifier|private
+specifier|public
 name|Logger
 name|logger
 decl_stmt|;
@@ -267,7 +259,7 @@ expr_stmt|;
 block|}
 name|logger
 operator|=
-name|LogManager
+name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(

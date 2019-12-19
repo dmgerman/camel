@@ -240,7 +240,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|logger
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -258,7 +258,7 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|logger
+name|LOG
 operator|.
 name|trace
 argument_list|(
