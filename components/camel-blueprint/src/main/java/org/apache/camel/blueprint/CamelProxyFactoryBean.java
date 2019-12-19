@@ -218,7 +218,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"proxyFactoryBean"
+literal|"proxy"
 argument_list|)
 annotation|@
 name|XmlAccessorType
