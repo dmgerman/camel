@@ -157,7 +157,7 @@ operator|new
 name|GenericContainer
 argument_list|<>
 argument_list|(
-literal|"consul:1.6.1"
+literal|"consul:1.6.2"
 argument_list|)
 operator|.
 name|withNetworkAliases
